@@ -1,0 +1,27 @@
+.description-box {
+  width: 600px;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical; /* Allows resizing vertically only */
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.description-box-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.description-label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

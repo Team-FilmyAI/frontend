@@ -1,0 +1,28 @@
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checkbox-label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.other-input {
+  margin-left: 1.5rem;
+  padding: 0.5rem;
+  width: 300px;
+}
+.error-text {
+  color: red;
+  font-size: 0.875rem;
+  margin-left: 1.5rem;
+  margin-top: 0.25rem;
+}
