@@ -1,0 +1,66 @@
+.jobpost-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  overflow-y: auto;
+  height: calc(100vh - 4rem);
+  background-color: grey;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* ⬅️ Adds space between inputs */
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.input-row .text-input-box {
+  flex: 1;
+  min-width: 300px;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.checkbox-row .checkbox-group {
+  flex: 1;
+  min-width: 300px;
+}
+
+.budget-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start; /* ✅ changed from flex-end to flex-start */
+  margin-bottom: 1 rem;
+}
+
+.budget-row .currency-group,
+.budget-row .input-group {
+  flex: 1;
+  min-width: 150px;
+}
+
+.negotiable-wrapper {
+  flex-basis: 100%; /* forces it to go to a new line inside the flex row */
+  margin-top: -0.5rem; /* reduce space between budget fields and checkbox */
+}
+
+.negotiable-label {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+.negotiable-label input {
+  margin-right: 0.5rem;
+}
+
+.application-deadline {
+  padding-top: 15px;
+}

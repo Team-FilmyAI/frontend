@@ -1,0 +1,29 @@
+.text-input-box {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 0px;
+}
+
+.text-input-box label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.text-input-box input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc; /* Keep the input box border */
+  box-shadow: none;
+  outline: none;
+}
+.error-text {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

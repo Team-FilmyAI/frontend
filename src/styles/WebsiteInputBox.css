@@ -1,0 +1,26 @@
+.website-input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  width: 350px;
+}
+
+.website-input-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.website-text-input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+.website-error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
