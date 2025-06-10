@@ -1,0 +1,32 @@
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.upload-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.upload-box {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.upload-box:hover {
+  border-color: #888;
+}
+
+.file-input {
+  display: block;
+  margin: 0 auto;
+}
