@@ -1,0 +1,8 @@
+:root {
+  /* Grayscale Theme Colors */
+  --color-heading-strong: #dedede; /* h1, h2 */
+  --color-heading-medium: #b5b5b5; /* h3, h4 */
+  --color-text-default: #878a8e; /* h5, h6, p, li, a */
+  --color-info-tag: #909297; /* info/pill tag */
+  --color-icons-orange: #e8822f; /* i */
+}
