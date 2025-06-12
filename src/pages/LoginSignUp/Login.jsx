@@ -73,6 +73,7 @@ export default function Login() {
               <i className="fab fa-google"></i>
               <i className="fab fa-facebook-f"></i>
               <i className="fab fa-instagram"></i>
+              <i className="fa-brands fa-linkedin"></i>
             </div>
           </form>
         </div>
