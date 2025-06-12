@@ -4,6 +4,8 @@ import Login from "../pages/LoginSignUp/Login";
 import SignUp from "../pages/LoginSignUp/SignUp";
 import Forgot from "../pages/LoginSignUp/Forgot";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
+import FilmProjectDetails from "../pages/FilmProjectDetails";
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -12,6 +14,7 @@ export default function AppRoutes() {
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/Forgot" element={<Forgot />} />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/FilmDetails" element={<FilmProjectDetails />} />
     </Routes>
   );
 }

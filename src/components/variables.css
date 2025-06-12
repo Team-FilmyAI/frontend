@@ -1,0 +1,16 @@
+:root {
+  /* <Film Description /> */
+  --color-heading-strong: #dedede; /* h1, h2 */
+  --color-heading-medium: #b5b5b5; /* h3, h4 */
+  --color-text-default: #878a8e; /* h5, h6, p, li, a */
+  --color-info-tag: #909297; /* info/pill tag */
+  --color-icons-orange: #e8822f; /* i */
+
+  /* <Role /> */
+  --badge-icon: #21c55d;
+  --badge-icon-text: #b2ebc7;
+  --apply-button: #f66409;
+  --requirements-title: #af6a34;
+  --pay-range: #3aa767;
+  --tags-container: #1f2937;
+}
