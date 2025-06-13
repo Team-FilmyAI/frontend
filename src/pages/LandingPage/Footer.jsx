@@ -20,7 +20,7 @@ export default function Navbar() {
             <p>© 2025 FlimyAI, All rights Reserved</p>
             <div className="policy-container">
               <a href="#">Privacy Policy</a>
-              <a href="documents/Terms.pdf">Terms of Service</a>
+              <a href="documents/Terms.pdf" target="_blank">Terms of Service</a>
               <a href="#">Accessibility</a>
             </div>
           </div>
