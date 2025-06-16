@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/LandingPage/NavBar.css";
 
-export default function LandingPageNavBar({ hideLinks = false }) {
+export default function LandingPageNavBar() {
   const sidebarRef = useRef(null);
   const hamBtnRef = useRef(null);
   const navbarContainerRef = useRef(null);
