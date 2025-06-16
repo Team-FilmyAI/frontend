@@ -1,68 +1,52 @@
-import { useEffect, useRef } from "react";
-import "../../styles/LandingPage/Demo.css";
 
-export default function Demo() {
-  const demoSubtitleRefs = useRef([]);
+import "../../styles/LandingPage/Blog.css";
+import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 
-  useEffect(() => {
-    if (!demoSubtitleRefs.current.length) return;
+const fadeIn = (delay = 0) => ({
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, delay } },
+});
 
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !entry.target.dataset.animated) {
-            entry.target.dataset.animated = "true";
-            entry.target.classList.add("slide-in-right");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    demoSubtitleRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+export default function Blog() {
+  const blogPosts = Array(6).fill({
+    title: "Blog Title",
+    image: "/images/landingPage/lens.png",
+  });
 
   return (
-    <div id="demo" className="demo-section section">
-      <div className="demo-container container">
-        <div className="form">
-          <div className="form-container">
-            <form action="">
-              <div className="row">
-                <div className="col-md-6">
-                  <input type="text" className="demo-form-input" placeholder="First Name" />
+    <div id="blog" className="blog-section section">
+      <div className="blog-container container">
+        <div id="blog-cards" className="blog-cards">
+          {blogPosts.map((post, index) => (
+            <motion.div
+              key={index}
+              variants={fadeIn(index * 0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <Tilt
+                className="blog-card"
+                tiltMaxAngleX={15}
+                tiltMaxAngleY={15}
+                scale={1.05}
+                transitionSpeed={400}
+              >
+                <img className="card-image" src={post.image} alt="Blog" />
+                <div className="blog-name">
+                  <a href="javascript:void(0);">
+                    <h5 className="blog-title">{post.title}</h5>
+                  </a>
                 </div>
-                <div className="col-md-6">
-                  <input type="text" className="demo-form-input" placeholder="Last Name" />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-md-6">
-                  <input type="email" className="demo-form-input" placeholder="Email" />
-                </div>
-                <div className="col-md-6">
-                  <input type="tel" className="demo-form-input" placeholder="Mobile Number" />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-md-12">
-                  <input type="submit" value="Get Demo!" className="button" />
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div className="demo-section-title">
-          <p className="first-word demo-subtitle" ref={(el) => (demoSubtitleRefs.current[0] = el)}>
-            Need a{" "}
-          </p>
-          <p className="second-word demo-subtitle" ref={(el) => (demoSubtitleRefs.current[1] = el)}>
-            Demo?
-          </p>
+              </Tilt>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
   );
 }
+
+
+

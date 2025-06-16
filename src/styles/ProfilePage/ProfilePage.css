@@ -11,6 +11,7 @@
 
 .profile-wrapper {
   margin-bottom: 2rem;
+  padding-top: 60px;
 }
 
   
@@ -42,14 +43,25 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+    position: relative;
   }
   
-  .profile-input {
+  /* .profile-input {
     padding: 0.75rem;
     border-radius: 0.5rem;
     border: 1px solid #ff7f00;
     background: transparent;
     color: #ff7f00;
+  } */
+  .profile-input {
+    height: 2.4rem;
+    padding: 6px 8px;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ff7f00;
+    background: transparent;
+    color: #ff7f00;
+    box-sizing: border-box;
   }
 
   .profile-pic-display {
@@ -69,6 +81,9 @@
   textarea.profile-input {
     resize: none;
     height: 120px;
+    font-size: 0.9rem;
+  padding: 6px 8px;
+  line-height: 1.6;
   }
   .poster-preview {
     width: 100%;
@@ -90,15 +105,26 @@
     backdrop-filter: blur(10px);
   }
   
-  select.profile-input {
-    height: 3rem; /* You can adjust this as needed */
+  /* select.profile-input {
+    height: 3rem; You can adjust this as needed
     padding: 0.5rem 1rem;
     font-size: 1rem;
+  } */
+  select.profile-input {
+    height: 2.4rem;
+    padding: 6px 8px;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ff7f00;
+    background: transparent;
+    color: #ff7f00;
+    box-sizing: border-box;
   }
+  
   .remove-btn {
     background-color: transparent;
     border: 1px solid #ff4d4d;
-    color: #ff4d4d;
+    color: #f4dfdf;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
@@ -236,9 +262,9 @@
 
 .profile-info-display-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .profile-info-left {
@@ -270,7 +296,8 @@
 .half-width {
   display: flex;
   flex-direction: column;
-  max-width: 130px;
+  flex: 1;
+  max-width: 180px;
 }
 
 .unit-input-wrapper {
@@ -293,6 +320,61 @@
   width: 70px;
   padding: 6px 8px;
   font-size: 0.9rem;
+  border: 1px solid #ff7f00;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #ff7f00;
+
 }
 
+
+/* .half-width input, .unit-input-wrapper input {
+  height: 2.4rem;
+  box-sizing: border-box;
+} */
+
+
+
+
+
+
+
+.autocomplete-dropdown-container {
+  border: 1px solid #ff7f00;
+  background: black;
+  color: #ff7f00;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  position: absolute;
+  width: 100%;
+}
+
+.suggestion-item {
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #ff7f00;
+}
+
+.suggestion-item--active {
+  background-color: #ff7f00;
+  color: black;
+}
+
+
+.required-asterisk {
+  color: rgb(238, 72, 72);
+  font-size: 21px;
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+.error-msg {
+  color: rgb(238, 72, 72);
+  font-size: 14px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
 
