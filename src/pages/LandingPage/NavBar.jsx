@@ -110,8 +110,7 @@ export default function LandingPageNavBar() {
                     Home
                   </a>
                 </li>
-                {!hideLinks && (
-              <>
+                
                 <li>
                   <a href="#about" className="nav-item">
                     About
@@ -127,12 +126,10 @@ export default function LandingPageNavBar() {
                     Blogs
                   </a>
                 </li>
-                </>
-                )}
+                
               </ul>
             </div>
-            {!hideLinks && (
-              <>
+            
             <div className="user-container">
               <ul>
                 <li>
@@ -143,8 +140,7 @@ export default function LandingPageNavBar() {
                 </li>
               </ul>
             </div>
-            </>
-            )}
+            
           </div>
         </div>
       </nav>
