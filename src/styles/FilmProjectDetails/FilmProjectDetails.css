@@ -1,0 +1,170 @@
+@import url("../../components/variables.css");
+
+#root {
+  max-width: 1280px;
+
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
+}
+
+.info-tag {
+  display: inline-block;
+  font-family: "Garet", sans-serif;
+  font-size: 0.85rem;
+  color: var(--color-info-tag);
+  padding: 2px 4px;
+  border-style: solid;
+  border-radius: 6px;
+  border-width: thin;
+  border-color: #464f5a;
+  margin: 4px;
+  white-space: nowrap;
+}
+
+.role-listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Two per row */
+  gap: 20px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.listing {
+  background-color: #111827;
+  border-radius: 10px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+}
+
+.unavailable-role {
+  opacity: 0.5;
+}
+
+.App .film-overview {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem; /* space between image and details */
+  margin-bottom: 3rem;
+  align-items: flex-start;
+}
+
+.film-poster-container {
+  flex-shrink: 0;
+}
+
+.film-poster {
+  width: auto;
+  height: 600px;
+  border-radius: 8px;
+}
+
+.film-details-container {
+  flex: 1;
+}
+
+.film-icon i {
+  color: var(--color-icons-orange);
+}
+
+/* Role */
+.role-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 24px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+}
+
+.role-filled {
+  opacity: 0.5;
+}
+
+.role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.role-title {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.role-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--badge-icon-text);
+}
+
+.badge-filled {
+  background-color: #6b7280; /* gray-500 */
+  color: white;
+}
+
+.badge-open {
+  background-color: var(--badge-icon); /* green-500 */
+}
+
+.role-description {
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.role-requirements {
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.requirements-title {
+  font-weight: 400;
+  margin-bottom: 8px;
+  color: var(--requirements-title);
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-pill {
+  background-color: var(--tags-container);
+  border: none;
+}
+
+.pay-range {
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: var(--pay-range);
+}
+
+.apply-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.apply-button {
+  background-color: var(--apply-button); /* blue-500 */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.apply-button:hover {
+  background-color: #2563eb; /* blue-600 */
+}
