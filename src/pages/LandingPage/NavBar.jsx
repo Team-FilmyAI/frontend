@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/LandingPage/NavBar.css";
+import React from "react";
+
 
 export default function LandingPageNavBar({ hideLinks = false }) {
   const sidebarRef = useRef(null);
@@ -8,6 +10,25 @@ export default function LandingPageNavBar({ hideLinks = false }) {
   const navbarContainerRef = useRef(null);
   const navbarRef = useRef(null);
   const navContainerRef = useRef(null);
+
+// Navbar component for landing page scroll
+
+const LandingPageNavBar = ({ onHeroClick, onAboutClick, onDemoClick, onBlogClick }) => {
+  return (
+    <nav className="landing-navbar">
+      <ul className="nav-list">
+        <li><button onClick={onHeroClick}>Home</button></li>
+        <li><button onClick={onAboutClick}>About</button></li>
+        <li><button onClick={onDemoClick}>Demo</button></li>
+        <li><button onClick={onBlogClick}>Blog</button></li>
+      </ul>
+    </nav>
+  );
+};
+
+
+
+
 
   // Resize handler for navbar container responsiveness
   useEffect(() => {
