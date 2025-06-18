@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import "../../styles/LandingPage/LandingPage.css";
 import LandingPageNavBar from "./NavBar";
 import Hero from "./Hero";
@@ -14,10 +15,10 @@ export default function LandingPage() {
       <main>
         <div className="main">
           <div className="main-container">
-            <Hero />
-            <About />
-            <Demo />
-            <Blog />
+            <section id="hero"><Hero /></section>
+            <section id="about"><About /></section>
+            <section id="demo"><Demo /></section>
+            <section id="blog"><Blog /></section>
           </div>
           <Chat />
         </div>
