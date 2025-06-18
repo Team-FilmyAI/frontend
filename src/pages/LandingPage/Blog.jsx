@@ -25,9 +25,9 @@ export default function Blog() {
   }, []);
 
   const blogPosts = [
-    { title: "Blog Title", image: "/images/landingPage/lens.png" },
-    { title: "Blog Title", image: "/images/landingPage/lens.png" },
-    { title: "Blog Title", image: "/images/landingPage/lens.png" },
+    { title: "Blog Title", image: "images/landingPage/lens.png" },
+    { title: "Blog Title", image: "images/landingPage/lens.png" },
+    { title: "Blog Title", image: "images/landingPage/lens.png" },
   ];
 
   return (

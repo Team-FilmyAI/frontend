@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import "../../styles/LandingPage/Navbar.css";
+import "../../styles/LandingPage/NavBar.css";
 
 export default function LandingPageNavBar({ hideLinks = false }) {
   const sidebarRef = useRef(null);
@@ -97,7 +97,7 @@ export default function LandingPageNavBar({ hideLinks = false }) {
         <div id="navbar" ref={navbarRef} className="custom-navbar">
           <div ref={navbarContainerRef} className="navbar-container container">
             <div className="logo-container">
-              <img src="/images/footer/FilmyAI_logo.png" alt="logo" />
+              <img src="images/footer/FilmyAI_logo.png" alt="logo" />
             </div>
             <div id="ham-btn" ref={hamBtnRef} className="ham-btn">
               <i className="fa fa-bars"></i>
