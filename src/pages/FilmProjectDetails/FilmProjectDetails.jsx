@@ -1,4 +1,4 @@
-// import "./App.css";
+// import "../../App.css";
 import "../../styles/FilmProjectDetails/FilmProjectDetails.css";
 import { movieDrive as movie } from "../../assets/data/constants.js";
 import { Link } from "react-router-dom";
@@ -43,7 +43,7 @@ function FilmDetails({ film }) {
   };
 
   return (
-    <div>
+    <div className="film-details">
       <h1>{film.title}</h1>
       <h2>{film.genres}</h2>
       <div className="film-icon i">
@@ -116,7 +116,7 @@ function AvailableRoles({ roles }) {
   };
 
   return (
-    <div>
+    <div className="available-roles">
       <h2 className="">Available Roles</h2>
       <div className="role-listings">
         {roles.map((role, i) => (

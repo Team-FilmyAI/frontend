@@ -1,11 +1,45 @@
 @import url("../../components/variables.css");
 
-#root {
-  max-width: 1280px;
+.film-details h1 {
+  font-weight: 600;
+  color: var(--color-heading-strong);
+}
 
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: left;
+.film-details h2 {
+  font-weight: 400;
+  color: var(--color-icons-orange);
+}
+
+h3,
+h4 {
+  font-weight: 400 !important;
+  color: var(--color-heading-medium) !important;
+}
+
+h5,
+h6,
+p,
+li,
+a,
+span {
+  font-weight: 400;
+  color: var(--color-text-default);
+}
+
+p {
+  font-family: "Garet";
+}
+
+.synopsis h2 {
+  color: var(--color-heading-strong);
+}
+
+.available-roles h2 {
+  color: var(--color-heading-strong);
+}
+
+.film-details h1 h2 {
+  color: var(--color-heading-strong);
 }
 
 .info-tag {
@@ -24,7 +58,7 @@
 
 .role-listings {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Two per row */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   padding: 0px;
   margin: 0px;
