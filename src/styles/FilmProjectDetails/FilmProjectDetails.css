@@ -1,4 +1,4 @@
-@import url("../../components/variables.css");
+@import url("../../shared/variables.css");
 
 .film-details h1 {
   font-weight: 600;
