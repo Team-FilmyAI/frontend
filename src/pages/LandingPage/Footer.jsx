@@ -1,4 +1,4 @@
-import "../../styles/LandingPage/Footer.css";
+import "./Footer.css";
 
 export default function Navbar() {
   return (

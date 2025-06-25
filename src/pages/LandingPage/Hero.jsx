@@ -1,4 +1,4 @@
-import "../../styles/LandingPage/Hero.css";
+import "./Hero.css";
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 
