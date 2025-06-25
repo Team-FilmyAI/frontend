@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import "../../styles/LandingPage/About.css";
+import "./About.css";
 
 export default function About() {
   const aboutSubtitleRef = useRef(null);

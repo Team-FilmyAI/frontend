@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import "../../styles/LandingPage/Chat.css";
+import "./Chat.css";
 
 export default function Chat() {
   const chatRef = useRef(null);

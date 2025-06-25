@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import "../../styles/LoginSignUp/Forgot.css";
+import "./ForgotPassword.css";
 
-export default function Forgot() {
+export default function ForgotPassword() {
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");

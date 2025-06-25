@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../styles/ProfilePage/ProfilePage.css';
+import './ProfilePage.css';
 import Footer from '../LandingPage/Footer';
 import LandingPageNavBar from '../LandingPage/NavBar';
 import DatePicker from 'react-datepicker';

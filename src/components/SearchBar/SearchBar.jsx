@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Search } from 'lucide-react';
-import '../../styles/SearchBar/SearchBar.css'
+import './SearchBar.css'
 
-const SearchBar = ({ placeholder, onSearch }) => {
+export default function SearchBar({ placeholder, onSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleKeyPress = (e) => {
@@ -24,5 +24,3 @@ const SearchBar = ({ placeholder, onSearch }) => {
     </div>
   );
 };
-
-export default SearchBar;

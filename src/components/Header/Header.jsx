@@ -1,9 +1,9 @@
 import { Bell, User } from 'lucide-react';
-import SearchBar from './SearchBar';
-import '../../styles/Header/Header.css';
+import SearchBar from '../SearchBar/SearchBar';
+import './Header.css';
 import { useNavigate } from 'react-router-dom';
 
-const Header = () => {
+export default function Header() {
     const navigate = useNavigate();
   // Call the correct sections once the design is completed
   const handleAlert = () => {
@@ -37,4 +37,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+// export default Header;

@@ -1,4 +1,4 @@
-import "../../styles/LandingPage/Blog.css";
+import "./Blog.css";
 import { useEffect, useRef } from "react";
 
 export default function Blog() {
