@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import '../../styles/ProfilePage/ProfilePage.css';
 import Footer from '../LandingPage/Footer';
-import LandingPageNavBar from '../LandingPage/NavBar';
+import ProfileNavBar from './ProfileNavBar';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Select from 'react-select';
-import LocationAutocomplete from './LocationAutocomplete';
-
-
+import LocationSearch from './LocationSearch';
 
 
 // Helper to convert "YYYY-MM" to JS Date object
@@ -31,8 +29,13 @@ const genreOptions = [
   
 const ProfilePage = () => {
 
+    const [errors, setErrors] = useState({});
+    // if you add any fields like the firstName add below the formData here
     const [formData, setFormData] = useState({
-        name: '',
+        firstName: '',
+        lastName: '',
+        preferredFirstName: '', 
+        preferredLastName: '',
         profession: '',
         email: '',
         location: '',
@@ -51,7 +54,7 @@ const ProfilePage = () => {
                 role: '',
                 startDate: '',
                 endDate: '',
-                rulesResponsibility: '',
+                rolesResponsibility: '',
                 genre: [],
                 genreOther: ''
             }
@@ -63,8 +66,8 @@ const ProfilePage = () => {
     const file = e.target.files[0];
     if (file) {
       setProfilePic(file);
-    }
-  };
+    }// here is the constant for saveing or editing profile picture
+  }; 
 
   
 
@@ -141,12 +144,44 @@ const ProfilePage = () => {
             const [editExperience, setEditExperience] = useState(true);
 
             const handleSaveAll = () => {
+                const newErrors = {};
+              
+                // Profile Info validations
+                if (!profilePic) newErrors.profilePic = "Profile picture is required.";
+                if (!formData.firstName.trim()) newErrors.firstName = "First name is required.";
+                if (!formData.lastName.trim()) newErrors.lastName = "Last name is required.";
+                if (!formData.profession.trim()) newErrors.profession = "Profession is required.";
+              
+                // Physical Info validations
+                if (!formData.height && !formData.heightFeet) newErrors.height = "Height is required.";
+                if (!formData.weight) newErrors.weight = "Weight is required.";
+                if (!formData.age) newErrors.age = "Age is required.";
+              
+                // Experience validations (check only first experience for now)
+                
+                formData.experiences.forEach((exp, index) => {
+                    if (!exp.CompanyName || exp.CompanyName.trim() === '') {
+                      newErrors[`experiences.${index}.CompanyName`] = "Company name is required.";
+                    }
+                    if (!exp.role || exp.role.trim() === '') {
+                      newErrors[`experiences.${index}.role`] = "Designation is required.";
+                    }
+                    // Add more if needed (startDate, genre, etc.)
+                  });
+
+                if (Object.keys(newErrors).length > 0) {
+                  setErrors(newErrors);
+                  return;
+                }
+              
+                setErrors({});
                 setEditMode(false);
                 setEditProfileInfo(false);
                 setEditAboutMe(false);
                 setEditPhysicalInfo(false);
                 setEditExperience(false);
               };
+              
               
               const handleEditAll = () => {
                 setEditMode(true);
@@ -155,117 +190,272 @@ const ProfilePage = () => {
                 setEditPhysicalInfo(true);
                 setEditExperience(true);
               };
+
+              const handleSaveProfileInfo = () => {
+                const newErrors = {};
+              
+                if (!profilePic) newErrors.profilePic = "Profile picture is required.";
+                if (!formData.firstName.trim()) newErrors.firstName = "First name is required.";
+                if (!formData.lastName.trim()) newErrors.lastName = "Last name is required.";
+                if (!formData.profession.trim()) newErrors.profession = "Profession is required.";
+              
+                if (Object.keys(newErrors).length > 0) {
+                  setErrors((prev) => ({ ...prev, ...newErrors }));
+                  return;
+                }
+              
+                // No errors
+                setErrors((prev) => {
+                  const updated = { ...prev };
+                  delete updated.profilePic;
+                  delete updated.firstName;
+                  delete updated.lastName;
+                  delete updated.profession;
+                  return updated;
+                });
+                setEditProfileInfo(false);
+              };
+
+              const handleSavePhysicalInfo = () => {
+                const newErrors = {};
+                if (!formData.height && !formData.heightFeet) newErrors.height = "Height is required.";
+                if (!formData.weight) newErrors.weight = "Weight is required.";
+                if (!formData.age) newErrors.age = "Age is required.";
+              
+                if (Object.keys(newErrors).length > 0) {
+                  setErrors((prev) => ({ ...prev, ...newErrors }));
+                  return;
+                }
+              
+                setErrors((prev) => {
+                  const updated = { ...prev };
+                  delete updated.height;
+                  delete updated.weight;
+                  delete updated.age;
+                  return updated;
+                });
+                setEditPhysicalInfo(false);
+              };
+
+              const handleSaveExperience = () => {
+                const newErrors = {};
+                formData.experiences.forEach((exp, index) => {
+                  if (!exp.CompanyName) newErrors[`experiences.${index}.CompanyName`] = "Company name is required.";
+                  if (!exp.role) newErrors[`experiences.${index}.role`] = "Designation is required.";
+                });
+              
+                if (Object.keys(newErrors).length > 0) {
+                  setErrors((prev) => ({ ...prev, ...newErrors }));
+                  return;
+                }
+              
+                // Clear related errors
+                const updated = { ...errors };
+                formData.experiences.forEach((_, index) => {
+                  delete updated[`experiences.${index}.CompanyName`];
+                  delete updated[`experiences.${index}.role`];
+                });
+                setErrors(updated);
+                setEditExperience(false);
+
+
+
+
+                // Dummy save logic (to be replaced with real API call)
+            // const payload = {
+            //     profilePic,
+            //     firstName: formData.firstName,
+            //     lastName: formData.lastName,
+            //     preferredFirstName: formData.preferredFirstName,
+            //     preferredLastName: formData.preferredLastName,
+            //     profession: formData.profession,
+            //     email: formData.email,
+            //     location: formData.location,
+            //     height: formData.height || formData.heightFeet,
+            //     weight: formData.weight,
+            //     age: formData.age,
+            //     ethnicity: formData.ethnicity,
+            //     hairColor: formData.hairColor,
+            //     eyeColor: formData.eyeColor,
+            //     experiences: formData.experiences,
+            // };
+            
+            // // console.log("Saving to DB:", payload);
+            
+            // // Example placeholder for actual save operation
+            // // fetch('/api/save-profile', {
+            // //   method: 'POST',
+            // //   headers: {
+            // //     'Content-Type': 'application/json'
+            // //   },
+            // //   body: JSON.stringify(payload)
+            // // })
+            // //   .then(res => res.json())
+            // //   .then(data => console.log("Saved successfully:", data))
+            // //   .catch(err => console.error("Save failed:", err));
+  
+              };
+              
               
 
   return (
     <div className="profile-container">
-        <LandingPageNavBar hideLinks={true} />
+        <ProfileNavBar homePath="/dashboard" /> {/* will decide which page it should go to later and add it */}
+
 
         <div className="profile-wrapper">
             <div className="profile-columns">
                     {/* Left Column */}
                     <div className="profile-left">
-                    <div className="frosted-card">
-                        <div className="section-header">
-                            <h3>Profile Info</h3>
-                            {editProfileInfo ? (
-                            <i className="fa fa-save edit-icon" onClick={() => setEditProfileInfo(false)}></i>
-                            ) : (
-                            <i className="fa fa-pen edit-icon" onClick={() => setEditProfileInfo(true)}></i>
-                            )}
-                        </div>
-
-                        {editProfileInfo ? (
-                            <>
-                            {/* Upload + Pic */}
-                            <div className="form-row">
-                                <label>Upload Profile Picture:</label>
-                                <input type="file" onChange={handleProfilePicChange} />
-                                {profilePic && (
-                                <img
-                                    src={URL.createObjectURL(profilePic)}
-                                    alt="Profile Preview"
-                                    className="profile-pic-display"
-                                />
+                        <div className="frosted-card">
+                            <div className="section-header">
+                                <h3>Profile Info</h3>
+                                {editProfileInfo ? (
+                                <i className="fa fa-save edit-icon" onClick={handleSaveProfileInfo}></i>
+                                ) : (
+                                <i className="fa fa-pen edit-icon" onClick={() => setEditProfileInfo(true)}></i>
                                 )}
                             </div>
 
-                            {/* Full Name */}
-                            <div className="form-row">
-                                <label>Full Name:</label>
-                                <input
-                                type="text"
-                                className="profile-input"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                placeholder="Enter your name"
-                                />
-                            </div>
+                            {editProfileInfo ? (
+                                <>
+                                {/* Upload + Pic */}
+                                <div className="form-row">
+                                    <label>Upload Profile Picture:<span className="required-asterisk">*</span></label>
+                                    <input type="file" onChange={handleProfilePicChange} />
+                                    {errors.profilePic && <p className="error-msg">{errors.profilePic}</p>}
+                                    {profilePic && (
+                                    <img
+                                        src={URL.createObjectURL(profilePic)}
+                                        alt="Profile Preview"
+                                        className="profile-pic-display"
+                                    />
+                                    )}
+                                </div>
 
-                            {/* Profession */}
-                            <div className="form-row">
-                                <label>Profession:</label>
-                                <input
-                                type="text"
-                                className="profile-input"
-                                name="profession"
-                                value={formData.profession}
-                                onChange={handleChange}
-                                placeholder="e.g. Actor | Director"
-                                />
-                            </div>
+                                {/* Full Name */}
+                                <div className="double-input-row">
+                                    <div className="half-width">
+                                        <label>
+                                            First Name:<span className="required-asterisk">*</span>
+                                        </label>
+                                        <input
+                                        type="text"
+                                        className="profile-input"
+                                        name="firstName"
+                                        value={formData.firstName}
+                                        onChange={handleChange}
+                                        placeholder="Enter first name"
+                                        />{errors.firstName && <p className="error-msg">{errors.firstName}</p>}
+                                    </div>
+                                    <div className="half-width">
+                                        <label>Last Name:<span className="required-asterisk">*</span></label>
+                                        <input
+                                        type="text"
+                                        className="profile-input"
+                                        name="lastName"
+                                        value={formData.lastName}
+                                        onChange={handleChange}
+                                        placeholder="Enter last name"
+                                        />{errors.lastName && <p className="error-msg">{errors.lastName}</p>}
+                                    </div>
+                                </div>
+                                
 
-                            {/* Email */}
-                            <div className="form-row">
-                                <label>Email:</label>
-                                <input
-                                type="email"
-                                className="profile-input"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder="Enter your email"
-                                />
-                            </div>
+                                {/* Preferred Name */}
+                                <div className="double-input-row">
+                                    <div className="half-width">
+                                        <label>Preferred First Name:</label>
+                                        <input
+                                        type="text"
+                                        className="profile-input"
+                                        name="preferredFirstName"
+                                        value={formData.preferredFirstName}
+                                        onChange={handleChange}
+                                        placeholder="First name"
+                                        />
+                                    </div>
+                                    <div className="half-width">
+                                        <label>Preferred Last Name:</label>
+                                        <input
+                                        type="text"
+                                        className="profile-input"
+                                        name="preferredLastName"
+                                        value={formData.preferredLastName}
+                                        onChange={handleChange}
+                                        placeholder="Last name"
+                                        />
+                                    </div>
+                                </div>
 
-                            {/* Location */}
-                            <div className="form-row">
-                                <label>Location:</label>
-                                <LocationAutocomplete
-                                    value={formData.location}
-                                    onChange={(address) =>
-                                        setFormData({ ...formData, location: address })
-                                    }
-                                />
 
-                            </div>
-                            </>
-                        ) : (
-                            <div className="profile-info-display-row">
-                            <div className="profile-info-left">
-                                <span className="profile-display-inline">
-                                <strong>Full Name:</strong> {formData.name}
-                                </span>
-                                <span className="profile-display-inline">
-                                <strong>Profession:</strong> {formData.profession}
-                                </span>
-                                <span className="profile-display-inline">
-                                <strong>Email:</strong> {formData.email}
-                                </span>
-                                <span className="profile-display-inline">
-                                <strong>Location:</strong> {formData.location}
-                                </span>
-                            </div>
-                            {profilePic && (
-                                <img
-                                src={URL.createObjectURL(profilePic)}
-                                alt="Profile"
-                                className="profile-pic-display"
-                                />
+                                {/* Profession */}
+                                <div className="form-row">
+                                    <label>Profession:<span className="required-asterisk">*</span></label>
+                                    <input
+                                    type="text"
+                                    className="profile-input"
+                                    name="profession"
+                                    value={formData.profession}
+                                    onChange={handleChange}
+                                    placeholder="e.g. Actor | Director"
+                                    />
+                                    {errors.profession && <p className="error-msg">{errors.profession}</p>}
+                                </div>
+
+                                {/* Email */}
+                                <div className="form-row">
+                                    <label>Email:</label>
+                                    <input
+                                    type="email"
+                                    className="profile-input"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="Enter your email"
+                                    />
+                                </div>
+
+                                {/* Location */}
+                                <div className="form-row">
+                                    <label>Location:</label>
+                                    <LocationSearch
+                                        value={formData.location}
+                                        onChange={(address) =>
+                                            setFormData({ ...formData, location: address })
+                                        }
+                                    />
+
+                                </div>
+                                </>
+                            ) : (
+                                <div className="profile-info-display-row">
+                                <div className="profile-info-left">
+                                    <span className="profile-display-inline">
+                                    <strong>Full Name:</strong> {formData.firstName} {formData.lastName}
+                                    </span>
+                                    <span className="profile-display-inline">
+                                    <strong>Preferred Name:</strong> {formData.preferredFirstName} {formData.preferredLastName}
+                                    </span>
+                                    <span className="profile-display-inline">
+                                    <strong>Profession:</strong> {formData.profession}
+                                    </span>
+                                    <span className="profile-display-inline">
+                                    <strong>Email:</strong> {formData.email}
+                                    </span>
+                                    <span className="profile-display-inline">
+                                    <strong>Location:</strong> {formData.location}
+                                    </span>
+                                </div>
+                                {profilePic && (
+                                    <img
+                                    src={URL.createObjectURL(profilePic)}
+                                    alt="Profile"
+                                    className="profile-pic-display"
+                                    />
+                                )}
+                                </div>
                             )}
-                            </div>
-                        )}
                         </div>
 
 
@@ -305,117 +495,129 @@ const ProfilePage = () => {
                         </div>
 
                         { /* Physical Info */}
-                                        <div className="frosted-card">
-                                        <div className="section-header">
+                        <div className="frosted-card">
+                                    <div className="section-header">
                                         <h3>Physical Information</h3>
                                         {editPhysicalInfo ? (
-                                            <i className="fa fa-save edit-icon" onClick={() => setEditPhysicalInfo(false)}></i>
+                                            <i className="fa fa-save edit-icon" onClick={handleSavePhysicalInfo}></i>
                                         ) : (
                                             <i className="fa fa-pen edit-icon" onClick={() => setEditPhysicalInfo(true)}></i>
                                         )}
                                     </div>
                 
                                     <div className="form-row">
-                                    {editPhysicalInfo ? (
-                                        <>
-                                        <label>Height:</label>
-                                        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                                            <select
-                                            className="profile-input"
-                                            name="heightUnit"
-                                            value={formData.heightUnit || 'cm'}
-                                            onChange={(e) => setFormData({ ...formData, heightUnit: e.target.value })}
-                                            >
-                                            <option value="cm">cm</option>
-                                            <option value="feet">feet & inches</option>
-                                            </select>
-
-                                            {formData.heightUnit === 'feet' ? (
+                                        {editPhysicalInfo ? (
                                             <>
-                                                <input
-                                                type="number"
-                                                placeholder="Feet"
+                                            <label>Height:</label>
+                                            <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                                                <select
                                                 className="profile-input"
-                                                value={formData.heightFeet || ''}
-                                                onChange={(e) =>
-                                                    setFormData({ ...formData, heightFeet: e.target.value })
-                                                }
-                                                min="0"
-                                                style={{ width: '80px' }}
-                                                />
+                                                name="heightUnit"
+                                                value={formData.heightUnit || 'cm'}
+                                                onChange={(e) => setFormData({ ...formData, heightUnit: e.target.value })}
+                                                >
+                                                <option value="cm">cm</option>
+                                                <option value="feet">feet & inches</option>
+                                                </select>
+
+                                                {formData.heightUnit === 'feet' ? (
+                                                <>
+                                                    <input
+                                                    type="number"
+                                                    placeholder="Feet"
+                                                    className="profile-input"
+                                                    value={formData.heightFeet || ''}
+                                                    onChange={(e) =>
+                                                        setFormData({ ...formData, heightFeet: e.target.value })
+                                                    }
+                                                    min="0"
+                                                    style={{ width: '80px' }}
+                                                    />
+                                                    <input
+                                                    type="number"
+                                                    placeholder="Inches"
+                                                    className="profile-input"
+                                                    value={formData.heightInches || ''}
+                                                    onChange={(e) =>
+                                                        setFormData({ ...formData, heightInches: e.target.value })
+                                                    }
+                                                    min="0"
+                                                    max="11"
+                                                    style={{ width: '80px' }}
+                                                    />
+                                                </>
+                                                ) : (
                                                 <input
-                                                type="number"
-                                                placeholder="Inches"
-                                                className="profile-input"
-                                                value={formData.heightInches || ''}
-                                                onChange={(e) =>
-                                                    setFormData({ ...formData, heightInches: e.target.value })
-                                                }
-                                                min="0"
-                                                max="11"
-                                                style={{ width: '80px' }}
+                                                    type="number"
+                                                    placeholder="Height in cm"
+                                                    className="profile-input"
+                                                    value={formData.height}
+                                                    onChange={handleChange}
+                                                    name="height"
                                                 />
+                                                )}
+                                            </div>
                                             </>
-                                            ) : (
-                                            <input
-                                                type="number"
-                                                placeholder="Height in cm"
-                                                className="profile-input"
-                                                value={formData.height}
-                                                onChange={handleChange}
-                                                name="height"
-                                            />
-                                            )}
-                                        </div>
-                                        </>
-                                    ) : (
-                                        <span className="profile-display-inline">
-                                        <strong>Height:</strong>{' '}
-                                        {formData.heightUnit === 'feet'
-                                            ? `${formData.heightFeet || '-'}' ${formData.heightInches || '-'}"`
-                                            : `${formData.height || '-'} cm`}
-                                        </span>
-                                    )}
+                                        ) : (
+                                            <span className="profile-display-inline">
+                                            <strong>Height:</strong>{' '}
+                                            {formData.heightUnit === 'feet'
+                                                ? `${formData.heightFeet || '-'}' ${formData.heightInches || '-'}"`
+                                                : `${formData.height || '-'} cm`}
+                                            </span>
+                                        )}
                                     </div>
 
 
                                     <div className="double-input-wrapper-container">
-                                        <div className="double-input-row">
-                                            <div className="half-width">
-                                            <label>Weight:</label>
-                                            <div className="unit-input-wrapper">
-                                                <select
-                                                name="weightUnit"
-                                                className="unit-dropdown"
-                                                value={formData.weightUnit}
-                                                onChange={handleChange}
-                                                >
-                                                <option value="kg">kg</option>
-                                                <option value="lbs">lbs</option>
-                                                </select>
+                                        {editPhysicalInfo ? (
+                                            <div className="double-input-row">
+                                                <div className="half-width">
+                                                <label>Weight:</label>
+                                                <div className="unit-input-wrapper">
+                                                    <select
+                                                    name="weightUnit"
+                                                    className="unit-dropdown"
+                                                    value={formData.weightUnit}
+                                                    onChange={handleChange}
+                                                    >
+                                                    <option value="kg">kg</option>
+                                                    <option value="lbs">lbs</option>
+                                                    </select>
+                                                    <input
+                                                    type="text"
+                                                    name="weight"
+                                                    value={formData.weight}
+                                                    onChange={handleChange}
+                                                    />
+                                                </div>
+                                                </div>
+
+                                                <div className="half-width">
+                                                <label>Age:<span className="required-asterisk">*</span></label>
+                                                <div className="unit-input-wrapper">
                                                 <input
-                                                type="text"
-                                                name="weight"
-                                                value={formData.weight}
-                                                onChange={handleChange}
+                                                    type="text"
+                                                    name="age"
+                                                    className="profile-input"
+                                                    value={formData.age}
+                                                    onChange={handleChange}
+                                                    placeholder="e.g. 25"
                                                 />
+                                                {errors.age && <p className="error-msg">{errors.age}</p>}
+                                                </div></div>
                                             </div>
-                                            </div>
-
-                                            <div className="half-width">
-                                            <label>Age:</label>
-                                            <input
-                                                type="text"
-                                                name="age"
-                                                className="profile-input"
-                                                value={formData.age}
-                                                onChange={handleChange}
-                                            />
-                                            </div>
-                                        </div>
-                                        </div>
-
-
+                                            ) : (
+                                                <div className="profile-info-display-row">
+                                                <span className="profile-display-inline">
+                                                    <strong>Weight:</strong> {formData.weight} {formData.weightUnit}
+                                                </span>
+                                                <span className="profile-display-inline">
+                                                    <strong>Age:</strong> {formData.age}
+                                                </span>
+                                                </div>
+                                            )}
+                                    </div>
 
                                     <div className="form-row">
                                         {editPhysicalInfo ? (
@@ -487,37 +689,25 @@ const ProfilePage = () => {
                                     </div>
 
                                     
-                                    </div>
-
+                        </div>
 
                     </div>`
-                
-                
-
-
+            
                 {/* Right Column */}
                 
-                            <div className="profile-right">
-                    
-                                    
-            
-
-
-
-
-
-    {formData.experiences.map((exp, index) => (
+                <div className="profile-right">                                                    
+                    {formData.experiences.map((exp, index) => (
                                 <div className="frosted-card" key={index}>
                                     <div className="section-header">
                                         <h3>Experience #{index + 1}</h3>
                                         {editExperience ? (
-                                            <i className="fa fa-save edit-icon" onClick={() => setEditExperience(false)}></i>
+                                            <i className="fa fa-save edit-icon" onClick={handleSaveExperience}></i>
                                         ) : (
                                             <i className="fa fa-pen edit-icon" onClick={() => setEditExperience(true)}></i>
                                         )}
                                     </div>
 
-                                    {/* Poster Upload */}
+                                    {/* Poster Upload : For Future Use when other profession are used*/}
                                     {/* <div className="form-row">
                                     {editExperience ? (
                                         <>
@@ -552,7 +742,7 @@ const ProfilePage = () => {
                                     <div className="form-row">
                                     {editExperience ? (
                                         <>
-                                    <label>Company Name: </label>
+                                    <label>Company Name: <span className="required-asterisk">*</span></label>
                                     <input
                                         type="text"
                                         className="profile-input"
@@ -562,6 +752,10 @@ const ProfilePage = () => {
                                         onChange={(e) => handleExperienceChange(e, index)}
                                         
                                     />
+                                    {errors[`experiences.${index}.CompanyName`] && (
+                                        <p className="error-msg">{errors[`experiences.${index}.CompanyName`]}</p>
+                                        )}
+
                                     </>
                                     ) : (
                                         <span className="profile-display-inline">
@@ -574,7 +768,7 @@ const ProfilePage = () => {
                                     <div className="form-row">
                                     {editExperience ? (
                                         <>
-                                    <label>Designation/Worked As:</label>
+                                    <label>Designation/Worked As:<span className="required-asterisk">*</span></label>
                                     <input
                                         type="text"
                                         className="profile-input"
@@ -583,7 +777,12 @@ const ProfilePage = () => {
                                         value={exp.role}
                                         onChange={(e) => handleExperienceChange(e, index)}
                                         
-                                    /></>
+                                    />
+                                    {errors[`experiences.${index}.role`] && (
+  <p className="error-msg">{errors[`experiences.${index}.role`]}</p>
+)}
+
+                                    </>
                                         ) : (
                                         <span className="profile-display-inline">
                                             <strong>Role:</strong> {exp.role}
@@ -595,7 +794,7 @@ const ProfilePage = () => {
                                 <div className="form-row">
                                 {editExperience ? (
                                     <>
-                                    <label>Month & Year:</label>
+                                    <label>Month & Year: From - To</label>
                                     <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                                     <DatePicker
                                         selected={parseMonthYear(exp.startDate)}
@@ -629,7 +828,7 @@ const ProfilePage = () => {
                                     </>
                                 ) : (
                                     <span className="profile-display-inline">
-                                    <strong>Date:</strong>{' '}
+                                    <strong>Month & Year:</strong>{' '}
                                     {exp.startDate && exp.endDate
                                         ? `${formatMonthYear(exp.startDate)} to ${formatMonthYear(exp.endDate)}`
                                         : '—'}
@@ -642,20 +841,20 @@ const ProfilePage = () => {
                                     <div className="form-row">
                                     {editExperience ? (
                                         <>
-                                    <label>Rules & Responsibility: </label>
+                                    <label>Roles & Responsibility: </label>
                                     <input
                                         type="text"
                                         className="profile-input"
-                                        name="rulesResponsibility"
+                                        name="rolesResponsibility"
                                         placeholder="e.g. Add what you were Responsible in this work"
-                                        value={exp.rulesResponsibility}
+                                        value={exp.rolesResponsibility}
                                         onChange={(e) => handleExperienceChange(e, index)}
                                         
                                     />
                                     </>
                                     ) : (
                                         <span className="profile-display-inline">
-                                        <strong>Rules & Responsibility</strong> {exp.rulesResponsibility}
+                                        <strong>Roles & Responsibility</strong> {exp.rolesResponsibility}
                                         </span>
                                     )}
                                     </div>
@@ -758,7 +957,7 @@ const ProfilePage = () => {
                                 type="button"
                                 className="save-btn"
                                 onClick={handleSaveAll}
-                                disabled={!editMode}
+                                
                                 >
                                 Save
                             </button>
