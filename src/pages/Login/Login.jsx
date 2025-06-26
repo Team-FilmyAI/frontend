@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "../../styles/LoginSignUp/Login.css";
+import "./Login.css";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -88,7 +88,7 @@ export default function Login() {
 
 
 // (this is version 3 code done by somail) import { Link } from "react-router-dom";
-// import "../../styles/LoginSignUp/Login.css";
+// import "./Login.css";
 
 // export default function Login() {
 //   return (
