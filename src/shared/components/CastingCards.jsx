@@ -2,26 +2,26 @@ import React from 'react';
 import '../../styles/CastingCards/CastingCards.css';
 import { MapPin, Clock, DollarSign } from 'lucide-react';
 
-// Destructure props here
+
 const CastingCards = ({ cardData }) => {
   const {
     title,
-    type, // Renamed from 'genre' in the data to 'type'
+    type, 
     location,
     applyBy,
-    characterName, // Renamed from 'role-title'
+    characterName, 
     characterDescription,
     ageRange,
     gender,
     compensation,
-    urgent // Added urgent flag
+    urgent 
   } = cardData;
 
   return (
     <div className="casting-call-card">
       <div className="card-header">
         <h2 className="title">{title}</h2>
-        <p className="genre">{type}</p> {/* Use 'type' from props */}
+        <p className="genre">{type}</p> 
         <div className="location-apply-time">
           <p className="location">
             <MapPin size={16} /> {location}
@@ -33,7 +33,7 @@ const CastingCards = ({ cardData }) => {
       </div>
 
       <div className="card-body">
-        <h3 className="role-title">{characterName}</h3> {/* Use characterName */}
+        <h3 className="role-title">{characterName}</h3> 
         <p className="character-description">
           {characterDescription}
         </p>
@@ -60,7 +60,7 @@ const CastingCards = ({ cardData }) => {
         <button className="view-details-button">View Details</button>
       </div>
       
-      {/* --- IMPORTANT ADDITION: Urgent Badge --- */}
+      
       {urgent && <span className="urgent-badge">Urgent</span>}
       
     </div>

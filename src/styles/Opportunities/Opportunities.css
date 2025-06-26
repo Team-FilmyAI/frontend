@@ -53,7 +53,7 @@ body {
   gap: 24px;
   justify-content: flex-start;
   padding: 25px 0;
-  background-color: #000; /* black background */
+  background-color: #000; 
 }
 
 .stat-card {
@@ -65,7 +65,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #bdc3cc; /* light gray */
+  color: #bdc3cc; 
   font-family: 'Garet', sans-serif;
   font-size: 14px;
   font-weight: 200;
@@ -96,27 +96,27 @@ body {
 
 .load-more-container {
     display: flex;
-    justify-content: flex-end; /* Pushes button to the right */
-    /* Match the max-width of the grid for alignment */
-    width: 100%; /* Take full width of parent (body, centered) */
-    max-width: calc(580px * 2 + 1.5rem); /* Align with the card grid's max-width */
-    margin-top: 2rem; /* Space below the card grid */
-    /* No need for margin-left/right auto here if body is centering its content */
+    justify-content: flex-end; 
+    
+    width: 100%; 
+    max-width: calc(580px * 2 + 1.5rem); 
+    margin-top: 2rem; 
+    
 }
 
 .load-more-button {
     background-color: #ffffff;
-    color: #f97316; /* Orange text */
-    border: 0 solid #f97316; /* Orange border */
-    padding: 0.6rem 1.5rem; /* Consistent padding with other buttons */
+    color: #f97316; 
+    border: 0 solid #f97316; 
+    padding: 0.6rem 1.5rem; 
     font-size: 1.125rem;
     font-weight: 300;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    white-space: nowrap; /* Prevent text from wrapping */
+    white-space: nowrap; 
 }
 
 .load-more-button:hover {
-    background-color: #f97316; /* Orange background on hover */
-    color: white; /* White text on hover */
+    background-color: #f97316; 
+    color: white; 
 }
