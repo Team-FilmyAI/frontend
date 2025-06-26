@@ -52,7 +52,8 @@
 
 .menu-container ul li:hover a {
   color: var(--orange);
-  text-shadow: 0 0 10px var(--orange), 0 0 20px var(--orange), 0 0 30px var(--orange), 0 0 40px var(--orange);
+  text-shadow: 0 0 10px var(--orange), 0 0 20px var(--orange),
+    0 0 30px var(--orange), 0 0 40px var(--orange);
 }
 
 .user-container {
@@ -82,7 +83,8 @@
 
 .user-container ul li:hover a {
   color: var(--orange);
-  text-shadow: 0 0 10px var(--orange), 0 0 20px var(--orange), 0 0 30px var(--orange), 0 0 40px var(--orange);
+  text-shadow: 0 0 10px var(--orange), 0 0 20px var(--orange),
+    0 0 30px var(--orange), 0 0 40px var(--orange);
 }
 
 .user-container ul li:first-child {
@@ -187,7 +189,8 @@
 
   .sidebar-nav li:has(a.active) {
     background-color: var(--orange);
-    box-shadow: 0 0 15px var(--orange), 0 0 30px var(--orange), 0 0 45px var(--orange);
+    box-shadow: 0 0 15px var(--orange), 0 0 30px var(--orange),
+      0 0 45px var(--orange);
   }
 
   .active {
