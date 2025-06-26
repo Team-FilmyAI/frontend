@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import "./NavBar.css";
+import "./HeroPageNavBar.css";
 
-export default function LandingPageNavBar({ hideLinks = false }) {
+export default function HeroPageNavBar({ hideLinks = false }) {
   const sidebarRef = useRef(null);
   const hamBtnRef = useRef(null);
   const navbarContainerRef = useRef(null);
@@ -102,8 +102,12 @@ export default function LandingPageNavBar({ hideLinks = false }) {
             <div id="ham-btn" ref={hamBtnRef} className="ham-btn">
               <i className="fa fa-bars"></i>
             </div>
-            
-            <div id="nav-container" ref={navContainerRef} className="menu-container">
+
+            <div
+              id="nav-container"
+              ref={navContainerRef}
+              className="menu-container"
+            >
               <ul>
                 <li>
                   <a href="#hero" className="nav-item active">
@@ -111,39 +115,39 @@ export default function LandingPageNavBar({ hideLinks = false }) {
                   </a>
                 </li>
                 {!hideLinks && (
-              <>
-                <li>
-                  <a href="#about" className="nav-item">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#demo" className="nav-item">
-                    Demo
-                  </a>
-                </li>
-                <li>
-                  <a href="#blog" className="nav-item">
-                    Blogs
-                  </a>
-                </li>
-                </>
+                  <>
+                    <li>
+                      <a href="#about" className="nav-item">
+                        About
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#demo" className="nav-item">
+                        Demo
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#blog" className="nav-item">
+                        Blogs
+                      </a>
+                    </li>
+                  </>
                 )}
               </ul>
             </div>
             {!hideLinks && (
               <>
-            <div className="user-container">
-              <ul>
-                <li>
-                  <Link to="/Login">Login</Link>
-                </li>
-                <li>
-                  <Link to="/SignUp">SignUp</Link>
-                </li>
-              </ul>
-            </div>
-            </>
+                <div className="user-container">
+                  <ul>
+                    <li>
+                      <Link to="/Login">Login</Link>
+                    </li>
+                    <li>
+                      <Link to="/SignUp">SignUp</Link>
+                    </li>
+                  </ul>
+                </div>
+              </>
             )}
           </div>
         </div>
