@@ -1,0 +1,223 @@
+/* Universal Box-Sizing and Basic Reset to ensure consistent rendering */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic body styles to center the grid for demonstration purposes and match background */
+body {
+  background-color: #000; /* Pure black background for the page to match the image's context */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  padding: 1rem; /* Add some padding to the body so the grid isn't right at the edge */
+}
+
+/* Grid container styles */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  grid-template-rows: auto auto; /* Rows size automatically based on content, but min-height on cards will enforce uniformity */
+  gap: 1.5rem; /* Gap between cards (e.g., 24px) */
+  max-width: calc(580px * 2 + 1.5rem); /* (Card Max Width * 2) + Gap */
+  justify-content: center; /* Center the grid if it's smaller than max-width */
+}
+
+.casting-call-card {
+  /* Core Card Styles */
+  background-color: #111827; /* Exact deep dark blue/black background as per the image */
+  border-radius: 0.5rem; /* 8px border-radius */
+  padding: 2rem; /* 32px padding on all sides, standard for many modern UIs */
+  color: #e5e7eb; /* General light grey text color for most elements */
+  max-width: 580px; /* Estimated maximum width to match the card's proportion in the image */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Soft, subtle shadow */
+  line-height: 1.5; /* Standard line height for readability */
+  min-height: 520px; /* Estimated height to fit all content, adjust as needed */
+  display: flex; /* Use flexbox to organize content vertically within the card */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Pushes header/body/actions to top/middle/bottom */
+  position: relative; /* IMPORTANT: Needed for absolute positioning of the urgent badge */
+  overflow: hidden; /* Ensures badge corners are clipped if rounded card */
+}
+
+/* --- IMPORTANT ADDITION: Urgent Badge Styling --- */
+.urgent-badge {
+  position: absolute;
+  top: 1rem; /* Adjust position from the top */
+  right: 1rem; /* Adjust position from the right */
+  background-color: #ef4444; /* Red color (similar to Tailwind 'red-500') */
+  color: white;
+  padding: 0.25rem 0.75rem; /* Vertical and horizontal padding */
+  border-radius: 10px; /* Slightly rounded corners for the badge */
+  font-size: 0.75rem; /* Smaller font size */
+  font-weight: 600; /* Semi-bold */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 0.05em; /* Slight letter spacing */
+}
+
+/* Header Section Styling */
+.card-header .title {
+  font-size: 20px; /* 30px */
+  font-weight: 400; /* Bold for prominent title */
+  margin-bottom: 0.5rem; /* 8px space below title */
+  color: #f9fafb; /* Very crisp white for main title for high contrast */
+}
+
+.card-header .genre {
+  color: #f59e0b; /* Vibrant Orange color (similar to Tailwind 'amber-500') */
+  font-size: 1rem; /* 16px */
+  font-weight: 500; /* Medium weight for genre */
+  margin-bottom: 10px; /* 10px space below genre as per your input */
+}
+
+.location-apply-time {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* 24px gap between location and apply time */
+  margin-bottom: 1.75rem; /* 28px space just before the separator line */
+  font-size: 0.875rem; /* 14px */
+  color: #9ca3af; /* Muted grey for metadata (similar to Tailwind 'gray-400') */
+  font-weight: 500; /* Medium weight for these details */
+}
+
+.location-apply-time p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* 8px gap between icon and text */
+}
+
+.location-apply-time .lucide { /* Icon color for location and time */
+  color: #f59e0b; /* Set icons to the vibrant orange color */
+}
+
+/* Body Section Styling */
+.card-body {
+  border-top: 1px solid #374151; /* Dark grey separator line (similar to Tailwind 'gray-700') */
+  padding-top: 1.5rem; /* 24px padding above the body content, after the separator */
+  flex-grow: 1; /* Allow the body to grow and fill available space */
+}
+
+.card-body .role-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 200; /* Semi-bold */
+  margin-bottom: 0.5rem; /* 8px space below role title */
+  color: #f9fafb; /* Crisp white for role title */
+  margin-top: 15px; /* 15px margin-top as per your input */
+}
+
+.card-body .character-name {
+  font-weight: 100; /* Medium weight */
+  margin-bottom: 1rem; /* Increased to 16px for more gap */
+  color: #e5e7eb; /* Slightly off-white for character name */
+}
+
+.card-body .character-description {
+  color: #9ca3af; /* Muted grey for description text */
+  margin-bottom: 2rem; /* Increased to 32px for more gap */
+  font-size: 0.9375rem; /* 15px */
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns for age and gender */
+  gap: 1.25rem; /* 20px gap between grid items */
+  margin-bottom: 1.75rem; /* 28px space before compensation section */
+}
+
+.detail-item{
+  margin-top: 20px;
+}
+.detail-item .detail-label {
+  color: #9ca3af; /* Muted grey for detail labels */
+  font-size: 0.875rem; /* 14px */
+  margin-bottom: 0.25rem; /* 4px space between label and value */
+}
+
+.detail-item .detail-value {
+  font-size: 1.125rem; /* 18px */
+  color: #9ca3af; /* Crisp white for detail values */
+}
+
+/* Compensation Section Styling */
+.compensation {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem; /* 32px space before the action buttons */
+}
+
+.compensation-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* 8px gap for icon */
+  color: #9ca3af; /* Muted grey for compensation label text */
+  font-size: 0.875rem; /* 14px */
+  margin-bottom: 0.25rem; /* 4px space between label and value */
+}
+
+.compensation-label .lucide { /* Icon color for dollar sign */
+  color: #f59e0b; /* Set dollar sign icon to orange */
+}
+
+.compensation-value {
+  font-size: 20px; /* 30px */
+  font-weight: 100; /* Bold for compensation value */
+  color: #10b981; /* Vibrant Green for compensation (similar to Tailwind 'emerald-500') */
+}
+
+/* Actions (Buttons) Section Styling */
+.card-actions {
+  display: flex;
+  gap: 1rem; /* 16px gap between the two buttons */
+  margin-top: auto; /* Pushes the buttons to the bottom if content is short */
+}
+
+.apply-now-button {
+  background-color: #f97316; /* Vibrant Orange for the primary button */
+  color: white;
+  /* --- IMPORTANT: Adjusted Padding to match image visual height and width --- */
+  padding: 0.6rem 3rem; /* ~9.6px vertical (shorter), 48px horizontal (wider) */
+  min-width: 200px; /* Ensures a good baseline width, as per your earlier suggestion */
+  border: none;
+  border-radius: 0.375rem; /* 6px border-radius maintains rectangular shape */
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600; /* Semi-bold */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+  text-align: center; /* Ensure text is centered horizontally within the button */
+  white-space: nowrap; /* Prevent text from wrapping inside the button */
+  flex-grow: 1; /* Allows this button to grow and fill available space */
+  flex-shrink: 0; /* Prevent the button from shrinking excessively */
+  
+}
+
+.apply-now-button:hover {
+  background-color: #ea580c; /* Darker orange on hover */
+}
+
+.view-details-button {
+  background-color: transparent; /* Transparent background */
+  color: #f9fafb; /* Crisp white text color */
+  /* --- IMPORTANT: Adjusted Padding to match image visual height, controlled width --- */
+  padding: 0.3rem 1rem; /* ~9.6px vertical (matches Apply Now), 24px horizontal */
+  min-width: 100px; /* Ensures a good baseline width, makes it consistently narrower */
+  border: 1px solid #4b5563; /* Distinct grey border */
+  border-radius: 0.375rem; /* 6px border-radius */
+  font-size: 1.125rem; /* 18px */
+  font-weight: 400; /* Semi-bold */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth hover effects */
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  flex-basis: auto; /* Revert to auto, as min-width will control it effectively with flex-grow: 1 on Apply Now */
+}
+
+.view-details-button:hover {
+  background-color: #1f2937; /* Darker background on hover */
+  border-color: #374151; /* Slightly darker border on hover */
+  color: #f9fafb; /* Ensure text remains bright on hover */
+}
+
