@@ -1,0 +1,298 @@
+.profile-container {
+  background: #0f0f0f url("/images/LoginSignUp/bg.png") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.profile-wrapper {
+  margin-bottom: 2rem;
+}
+
+  
+.profile-columns {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+  
+.profile-left,
+  .profile-right {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .frosted-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    color: #ff7f00;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  /* Form Styles */
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-input {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ff7f00;
+    background: transparent;
+    color: #ff7f00;
+  }
+
+  .profile-pic-display {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 1rem;
+    border: 2px solid #ff7f00;
+    
+  }
+  .about-textarea {
+    resize: none;
+    min-height: 120px;
+    line-height: 1.6;
+  }
+  textarea.profile-input {
+    resize: none;
+    height: 120px;
+  }
+  .poster-preview {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    margin-top: 1rem;
+  }
+  
+  .profile-wrapper {
+    width: 100%;
+    max-width: 1300px;
+    padding: 2rem;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5rem;
+    box-shadow: 0 0 30px rgba(255, 127, 0, 0.15);
+    backdrop-filter: blur(10px);
+  }
+  
+  select.profile-input {
+    height: 3rem; /* You can adjust this as needed */
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  .remove-btn {
+    background-color: transparent;
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+  }
+  
+  .remove-btn:hover {
+    background-color: #ff4d4d;
+    color: black;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .edit-btn,
+  .save-btn,
+  .next-btn {
+    background-color: #ff7f00;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    color: black;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .edit-btn:hover,
+  .save-btn:hover,
+  .next-btn:hover {
+    background-color: #ffa500;
+  }
+  
+  .edit-btn:disabled,
+  .save-btn:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+  }
+  nav, footer {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+  .poster-preview {
+    width: 50%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 0.5rem;             /* Optional: small rounded corners */
+    object-fit: contain;               /* Ensures full image is visible */
+    border: 1px solid #ff7f00;         /* Match theme */
+    margin-top: 1rem;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .edit-icon {
+    font-size: 1.1rem;
+    color: #ff7f00;
+    cursor: pointer;
+    padding-left: 0.5rem;
+  }
+  
+  .edit-icon:hover {
+    color: #ffa500;
+  }
+  select[multiple] {
+    height: auto;
+    min-height: 100px;
+  }
+   
+  /* .profile-input {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ff7f00;
+    background: transparent;
+    color: #ff7f00;
+  } */
+
+
+  /* React Select custom styles */
+.select__control {
+  border: 1px solid #ff7f00 !important;
+  background: transparent !important;
+  color: #ff7f00;
+  border-radius: 0.5rem;
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  min-height: 3rem;
+  /* background: rgba(255, 255, 255, 0.1); */
+}
+.select__menu {
+  background: #1e1e1e !important;
+  /* background: rgba(255, 255, 255, 0.1); */
+  color: #ff7f00;
+  border-radius: 0.5rem;
+}
+.select__multi-value {
+  background-color: #ff7f00 !important;
+  color: black;
+}
+.select__multi-value__label {
+  color: black;
+}
+.select__multi-value__remove {
+  color: black;
+}
+.select__input input {
+  color: #ff7f00 !important;
+}
+
+
+
+
+
+
+.profile-pic-row.display-mode {
+  align-items: flex-end; /* Push to the right */
+}
+
+
+
+.profile-info-display-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-info-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.profile-display-inline {
+  color: #ff7f00;
+  font-size: 1rem;
+}
+
+
+
+.double-input-wrapper-container {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.double-input-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.half-width {
+  display: flex;
+  flex-direction: column;
+  max-width: 130px;
+}
+
+.unit-input-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.unit-dropdown {
+  width: 55px;
+  height: 2.4rem;
+  font-size: 0.85rem;
+  border-radius: 0.4rem;
+  background: transparent;
+  color: #ff7f00;
+  border: 1px solid #ff7f00;
+}
+
+.unit-input-wrapper input {
+  width: 70px;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+}
+
+

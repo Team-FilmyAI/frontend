@@ -1,0 +1,65 @@
+.custom-button {
+  padding: 1.6rem 3.2rem;
+  font-size: 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-button.primary {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.custom-button.primary:hover {
+  background-color: #d97706;
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+.custom-button.secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.custom-button.outline {
+  background-color: transparent;
+  border: 1px solid #f59e0b;
+  color: #f59e0b;
+}
+
+.custom-button.outline:hover {
+  background-color: #fef3c7; /* soft yellow background */
+}
+
+.custom-button.full-width {
+  width: 100%;
+}
+
+.custom-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button-icon {
+  margin-right: 0.5rem;
+}
