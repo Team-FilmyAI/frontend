@@ -8,6 +8,8 @@ import Header from "../shared/components/Header";
 import SearchBar from "../shared/components/SearchBar";
 import Opportunities from "../shared/components/Opportunities";
 import CastingCards from "../shared/components/CastingCards";
+import TextInput from "../shared/components/Text Input/TextInput";
+import Button from "../shared/components/Button/Button";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -20,6 +22,8 @@ export default function AppRoutes() {
       <Route path="/searchbar" element={<SearchBar />} />
       <Route path="/opportunities" element={<Opportunities />} />
       <Route path="/castingcards" element={<CastingCards />} />
+      <Route path="/textinput" element={<TextInput />} />
+      <Route path="/button" element={<Button />} />
     </Routes>
   );
 }
