@@ -11,7 +11,7 @@ export default function Header() {
   };
 
   // Integrate the API to Search and display results
-  const handleSearch = (query) => {
+  const handleSearch = (query: string) => {
     alert(`Search submitted: ${query}`);
   };
 
@@ -36,5 +36,3 @@ export default function Header() {
     </header>
   );
 };
-
-// export default Header;

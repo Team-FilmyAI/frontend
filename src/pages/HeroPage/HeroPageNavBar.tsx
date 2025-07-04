@@ -1,13 +1,17 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "./HeroPageNavBar.css";
 
-export default function HeroPageNavBar({ hideLinks = false }) {
-  const sidebarRef = useRef(null);
-  const hamBtnRef = useRef(null);
-  const navbarContainerRef = useRef(null);
-  const navbarRef = useRef(null);
-  const navContainerRef = useRef(null);
+type HeroPageNavBarProps = {
+  hideLinks?: boolean;
+};
+
+export default function HeroPageNavBar({ hideLinks = false }: HeroPageNavBarProps) {
+  const sidebarRef = useRef<HTMLDivElement | null>(null);
+  const hamBtnRef = useRef<HTMLDivElement | null>(null);
+  const navbarContainerRef = useRef<HTMLDivElement | null>(null);
+  const navbarRef = useRef<HTMLDivElement | null>(null);
+  const navContainerRef = useRef<HTMLDivElement | null>(null);
 
   // Resize handler for navbar container responsiveness
   useEffect(() => {
@@ -24,36 +28,35 @@ export default function HeroPageNavBar({ hideLinks = false }) {
 
     handleResize(); // run on mount
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Sidebar toggle + sidebar nav active switching
+  // Sidebar toggle + nav active switch
   useEffect(() => {
     const sidebar = sidebarRef.current;
     const hamBtn = hamBtnRef.current;
+
+    if (!sidebar || !hamBtn) return;
 
     const toggleMenu = () => {
       sidebar.classList.toggle("menu-visible");
     };
 
-    hamBtn?.addEventListener("click", toggleMenu);
-
-    const handleSidebarNavClick = (event) => {
-      if (event.target.classList.contains("nav-item")) {
+    const handleSidebarNavClick = (event: Event) => {
+      const target = event.target as HTMLElement;
+      if (target.classList.contains("nav-item")) {
         const currentActive = sidebar.querySelector(".active");
-        if (currentActive) {
-          currentActive.classList.remove("active");
-        }
-        event.target.classList.add("active");
+        if (currentActive) currentActive.classList.remove("active");
+        target.classList.add("active");
       }
     };
 
-    sidebar?.addEventListener("click", handleSidebarNavClick);
+    hamBtn.addEventListener("click", toggleMenu);
+    sidebar.addEventListener("click", handleSidebarNavClick);
 
     return () => {
-      hamBtn?.removeEventListener("click", toggleMenu);
-      sidebar?.removeEventListener("click", handleSidebarNavClick);
+      hamBtn.removeEventListener("click", toggleMenu);
+      sidebar.removeEventListener("click", handleSidebarNavClick);
     };
   }, []);
 
@@ -61,6 +64,8 @@ export default function HeroPageNavBar({ hideLinks = false }) {
   useEffect(() => {
     const navbar = navbarRef.current;
     const navContainer = navContainerRef.current;
+
+    if (!navbar || !navContainer) return;
 
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -70,24 +75,23 @@ export default function HeroPageNavBar({ hideLinks = false }) {
       }
     };
 
-    const handleNavClick = (event) => {
-      if (event.target.classList.contains("nav-item")) {
+    const handleNavClick = (event: Event) => {
+      const target = event.target as HTMLElement;
+      if (target.classList.contains("nav-item")) {
         const currentActive = navContainer.querySelector(".active");
-        if (currentActive) {
-          currentActive.classList.remove("active");
-        }
-        event.target.classList.add("active");
+        if (currentActive) currentActive.classList.remove("active");
+        target.classList.add("active");
       }
     };
 
-    handleScroll(); // Run once on mount
+    handleScroll(); // on mount
 
     window.addEventListener("scroll", handleScroll);
-    navContainer?.addEventListener("click", handleNavClick);
+    navContainer.addEventListener("click", handleNavClick);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      navContainer?.removeEventListener("click", handleNavClick);
+      navContainer.removeEventListener("click", handleNavClick);
     };
   }, []);
 
@@ -135,19 +139,18 @@ export default function HeroPageNavBar({ hideLinks = false }) {
                 )}
               </ul>
             </div>
+
             {!hideLinks && (
-              <>
-                <div className="user-container">
-                  <ul>
-                    <li>
-                      <Link to="/Login">Login</Link>
-                    </li>
-                    <li>
-                      <Link to="/SignUp">SignUp</Link>
-                    </li>
-                  </ul>
-                </div>
-              </>
+              <div className="user-container">
+                <ul>
+                  <li>
+                    <Link to="/Login">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/SignUp">SignUp</Link>
+                  </li>
+                </ul>
+              </div>
             )}
           </div>
         </div>
