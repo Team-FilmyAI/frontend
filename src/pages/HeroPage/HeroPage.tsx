@@ -1,7 +1,7 @@
-import "./HeroPage.css";
-import HeroPageNavBar from "./HeroPageNavBar";
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
+import "./HeroPage.css";
+import HeroPageNavBar from "./HeroPageNavBar";
 
 interface BlogPost {
   title: string;
