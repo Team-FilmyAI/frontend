@@ -62,7 +62,7 @@ export default function Signup() {
     setPopupVisible(true); // Show popup
 
     setTimeout(() => {
-      navigate("/profile");
+      navigate("/LandingPage");
     }, 1500);
   };
 
