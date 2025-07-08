@@ -1,44 +1,54 @@
-// import "../../App.css";
-import "../../styles/FilmProjectDetails/FilmProjectDetails.css";
-import { movieDrive as movie } from "../../assets/data/constants.js";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import './FilmProjectDetails.css';
+import Header from '../../components/Header/Header';
+import { useState } from 'react';
+import { movieDrive as movie } from '../../assets/data/constants.js';
 
-function App() {
+import Radio from '../../components/Radio/Radio.jsx';
+import { progLangs, yesOrNo } from '../../assets/data/constants.js';
+
+import Dropdown from '../../components/Dropdown/Dropdown.jsx';
+import { testDropdown } from '../../assets/data/constants.js';
+
+import { Users, Calendar, Star, Clock, Building, MapPin } from 'lucide-react';
+
+function FilmProjectDetails() {
   return (
-    <div className="App">
-      <FilmOverview film={movie} />
-      <Synopsis synopsis={movie.synopsis} />
-      <AvailableRoles roles={movie.availableRoles} />
-    </div>
+    <>
+      <Header />
+      <Radio radioInfo={progLangs} /> <br />
+      <Radio radioInfo={yesOrNo} /> <br />
+      <Dropdown {...testDropdown} containerStyling="" />
+      <div className="FilmProjectDetails">
+        {/* Change to Reusable Component */}
+        <button>
+          <i class="fa-solid fa-arrow-left back-button" /> Back to Movies
+        </button>
+
+        <FilmOverview film={movie} />
+        <Synopsis synopsis={movie.synopsis} />
+        <AvailableRoles roles={movie.availableRoles} />
+      </div>
+    </>
   );
 }
 
 function FilmOverview({ film }) {
   return (
-    <div className="film-overview">
-      <div className="film-poster-container">
-        <img
-          src={film.posterUrl}
-          alt={`${film.title} poster`}
-          className="film-poster"
-        />
-      </div>
-      <div className="film-details-container">
-        <FilmDetails film={film} />
-      </div>
-    </div>
+    <section className="film-overview">
+      <img src={film.posterUrl} alt={`${film.title} poster`} className="film-poster" />
+      <FilmDetails film={film} />
+    </section>
   );
 }
 
 function FilmDetails({ film }) {
   const formatDate = (dateString) => {
-    const [year, month, day] = dateString.split("-");
+    const [year, month, day] = dateString.split('-');
     const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     });
   };
 
@@ -47,46 +57,43 @@ function FilmDetails({ film }) {
       <h1>{film.title}</h1>
       <h2>{film.genres}</h2>
       <div className="film-icon i">
-        <p>
-          <i class="fa-regular fa-user"></i> Director: {movie.director}
-        </p>
-        <p>
-          <i class="fa-regular fa-calendar"></i>{" "}
-          {formatDate(film.filmingDates.start)} -{" "}
-          {formatDate(film.filmingDates.end)}
-        </p>
-        <p>
-          <i class="fa-regular fa-star"></i> Budget: {movie.budget}
-        </p>
-        <p>
-          <i class="fa-regular fa-clock"></i> {movie.productionTime} production
-        </p>
-        <div className="producers">
-          <h3>
-            <i class="fa-regular fa-building"></i> Production Companies
-          </h3>
-          <div>
-            {film.productionCompanies.map((company, i) => (
-              <InfoTag key={i} text={company} />
-            ))}
-          </div>
+        <div className="column-container">
+          <p>
+            <Users className="icon-color" /> Director: {movie.director}
+          </p>
+          <p>
+            <Calendar className="icon-color" /> {formatDate(film.filmingDates.start)} -{' '}
+            {formatDate(film.filmingDates.end)}
+          </p>
+          <p>
+            <Star className="icon-color" /> Budget: {movie.budget}
+          </p>
+          <p>
+            <Clock className="icon-color" /> {movie.productionTime} production
+          </p>
         </div>
-        <div className="locations">
-          <h3>
-            <i class="fa-solid fa-location-dot"></i> Filming Locations
-          </h3>
-          <div>
-            {film.filmingLocations.map((location, i) => (
-              <InfoTag key={i} text={location} />
-            ))}
-          </div>
+        <h4>
+          <Building className="icon-color" /> Production Companies
+        </h4>
+        <div>
+          {film.productionCompanies.map((company, i) => (
+            <InfoTag key={i} text={company} />
+          ))}
+        </div>
+        <h4>
+          <MapPin className="icon-color" /> Filming Locations
+        </h4>
+        <div>
+          {film.filmingLocations.map((location, i) => (
+            <InfoTag key={i} text={location} />
+          ))}
         </div>
       </div>
     </div>
   );
 }
 
-function InfoTag({ text, className = "" }) {
+function InfoTag({ text, className = '' }) {
   return <span className={`info-tag ${className}`}>{text}</span>;
 }
 
@@ -120,12 +127,7 @@ function AvailableRoles({ roles }) {
       <h2 className="">Available Roles</h2>
       <div className="role-listings">
         {roles.map((role, i) => (
-          <Role
-            key={i}
-            role={role}
-            isFilled={filledRoles[i]}
-            onApply={() => handleApply(i)}
-          />
+          <Role key={i} role={role} isFilled={filledRoles[i]} onApply={() => handleApply(i)} />
         ))}
       </div>
     </div>
@@ -134,41 +136,36 @@ function AvailableRoles({ roles }) {
 
 function Role({ role, isFilled, onApply }) {
   return (
-    <div className={`listing ${isFilled ? "role-filled" : ""}`}>
-      <div className="role-header">
+    <article className={`listing ${isFilled ? 'role-filled' : ''}`}>
+      <header className="role-header">
         <h3 className="role-title">{role.roleName}</h3>
-        <span
-          className={`role-badge ${isFilled ? "badge-filled" : "badge-open"}`}
-        >
-          {isFilled ? "Filled" : "Open"}
+        <span className={`role-badge ${isFilled ? 'badge-filled' : 'badge-open'}`}>
+          {isFilled ? 'Filled' : 'Open'}
         </span>
-      </div>
+      </header>
 
       <p className="role-description">{role.description}</p>
 
-      <div className="role-requirements">
-        <p className="requirements-title">Requirements:</p>
-        <div className="tags-container">
-          {role.requirements.map((requirement, i) => (
-            <InfoTag key={i} text={requirement} className="tag-pill" />
-          ))}
-        </div>
+      <p className="requirements-title">Requirements:</p>
+      <div className="tags-container">
+        {role.requirements.map((requirement, i) => (
+          <InfoTag key={i} text={requirement} className="tag-pill" />
+        ))}
       </div>
 
-      <p className="pay-range">
-        Pay Range: ${role.payRange[0].toLocaleString()} - $
-        {role.payRange[1].toLocaleString()}
-      </p>
+      <div className="pay-and-apply">
+        <span className="pay-range">
+          Pay Range: ${role.payRange[0].toLocaleString()} - ${role.payRange[1].toLocaleString()}
+        </span>
 
-      {!isFilled && (
-        <div className="apply-button-wrapper">
+        {!isFilled && (
           <button onClick={onApply} className="apply-button">
             Apply Now
           </button>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </article>
   );
 }
 
-export default App;
+export default FilmProjectDetails;
