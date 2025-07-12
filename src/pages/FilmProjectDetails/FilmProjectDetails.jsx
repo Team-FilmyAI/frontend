@@ -3,21 +3,12 @@ import Header from '../../components/Header/Header';
 import { useState } from 'react';
 import { movieDrive as movie } from '../../assets/data/constants.js';
 
-import Radio from '../../components/Radio/Radio.jsx';
-import { progLangs, yesOrNo } from '../../assets/data/constants.js';
-
-import Dropdown from '../../components/Dropdown/Dropdown.jsx';
-import { testDropdown } from '../../assets/data/constants.js';
-
 import { Users, Calendar, Star, Clock, Building, MapPin } from 'lucide-react';
 
 function FilmProjectDetails() {
   return (
     <>
       <Header />
-      <Radio radioInfo={progLangs} /> <br />
-      <Radio radioInfo={yesOrNo} /> <br />
-      <Dropdown {...testDropdown} containerStyling="" />
       <div className="FilmProjectDetails">
         {/* Change to Reusable Component */}
         <button>
@@ -54,40 +45,38 @@ function FilmDetails({ film }) {
 
   return (
     <div className="film-details">
-      <h1>{film.title}</h1>
-      <h2>{film.genres}</h2>
-      <div className="film-icon i">
-        <div className="column-container">
-          <p>
-            <Users className="icon-color" /> Director: {movie.director}
-          </p>
-          <p>
-            <Calendar className="icon-color" /> {formatDate(film.filmingDates.start)} -{' '}
-            {formatDate(film.filmingDates.end)}
-          </p>
-          <p>
-            <Star className="icon-color" /> Budget: {movie.budget}
-          </p>
-          <p>
-            <Clock className="icon-color" /> {movie.productionTime} production
-          </p>
-        </div>
-        <h4>
-          <Building className="icon-color" /> Production Companies
-        </h4>
-        <div>
-          {film.productionCompanies.map((company, i) => (
-            <InfoTag key={i} text={company} />
-          ))}
-        </div>
-        <h4>
-          <MapPin className="icon-color" /> Filming Locations
-        </h4>
-        <div>
-          {film.filmingLocations.map((location, i) => (
-            <InfoTag key={i} text={location} />
-          ))}
-        </div>
+      <h1 className="film-title">{film.title}</h1>
+      <h2 className="film-genres">{film.genres}</h2>
+      <div className="column-container">
+        <p>
+          <Users className="icon-color" /> Director: {movie.director}
+        </p>
+        <p>
+          <Calendar className="icon-color" /> {formatDate(film.filmingDates.start)} -{' '}
+          {formatDate(film.filmingDates.end)}
+        </p>
+        <p>
+          <Star className="icon-color" /> Budget: {movie.budget}
+        </p>
+        <p>
+          <Clock className="icon-color" /> {movie.productionTime} production
+        </p>
+      </div>
+      <h4>
+        <Building className="icon-color" /> Production Companies
+      </h4>
+      <div>
+        {film.productionCompanies.map((company, i) => (
+          <InfoTag key={i} text={company} />
+        ))}
+      </div>
+      <h4>
+        <MapPin className="icon-color" /> Filming Locations
+      </h4>
+      <div>
+        {film.filmingLocations.map((location, i) => (
+          <InfoTag key={i} text={location} />
+        ))}
       </div>
     </div>
   );
@@ -153,17 +142,15 @@ function Role({ role, isFilled, onApply }) {
         ))}
       </div>
 
-      <div className="pay-and-apply">
-        <span className="pay-range">
-          Pay Range: ${role.payRange[0].toLocaleString()} - ${role.payRange[1].toLocaleString()}
-        </span>
+      <span className="pay-range">
+        ${role.payRange[0].toLocaleString()} - ${role.payRange[1].toLocaleString()}
+      </span>
 
-        {!isFilled && (
-          <button onClick={onApply} className="apply-button">
-            Apply Now
-          </button>
-        )}
-      </div>
+      {!isFilled && (
+        <button onClick={onApply} className="apply-button">
+          Apply Now
+        </button>
+      )}
     </article>
   );
 }
