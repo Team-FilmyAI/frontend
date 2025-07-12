@@ -1,0 +1,231 @@
+.FilmProjectDetails {
+  padding: 5.9vh 6.25vw;
+  max-width: 90vw;
+  height: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  transform-origin: center;
+}
+
+.film-title {
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  color: var(--color-heading-strong);
+}
+
+.film-genres {
+  font-weight: 400;
+  font-size: clamp(1.125rem, 1.74vw, 1.5625rem);
+  color: var(--color-icons-orange);
+}
+
+body {
+  display: grid;
+  justify-content: center;
+}
+
+.film-details h4 {
+  font-weight: 400 !important;
+  color: var(--color-heading-medium) !important;
+}
+
+.film-details p,
+.listing p,
+.synopsis p {
+  font-weight: 400;
+  color: var(--color-text-default);
+  font-size: clamp(0.875rem, 1vw, 1.125rem);
+}
+
+p,
+span {
+  font-family: 'Garet';
+}
+
+.column-container {
+  column-count: 2;
+  column-gap: 4.17vw;
+  margin-bottom: 1.39vw;
+}
+
+.column-container p {
+  line-height: 2.5;
+}
+
+.back-button {
+  color: var(--back-arrow-icon);
+}
+
+.synopsis {
+  margin-bottom: 1.74vw;
+}
+
+.synopsis h2,
+.available-roles h2 {
+  color: var(--color-heading-strong);
+  margin-bottom: 1.74vw;
+  font-size: clamp(1.125rem, 1.74vw, 1.5625rem);
+}
+
+.info-tag {
+  display: inline-block;
+  font-family: 'Garet', sans-serif;
+  font-size: clamp(0.6875rem, 0.85vw, 0.875rem);
+  color: var(--color-info-tag);
+  padding: 0.14vw 0.28vw;
+  border-style: solid;
+  border-radius: 6px;
+  border-width: thin;
+  border-color: #464f5a;
+  margin: 0.28vw;
+  margin-bottom: 1.74vw;
+  white-space: nowrap;
+}
+
+.info-tag.tag-pill {
+  margin: 0.28vw;
+  padding: 0.28vw 0.49vw;
+}
+
+.role-listings {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.39vw;
+  padding: 0;
+  margin: 0;
+}
+
+.listing {
+  position: relative;
+  background-color: #111827;
+  border-radius: 10px;
+  padding: 1.7vw 1.4vw;
+  transition: all 0.3s ease;
+  /* width: 38vw;
+  height: 15.38vw; */
+}
+
+.FilmProjectDetails .film-overview {
+  padding: 0 1.74vw;
+  display: flex;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  flex-direction: row;
+  gap: 5rem;
+  margin-bottom: 6rem;
+  align-items: flex-start;
+}
+
+.film-poster {
+  flex-shrink: 0;
+  width: 22.92vw;
+  height: 36.46vw;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.film-details-container {
+  flex: 1;
+}
+
+.icon-color {
+  color: var(--color-icons-orange);
+}
+
+.role-filled {
+  opacity: 0.5;
+}
+
+.role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.11vw !important;
+}
+
+.role-title {
+  color: var(--color-heading-medium) !important;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  font-weight: 400;
+  margin: 0;
+}
+
+.role-badge {
+  position: absolute;
+  top: 1.6vw;
+  right: 1.55vw;
+  padding: 0.07vw 0.63vw;
+  margin-bottom: 0.14vw;
+  border-radius: 20px;
+  font-size: clamp(0.6875rem, 0.75vw, 0.875rem);
+  font-weight: 500;
+  color: var(--badge-icon-text);
+}
+
+.badge-filled {
+  background-color: #6b7280;
+  color: white;
+}
+
+.badge-open {
+  background-color: var(--badge-icon);
+  font-weight: 700;
+}
+
+.role-description {
+  color: #666;
+  margin-bottom: 1.11vw !important;
+  font-size: clamp(0.875rem, 1vw, 1.125rem);
+}
+
+.section-title {
+  font-weight: 500;
+  margin-bottom: 0.56vw;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+}
+
+.requirements-title {
+  font-weight: 400;
+  margin-bottom: 0 !important;
+  color: var(--requirements-title) !important;
+  font-size: clamp(0.875rem, 1vw, 1.125rem);
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1vw;
+}
+
+.tag-pill {
+  background-color: var(--tags-container);
+  border: none;
+}
+
+.pay-range {
+  color: var(--pay-range);
+  font-weight: 400;
+  font-size: clamp(0.875rem, 1vw, 1.125rem);
+}
+
+.apply-button {
+  position: absolute;
+  bottom: 1.5vw;
+  right: 1.7vw;
+  background-color: var(--apply-button);
+  color: var(--apply-button-text);
+  border: none;
+  padding: 0.42vw 0.69vw;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  transition: background-color 0.2s ease;
+}
+
+.apply-button:hover {
+  box-shadow: 0 0 10px 2px var(--apply-button);
+}
