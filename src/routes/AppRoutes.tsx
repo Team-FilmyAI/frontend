@@ -10,6 +10,8 @@ import ViewOpportunities from "../pages/ViewOpportunities/ViewOpportunities";
 import CastingCards from "../pages/CastingCards/CastingCards";
 import ButtonGroup from "../pages/ButtonGroup";
 import TextInputGroup from "../pages/TextInputGroup";
+import LoginPage from "../components/LoginPage/LoginPage";
+
 
 
 export default function AppRoutes() {
@@ -25,6 +27,8 @@ export default function AppRoutes() {
       <Route path="/ViewOpportunities" element={<ViewOpportunities />}/>
       <Route path="/ButtonGroup" element={<ButtonGroup />} />
       <Route path="/TextInputGroup" element={<TextInputGroup />} />
+      <Route path="/LoginPage" element={<LoginPage />} />
+      
     </Routes>
   );
 }

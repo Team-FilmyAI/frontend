@@ -1,0 +1,255 @@
+/* General Reset and Body Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.login-body {
+  background-color: #191919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("/images/LoginSignUp/bg.png") no-repeat center;
+  background-size: cover;
+}
+
+/* Container */
+.login-container {
+  display: flex;
+  background: linear-gradient(to bottom right, #151516, #000000);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  width: 1000px;
+  height: 600px;
+}
+
+/* Left Section (Form) */
+.login-left {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  border-radius: 15px 0 0 15px;
+}
+
+/* Right Section (Brand) */
+.login-right {
+  width: 50%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 15px 15px 0;
+}
+
+.login-org-name {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #ff7f00;
+}
+
+.login-org-tag-line {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Title */
+.login-title {
+  color: #ff7f00;
+  font-size: 3.0rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Input Field with Icon */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-field-with-icon {
+  background-color: #2a2a2a;
+  color: #fff;
+  padding: 12px 40px 12px 40px;
+  border-radius: 30px;
+  width: 100%;
+  border: 1px solid transparent;
+  font-size: 14px;
+  transition: border 0.2s ease;
+}
+
+.input-field-with-icon::placeholder {
+  color: #ccc;
+}
+
+.input-field-with-icon:focus {
+  outline: none;
+  border: 1px solid #ff7f00;
+  color: #ff7f00;
+}
+
+/* Icons in input */
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc;
+  pointer-events: none;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #ccc;
+}
+
+/* Error Styling */
+.input-error {
+  border: 1px solid #ED2B2C !important;
+}
+
+.error-text {
+  color: #ED2B2C;
+  font-size: 13px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+/* Forgot Password */
+.forgot-password {
+  display: flex;
+  justify-content: flex-end;
+  color: #fff;
+  font-size: 14px;
+  margin-right: 300px;
+}
+
+.forgot-password a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  color: #ff7f00;
+}
+
+/* Login Button */
+.login-button {
+  border: 2px solid #ff7f00;
+  background-color: #ff7f00;
+  padding: 12px 20px;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #e65c00;
+  border-color: #e65c00;
+}
+
+/* Sign Up */
+.signup-link {
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-link a {
+  color: #ff7f00;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-shadow: 0 0 10px #ff7f00, 0 0 20px #ff7f00;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #aaa;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #444;
+  margin: 0 10px;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.social-icons svg {
+  color: white;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.social-icons svg:hover {
+  color: #ff7f00;
+  filter: drop-shadow(0 0 10px #ff7f00);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column-reverse;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .login-left,
+  .login-right {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .login-left {
+    padding: 30px 20px;
+  }
+
+  .login-org-name {
+    font-size: 3rem;
+  }
+}
+
+.input-label {
+  font-size: 14px;
+  color: #b8b0b0;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
