@@ -17,6 +17,7 @@
   --black: #191919;
   --card-grey: #2a2a2a;
   --section: #212121;
+  --input-focus-color: #514F4F;
 }
 
 #root {
@@ -156,6 +157,18 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+/*To be applied to ALL other inputs in the form for consistency
+
+.demo-form-input {
+  transition: all 0.3s ease;
+}
+
+.demo-form-input:focus {
+  outline: 1px solid var(--input-focus-color);
+  box-shadow: 0 0 10px 2px var(--input-focus-color);
+}
+*/
 
 @media (prefers-color-scheme: light) {
   :root {

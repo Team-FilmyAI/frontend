@@ -202,10 +202,10 @@ export default function HeroPage() {
                       </div>
                       <div className="row">
                         <div className="col-md-6">
-                          <input type="email" className="demo-form-input" placeholder="Email" />
+                        <input type="email" className="demo-form-input" placeholder="Email"/>
                         </div>
                         <div className="col-md-6">
-                          <input type="tel" className="demo-form-input" placeholder="Mobile Number" />
+                        <input type="tel" className="demo-form-input" placeholder="Mobile Number"/>
                         </div>
                       </div>
                       <div className="row">

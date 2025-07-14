@@ -6,19 +6,21 @@
   padding: 0 10px;
   height: 40px;
   width: 100%;
-  outline: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   font-size: 1rem;
 }
 
+.number-input:hover {
+  background-color: var(--section);
+}
 .number-input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
 .number-input:focus {
-  outline: 1px solid var(#514F4F);
-  color: var(#514F4F);
-  box-shadow: 0 0 10px 2px var(#514F4F);
+  color: var(--orange);
+  outline: 1px solid var(--input-focus-color);
+  box-shadow: 0 0 10px 2px var(--input-focus-color);
 }
 
 .number-input:disabled {
@@ -27,7 +29,17 @@
   cursor: not-allowed;
 }
 
-/* Responsive spacing if needed */
+.input-error {
+  outline: 1px solid red;
+  box-shadow: 0 0 10px 2px var(--input-focus-color);
+}
+
+.input-error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
 @media (max-width: 768px) {
   .number-input {
     margin-bottom: 20px;

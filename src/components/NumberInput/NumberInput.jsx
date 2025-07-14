@@ -1,86 +1,49 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import "./NumberInput.css";
-export default function NumberInput({
-  value,defaultValue,onChange,min, max, step = 1, placeholder, id, name, disabled = false, required = false, className = "", ariaLabel,
-  
-}) {
-  const [internalValue, setInternalValue] = useState(
-    value !== undefined
-      ? String(value)
-      : defaultValue !== undefined
-      ? String(defaultValue)
-      : ""
-  );
 
-  // Sync with external value if controlled
-  useEffect(() => {
-    if (value !== undefined) {
-      setInternalValue(String(value));
-    }
-  }, [value]);
+export default function NumberInput({
+  maxLength = 10,
+  placeholder = "Enter number",
+  value,
+  onChange,
+}) {
+  const [touched, setTouched] = useState(false);
+  const [inputValue, setInputValue] = useState(value || "");
+  const [isValid, setIsValid] = useState(true);
 
   const handleChange = (e) => {
-    const val = e.target.value;
+  const val = e.target.value;
 
-    // Allow clearing the input
-    if (val === "") {
-      setInternalValue("");
-      if (onChange) onChange(undefined);
-      return;
-    }
-
-    // Allow only valid numeric inputs (supports decimals and negative numbers)
-    const validNumberRegex = /^-?\d*\.?\d*$/;
-    if (!validNumberRegex.test(val)) return;
-
-    const parsed = parseFloat(val);
-    if (!isNaN(parsed)) {
-      if (min !== undefined && parsed < min) return;
-      if (max !== undefined && parsed > max) return;
-    }
-
-    setInternalValue(val);
-    if (onChange) onChange(!isNaN(parsed) ? parsed : undefined);
-  };
+  if (/^\d*$/.test(val)) {
+    setInputValue(val);
+    if (onChange) onChange(val);
+    if (!touched) setTouched(true);
+    setIsValid(val.length > 0 && val.length <= maxLength);
+  }
+};
 
   const handleBlur = () => {
-    if (internalValue === "") return;
-
-    let parsed = parseFloat(internalValue);
-    if (isNaN(parsed)) {
-      setInternalValue("");
-      if (onChange) onChange(undefined);
-      return;
-    }
-
-    // Clamp to min/max
-    if (min !== undefined && parsed < min) parsed = min;
-    if (max !== undefined && parsed > max) parsed = max;
-
-    // Format to match step decimal places
-    const stepDecimals = step && step % 1 !== 0
-      ? step.toString().split(".")[1].length
-      : 0;
-
-    const formatted = parsed.toFixed(stepDecimals);
-    setInternalValue(formatted);
-    if (onChange) onChange(parseFloat(formatted));
+    setTouched(true);
+    setIsValid(inputValue.length > 0 && inputValue.length <= maxLength);
   };
 
   return (
-    <input
-      type="text"
-      id={id}
-      name={name}
-      value={internalValue}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      placeholder={placeholder}
-      disabled={disabled}
-      required={required}
-      aria-label={ariaLabel}
-      inputMode="decimal"
-      className={`number-input ${className}`} 
-    />
+    <div className="number-input">
+      <input
+        type="tel"
+        inputMode="numeric"
+        pattern="[0-9]*"
+        className={`number-input ${touched && !isValid ? "input-error" : ""}`}
+        placeholder={placeholder}
+        value={inputValue}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
+      {touched && !isValid && (
+        <p className="input-error-message">
+          Please enter a valid number (max {maxLength} digits).
+        </p>
+      )}
+    </div>
   );
 }

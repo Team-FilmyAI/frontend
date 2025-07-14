@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./EmailInput.css";
 
 export default function EmailInput({ value, onChange, placeholder = "Enter your email", required = false }) {
@@ -22,7 +22,7 @@ export default function EmailInput({ value, onChange, placeholder = "Enter your 
   const showError = isTouched && !isValidEmail(email) && email !== "";
 
   return (
-    <div className="email-input-wrapper">
+    <div className="email-input">
       <input
         type="email"
         className={`demo-form-input email-input ${showError ? "invalid" : ""}`}

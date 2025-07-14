@@ -1,59 +1,38 @@
-.textarea-wrapper {
+.text-area-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   width: 100%;
 }
 
-.textarea-wrapper label {
-  color: var(--white);
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-.textarea {
+.custom-textarea {
   background-color: var(--section);
   color: var(--white);
   outline: 1px solid rgba(255, 255, 255, 0.2);
   border: none;
   border-radius: 5px;
-  padding: 10px;
+  padding: 8px;
   resize: vertical;
+  min-height: 80px;
   font-family: inherit;
-  font-size: 1rem;
-  min-height: 100px;
-  width: 100%;
+  transition: all 0.3s ease;
 }
 
-.textarea:focus {
-  outline: 1px solid var(#514F4F);
-  color: var(#514F4F);
-  box-shadow: 0 0 10px 2px var(#514F4F);
+.custom-textarea:hover {
+  background-color: var(--section);
 }
 
-.textarea.error {
+.custom-textarea:focus {
+  outline: 1px solid var(--input-focus-color);
+  box-shadow: 0 0 10px 2px var(--input-focus-color);
+  color: var(--white);
+}
+
+.custom-textarea.error {
   outline: 1px solid red;
-  box-shadow: 0 0 10px 2px red;
 }
 
 .error-message {
   color: red;
-  font-size: 0.85rem;
-  font-style: italic;
-}
-
-@media (max-width: 768px) {
-  .textarea {
-    font-size: 0.95rem;
-    padding: 8px;
-    min-height: 80px;
-  }
-
-  .textarea-wrapper label {
-    font-size: 0.95rem;
-  }
-
-  .error-message {
-    font-size: 0.75rem;
-  }
+  font-size: 0.8rem;
+  margin-top: 5px;
 }

@@ -2,35 +2,35 @@ import { useState } from "react";
 import "./TextArea.css";
 
 export default function TextArea({
-  label = "Message",
-  name = "message",
-  rows = 4,
+  placeholder = "",
+  value = "",
+  onChange = () => {},
+  maxLength = 250,
+  name = "",
   required = false,
-  placeholder = "Enter your message...",
-  value,
-  onChange,
-  validate = true,
+  className = "",
 }) {
   const [touched, setTouched] = useState(false);
 
-  const isValid = value && value.trim().length > 0;
-  const showError = validate && touched && required && !isValid;
+  const handleBlur = () => {
+    setTouched(true);
+  };
+
+  const isError = required && touched && !value.trim();
 
   return (
-    <div className="textarea-wrapper">
-      {label && <label htmlFor={name}>{label}</label>}
+    <div className={`text-area-wrapper ${className}`}>
       <textarea
-        id={name}
-        name={name}
-        rows={rows}
-        className={`textarea ${showError ? "error" : ""}`}
+        className={`custom-textarea ${isError ? "error" : ""}`}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        onBlur={() => setTouched(true)}
+        onBlur={handleBlur}
+        name={name}
+        maxLength={maxLength}
         required={required}
-      ></textarea>
-      {showError && <p className="error-message">This field is required.</p>}
+      />
+      {isError && <span className="error-message">This field is required.</span>}
     </div>
   );
 }
