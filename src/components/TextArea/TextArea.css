@@ -1,0 +1,38 @@
+.text-area-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.custom-textarea {
+  background-color: var(--section);
+  color: var(--white);
+  outline: 1px solid rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.custom-textarea:hover {
+  background-color: var(--section);
+}
+
+.custom-textarea:focus {
+  outline: 1px solid var(--input-focus-color);
+  box-shadow: 0 0 10px 2px var(--input-focus-color);
+  color: var(--white);
+}
+
+.custom-textarea.error {
+  outline: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
