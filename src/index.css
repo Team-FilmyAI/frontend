@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, 'Garet', Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -28,22 +28,22 @@
 }
 
 @font-face {
-  font-family: "Garet";
-  src: url("./assets/fonts/Garet-Book.ttf") format("truetype");
+  font-family: 'Garet';
+  src: url('./assets/fonts/Garet-Book.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Garet";
-  src: url("./assets/fonts/Garet-Medium.ttf") format("truetype");
+  font-family: 'Garet';
+  src: url('./assets/fonts/Garet-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Garet";
-  src: url("./assets/fonts/Garet-Heavy.ttf") format("truetype");
+  font-family: 'Garet';
+  src: url('./assets/fonts/Garet-Heavy.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
@@ -69,7 +69,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Garet", sans-serif;
+  font-family: 'Garet', sans-serif;
 }
 
 h1 {
@@ -123,7 +123,7 @@ body {
   display: flex;
   place-items: center;
   min-height: 100vh;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   width: 100%;
   min-height: 100vh;
   min-width: 100%;
