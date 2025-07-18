@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #0f0f0f;
+  --color-muted: #8b949e;
+  --color-muted-bg: #1b1b1b;
+  --color-primary: #ff8600;
+}
+
+@layer utilities {
+  .text-muted   { color: var(--color-muted); }
+  .bg-muted     { background-color: var(--color-muted-bg); }
+  .bg-primary   { background-color: var(--color-primary); }
+  .text-bg      { color: var(--color-bg); }
+}
+
+body {
+  @apply font-sans bg-[color:var(--color-bg)] text-[#f1f1f1];
+}
