@@ -3,9 +3,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 24px;
-  background-color: #1a1a1a;
-  color: white;
-  border-bottom: 1px solid #ff7f00;
+  background-color: #000000;
+  color: #ffffff; 
 }
 
 .header-left {
@@ -23,7 +22,7 @@
 
 .brand-name {
   font-size: 18px;
-  color: white;
+  color: #ffffff;
 }
 
 .header-center {
@@ -43,7 +42,7 @@
   cursor: pointer;
   width: 24px;
   height: 24px;
-  color: white;
+  color: #ffffff;
   transition: transform 0.2s;
 }
 
