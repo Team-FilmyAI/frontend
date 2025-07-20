@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../styles/CastingCards/CastingCards.css';
+import './CastingCards.css';
 import { MapPin, Clock, DollarSign } from 'lucide-react';
-import { CastingData } from '../types/Casting';
+import { CastingData } from '../../pages/types/Casting';
 
 interface CastingCardsProps {
   cardData: CastingData;
@@ -14,6 +14,7 @@ const CastingCards: React.FC<CastingCardsProps> = ({ cardData }) => {
     location,
     applyBy,
     characterName,
+    character,
     characterDescription,
     ageRange,
     gender,
@@ -38,6 +39,7 @@ const CastingCards: React.FC<CastingCardsProps> = ({ cardData }) => {
 
       <div className="card-body">
         <h3 className="role-title">{characterName}</h3>
+        <p className="character">Character: {character}</p>
         <p className="character-description">{characterDescription}</p>
         <div className="details-grid">
           <div className="detail-item">

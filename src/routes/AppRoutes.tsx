@@ -7,10 +7,8 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import ViewOpportunities from "../pages/ViewOpportunities/ViewOpportunities";
-import CastingCards from "../pages/CastingCards/CastingCards";
 import ButtonGroup from "../pages/ButtonGroup";
 import TextInputGroup from "../pages/TextInputGroup";
-
 
 export default function AppRoutes() {
   return (
@@ -25,6 +23,7 @@ export default function AppRoutes() {
       <Route path="/ViewOpportunities" element={<ViewOpportunities />}/>
       <Route path="/ButtonGroup" element={<ButtonGroup />} />
       <Route path="/TextInputGroup" element={<TextInputGroup />} />
+      
     </Routes>
   );
 }

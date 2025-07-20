@@ -14,15 +14,15 @@ body {
 }
 
 .opportunities-container {
-  padding: 40px;
-  max-width: 1000px;
-  margin-left: 80px;
+  padding: 50px;
+  max-width: 7000px;
+  margin-left: 90px;
 }
 
 .back-link {
   display: flex;
   align-items: center;
-  color: #a3a3a3;
+  color: rgba(132, 135, 139, 1);
   font-size: 16px;
   margin-bottom: 30px;
   cursor: pointer;
@@ -34,17 +34,17 @@ body {
 
 .main-title {
   font-size: 36px;
-  font-weight: bold;
+  font-weight:500;
   margin-bottom: 20px;
   margin-left: 5px;
+  color: rgba(236, 236, 236, 1);
 }
 
 .description {
-  color: #a3a3a3;
-  font-size: 20px;
-  line-height: 1.6;
+  color: rgba(134, 137, 140, 1);
+  font-weight: 10px;
   margin-bottom: 40px;
-  max-width: 800px;
+  max-width: 750px;
   
 }
 
@@ -80,6 +80,7 @@ body {
 .stat-label {
   font-weight: 200;
   align-items: center;
+  color: rgba(142, 147, 157, 1);
 }
 
 .orange {
@@ -88,6 +89,7 @@ body {
 
 .red {
   color: #fb7185;
+  
 }
 
 .green {
@@ -106,7 +108,7 @@ body {
 
 .load-more-button {
     background-color: #ffffff;
-    color: #f97316; 
+    color: #563d11; 
     border: 0 solid #f97316; 
     padding: 0.6rem 1.5rem; 
     font-size: 1.125rem;
@@ -117,6 +119,6 @@ body {
 }
 
 .load-more-button:hover {
-    background-color: #f97316; 
+    background-color: transparent; 
     color: white; 
 }

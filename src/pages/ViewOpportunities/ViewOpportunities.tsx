@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import '../../styles/ViewOpportunities/ViewOpportunities.css';
 import { ArrowLeft } from 'lucide-react';
-import CastingCards from '../CastingCards/CastingCards';
+import CastingCards from '../../components/CastingCards/CastingCards';
 import { CastingData } from '../types/Casting';
 
 
@@ -15,6 +15,7 @@ const ViewOpportunities: React.FC = () => {
       applyBy: 'January 15, 2025',
       urgent: false,
       characterName: 'Supporting Male Lead',
+      character: 'David Chen',
       characterDescription: 'A charming and witty architect who becomes Sarah’s love interest.',
       ageRange: '25-35',
       gender: 'Male',
@@ -27,6 +28,7 @@ const ViewOpportunities: React.FC = () => {
       applyBy: 'January 20, 2025',
       urgent: true,
       characterName: "Sarah's Best Friend",
+      character: 'Emma Rodriguez',
       characterDescription: 'Loyal friend who helps Sarah navigate her return to the city.',
       ageRange: '28-38',
       gender: 'Female',
@@ -39,6 +41,7 @@ const ViewOpportunities: React.FC = () => {
       applyBy: 'February 1, 2025',
       urgent: false,
       characterName: 'Lead Detective',
+      character: 'Marcus Thompson',
       characterDescription: 'Experienced detective investigating a series of mysterious cases.',
       ageRange: '35-45',
       gender: 'Male',
@@ -51,6 +54,7 @@ const ViewOpportunities: React.FC = () => {
       applyBy: 'January 25, 2025',
       urgent: true,
       characterName: 'Young Entrepreneur',
+      character: 'Sophia Kim',
       characterDescription: 'Ambitious young woman starting her own tech company.',
       ageRange: '22-30',
       gender: 'Female',

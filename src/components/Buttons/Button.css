@@ -26,7 +26,7 @@
   width: 100%;        
   
   border: none;
-  border-radius: 0.135rem; 
+  border-radius: 0.350rem; 
   font-size: 1.125rem; 
   font-weight: 600; 
   cursor: pointer;
@@ -42,8 +42,8 @@
 
 
 .custom-button.secondary {
-  background-color: transparent; 
-  color: #f9fafb; 
+  background-color: white; 
+  color: #ff7f00; 
   
   padding: 0.3rem 1rem; 
   min-width: 100px; 

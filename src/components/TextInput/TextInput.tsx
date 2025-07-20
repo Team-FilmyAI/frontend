@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../TextInput/TextInput.css';
+import './Textinput.css';
 
 interface TextInputProps {
   label: string;

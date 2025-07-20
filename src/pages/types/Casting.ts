@@ -4,6 +4,7 @@ export interface CastingData {
   location: string;
   applyBy: string;
   characterName: string;
+  character: string;
   characterDescription: string;
   ageRange: string;
   gender: string;
