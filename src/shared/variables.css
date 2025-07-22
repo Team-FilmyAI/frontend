@@ -1,9 +1,20 @@
 :root {
+  /* Main Palette */
+  --text-button: #ff7f00;
+  --text-2: #c0c1c3;
+  --text-3: #848484;
+
+  --fields: #1f2937;
+  --fields-border: #374151;
+  --fields-border-focused: #e8822f;
+  --card-bg: #111827;
+  --card-bg-2: #ed2b2c;
+
   /* <Film Description /> */
-  --color-heading-strong: #dedede; /* h1, h2 */
-  --back-arrow-icon: #dedede;
-  --color-heading-medium: #b5b5b5; /* h3, h4 */
-  --color-text-default: #878a8e; /* h5, h6, p, li, a */
+  --color-heading-strong: #c0c1c3; /* h1, h2 */
+  --back-arrow-icon: #c0c1c3;
+  --color-heading-medium: #c0c1c3; /* h3, h4 */
+  --color-text-default: #848484; /* h5, h6, p, li, a */
   --color-info-tag: #909297; /* info/pill tag */
   --color-icons-orange: #e8822f; /* FilmDetails icons */
 
@@ -21,7 +32,10 @@
   --form-input-placeholder: #708099;
   --form-input-background: #1f2937;
   --form-input-border: #374151;
-  --form-option-focused: #ff7f02;
+  --form-option-focused: #ff7f00;
 
-  --dropdown-multi-label: #ff7f02;
+  --dropdown-multi-label: #ff7f00;
+
+  /* App Form */
+  --step-line: #ff7f00;
 }

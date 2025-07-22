@@ -5,6 +5,7 @@ import SignUp from '../pages/SignUp/SignUp';
 import ForgotPassword from '../pages/ForgotPassword/ForgotPassword';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import FilmProjectDetails from '../pages/FilmProjectDetails/FilmProjectDetails';
+import { ApplicationForm } from '../pages/ApplicationForm/ApplicationForm';
 export default function AppRoutes() {
   return (
     <Routes>
@@ -14,6 +15,7 @@ export default function AppRoutes() {
       <Route path="/Forgot" element={<ForgotPassword />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/FilmDetails" element={<FilmProjectDetails />} />
+      <Route path="/AppForm" element={<ApplicationForm />} />
     </Routes>
   );
 }

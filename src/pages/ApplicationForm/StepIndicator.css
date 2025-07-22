@@ -1,0 +1,88 @@
+.step-indicator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Container for buttons and connecting lines */
+.steps-and-lines {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0rem 2rem;
+}
+
+/* Each step button */
+.step-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  background: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.step-button:hover {
+  transform: scale(1.05);
+}
+
+/* Completed step */
+.step-button.completed {
+  background-color: #f97316;
+  color: white;
+  border-color: #f97316;
+}
+
+/* Current step */
+.step-button.current {
+  background-color: white;
+  color: #f97316;
+  border-color: #f97316;
+}
+
+/* Pending step */
+.step-button.pending {
+  background-color: white;
+  color: #9ca3af;
+  border-color: #d1d5db;
+}
+
+.step-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Connecting line */
+.step-line {
+  height: 2px;
+  background-color: var(--step-line);
+  flex-grow: 1;
+  margin: 0 0.5rem;
+  align-self: center;
+}
+
+/* Titles container */
+.step-titles {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0rem 2rem;
+}
+
+/* Individual title */
+.step-title {
+  color: white;
+  font-size: 0.875rem;
+  text-align: center;
+  flex-basis: 2.5rem;
+}

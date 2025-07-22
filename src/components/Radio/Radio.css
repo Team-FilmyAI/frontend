@@ -4,8 +4,13 @@
   color: var(--form-text);
 }
 
-.radio-button.radio-inline {
-  display: inline;
+.radio-button.radio-inline span {
+  display: inline-block;
+}
+
+.radio-button.radio-block span {
+  display: block;
+  margin-bottom: 4px;
 }
 
 .radio-button input {

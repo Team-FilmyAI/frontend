@@ -16,6 +16,10 @@ const borderColor = getComputedStyle(document.documentElement)
   .getPropertyValue('--form-input-border')
   .trim();
 
+const borderColorFocused = getComputedStyle(document.documentElement)
+  .getPropertyValue('--fields-border-focused')
+  .trim();
+
 const formOptionFocusedColor = getComputedStyle(document.documentElement)
   .getPropertyValue('--form-option-focused')
   .trim();
@@ -27,11 +31,11 @@ const dropdownMultiLabelColor = getComputedStyle(document.documentElement)
 export const formStyles = {
   control: (provided, state) => ({
     ...provided,
-    borderColor: state.isFocused ? '#007BFF' : borderColor,
+    borderColor: state.isFocused ? borderColorFocused : borderColor,
     backgroundColor: backgroundColor,
     color: 'white',
-    boxShadow: state.isFocused ? '0 0 0 1px #007BFF' : 'none',
-    '&:hover': { borderColor: '#007BFF' },
+    boxShadow: state.isFocused ? '0 0 0 1px borderColorFocused' : 'none',
+    '&:hover': { borderColor: borderColorFocused },
     fontFamily: 'Garet',
   }),
   input: (provided) => ({
@@ -41,6 +45,7 @@ export const formStyles = {
   }),
   placeholder: (provided) => ({
     ...provided,
+    fontSize: '14px',
     color: placeholderColor,
     fontFamily: 'Garet',
   }),

@@ -1,0 +1,71 @@
+@media (max-width: 1024px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-container {
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2.2rem 16rem;
+}
+
+.header-section {
+  margin-bottom: 3.5rem;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0rem;
+  color: var(--text-2);
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  color: var(--text-button); /* Tailwind's orange-500 */
+}
+
+.back-text {
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.apply-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--text-button);
+  margin-bottom: 0.5rem;
+}
+
+.apply-subtitle {
+  font-size: 1rem;
+  color: var(--text-2);
+}
+
+.step-container {
+  background-color: #111827;
+  border-radius: 0.5rem;
+  padding: 1.4rem 2.4rem;
+  margin-top: 2.8rem;
+  margin-bottom: 1.5rem;
+  min-height: 500px;
+}
+
+.horizontal-rule {
+  border: medium solid #111827;
+}
