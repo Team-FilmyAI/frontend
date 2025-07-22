@@ -1,14 +1,14 @@
-import { useState } from "react";
-import "./TextArea.css";
+import { useState } from 'react';
+import './TextArea.css';
 
 export default function TextArea({
-  placeholder = "",
-  value = "",
+  placeholder = '',
+  value = '',
   onChange = () => {},
   maxLength = 250,
-  name = "",
+  name = '',
   required = false,
-  className = "",
+  className = '',
 }) {
   const [touched, setTouched] = useState(false);
 
@@ -19,9 +19,9 @@ export default function TextArea({
   const isError = required && touched && !value.trim();
 
   return (
-    <div className={`text-area-wrapper ${className}`}>
+    <div className={`text-area-wrapper`}>
       <textarea
-        className={`custom-textarea ${isError ? "error" : ""}`}
+        className={`${className} ${isError ? 'error' : ''}`}
         placeholder={placeholder}
         value={value}
         onChange={onChange}

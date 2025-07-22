@@ -1,0 +1,43 @@
+.form-navigation {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.form-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s, opacity 0.2s, transform 0.2s;
+  border: 1px solid #4b5563; /* border-gray-600 */
+  color: white;
+}
+
+.form-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Specific styles for different button types */
+.form-button-previous,
+.form-button-save {
+  background-color: #1f2937; /* bg-gray-800 */
+}
+
+.form-button-previous:hover,
+.form-button-save:hover {
+  background-color: #374151; /* bg-gray-700 */
+}
+
+.form-button-next {
+  background-color: #f97316; /* bg-orange-500 */
+}
+
+.form-button-next:hover {
+  background-color: #ea580c; /* bg-orange-600 */
+}
