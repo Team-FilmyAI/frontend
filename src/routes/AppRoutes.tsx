@@ -1,10 +1,11 @@
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import FilmProjectDetails from '../pages/FilmProjectDetails/FilmProjectDetails';
+import ForgotPassword from '../pages/ForgotPassword/ForgotPassword';
 import HeroPage from '../pages/HeroPage/HeroPage';
 import Login from '../pages/Login/Login';
-import SignUp from '../pages/SignUp/SignUp';
-import ForgotPassword from '../pages/ForgotPassword/ForgotPassword';
+import ProductionDashboard from '../pages/ProductionDashboard/ProductionDashboard';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
-import FilmProjectDetails from '../pages/FilmProjectDetails/FilmProjectDetails';
+import SignUp from '../pages/SignUp/SignUp';
 export default function AppRoutes() {
   return (
     <Routes>
@@ -14,6 +15,7 @@ export default function AppRoutes() {
       <Route path="/Forgot" element={<ForgotPassword />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/FilmDetails" element={<FilmProjectDetails />} />
+      <Route path="/ProductionDashboard" element={<ProductionDashboard />} />
     </Routes>
   );
 }
