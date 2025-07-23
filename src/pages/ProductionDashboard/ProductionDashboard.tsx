@@ -81,12 +81,12 @@ const ProductionDashboard: React.FC = () => {
       <Header />
       <main className="dashboard-main">
         <section className="dashboard-header">
-          <h1>Production Dashboard</h1>
+          <h2>Production Dashboard</h2>
           <p>Manage your projects and casting calls</p>
         </section>
 
         <section className="projects-section">
-          <h3><Building /> Current Projects</h3>
+          <h3><Building color="#ff7f00" size={20} /> Current Projects</h3>
           <div className="projects-grid">
             {currentProjects.map((proj, idx) => (
               <div key={idx} className="project-card">
@@ -114,7 +114,7 @@ const ProductionDashboard: React.FC = () => {
                   </div>
                 </div>
                 <div className="card-actions">
-                  <button className="edit-btn">Edit</button>
+                  <button className="edit1-btn">Edit</button>
                   <button className="view-btn">View Details</button>
                 </div>
               </div>
@@ -123,7 +123,7 @@ const ProductionDashboard: React.FC = () => {
         </section>
 
         <section className="applications-section">
-          <h3><Building /> Recent applications</h3>
+          <h3><Building color="#ff7f00" size={20} /> Recent applications</h3>
           <table className="applications-table">
             <thead>
               <tr>

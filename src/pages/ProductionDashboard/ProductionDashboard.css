@@ -11,10 +11,15 @@
 
 .dashboard-header {
   align-self: flex-start;
-  padding-left: 20px;
+  padding-left: 78px;
   color: var(--orange);
   font-size: 16px;
   margin-bottom: 15px;
+}
+
+.dashboard-header h1 {
+  color: var(--orange);
+  margin-bottom: 8px;
 }
 
 .dashboard-header p {
@@ -27,6 +32,14 @@
   font-weight: 500;
   width: 100%;
   max-width: 1300px;
+}
+
+.projects-section h3,
+.applications-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .projects-grid {
@@ -79,7 +92,6 @@
   color: #C0C1C3;
   padding: 4px 10px;
   margin-right: 5px;
-  border-radius: 10px;
   font-size: 12px;
 }
 
@@ -104,25 +116,45 @@
 
 .info-value {
   font-weight: 500;
-  color: #C0C1C3;
   text-align: right;
+}
+
+.info-row:first-child .info-value {
+  color: #f97316;
+}
+
+.info-row:nth-child(2) .info-value {
+  color: #10b981;
+}
+
+.info-row:last-child .info-value {
+  color: #9CA3AF;
 }
 
 .card-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 15px;
+  gap: 20px;
 }
 
-.edit-btn,
-.view-btn {
-  padding: 6px 12px;
+.edit1-btn{
+  padding: 3px 30px;
   font-size: 14px;
   border-radius: 6px;
   background-color: #fff;
-  color: #000;
+  color: #8B4513;
   font-weight: 600;
   border: 2px solid var(--orange);
+}
+.view-btn {
+  padding: 6px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #8B4513;
+  font-weight: 600;
+  border: 2px solid #374151;
 }
 
 .applications-table {
@@ -146,11 +178,15 @@
 }
 
 .review-btn {
-  padding: 6px 10px;
-  background-color: #fff;
-  color: #000;
+  padding: 8px 30px;
+  font-size: 14px;
   border-radius: 6px;
+  background-color: #fff;
+  color: #8B4513;
   font-weight: 600;
+  border: 2px solid #374151;
+  cursor: pointer;
+  flex: 1;
 }
 
 .status-tag {
@@ -158,22 +194,21 @@
   border-radius: 10px;
   font-size: 12px;
   font-weight: 500;
-  
 }
 
 .status-tag.orange {
-  background-color: #ED2B2C;
-  color: white;
+  background-color: #322a2f;
+  color: #FFA500;
 }
 
 .status-tag.blue {
-  background-color: #2563eb;
-  color: white;
+  background-color: #1f2c48;
+  color: #60a5fa;
 }
 
 .status-tag.green {
-  background-color: #10b981;
-  color: white;
+  background-color: #a1c7af;
+  color: #005d00;
 }
 
 @media (max-width: 1477px) {
