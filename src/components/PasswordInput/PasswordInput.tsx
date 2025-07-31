@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock } from 'lucide-react';
-import './Textinput.css';
+import './PasswordInput.css';
 
 interface PasswordInputProps {
   label: string;

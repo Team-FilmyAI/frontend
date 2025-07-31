@@ -64,6 +64,7 @@ const ViewOpportunities: React.FC = () => {
 
   return (
     <div className="page-wrapper">
+      <div className='page-content'>
       <Header />
       <div className="opportunities-container">
         <div className="back-link">
@@ -101,6 +102,7 @@ const ViewOpportunities: React.FC = () => {
         <div className="load-more-container">
           <button className="load-more-button">Load More Opportunities</button>
         </div>
+      </div>
       </div>
     </div>
   );

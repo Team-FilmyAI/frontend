@@ -7,8 +7,8 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import ViewOpportunities from "../pages/ViewOpportunities/ViewOpportunities";
-import ButtonGroup from "../pages/ButtonGroup";
-import TextInputGroup from "../pages/TextInputGroup";
+import ButtonGroup from "../pages/ButtonGroup/ButtonGroup";
+import TextInputGroup from "../pages/TextInputGroup/TextInputGroup";
 
 export default function AppRoutes() {
   return (

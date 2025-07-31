@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import TextInput from '../components/TextInput/TextInput';
-import PasswordInput from '../components/TextInput/PasswordInput';
-import SelectInput from '../components/TextInput/SelectInput';
+import TextInput from '../../components/TextInput/TextInput';
+import PasswordInput from '../../components/PasswordInput/PasswordInput';
+import SelectInput from '../../components/SelectInput/SelectInput';
 import { User, Mail, Lock, UserRound } from 'lucide-react';
 
 const TextInputGroup: React.FC = () => {
