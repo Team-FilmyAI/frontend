@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./MovieDetailsPage.css"; 
+import "./MovieDetailsPage.css";
 import {
   ChevronLeft,
   Calendar,
@@ -9,8 +9,9 @@ import {
   Film as FilmIcon,
   UserRound,
 } from "lucide-react";
-console.log("🔧 Rohit's changes");
+import { DatePickerInput } from "../components"; 
 
+console.log("🔧 Rohit's changes");
 
 export default function MovieDetailsPage() {
   const movie = {
@@ -18,7 +19,6 @@ export default function MovieDetailsPage() {
     genres: ["Drama", "Romance"],
     director: "Sarah Chen",
     budget: "$5M–$10M",
-    schedule: "January 15, 2025 – April 30, 2025",
     prodCompanies: [
       "Paramount Pictures",
       "Silver Screen Productions",
@@ -68,8 +68,9 @@ export default function MovieDetailsPage() {
       <span className={`${base} bg-muted/20 text-muted`}>filled</span>
     );
   };
-<div className="bg-red-500 text-white p-4 mb-4 rounded-lg">
-</div>
+
+  const [filmingStart, setFilmingStart] = useState(new Date("2025-01-15"));
+  const [filmingEnd, setFilmingEnd] = useState(new Date("2025-04-30"));
 
   return (
     <div className="min-h-screen bg-bg text-[#f1f1f1] font-sans">
@@ -102,27 +103,6 @@ export default function MovieDetailsPage() {
           </div>
 
           <button className="relative p-2 hover:bg-muted-bg rounded-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-5 h-5 text-muted"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M14.857 17.082a23.848 23.848 0 005.681-4.1.75.75 0 00-.556-1.281h-3.087a.313.313 0 01-.223-.092l-1.154-1.154a.312.312 0 01-.092-.223V7.135a.75.75 0 00-1.281-.556 23.848 23.848 0 00-4.1 5.681.75.75 0 00.16.83l1.974 1.974a.75.75 0 00.83.16z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 19.5H5.25a2.25 2.25 0 01-2.25-2.25v-7.5a2.25 2.25 0 012.25-2.25H9m3-3h7.5A2.25 2.25 0 0121 6v7.5"
-              />
-            </svg>
-          </button>
-          <button className="p-2 hover:bg-muted-bg rounded-lg">
             <UserRound className="w-5 h-5 text-muted" />
           </button>
         </div>
@@ -156,8 +136,19 @@ export default function MovieDetailsPage() {
                 <div><span className="text-muted">Budget: </span>{movie.budget}</div>
               </li>
               <li className="flex items-start gap-2">
-                <Calendar className="w-4 h-4 text-primary mt-0.5" />
-                <div>{movie.schedule}</div>
+                <Calendar className="w-4 h-4 text-primary mt-0.5 mt-2" />
+                <div className="flex flex-col gap-2 w-full">
+                  <DatePickerInput
+                    label="Filming Start"
+                    selectedDate={filmingStart}
+                    onChange={setFilmingStart}
+                  />
+                  <DatePickerInput
+                    label="Filming End"
+                    selectedDate={filmingEnd}
+                    onChange={setFilmingEnd}
+                  />
+                </div>
               </li>
               <li className="flex items-start gap-2">
                 <FilmIcon className="w-4 h-4 text-primary mt-0.5" />
