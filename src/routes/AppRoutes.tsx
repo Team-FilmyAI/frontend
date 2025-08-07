@@ -6,6 +6,8 @@ import Login from '../pages/Login/Login';
 import ProductionDashboard from '../pages/ProductionDashboard/ProductionDashboard';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import SignUp from '../pages/SignUp/SignUp';
+import LandingPage from '../pages/LandingPage/LandingPage';
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -16,6 +18,7 @@ export default function AppRoutes() {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/FilmDetails" element={<FilmProjectDetails />} />
       <Route path="/ProductionDashboard" element={<ProductionDashboard />} />
+      <Route path="/LandingPage" element={<LandingPage />} />
     </Routes>
   );
 }
