@@ -1,0 +1,38 @@
+.email-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.email-input {
+  background-color: var(--section);
+  color: var(--white);
+  outline: 1px solid rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 5px;
+  padding-inline: 5px;
+  width: 100%;
+  height: 40px;
+  font-size: 1rem;
+}
+
+.email-input:focus {
+  color: var(--orange);
+  outline: 1px solid var(--input-focus-color);
+  box-shadow: 0 0 10px 2px var(--input-focus-color);
+}
+
+.email-input.error {
+  outline: 1px solid red;
+  color: red;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+.email-input:hover {
+  background-color: var(--section);
+}
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-left: 2px;
+}

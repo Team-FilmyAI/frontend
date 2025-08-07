@@ -5,7 +5,7 @@
   padding: 12px 24px;
   background-color: #1a1a1a;
   color: white;
-  border-bottom: 1px solid #FF7F00;
+  border-bottom: 1px solid #ff7f00;
 }
 
 .header-left {
@@ -23,7 +23,6 @@
 
 .brand-name {
   font-size: 18px;
-  font-weight: bold;
   color: white;
 }
 

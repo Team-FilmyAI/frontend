@@ -1,0 +1,27 @@
+:root {
+  /* <Film Description /> */
+  --color-heading-strong: #dedede; /* h1, h2 */
+  --back-arrow-icon: #dedede;
+  --color-heading-medium: #b5b5b5; /* h3, h4 */
+  --color-text-default: #878a8e; /* h5, h6, p, li, a */
+  --color-info-tag: #909297; /* info/pill tag */
+  --color-icons-orange: #e8822f; /* FilmDetails icons */
+
+  /* <Role /> */
+  --badge-icon: #21c55d;
+  --badge-icon-text: #b2ebc7;
+  --apply-button: #f66409;
+  --apply-button-text: #5a2505;
+  --requirements-title: #af6a34;
+  --pay-range: #3aa767;
+  --tags-container: #1f2937;
+
+  /* Form Colors */
+  --form-text: #e2e3e5;
+  --form-input-placeholder: #708099;
+  --form-input-background: #1f2937;
+  --form-input-border: #374151;
+  --form-option-focused: #ff7f02;
+
+  --dropdown-multi-label: #ff7f02;
+}
