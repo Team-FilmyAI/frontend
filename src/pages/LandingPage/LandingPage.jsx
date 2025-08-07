@@ -1,16 +1,9 @@
 import React from 'react';
 import '../LandingPage/LandingPage.css';
 import { Calendar, Clock, User, AlarmClock, Search, Bell, Star , MapPin, Clock4,TrendingUp, Award , DollarSign, AlertCircle, Film,  Tv, Users, Globe, Heart, Zap, Smile, Skull } from 'lucide-react';
-import { useNavigate } from "react-router-dom";
 
+import Header from "../../components/Header/Header.tsx"
 export default function LandingPage() {
-    const navigate = useNavigate();
-
-    const goToProfile = () => 
-    {
-        navigate("/profile");
-    };
-    // the above navigation to profile page is temporary as i have not made changes to the icons will do upon getting options and their settings
   const recommendations = [
     {
       title: 'Drive in Manhattan',
@@ -86,49 +79,24 @@ const KpiCard = ({ Icon, iconColor, value, label, change, changeColor }) => (
 );
   return (
     <>
-      {/* Header */}
-      <header className="header">
-        <div className="logo-container">
-          <img src="/frontend/images/footer/FilmyAI_logo.png" alt="Filmy AI Logo" />
-          <span className="logo-text">FilmyAI</span>
-        </div>
-        <div className="search-container">
-          <div className="search-wrapper">
-            <span className="search-icon"><Search size={16} style={{ marginRight: '6px' }} /></span>
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search movies, roles, directors..."
-            />
-          </div>
-        </div>
-        <div className="icons">
-          <span className="icon"><Bell size={25} color="white" style={{ marginRight: '6px' }} /> </span>
-            <span className="icon" onClick={goToProfile} style={{ cursor: "pointer" }}>
-                <User size={25} color="white" />
-            </span>
-
-        </div>
-      </header>
-
+      {/* <Header/> */}
+      
       <main className="home-layout">
         {/* Welcome */}
         <section className="welcome section">
-          <h1>
-            Welcome back, <span className="highlight">Anu!</span>
-          </h1>
-          <p>
-            Ready to land your next big role? We’ve curated 
-           
-          </p>
-          <p>the perfect opportunities based on your</p>
-          <p> profile and experience.</p>
-          <div className="info">
-            <span><Star size={16} color="#ff7a00" style={{ marginRight: '6px' }} /> 4.8 Rating</span>
-            <span><Calendar size={16} color="#ff7a00"  style={{ marginRight: '6px' }} /> 12 Auditions This Month</span>
-            <span><MapPin size={16}  color="#ff7a00" style={{ marginRight: '6px' }} /> Los Angeles, CA</span>
-          </div>
-          <button className="primary-btn">View New Opportunities</button>
+            <div className="Group1">
+                <h1>
+                    Welcome back, <span className="highlight">Anu!</span>
+                </h1>
+                <p>
+                    Ready to land your next big role? We’ve curated the perfect opportunities based on your profile and experience.</p>
+                <div className="info">
+                    <span><Star size={22} color="#ff7a00" style={{ marginRight: '6px' }} /> 4.8 Rating</span>
+                    <span><Calendar size={22} color="#ff7a00"  style={{ marginRight: '6px' }} /> 12 Auditions This Month</span>
+                    <span><MapPin size={22}  color="#ff7a00" style={{ marginRight: '6px' }} /> Los Angeles, CA</span>
+                </div>
+                <button className="primary-btn">View New Opportunities</button>
+            </div>
         </section>
 
         {/* KPI Grid */}
@@ -156,7 +124,7 @@ const KpiCard = ({ Icon, iconColor, value, label, change, changeColor }) => (
       label: 'Profile Views',
       value: 142,
       change: '+18% this month',
-      changeColor: 'green',
+      changeColor: 'blue',
     },
     {
       Icon: Award,
@@ -164,7 +132,7 @@ const KpiCard = ({ Icon, iconColor, value, label, change, changeColor }) => (
       label: 'Success Rate',
       value: '73%',
       change: '+5% improvement',
-      changeColor: 'green',
+      changeColor: 'purple',
     },
   ].map((item, idx) => (
     <KpiCard
@@ -181,165 +149,173 @@ const KpiCard = ({ Icon, iconColor, value, label, change, changeColor }) => (
 
         {/* Recommendations */}
         <section className="recommendations section">
-        <div className="rec-header">
-            <div className="rec-header-text">
-                <h2>Recommended for You</h2>
-                <p>Curated based on your profile and preferences</p>
+            <div className="rec-header">
+                <div className="rec-header-text">
+                    <h2>Recommended for You</h2>
+                    <p>Curated based on your profile and preferences</p>
+                </div>
+                <button className="view-all-btn">View All Recommendations</button>
             </div>
-            <button className="view-all-btn">View All Recommendations</button>
-        </div>
 
 
-        <div className="rec-grid">
-            {recommendations.map((rec, idx) => (
-            <div className="rec-card" key={idx}>
-                <div className="rec-top">
-                <img src={rec.image} alt={rec.title} className="rec-img" />
-                <div className="match">{rec.match} Match</div>
-                </div>
-                <div className="rec-bottom">
-                <div className="genre">{rec.genre}</div>
-                <h3>{rec.title}</h3>
-                <p className="role">{rec.role}</p>
-                <p className="desc">{rec.description}</p>
-                <p><MapPin size={20} color="#ffa94d" style={{ marginRight: '6px' }} />{rec.location}</p>
-                <p><Clock4 size={20} color="#ffa94d" style={{ marginRight: '6px' }} />{rec.duration}</p>
-                <p><DollarSign size={20} color="#ffa94d" style={{ marginRight: '6px' }} />{rec.budget}</p>
-                <div className="tags">
-                    {rec.tags.map((t, i) => (
-                    <span key={i}>{t}</span>
-                    ))}
-                </div>
-                <button className="primary-btn">Apply Now</button>
-                </div>
+            <div className="rec-grid">
+                {recommendations.map((rec, idx) => (
+                    <div className="rec-card" key={idx}>
+                        <div className="rec-top">
+                            <img src={rec.image} alt={rec.title} className="rec-img" />
+                            <div className="match">
+                                {rec.match} Match
+                            </div>
+                        </div>
+                        <div className="rec-bottom">
+                            <div className="title-row">
+                                <h3>{rec.title}</h3>
+                                <span className="genre">{rec.genre}</span>
+                            </div>
+                            <p className="role">{rec.role}</p>
+                            <p className="desc">{rec.description}</p>
+                            <p className="meta-item"><MapPin size={18} color="#ffa94d" style={{ marginRight: '6px' }} />{rec.location}</p>
+                            <p className="meta-item"><Clock4 size={18} color="#ffa94d" style={{ marginRight: '6px' }} />{rec.duration}</p>
+                            <p className="meta-item"><DollarSign size={18} color="#ffa94d" style={{ marginRight: '6px' }} />{rec.budget}</p>
+                            <p className="requirements-label">Requirements:</p>
+                            <div className="tags">
+                                {rec.tags.map((t, i) => (
+                                <span key={i}>{t}</span>
+                                ))}
+                            </div>
+                            <button className="primary-btn">Apply Now</button>
+                        </div>
+                    </div>
+                ))}
             </div>
-            ))}
-        </div>
         </section>
 
 
         <section className="casting-calls section">
             <div className="casting-container">
-        <div className="casting-header">
-            <div>
-            <h2>Your Casting Calls</h2>
-            <p>Invitations and auditions you’ve received</p>
-            </div>
-            <button className="view-all-btn">View All Casting Calls</button>
-        </div>
+                <div className="casting-header">
+                    <div>
+                        <h2>Your Casting Calls</h2>
+                        <p>Invitations and auditions you’ve received</p>
+                    </div>
+                    <button className="view-all-btn">View All Casting Calls</button>
+                </div>
 
-        {castingCalls.map((call, idx) => (
-            <div className="call-card" key={idx}>
-            <div className="call-main">
-                <div className="call-info">
-                <h3>
-                    {call.title}{' '}
-                    {call.urgent && <span className="urgent">Urgent</span>}
-                </h3>
-                <p className="role">{call.role}</p>
-                <p className="description">
-                    Seeking a charismatic actor for a tech-savvy character in action thriller.
-                </p>
-                <div className="call-meta">
-                    <span><User size={16}  style={{ marginRight: '6px' }} />Dir: {call.director}</span>
-                    <span><Calendar size={16} style={{ marginRight: '6px' }} />{call.date}</span>
-                    <span><Clock4 size={16} style={{ marginRight: '6px' }} /> {call.time}</span>
-                    <span><AlertCircle size={16}  style={{ marginRight: '6px' }} /> Due: {call.due}</span>
-                </div>
-                <div className="required-tags">
-                    Required: {call.required.map((r, i) => (
-                    <span key={i} className="tag">{r}</span>
-                    ))}
-                </div>
-                </div>
-                <div className="call-actions">
-                <button className="primary-btn">Confirm Audition</button>
-                <button className="secondary-btn">View Details</button>
-                </div>
+                {castingCalls.map((call, idx) => (
+                    <div className="call-card" key={idx}>
+                        <div className="call-main">
+                            <div className="call-info">
+                                <h3>
+                                    {call.title}{' '}
+                                    {call.urgent && <span className="urgent">Urgent</span>}
+                                </h3>
+                                <p className="role">{call.role}</p>
+                                <p className="description">
+                                    Seeking a charismatic actor for a tech-savvy character in action thriller.
+                                </p>
+                                <div className="call-meta">
+                                    <span><User size={18} color="#FF7F00" style={{ marginRight: '6px' }} />Dir: {call.director}</span>
+                                    <span><Calendar size={18} color="#FF7F00" style={{ marginRight: '6px' }} />{call.date}</span>
+                                    <span><Clock4 size={18} color="#FF7F00" style={{ marginRight: '6px' }} /> {call.time}</span>
+                                    <span><AlertCircle size={18} color="#FF7F00"  style={{ marginRight: '6px' }} /> Due: {call.due}</span>
+                                </div>
+                                <div className="required-tags">
+                                    Required: {call.required.map((r, i) => (
+                                    <span key={i} className="tag">{r}</span>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="call-actions">
+                                <button className="primary-btn">Confirm Audition</button>
+                                <button className="secondary-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
-            </div>
-        ))}</div>
         </section>
 
 
         {/* Categories */}
         <section className="categories section">
-        <h2>Browse by Categories</h2>
-        <p>Explore opportunities across different types of productions and genres</p>
-        <div className="category-grid">
-            {[
-            {
-                label: 'Feature Films',
-                roles: 8,
-                icon: <Film size={40} color="white"  />,
-                iconBg: '#ff7a00',
-                description: 'Major studio and independent feature films'
-            },
-            {
-                label: 'TV Series',
-                roles: 24,
-                icon: <Tv size={40} color="white"  />,
-                iconBg: '#4dabf7',
-                description: 'Television series and streaming shows'
-            },
-            {
-                label: 'Commercials',
-                roles: 45,
-                icon: <Users size={40} color="white"  />,
-                iconBg: '#4dd17a',
-                description: 'Brand commercials and advertising campaigns'
-            },
-            {
-                label: 'Web Series',
-                roles: 10,
-                icon: <Globe size={40} color="white"  />,
-                iconBg: '#a259ff',
-                description: 'Online content and digital series'
-            },
-            {
-                label: 'Romance',
-                roles: 5,
-                icon: <Heart size={40} color="white"  />,
-                iconBg: '#ff5ca8',
-                description: 'Romantic comedies and drama films'
-            },
-            {
-                label: 'Action/Thriller',
-                roles: 50,
-                icon: <Zap size={40} color="white"  />,
-                iconBg: '#ff4d4f',
-                description: 'Action-packed and suspenseful productions'
-            },
-            {
-                label: 'Comedy',
-                roles: 24,
-                icon: <Smile size={40} color="white"  />,
-                iconBg: '#ffd43b',
-                description: 'Comedy films and lighthearted content'
-            },
-            {
-                label: 'Horror/Sci-Fi',
-                roles: 12,
-                icon: <Skull size={40} color="white"  />,
-                iconBg: '#adb5bd',
-                description: 'Horror and science fiction productions'
-            }
-            ].map((cat, idx) => (
-            <div className="category-card" key={idx}>
-                <div className="icon-box" style={{ backgroundColor: cat.iconBg }}>{cat.icon}</div>
-                <h3>{cat.label}</h3>
-                <p className="desc">{cat.description}</p>
-                <p className="count">
-                <span className="num">{String(cat.roles).padStart(2, '0')}</span>{' '}
-                <span className="sub">available roles</span>
-                </p>
-                <button className="browse-btn">Browse Roles</button>
+            <h2>Browse by Categories</h2>
+            <p>Explore opportunities across different types of productions and genres</p>
+            <div className="category-grid">
+                {[
+                {
+                    label: 'Feature Films',
+                    roles: 8,
+                    icon: <Film size={40} color="white"  />,
+                    iconBg: '#ff7a00',
+                    description: 'Major studio and independent feature films'
+                },
+                {
+                    label: 'TV Series',
+                    roles: 24,
+                    icon: <Tv size={40} color="white"  />,
+                    iconBg: '#4dabf7',
+                    description: 'Television series and streaming shows'
+                },
+                {
+                    label: 'Commercials',
+                    roles: 45,
+                    icon: <Users size={40} color="white"  />,
+                    iconBg: '#4dd17a',
+                    description: 'Brand commercials and advertising campaigns'
+                },
+                {
+                    label: 'Web Series',
+                    roles: 10,
+                    icon: <Globe size={40} color="white"  />,
+                    iconBg: '#a259ff',
+                    description: 'Online content and digital series'
+                },
+                {
+                    label: 'Romance',
+                    roles: 5,
+                    icon: <Heart size={40} color="white"  />,
+                    iconBg: '#ff5ca8',
+                    description: 'Romantic comedies and drama films'
+                },
+                {
+                    label: 'Action/Thriller',
+                    roles: 50,
+                    icon: <Zap size={40} color="white"  />,
+                    iconBg: '#ff4d4f',
+                    description: 'Action-packed and suspenseful productions'
+                },
+                {
+                    label: 'Comedy',
+                    roles: 24,
+                    icon: <Smile size={40} color="white"  />,
+                    iconBg: '#ffd43b',
+                    description: 'Comedy films and lighthearted content'
+                },
+                {
+                    label: 'Horror/Sci-Fi',
+                    roles: 12,
+                    icon: <Skull size={40} color="white"  />,
+                    iconBg: '#adb5bd',
+                    description: 'Horror and science fiction productions'
+                }
+                ].map((cat, idx) => (
+                
+                <div className="category-card" key={idx}>
+                    <div className="icon-box" style={{ backgroundColor: cat.iconBg }}>{cat.icon}</div>
+                    <h3>{cat.label}</h3>
+                    <p className="desc">{cat.description}</p>
+                    <p className="count">
+                    <span className="num">{String(cat.roles).padStart(2, '0')}</span>{' '}
+                    <span className="sub">available roles</span>
+                    </p>
+                    <button className="browse-btn">Browse Roles</button>
+                </div>
+                ))}
             </div>
-            ))}
-        </div>
-        <div className="view-all-wrapper">
-            <button className="view-all-btn">View All Categories</button>
-        </div>
+
+            <div className="view-all-wrapper">
+                <button className="view-all-btn">View All Categories</button>
+            </div>
         </section>
 
         
