@@ -15,12 +15,22 @@ const Button: React.FC<ButtonProps> = ({
   fullWidth = false,
 }) => {
   return (
-    <button
-      className={`custom-button ${variant} ${fullWidth ? 'full-width' : ''}`}
-      onClick={onClick}
-    >
-      {label}
-    </button>
+    <div>
+      <div style={{ display: 'flex', gap: '1rem', padding: '2rem' }}>
+        <button
+          className={`custom-button primary`}
+          onClick={() => console.log('Apply clicked')}
+        >
+          Apply Now
+        </button>
+        <button
+          className={`custom-button secondary`}
+          onClick={() => console.log('Details clicked')}
+        >
+          View Details
+        </button>
+      </div>
+    </div>
   );
 };
 
