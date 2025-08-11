@@ -114,21 +114,25 @@ const CurrentProjectDetails: React.FC = () => {
             <div className="project-metadata">
               <span className="status-badge-active">Active</span>
               <div className="meta-item">
-                <MapPin size={16} color="#ff7f00" />
+                <MapPin size={16} color="#FF7F00" />
                 Los Angeles, California
               </div>
               <div className="meta-item">
-                <Calendar size={16} color="#ff7f00" />
+                <Calendar size={16} color="#FF7F00" />
                 Deadline: 2021-08-15
               </div>
             </div>
           </div>
           <button className="edit2-button">
-                    Edit Project
-                  </button>
+            Edit Project
+          </button>
         </div>
+        
         <div className="project-details-card">
-          <h4> <Building color="#ff7f00" size={20} /> Project Details</h4>
+          <h4 className="section-title">
+            <Building color="#FF7F00" size={20} /> 
+            Project Details
+          </h4>
           
           <div className="details-content">
             <div className="details-grid">
@@ -174,8 +178,10 @@ const CurrentProjectDetails: React.FC = () => {
 
         <div className="content-grid">
           <div className="roles-section">
-            
-            <h2 className="section-title"> <Building color="#ff7f00" size={20} /> Roles (3)</h2>
+            <h2 className="section-title">
+              <Building color="#FF7F00" size={20} /> 
+              Roles (3)
+            </h2>
             
             <div className="roles-list">
               {roles.map((role) => (
@@ -199,7 +205,7 @@ const CurrentProjectDetails: React.FC = () => {
                     </div>
                     <div className="role-detail-item">
                       <span className="detail-label">Application: </span>
-                      <span className="detail1-value"> {role.applications}</span>
+                      <span className="detail1-value">{role.applications}</span>
                     </div>
                   </div>
                 </div>
@@ -208,7 +214,10 @@ const CurrentProjectDetails: React.FC = () => {
           </div>
           
           <div className="applications-section1">
-            <h2 className="section-title"> <Building color="#ff7f00" size={20} /> Applications (4)</h2>
+            <h2 className="section-title">
+              <Building color="#FF7F00" size={20} />
+              Applications (4)
+            </h2>
             
             <div className="applications-list">
               {applications.map((application) => (
