@@ -102,7 +102,7 @@ const CurrentProjectDetails: React.FC = () => {
         <Header />
       <div className="main-content">
         <div className="back-navigation">
-          <button className="back-button">
+          <button className="back1-button">
             <ArrowLeft size={16} />
             Back to Dashboard
           </button>
@@ -113,11 +113,11 @@ const CurrentProjectDetails: React.FC = () => {
             <h1 className="main-project-title">The Dark Knight Returns</h1>
             <div className="project-metadata">
               <span className="status-badge-active">Active</span>
-              <div className="meta-item">
+              <div className="meta1-item">
                 <MapPin size={16} color="#FF7F00" />
                 Los Angeles, California
               </div>
-              <div className="meta-item">
+              <div className="meta1-item">
                 <Calendar size={16} color="#FF7F00" />
                 Deadline: 2021-08-15
               </div>
@@ -129,7 +129,7 @@ const CurrentProjectDetails: React.FC = () => {
         </div>
         
         <div className="project-details-card">
-          <h4 className="section-title">
+          <h4 className="section1-title">
             <Building color="#FF7F00" size={20} /> 
             Project Details
           </h4>
@@ -178,7 +178,7 @@ const CurrentProjectDetails: React.FC = () => {
 
         <div className="content-grid">
           <div className="roles-section">
-            <h2 className="section-title">
+            <h2 className="section1-title">
               <Building color="#FF7F00" size={20} /> 
               Roles (3)
             </h2>
@@ -214,7 +214,7 @@ const CurrentProjectDetails: React.FC = () => {
           </div>
           
           <div className="applications-section1">
-            <h2 className="section-title">
+            <h2 className="section1-title">
               <Building color="#FF7F00" size={20} />
               Applications (4)
             </h2>
