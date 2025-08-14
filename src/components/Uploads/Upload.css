@@ -1,0 +1,33 @@
+/* Wrapper for upload */
+.upload-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+/* Label acts like a button */
+.upload-label {
+  background-color: #ff7a00;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover effect */
+.upload-label:hover {
+  background-color: #e96c00;
+}
+
+/* Click/active effect */
+.upload-label:active {
+  transform: scale(0.97);
+}
+
+/* Hide the actual file input */
+.upload-label input[type="file"] {
+  display: none;
+}
