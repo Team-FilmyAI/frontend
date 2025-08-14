@@ -6,11 +6,12 @@ import Login from '../pages/Login/Login';
 import ProductionDashboard from '../pages/ProductionDashboard/ProductionDashboard';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import SignUp from '../pages/SignUp/SignUp';
-import FilmProjectDetails from './../pages/FilmProjectDetails/FilmProjectDetails';
+import FilmProjectDetails from '../pages/FilmProjectDetails/FilmProjectDetails';
 import LandingPage from '../pages/LandingPage/LandingPage';
 import ViewOpportunities from '../pages/ViewOpportunities/ViewOpportunities';
 import RoleDetailPage from '../pages/RoleDetailPage/RoleDetailPage';
 
+import ApplicationReview from '../pages/ApplicationReview/ApplicationReview';
 
 export default function AppRoutes() {
   return (
@@ -26,6 +27,7 @@ export default function AppRoutes() {
       <Route path="/LandingPage" element={<LandingPage />} />
       <Route path="/ViewOpportunities" element={<ViewOpportunities />} />
       <Route path="/RoleDetailPage" element={<RoleDetailPage />} />
+      <Route path="/ApplicationReview" element={<ApplicationReview />} />
     </Routes>
   );
 }
