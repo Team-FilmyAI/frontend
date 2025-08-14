@@ -115,6 +115,17 @@
   width: 100%;
 }
 
+.input-error {
+  outline: 1px solid red;
+  box-shadow: 0 0 10px 2px var(--input-focus-color);
+}
+
+.error-text {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
 .consent-custom-radio {
   color: red;
   margin-bottom: 200px;
@@ -122,6 +133,13 @@
 
 .consent-header {
   margin-bottom: 8px;
+}
+
+.char-count {
+  font-family: 'Garet';
+  font-size: 0.875rem;
+  color: #8b929e;
+  margin-top: 4px;
 }
 
 /* ======================
@@ -337,6 +355,18 @@
 .form-skill-buttons {
   display: flex;
   gap: 0.5rem;
+}
+
+.white-form-button {
+  margin-top: 10px;
+  padding: 4px 6px;
+  background-color: #f5f5f5;
+  border-radius: 0.3rem;
+  color: var(--app-button-text-maroon);
+  font-family: 'Garet';
+  font-weight: 400;
+  font-size: 0.875rem;
+  cursor: pointer;
 }
 
 .form-skill-button {

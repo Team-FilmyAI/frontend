@@ -34,6 +34,7 @@ export const formStyles = {
     borderColor: state.isFocused ? borderColorFocused : borderColor,
     backgroundColor: backgroundColor,
     color: 'white',
+    fontSize: '14px',
     boxShadow: state.isFocused ? '0 0 0 1px borderColorFocused' : 'none',
     '&:hover': { borderColor: borderColorFocused },
     fontFamily: 'Garet',
@@ -53,6 +54,7 @@ export const formStyles = {
     ...provided,
     backgroundColor: state.isFocused ? formOptionFocusedColor : backgroundColor,
     color: state.isFocused ? 'white' : formTextColor,
+    fontSize: '14px',
     fontFamily: 'Garet',
   }),
   singleValue: (provided) => ({

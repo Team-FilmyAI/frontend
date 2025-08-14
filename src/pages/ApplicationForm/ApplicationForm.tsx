@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useRef, useState, useEffect } from 'react';
 import './ApplicationForm.css';
-
 import Header from '../../components/Header/Header.tsx';
 import { ChevronLeft } from 'lucide-react';
 import { StepIndicator } from './StepIndicator';
@@ -24,6 +22,7 @@ interface FormData {
   skillsConsent: Record<string, any>;
 }
 
+// Step definition
 const steps = [
   { id: 1, title: 'Basic Info', component: 'BasicInfoForm' },
   { id: 2, title: 'Personal', component: 'PersonalForm' },
@@ -47,13 +46,10 @@ export const ApplicationForm: React.FC = () => {
   const [userRole, setUserRole] = useState<string>('');
   const [availableSteps, setAvailableSteps] = useState(steps);
 
+  // Refs for each step's validation method
+  const stepRefs = useRef<Record<number, { validateForm: () => boolean }>>({});
+
   useEffect(() => {
-    // // Decode JWT and get user role
-    // const token =
-    //   localStorage.getItem('jwt_token') ||
-    //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZGV2ZWxvcGVyIiwidXNlcklkIjoiMTIzIn0.demo'; // Demo token
-    // const decoded = decodeJWT(token);
-    // const role = getUserRole(decoded);
     const role = CURRENT_ROLE;
     setUserRole(role);
 
@@ -75,6 +71,12 @@ export const ApplicationForm: React.FC = () => {
   };
 
   const handleNext = () => {
+    const validator = stepRefs.current[currentStep]?.validateForm;
+    if (validator && !validator()) {
+      // Validation failed, stop navigation
+      return;
+    }
+
     markStepComplete(currentStep);
     if (currentStep < availableSteps.length) {
       setCurrentStep(currentStep + 1);
@@ -88,8 +90,15 @@ export const ApplicationForm: React.FC = () => {
   };
 
   const handleSave = () => {
+    const validator = stepRefs.current[currentStep]?.validateForm;
+    if (validator && !validator()) {
+      // Validation failed, stop save
+      return;
+    }
+
     console.log('Saving form data:', formData);
-    // Implement save logic here
+
+    // Here: Call your save API or backend function
   };
 
   const getCurrentStepComponent = () => {
@@ -100,6 +109,11 @@ export const ApplicationForm: React.FC = () => {
       data: formData,
       updateData: updateFormData,
       userRole,
+      ref: (instance: any) => {
+        if (instance) {
+          stepRefs.current[currentStep] = instance;
+        }
+      },
     };
 
     switch (currentStepData.component) {
@@ -126,16 +140,12 @@ export const ApplicationForm: React.FC = () => {
       <div className="content-wrapper">
         {/* Header Section */}
         <div className="header-section">
-          {/* Back to Job Link */}
           <button className="back-button">
             <ChevronLeft size={20} />
             <span className="back-text">Back to the Job</span>
           </button>
 
-          {/* Title */}
           <h1 className="apply-title">Apply for Role</h1>
-
-          {/* Subtitle */}
           <p className="apply-subtitle">Complete your application step by step.</p>
         </div>
 
@@ -147,7 +157,7 @@ export const ApplicationForm: React.FC = () => {
         />
 
         <div className="step-container">{getCurrentStepComponent()}</div>
-        <div className=""></div>
+        <div className="divider"></div>
         <FormNavigation
           currentStep={currentStep}
           totalSteps={availableSteps.length}

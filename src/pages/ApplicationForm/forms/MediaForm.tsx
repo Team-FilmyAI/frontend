@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { getFieldVisibility } from '../../../assets/config/formConfig';
-import { Award } from 'lucide-react';
-import { Upload, FileText, Image } from 'lucide-react';
+import { Award, FileText } from 'lucide-react';
 import './form-styles.css';
 
 interface MediaFormProps {
@@ -10,20 +9,47 @@ interface MediaFormProps {
   userRole: string;
 }
 
-export const MediaForm: React.FC<MediaFormProps> = ({ data, updateData, userRole }) => {
+export const MediaForm = forwardRef(({ data, updateData, userRole }: MediaFormProps, ref) => {
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
   const handleChange = (field: string, value: string) => {
     updateData('media', { [field]: value });
   };
 
   const handleFileUpload = (field: string, files: FileList | null) => {
     if (files && files[0]) {
-      // In a real app, you'd upload to a server
       const fileName = files[0].name;
       handleChange(field, fileName);
     }
   };
 
   const isFieldVisible = (field: string) => getFieldVisibility(userRole, 'MediaForm', field);
+
+  useImperativeHandle(ref, () => ({
+    validateForm: () => {
+      const newErrors: Record<string, string> = {};
+      const requiredFields = [
+        'resume',
+        'portfolio',
+        'designSamples',
+        'headshots',
+        'demoReel',
+        'url',
+      ];
+
+      requiredFields.forEach((field) => {
+        if (isFieldVisible(field)) {
+          const val = data.media?.[field];
+          if (!val || (Array.isArray(val) && val.length === 0)) {
+            newErrors[field] = 'Field cannot be blank';
+          }
+        }
+      });
+
+      setErrors(newErrors);
+      return Object.keys(newErrors).length === 0;
+    },
+  }));
 
   return (
     <div className="form-section">
@@ -35,7 +61,7 @@ export const MediaForm: React.FC<MediaFormProps> = ({ data, updateData, userRole
         {isFieldVisible('resume') && (
           <div>
             <label className="app-form-label">Resume/CV (PDF only, 5MB limit)*</label>
-            <div className="file-upload-box">
+            <div className={`file-upload-box ${errors.resume ? 'input-error' : ''}`}>
               <input
                 type="file"
                 accept=".pdf"
@@ -46,7 +72,7 @@ export const MediaForm: React.FC<MediaFormProps> = ({ data, updateData, userRole
               <label htmlFor="resume-upload" className="file-upload-label">
                 Click to upload resume
               </label>
-              <p className="file-upload-note"></p>
+              {errors.resume && <p className="error-text">{errors.resume}</p>}
               {data.media?.resume && (
                 <p className="file-upload-success">
                   <FileText className="inline-icon" />
@@ -57,7 +83,6 @@ export const MediaForm: React.FC<MediaFormProps> = ({ data, updateData, userRole
           </div>
         )}
 
-        {/* Designer Portfolio Fields */}
         {userRole === 'designer' && (
           <>
             <div>
@@ -66,14 +91,15 @@ export const MediaForm: React.FC<MediaFormProps> = ({ data, updateData, userRole
                 type="url"
                 value={data.media?.portfolio || ''}
                 onChange={(e) => handleChange('portfolio', e.target.value)}
-                className="form-input"
+                className={`form-input ${errors.portfolio ? 'input-error' : ''}`}
                 placeholder="https://yourportfolio.com"
               />
+              {errors.portfolio && <p className="error-text">{errors.portfolio}</p>}
             </div>
 
             <div>
               <label className="app-form-label">Design Samples *</label>
-              <div className="file-upload-box">
+              <div className={`file-upload-box ${errors.designSamples ? 'input-error' : ''}`}>
                 <input
                   type="file"
                   accept="image/*"
@@ -85,7 +111,7 @@ export const MediaForm: React.FC<MediaFormProps> = ({ data, updateData, userRole
                 <label htmlFor="design-upload" className="file-upload-label">
                   Upload design samples
                 </label>
-                <p className="file-upload-note">Images only, multiple files allowed</p>
+                {errors.designSamples && <p className="error-text">{errors.designSamples}</p>}
               </div>
             </div>
           </>
@@ -94,22 +120,22 @@ export const MediaForm: React.FC<MediaFormProps> = ({ data, updateData, userRole
         {isFieldVisible('headshots') && (
           <div>
             <label className="app-form-label">Headshots (JPG, PNG, JPEG - Max 5 images)*</label>
-            <div className="file-upload-box">
+            <div className={`file-upload-box ${errors.headshots ? 'input-error' : ''}`}>
               <input
                 type="file"
                 accept=".jpg,.png,.jpeg"
                 onChange={(e) => handleFileUpload('headshots', e.target.files)}
                 className="hidden"
-                id="cover-letter-upload"
+                id="headshots-upload"
               />
-              <label htmlFor="cover-letter-upload" className="file-upload-label">
+              <label htmlFor="headshots-upload" className="file-upload-label">
                 Upload Headshots
               </label>
-              <p className="file-upload-note"></p>
-              {data.media?.coverLetter && (
+              {errors.headshots && <p className="error-text">{errors.headshots}</p>}
+              {data.media?.headshots && (
                 <p className="file-upload-success">
                   <FileText className="inline-icon" />
-                  {data.media.coverLetter}
+                  {data.media.headshots}
                 </p>
               )}
             </div>
@@ -119,37 +145,38 @@ export const MediaForm: React.FC<MediaFormProps> = ({ data, updateData, userRole
         {isFieldVisible('demoReel') && (
           <div>
             <label className="app-form-label">
-              Upload Video (MP4, MOV, AVI, WebM - 100MB limit)
+              Upload Video (MP4, MOV, AVI, WebM - 100MB limit)*
             </label>
-            <div className="file-upload-box">
+            <div className={`file-upload-box ${errors.demoReel ? 'input-error' : ''}`}>
               <input
                 type="file"
                 multiple
-                onChange={(e) => handleFileUpload('additionalDocs', e.target.files)}
+                onChange={(e) => handleFileUpload('demoReel', e.target.files)}
                 className="hidden"
-                id="additional-upload"
+                id="demoReel-upload"
               />
-              <label htmlFor="additional-upload" className="file-upload-label">
+              <label htmlFor="demoReel-upload" className="file-upload-label">
                 Upload Demo Reel
               </label>
-              <p className="file-upload-note"></p>
+              {errors.demoReel && <p className="error-text">{errors.demoReel}</p>}
             </div>
           </div>
         )}
 
         {isFieldVisible('url') && (
           <div className="new-row form-grid-half">
-            <label className="app-form-label">Provide URL</label>
+            <label className="app-form-label">Provide URL*</label>
             <input
               type="url"
-              value={data.basicInfo?.linkedin || ''}
+              value={data.media?.url || ''}
               onChange={(e) => handleChange('url', e.target.value)}
-              className="form-input"
+              className={`form-input ${errors.url ? 'input-error' : ''}`}
               placeholder="https://www.youtube.com/watch?v=..."
             />
+            {errors.url && <p className="error-text">{errors.url}</p>}
           </div>
         )}
       </div>
     </div>
   );
-};
+});

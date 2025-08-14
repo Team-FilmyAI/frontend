@@ -31,6 +31,7 @@ const roleConfigs: Record<string, FormConfig> = {
         // country: true,
         // state: true,
         // city: true,
+        languages: false,
         locationAvailability: true,
       },
       PersonalForm: {
@@ -44,6 +45,7 @@ const roleConfigs: Record<string, FormConfig> = {
         eyeColor: true,
         hairColor: true,
         ethnicity: true,
+        spokenLangs: true,
         emergencyContactName: false,
         emergencyContactPhone: false,
       },

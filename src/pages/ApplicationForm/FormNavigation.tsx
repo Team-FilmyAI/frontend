@@ -24,11 +24,11 @@ export const FormNavigation: React.FC<FormNavigationProps> = ({
         disabled={currentStep === 1}
         className="form-button form-button-previous"
       >
-        <ChevronLeft size={16} /> Previous
+        Previous
       </button>
 
       <button onClick={onSave} className="form-button form-button-save">
-        <Save size={16} /> Save
+        Save
       </button>
 
       <button
@@ -37,7 +37,6 @@ export const FormNavigation: React.FC<FormNavigationProps> = ({
         className="form-button form-button-next"
       >
         {currentStep === totalSteps ? 'Submit' : 'Next'}
-        <ChevronRight size={16} />
       </button>
     </div>
   );
