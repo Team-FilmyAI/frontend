@@ -1,11 +1,11 @@
-import { Routes, Route } from "react-router-dom";
-import React, { useState } from "react"; 
-import HeroPage from "../pages/HeroPage/HeroPage";
-import Login from "../pages/Login/Login";
-import SignUp from "../pages/SignUp/SignUp";
-import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
-import ProfilePage from "../pages/ProfilePage/ProfilePage";
-import ViewOpportunities from "../pages/ViewOpportunities/ViewOpportunities";
+import { Route, Routes } from 'react-router-dom';
+import ForgotPassword from '../pages/ForgotPassword/ForgotPassword';
+import HeroPage from '../pages/HeroPage/HeroPage';
+import Login from '../pages/Login/Login';
+import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import SignUp from '../pages/SignUp/SignUp';
+import ViewOpportunities from '../pages/ViewOpportunities/ViewOpportunities';
+
 
 export default function AppRoutes() {
   return (

@@ -18,6 +18,7 @@
   --card-grey: #2a2a2a;
   --section: #212121;
   --input-focus-color: #514F4F;
+  --card-bg: #111827;
 }
 
 #root {
@@ -150,9 +151,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+/*
 button:hover {
   border-color: #646cff;
 }
+*/
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
