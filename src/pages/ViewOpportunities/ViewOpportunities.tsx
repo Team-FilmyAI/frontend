@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
-import '../../styles/ViewOpportunities/ViewOpportunities.css';
+import "./ViewOpportunities.css";
 import { ArrowLeft } from 'lucide-react';
 import CastingCards from '../../components/CastingCards/CastingCards';
 import { CastingData } from '../types/Casting';

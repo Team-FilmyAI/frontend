@@ -1,7 +1,9 @@
 import React from 'react';
 import './CastingCards.css';
+import Button from '../Buttons/Button';
 import { MapPin, Clock, DollarSign } from 'lucide-react';
 import { CastingData } from '../../pages/types/Casting';
+
 
 interface CastingCardsProps {
   cardData: CastingData;
@@ -59,9 +61,9 @@ const CastingCards: React.FC<CastingCardsProps> = ({ cardData }) => {
         </div>
       </div>
 
-      <div className="card-actions">
-        <button className="apply-now-button">Apply Now</button>
-        <button className="view-details-button">View Details</button>
+      <div className="card-actions" style={{ display: 'flex', gap: '1rem' }}>
+        <Button label="Apply Now" styles={{ bgColor: "#ff7f00", color: "black", width: "495px" }} variant="primary" />
+        <Button label="View Details" styles={{ bgColor: "white", color: "black", width: "132px" }} variant="secondary" />
       </div>
 
       {urgent && <span className="urgent-badge">Urgent</span>}

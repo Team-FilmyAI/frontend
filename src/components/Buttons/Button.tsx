@@ -6,31 +6,34 @@ type ButtonProps = {
   variant?: 'primary' | 'secondary';
   onClick?: () => void;
   fullWidth?: boolean;
+  styles:{
+    bgColor: string,
+    color: string,
+    width?: string,
+  }
+  className?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
   label,
   variant = 'primary',
+  styles,
   onClick,
+  className ='',
   fullWidth = false,
 }) => {
   return (
-    <div>
-      <div style={{ display: 'flex', gap: '1rem', padding: '2rem' }}>
         <button
-          className={`custom-button primary`}
-          onClick={() => console.log('Apply clicked')}
-        >
-          Apply Now
+          style={{
+        background: styles.bgColor,
+        color: styles.color,
+        width: fullWidth ? '100%' : styles.width, 
+      }}
+      className={`custom-button ${variant} ${fullWidth ? 'full-width' : ''} ${className}`}onClick={onClick}
+          >
+            {label}
         </button>
-        <button
-          className={`custom-button secondary`}
-          onClick={() => console.log('Details clicked')}
-        >
-          View Details
-        </button>
-      </div>
-    </div>
+    
   );
 };
 
