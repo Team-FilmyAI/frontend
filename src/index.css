@@ -18,6 +18,11 @@
   --card-grey: #2a2a2a;
   --section: #212121;
   --input-focus-color: #514F4F;
+  --card-bg: #111827;
+  --gray-light: #C0C1C3;
+  --gray-medium: #9CA3AF;
+  --gray-dark: #6B7280;
+  --border-color: #4B5563;
 }
 
 #root {

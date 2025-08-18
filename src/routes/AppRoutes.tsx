@@ -15,7 +15,7 @@ export default function AppRoutes() {
       <Route path="/Forgot" element={<ForgotPassword />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/FilmDetails" element={<FilmProjectDetails />} />
-      <Route path="/RoleDetails" element={<RoleDetailPage />} />
+      <Route path="/RoleDetailPage" element={<RoleDetailPage />} />
     </Routes>
   );
 }
