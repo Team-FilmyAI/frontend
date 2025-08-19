@@ -26,7 +26,7 @@ const CastingCards: React.FC<CastingCardsProps> = ({ cardData }) => {
 
   return (
     <div className="casting-call-card">
-      <div className="card-header">
+      <div className="castingcard-header">
         <h2 className="title">{title}</h2>
         <p className="genre">{type}</p>
         <div className="location-apply-time">
@@ -62,8 +62,8 @@ const CastingCards: React.FC<CastingCardsProps> = ({ cardData }) => {
       </div>
 
       <div className="card-actions" style={{ display: 'flex', gap: '1rem' }}>
-        <Button label="Apply Now" styles={{ bgColor: "#ff7f00", color: "black", width: "495px" }} variant="primary" />
-        <Button label="View Details" styles={{ bgColor: "white", color: "black", width: "132px" }} variant="secondary" />
+        <Button label="Apply Now" styles={{ bgColor: "var(--orange)", color: "black", width: "495px" }} variant="primary" />
+        <Button label="View Details" styles={{ bgColor: "var(--white)", color: "black", width: "132px" }} variant="secondary" />
       </div>
 
       {urgent && <span className="urgent-badge">Urgent</span>}

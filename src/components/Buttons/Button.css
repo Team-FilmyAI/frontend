@@ -16,8 +16,8 @@
 }
 
 .custom-button.primary { 
-  background-color: #ff7f00; 
-  color: white;
+  background-color: var(--orange); 
+  color: var(--white);
   padding: 0.4rem 1.2rem;
   min-width: 120px; 
   max-width: 495px;  
@@ -40,8 +40,8 @@
 
 
 .custom-button.secondary {
-  background-color: white; 
-  color: #ff7f00; 
+  background-color: var(--white); 
+  color: var(--orange); 
   padding: 0.3rem 1rem; 
   min-width: 100px; 
   border: 1px solid #4b5563; 

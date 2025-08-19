@@ -73,7 +73,7 @@ const ViewOpportunities: React.FC = () => {
         </div>
 
         <h1 className="main-title">New Opportunities</h1>
-        <p className="description">
+        <p className="opportunities-description">
           Discover the latest casting calls and roles that match your profile. Apply now and
           take the next step in your acting career.
         </p>

@@ -49,7 +49,7 @@ body {
   top: 1rem; 
   right: 1rem; 
   background-color: #ef4444; 
-  color: white;
+  color: var(--white);
   padding: 0.25rem 0.75rem; 
   border-radius: 10px; 
   font-size: 0.75rem; 
@@ -59,14 +59,14 @@ body {
 }
 
 
-.card-header .title {
+.castingcard-header .title {
   font-size: 20px; 
   font-weight: 500; 
   margin-bottom: 0.5rem; 
   color: rgba(200, 201, 205, 1); 
 }
 
-.card-header .genre {
+.castingcard-header .genre {
   color: rgba(188, 113, 54, 1); 
   font-size: 1rem; 
   font-weight: 200; 
@@ -184,3 +184,6 @@ body {
   
 }
 
+span {
+  font-family: 'Garet';
+}
