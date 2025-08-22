@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import './ApplicationReview.css';
 import { Building } from 'lucide-react';
+import Upload from '../../components/Uploads/Upload';
+import Checkbox from '../../components/Checkbox/Checkbox';
+
 
 /* ---------------- Portfolio Section ---------------- */
 const PortfolioSection: React.FC = () => {
@@ -183,6 +186,29 @@ const ApplicationReview: React.FC = () => {
   const navigate = useNavigate();
   const handleBack = () => navigate('/dashboard');
 
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+
+  const [agree, setAgree] = useState(false);
+  const GENRES = [
+  'Action','Adventure','Animation','War',
+  'Comedy','Crime','Documentary','Biography',
+  'Family','Fantasy','History','Drama',
+  'Sport','Thriller','Romance','Sci-Fi',
+];
+const [selectedGenres, setSelectedGenres] = useState<Set<string>>(new Set());
+
+// toggle helper
+const toggleGenre = (name: string, checked: boolean) => {
+  setSelectedGenres((prev: Set<string>) => {
+    const next = new Set(prev);
+    if (checked) next.add(name);
+    else next.delete(name);
+    return next;
+  });
+};
+
+
+
   const basicInfo = {
     email: 'sarah.johnson@email.com',
     phone: '+1(555) 123 - 4567',
@@ -261,6 +287,33 @@ const ApplicationReview: React.FC = () => {
             <SkillsLanguages {...skillsData} />
             <PreviousWork workHistory={workHistory} />
             <RoleSpecificQuestions />
+
+
+            {/* Upload Poster Image Section */}
+              <div className="card1 upload-card">
+                <h3 className="section-title">
+                  Upload Poster Image
+                </h3>
+                <Upload
+                  onFileSelect={(files) => {
+                    setUploadedFiles(files);
+                    console.log('Uploaded files:', files);
+                  }}
+                  accept="image/png,image/jpeg"
+                  multiple={false}
+                  title="Click to upload poster image"
+                  // iconPosition="inline"
+                />
+
+              </div>
+
+              <Checkbox
+                label="Action"
+                checked={selectedGenres.has('Action')}
+                onChange={(c) => toggleGenre('Action', c)}
+                className="genre-checkbox"   // optional hook for extra spacing
+              />
+
           </div>
 
           <div className="right-column">

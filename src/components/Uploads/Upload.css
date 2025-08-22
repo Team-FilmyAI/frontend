@@ -1,33 +1,90 @@
-/* Wrapper for upload */
+/* Wrapper fills available width */
 .upload-wrapper {
-  display: inline-block;
-  position: relative;
+  width: 100%;
 }
 
-/* Label acts like a button */
-.upload-label {
-  background-color: #ff7a00;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+/* Dropzone box */
+.upload-dropzone {
+  width: 100%;
+  min-height: 160px;            /* matches the shown height */
+  border: 2px dashed #3F4C6A;   /* blue like the screenshot */
+  border-radius: 8px;
+  background: transparent;
+  /*background: #0f172a;          dark slate backdrop */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
   cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
+  position: relative;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+/* Hover/focus/dragging emphasis */
+.upload-dropzone:hover,
+.upload-dropzone:focus-visible {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+.upload-dropzone.dragging {
+  background-color: rgba(59, 130, 246, 0.08);
+  border-color: #93c5fd;
+}
+
+/* Icon + text styles */
+.upload-icon {
+  opacity: 0.75;
+  color: #3F4C6A; /* Blue tone */
+  margin-bottom: 8px;
+}
+.upload-title {
+  color: #E7E7E7;   /* near-white */
+  font-size: 18px;
   font-weight: 500;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.upload-hint {
+  color: #757575;   /* slate-400 */
+  font-size: 14px;
 }
 
-/* Hover effect */
-.upload-label:hover {
-  background-color: #e96c00;
+/* Hide the native input (still accessible via ref) */
+.upload-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none; /* clicks handled by dropzone */
 }
 
-/* Click/active effect */
-.upload-label:active {
-  transform: scale(0.97);
+
+
+
+.upload-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* Hide the actual file input */
-.upload-label input[type="file"] {
-  display: none;
+.upload-inline .upload-icon {
+  margin: 0; /* remove bottom margin for inline layout */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
