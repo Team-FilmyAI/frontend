@@ -1,7 +1,7 @@
 import { Bell, User } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import './Header.css';
-import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ export default function Header() {
         <span className="brand-name">FilmyAI</span>
       </div>
       <div className="header-center">
-        <SearchBar placeholder={"Search movies, roles, directors..."} onSearch={handleSearch} />
+        <SearchBar placeholder={"  Search movies, roles, directors..."} onSearch={handleSearch} />
       </div>
       <div className="header-right">
         <Bell className="icon" onClick={handleAlert} />
