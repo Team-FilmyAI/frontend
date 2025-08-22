@@ -133,7 +133,7 @@ body {
   min-height: 100vh;
   min-width: 100%;
   max-width: 100%;
-  background-color: var(--black) !important;
+  background-color: var(--black) !important;;
   display: flex;
   flex-direction: column;
   line-height: 1.6;

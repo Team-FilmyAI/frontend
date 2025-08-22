@@ -8,7 +8,9 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import SignUp from '../pages/SignUp/SignUp';
 import FilmProjectDetails from './../pages/FilmProjectDetails/FilmProjectDetails';
 import LandingPage from '../pages/LandingPage/LandingPage';
+import ViewOpportunities from '../pages/ViewOpportunities/ViewOpportunities';
 import RoleDetailPage from '../pages/RoleDetailPage/RoleDetailPage';
+
 
 export default function AppRoutes() {
   return (
@@ -22,6 +24,7 @@ export default function AppRoutes() {
       <Route path="/ProductionDashboard" element={<ProductionDashboard />} />
       <Route path="/CurrentProjectDetails" element={<CurrentProjectDetails />} />
       <Route path="/LandingPage" element={<LandingPage />} />
+      <Route path="/ViewOpportunities" element={<ViewOpportunities />} />
       <Route path="/RoleDetailPage" element={<RoleDetailPage />} />
     </Routes>
   );
