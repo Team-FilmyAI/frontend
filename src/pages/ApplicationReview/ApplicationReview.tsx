@@ -24,7 +24,7 @@ const PortfolioSection: React.FC = () => {
   return (
     <div className="card1 portfolio-card">
       <div className="portfolio-group">
-        <h3 className="section-title-right">Portfolio</h3>
+        <h3 className="portfolio-title">Portfolio</h3>
         <h4 className="portfolio-label">Headshots</h4>
 
         <input
@@ -184,7 +184,7 @@ const QuickActions: React.FC = () => (
 /* ---------------- Main Application Review ---------------- */
 const ApplicationReview: React.FC = () => {
   const navigate = useNavigate();
-  const handleBack = () => navigate('/dashboard');
+  const handleBack = () => navigate('/LandingPage');
 
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
 
@@ -238,9 +238,9 @@ const toggleGenre = (name: string, checked: boolean) => {
       <Header />
       <div className="app-review">
         <div className="application-top-bar">
-          <p className="back-link" onClick={handleBack}>
+          <span className="back-link" onClick={handleBack}>
             ← Back to Dashboard
-          </p>
+          </span>
 
           <div className="title-and-actions">
             <div className="title-block">
