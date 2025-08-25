@@ -1,0 +1,139 @@
+.page-wrapper {
+  background-color: #000;
+  color: var(--white);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.page-content{
+  max-width: 9000px; 
+  margin: 0 auto; 
+  padding: 0 20px; 
+  box-sizing: border-box;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #000;
+  color: var(--white);
+  font-family: 'Garet', sans-serif;
+}
+
+.opportunities-container {
+  padding: 60px 20px 50px 20px;  
+  max-width: 1200px;
+  margin: 0 auto; 
+  box-sizing: border-box;
+  position: relative;
+}
+
+span {
+  font-family: 'Garet';
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  color: rgba(132, 135, 139, 1);
+  font-size: 16px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.back-icon {
+  margin-right: 10px;
+}
+
+.main-title {
+  font-size: 36px;
+  font-weight:500;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  color: rgba(236, 236, 236, 1);
+}
+
+.opportunities-description {
+  color: rgba(134, 137, 140, 1);
+  font-weight: 10px;
+  margin-bottom: 40px;
+  max-width: 750px;
+  
+}
+
+.stat-cards {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-start;
+  padding: 25px 0;
+  background-color: #000; 
+}
+
+.stat-card {
+  background-color: #111827;
+  border-radius: 5px;
+  width: 170px;
+  height: 40px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #bdc3cc; 
+  font-family: 'Garet', sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.stat-number {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.stat-label {
+  font-size: 12px;
+  align-items: center;
+  color: rgba(142, 147, 157, 1);
+}
+
+
+.orange {
+  color: #f97316;
+}
+
+.red {
+  color: #fb7185;
+  
+}
+
+.green {
+  color: #22c55e;
+}
+
+.load-more-container {
+    display: flex;
+    justify-content: flex-end; 
+    
+    width: 100%; 
+    max-width: calc(580px * 2 + 1.5rem); 
+    margin-top: 2rem; 
+    
+}
+
+.load-more-button {
+    background-color: var(--white);
+    color: #563d11; 
+    border: 0 solid #f97316; 
+    padding: 0.6rem 1.5rem; 
+    font-size: 1.125rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    white-space: nowrap; 
+}
+
+.load-more-button:hover {
+    background-color: transparent; 
+    color: var(--white); 
+}
