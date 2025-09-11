@@ -6,6 +6,7 @@ import './form-styles.css';
 
 import Dropdown from '../../../components/Dropdown/Dropdown';
 import TextArea from '../../../components/TextArea/TextArea';
+import Label from '../../../components/Label/Label';
 import {
   experienceDropdown,
   educationDropdown,
@@ -61,7 +62,6 @@ export const ExperienceForm = forwardRef<unknown, ExperienceFormProps>(
               newErrors[field] = 'Field cannot be blank';
             }
           } else if (!val) {
-            // Handles null, undefined, empty etc
             newErrors[field] = 'Field cannot be blank';
           }
         }
@@ -96,7 +96,12 @@ export const ExperienceForm = forwardRef<unknown, ExperienceFormProps>(
         <div className="form-grid">
           {isFieldVisible('yearsExperience') && (
             <div>
-              <label className="app-form-label">Years of Experience*</label>
+              <Label
+                text="Years of Experience*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 options={experienceDropdown.options}
                 value={experienceDropdown.options.find(
@@ -113,7 +118,12 @@ export const ExperienceForm = forwardRef<unknown, ExperienceFormProps>(
 
           {isFieldVisible('yearsActingExperience') && (
             <div>
-              <label className="app-form-label">Years of Acting Experience*</label>
+              <Label
+                text="Years of Acting Experience*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 options={experienceDropdown.options}
                 value={experienceDropdown.options.find(
@@ -131,7 +141,12 @@ export const ExperienceForm = forwardRef<unknown, ExperienceFormProps>(
 
           {isFieldVisible('actingEducation') && (
             <div>
-              <label className="app-form-label">Acting Education*</label>
+              <Label
+                text="Acting Education*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 options={educationDropdown.options}
                 placeholder="Select Education"
@@ -149,7 +164,12 @@ export const ExperienceForm = forwardRef<unknown, ExperienceFormProps>(
 
           {isFieldVisible('previousRoles') && (
             <div className="form-grid-full">
-              <label className="app-form-label">Types of Roles Previously Done*</label>
+              <Label
+                text="Types of Roles Previously Done*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 options={prevActingDropdown.options}
                 placeholder="Select role type"
@@ -166,7 +186,12 @@ export const ExperienceForm = forwardRef<unknown, ExperienceFormProps>(
 
           {isFieldVisible('industryExperience') && (
             <div className="form-grid-full">
-              <label className="app-form-label">Industry Experience*</label>
+              <Label
+                text="Industry Experience*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 options={industryRolesDropdown.options}
                 placeholder="Select Experience"
@@ -185,7 +210,12 @@ export const ExperienceForm = forwardRef<unknown, ExperienceFormProps>(
 
           {isFieldVisible('notableWorks') && (
             <div className="form-grid-full">
-              <label className="app-form-label">Notable Work/Projects*</label>
+              <Label
+                text="Notable Work/Projects*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <TextArea
                 className={`form-textarea ${errors.notableWorks ? 'input-error' : ''}`}
                 placeholder="Describe your notable work and projects..."

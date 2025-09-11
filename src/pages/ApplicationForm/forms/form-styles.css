@@ -110,6 +110,10 @@
   color: var(--form-input-placeholder);
 }
 
+.form-input:disabled {
+  opacity: 0.5;
+}
+
 .form-small-input {
   grid-template-columns: 8rem 1fr;
   width: 100%;
@@ -132,7 +136,7 @@
 }
 
 .consent-header {
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 .char-count {
@@ -418,8 +422,9 @@
 }
 
 .form-checkbox-text {
+  margin-left: 5px;
   font-size: 0.875rem;
-  color: white;
+  color: var(--form-text);
 }
 
 .form-summary {

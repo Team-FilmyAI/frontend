@@ -67,7 +67,8 @@
 }
 
 .divider {
-  /* width: 100px;
-  height: 50px; */
-  border: 5px solid var(--step-bg);
+  width: auto;
+  height: 0px;
+  border: 4px solid var(--step-bg);
+  opacity: 1;
 }

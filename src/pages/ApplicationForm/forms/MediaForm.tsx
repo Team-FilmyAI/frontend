@@ -2,6 +2,7 @@ import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { getFieldVisibility } from '../../../assets/config/formConfig';
 import { Award, FileText } from 'lucide-react';
 import './form-styles.css';
+import Label from '../../../components/Label/Label';
 
 interface MediaFormProps {
   data: any;
@@ -60,7 +61,12 @@ export const MediaForm = forwardRef(({ data, updateData, userRole }: MediaFormPr
       <div className="form-grid">
         {isFieldVisible('resume') && (
           <div>
-            <label className="app-form-label">Resume/CV (PDF only, 5MB limit)*</label>
+            <Label
+              text="Resume/CV (PDF only, 5MB limit)*"
+              className="app-form-label"
+              fontSize="0.875rem"
+              color="var(--form-text)"
+            />
             <div className={`file-upload-box ${errors.resume ? 'input-error' : ''}`}>
               <input
                 type="file"
@@ -83,43 +89,14 @@ export const MediaForm = forwardRef(({ data, updateData, userRole }: MediaFormPr
           </div>
         )}
 
-        {userRole === 'designer' && (
-          <>
-            <div>
-              <label className="app-form-label">Portfolio URL *</label>
-              <input
-                type="url"
-                value={data.media?.portfolio || ''}
-                onChange={(e) => handleChange('portfolio', e.target.value)}
-                className={`form-input ${errors.portfolio ? 'input-error' : ''}`}
-                placeholder="https://yourportfolio.com"
-              />
-              {errors.portfolio && <p className="error-text">{errors.portfolio}</p>}
-            </div>
-
-            <div>
-              <label className="app-form-label">Design Samples *</label>
-              <div className={`file-upload-box ${errors.designSamples ? 'input-error' : ''}`}>
-                <input
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  onChange={(e) => handleFileUpload('designSamples', e.target.files)}
-                  className="hidden"
-                  id="design-upload"
-                />
-                <label htmlFor="design-upload" className="file-upload-label">
-                  Upload design samples
-                </label>
-                {errors.designSamples && <p className="error-text">{errors.designSamples}</p>}
-              </div>
-            </div>
-          </>
-        )}
-
         {isFieldVisible('headshots') && (
           <div>
-            <label className="app-form-label">Headshots (JPG, PNG, JPEG - Max 5 images)*</label>
+            <Label
+              text="Headshots (JPG, PNG, JPEG - Max 5 images)*"
+              className="app-form-label"
+              fontSize="0.875rem"
+              color="var(--form-text)"
+            />
             <div className={`file-upload-box ${errors.headshots ? 'input-error' : ''}`}>
               <input
                 type="file"
@@ -144,13 +121,17 @@ export const MediaForm = forwardRef(({ data, updateData, userRole }: MediaFormPr
 
         {isFieldVisible('demoReel') && (
           <div>
-            <label className="app-form-label">
-              Upload Video (MP4, MOV, AVI, WebM - 100MB limit)*
-            </label>
+            <Label
+              text="Upload Video (MP4, MOV, AVI, WebM - 100MB limit)*"
+              className="app-form-label"
+              fontSize="0.875rem"
+              color="var(--form-text)"
+            />
             <div className={`file-upload-box ${errors.demoReel ? 'input-error' : ''}`}>
               <input
                 type="file"
                 multiple
+                accept=".mp4, .mov, .avi, .webm"
                 onChange={(e) => handleFileUpload('demoReel', e.target.files)}
                 className="hidden"
                 id="demoReel-upload"
@@ -159,13 +140,24 @@ export const MediaForm = forwardRef(({ data, updateData, userRole }: MediaFormPr
                 Upload Demo Reel
               </label>
               {errors.demoReel && <p className="error-text">{errors.demoReel}</p>}
+              {data.media?.demoReel && (
+                <p className="file-upload-success">
+                  <FileText className="inline-icon" />
+                  {data.media.demoReel}
+                </p>
+              )}
             </div>
           </div>
         )}
 
         {isFieldVisible('url') && (
           <div className="new-row form-grid-half">
-            <label className="app-form-label">Provide URL*</label>
+            <Label
+              text="Provide URL*"
+              className="app-form-label"
+              fontSize="0.875rem"
+              color="var(--form-text)"
+            />
             <input
               type="url"
               value={data.media?.url || ''}

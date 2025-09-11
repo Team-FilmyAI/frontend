@@ -1,7 +1,18 @@
 import { useState } from 'react';
-import Select from 'react-select';
+import Select, { StylesConfig, MultiValue, SingleValue } from 'react-select';
 
-// <Dropdown {...[dropdownObject]} containerStyling=[containerClassName] />
+interface DropdownProps {
+  value: any;
+  onChange?: (value: any) => void;
+  options: { label: string; value: string }[];
+  placeholder?: string;
+  isMulti?: boolean;
+  styles?: StylesConfig;
+  containerStyling?: string;
+  name: string;
+  error?: string;
+}
+
 export default function Dropdown({
   value,
   onChange = () => {},
@@ -12,9 +23,7 @@ export default function Dropdown({
   containerStyling,
   name,
   error,
-}) {
-  const [selectedOption, setSelectedOption] = useState(null);
-
+}: DropdownProps) {
   return (
     <div className={containerStyling}>
       <Select

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronLeft, ChevronRight, Save } from 'lucide-react';
 import './FormNavigation.css';
+import Button from '../../components/Buttons/Button';
 
 interface FormNavigationProps {
   currentStep: number;
@@ -19,25 +20,21 @@ export const FormNavigation: React.FC<FormNavigationProps> = ({
 }) => {
   return (
     <div className="form-navigation">
-      <button
+      <Button
+        label="Previous"
         onClick={onPrevious}
         disabled={currentStep === 1}
         className="form-button form-button-previous"
-      >
-        Previous
-      </button>
+      />
 
-      <button onClick={onSave} className="form-button form-button-save">
-        Save
-      </button>
+      <Button label="Save" onClick={onSave} className="form-button form-button-save" />
 
-      <button
+      <Button
+        label={currentStep === totalSteps ? 'Submit' : 'Next'}
         onClick={onNext}
         disabled={currentStep === totalSteps}
         className="form-button form-button-next"
-      >
-        {currentStep === totalSteps ? 'Submit' : 'Next'}
-      </button>
+      />
     </div>
   );
 };

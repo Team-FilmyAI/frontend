@@ -1,12 +1,21 @@
 import { useState } from 'react';
 import './Radio.css';
 
-// Use 'radioInfo' as the prop for parent component
-// <Radio radioInfo={} />
-export default function Radio({ radioInfo, value, onChange, className = '' }) {
+interface RadioProps {
+  radioInfo: {
+    options: string[];
+    radioName: string;
+    newLine?: boolean;
+  };
+  value: string;
+  onChange?: (value: string) => void;
+  className?: string;
+}
+
+export default function Radio({ radioInfo, value, onChange, className = '' }: RadioProps) {
   const { options, radioName, newLine } = radioInfo;
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) onChange(event.target.value);
   };
 

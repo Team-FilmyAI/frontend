@@ -453,7 +453,7 @@ export const termsAndConditions = {
   radioName: 'termsAndConditions',
   options: [
     'I agree to the Terms and Conditions *',
-    'I consent to the use of my data for AI processing and analysis to improve casting decisions *',
+    'I consent to the use of my data for AI processing and analysis to improve casting decisions',
   ],
   newLine: true,
 };

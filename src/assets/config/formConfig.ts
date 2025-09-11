@@ -94,6 +94,7 @@ const roleConfigs: Record<string, FormConfig> = {
         licenseCerts: true,
         spokenLanguages: true,
         appSummary: false,
+        termsConsent: true,
       },
     },
   },

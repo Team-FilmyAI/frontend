@@ -1,7 +1,6 @@
 .input-wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 .input-label {
@@ -44,15 +43,15 @@
 }
 
 .input-error {
-  border-color: #ED2B2C;
+  border-color: #ed2b2c;
 }
 
 .input-focused-error {
-  border-color: #ED2B2C;
+  border-color: #ed2b2c;
 }
 
 .error-text {
-  color: #ED2B2C;
+  color: #ed2b2c;
   font-size: 12px;
   margin-top: 4px;
 }

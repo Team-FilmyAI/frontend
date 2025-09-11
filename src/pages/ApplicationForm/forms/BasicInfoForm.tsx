@@ -9,6 +9,8 @@ import { areaCodeDropdown } from '../../../assets/data/constants';
 import Radio from '../../../components/Radio/Radio';
 import { yesOrNo } from '../../../assets/data/constants';
 import EmailInput from '../../../components/EmailInput/EmailInput';
+import Label from '../../../components/Label/Label';
+import TextInput from '../../../components/TextInput/TextInput';
 
 interface BasicInfoFormProps {
   data: any;
@@ -38,7 +40,6 @@ export const BasicInfoForm = forwardRef<unknown, BasicInfoFormProps>(
     const [selectedCountry, setSelectedCountry] = useState('');
     const [selectedState, setSelectedState] = useState('');
 
-    // Sync selects when data changes (for example, when loaded from saved data)
     useEffect(() => {
       const country = data.basicInfo?.country || '';
       const state = data.basicInfo?.state || '';
@@ -64,14 +65,24 @@ export const BasicInfoForm = forwardRef<unknown, BasicInfoFormProps>(
       ];
 
       requiredFields.forEach((field) => {
-        if (isFieldVisible(field) && !data.basicInfo?.[field]) {
-          if (field === 'phone') {
-            const val = data.basicInfo?.phone || '';
-            const countryCodeVal = data.basicInfo?.countryCode || '';
-            if (!countryCodeVal) newErrors.countryCode = 'Please select a country code';
-            else if (!val) newErrors.phone = 'Enter a 10-digit number';
-            else if (!/^\d{10}$/.test(val)) newErrors.phone = 'Enter a 10-digit number';
-          } else newErrors[field] = 'Field cannot be blank';
+        if (!isFieldVisible(field)) return;
+
+        if (field === 'phone') {
+          const val = data.basicInfo?.phone || '';
+          const countryCodeVal = data.basicInfo?.countryCode || '';
+          if (!countryCodeVal) newErrors.countryCode = 'Please select a country code';
+          else if (!val) newErrors.phone = 'Enter a 10-digit number';
+          else if (!/^\d{10}$/.test(val)) newErrors.phone = 'Enter a 10-digit number';
+        } else if (field === 'firstName' || field === 'lastName') {
+          const val = data.basicInfo?.[field] || '';
+          if (val.length === 0) {
+            newErrors[field] = 'Field cannot be blank';
+          } else if (val.length > 50) {
+            newErrors[field] = 'Must be 50 characters or fewer';
+          }
+        } else {
+          const val = data.basicInfo?.[field];
+          if (!val) newErrors[field] = 'Field cannot be blank';
         }
       });
 
@@ -125,45 +136,53 @@ export const BasicInfoForm = forwardRef<unknown, BasicInfoFormProps>(
         <div className="form-grid">
           {isFieldVisible('firstName') && (
             <div>
-              <label className="app-form-label">First Name*</label>
-              <input
-                type="text"
+              <Label
+                text="First Name*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
+              <TextInput
+                label=""
+                placeholder="Enter your first name"
+                icon={undefined}
                 value={data.basicInfo?.firstName || ''}
                 onChange={(e) => handleChange('firstName', e.target.value)}
                 className={`form-input ${errors.firstName ? 'input-error' : ''}`}
-                placeholder="Enter your first name"
-                maxLength={50}
-                required
               />
               {errors.firstName && <span className="error-text">{errors.firstName}</span>}
-              <div className="char-count">
-                {(data.basicInfo?.firstName?.length || 0) + ' / 50 characters'}
-              </div>
             </div>
           )}
 
           {isFieldVisible('lastName') && (
             <div>
-              <label className="app-form-label">Last Name*</label>
-              <input
-                type="text"
+              <Label
+                text="Last Name*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
+              <TextInput
+                label=""
+                placeholder="Enter your last name"
+                icon={undefined}
                 value={data.basicInfo?.lastName || ''}
                 onChange={(e) => handleChange('lastName', e.target.value)}
                 className={`form-input ${errors.lastName ? 'input-error' : ''}`}
-                placeholder="Enter your last name"
-                maxLength={50}
-                required
               />
+
               {errors.lastName && <span className="error-text">{errors.lastName}</span>}
-              <div className="char-count">
-                {(data.basicInfo?.lastName?.length || 0) + ' / 50 characters'}
-              </div>
             </div>
           )}
 
           {isFieldVisible('email') && (
             <div>
-              <label className="app-form-label">Email Address*</label>
+              <Label
+                text="Email Address*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <EmailInput
                 type="email"
                 value={data.basicInfo?.email || ''}
@@ -177,7 +196,12 @@ export const BasicInfoForm = forwardRef<unknown, BasicInfoFormProps>(
 
           {isFieldVisible('phone') && (
             <div>
-              <label className="app-form-label">Phone Number*</label>
+              <Label
+                text="Phone Number*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <div className="form-grid-2 form-small-input">
                 <Dropdown
                   options={areaCodeDropdown.options}
@@ -206,7 +230,12 @@ export const BasicInfoForm = forwardRef<unknown, BasicInfoFormProps>(
           <div className="form-grid-3 form-grid-full">
             {isFieldVisible('country') && (
               <div>
-                <label className="app-form-label">Country*</label>
+                <Label
+                  text="Country*"
+                  className="app-form-label"
+                  fontSize="0.875rem"
+                  color="var(--form-text)"
+                />
                 <select
                   value={selectedCountry}
                   onChange={(e) => handleChange('country', e.target.value)}
@@ -225,7 +254,12 @@ export const BasicInfoForm = forwardRef<unknown, BasicInfoFormProps>(
 
             {isFieldVisible('state') && (
               <div>
-                <label className="app-form-label">State*</label>
+                <Label
+                  text="State*"
+                  className="app-form-label"
+                  fontSize="0.875rem"
+                  color="var(--form-text)"
+                />
                 <select
                   value={selectedState}
                   onChange={(e) => handleChange('state', e.target.value)}
@@ -245,7 +279,12 @@ export const BasicInfoForm = forwardRef<unknown, BasicInfoFormProps>(
 
             {isFieldVisible('city') && (
               <div>
-                <label className="app-form-label">City*</label>
+                <Label
+                  text="City*"
+                  className="app-form-label"
+                  fontSize="0.875rem"
+                  color="var(--form-text)"
+                />
                 <select
                   value={data.basicInfo?.city || ''}
                   onChange={(e) => handleChange('city', e.target.value)}
@@ -266,7 +305,12 @@ export const BasicInfoForm = forwardRef<unknown, BasicInfoFormProps>(
 
           {isFieldVisible('locationAvailability') && (
             <div>
-              <label className="app-form-label">Current Location Availability*</label>
+              <Label
+                text="Current Location Availability"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Radio
                 radioInfo={yesOrNo}
                 value={data.basicInfo?.locationAvailability}
@@ -275,20 +319,6 @@ export const BasicInfoForm = forwardRef<unknown, BasicInfoFormProps>(
               />
               {errors.locationAvailability && (
                 <span className="error-text">{errors.locationAvailability}</span>
-              )}
-              {data.basicInfo?.locationAvailability === 'Yes' && (
-                <div style={{ marginTop: '8px' }}>
-                  <label className="app-form-label">Please specify your location</label>
-                  <input
-                    type="text"
-                    value={data.basicInfo?.specificLocation || ''}
-                    onChange={(e) => handleChange('specificLocation', e.target.value)}
-                    className={`form-input ${errors.lastName ? 'input-error' : ''}`}
-                  />
-                  {errors.specificLocation && (
-                    <span className="error-text">{errors.specificLocation}</span>
-                  )}
-                </div>
               )}
             </div>
           )}

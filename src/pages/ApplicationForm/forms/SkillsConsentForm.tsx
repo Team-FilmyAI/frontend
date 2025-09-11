@@ -13,6 +13,8 @@ import {
 } from '../../../assets/data/constants';
 
 import { getSelectedOptions } from '../../../assets/utils/selectHelpers';
+import Label from '../../../components/Label/Label';
+import Button from '../../../components/Buttons/Button';
 
 interface SkillsConsentFormProps {
   data: any;
@@ -27,7 +29,6 @@ export const SkillsConsentForm = forwardRef<unknown, SkillsConsentFormProps>(
     const isFieldVisible = (field: string) =>
       getFieldVisibility(userRole, 'SkillsConsentForm', field);
 
-    // Controlled change handler
     const handleChange = (field: string, value: any) => {
       updateData('skillsConsent', { [field]: value });
 
@@ -72,7 +73,6 @@ export const SkillsConsentForm = forwardRef<unknown, SkillsConsentFormProps>(
       validateForm,
     }));
 
-    // Prepare selected options for multi-select dropdowns
     const actingSkillsSelected = getSelectedOptions(
       actingSkillsDropdown.options,
       data.skillsConsent?.actingSkills
@@ -97,7 +97,12 @@ export const SkillsConsentForm = forwardRef<unknown, SkillsConsentFormProps>(
         <div className="form-grid">
           {isFieldVisible('actingSkills') && (
             <div className="form-grid-full">
-              <label className="app-form-label">Acting Skills*</label>
+              <Label
+                text="Acting Skills*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 {...actingSkillsDropdown}
                 placeholder="Select other talents"
@@ -112,7 +117,12 @@ export const SkillsConsentForm = forwardRef<unknown, SkillsConsentFormProps>(
 
           {isFieldVisible('otherTalents') && (
             <div className="form-grid-full">
-              <label className="app-form-label">Other Talents</label>
+              <Label
+                text="Other Talents"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 {...filmTalentsDropdown}
                 placeholder="Select other talents"
@@ -125,13 +135,24 @@ export const SkillsConsentForm = forwardRef<unknown, SkillsConsentFormProps>(
 
           {isFieldVisible('licenseCerts') && (
             <div className="form-grid-full">
+              <Label
+                text="Licenses/Certifications"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <LicensesCertificationsSection data={data} updateData={updateData} />
             </div>
           )}
 
           {isFieldVisible('spokenLanguages') && (
             <div className="form-grid-full">
-              <label className="app-form-label">Languages for Singing/Voiceover</label>
+              <Label
+                text="Languages for Singing/Voiceover"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 {...spokenLanguages}
                 placeholder="Select languages for singing/voiceover"
@@ -155,17 +176,37 @@ export const SkillsConsentForm = forwardRef<unknown, SkillsConsentFormProps>(
           )}
         </div>
 
-        <hr className="text-white" />
-        <h2 className="form-heading consent-header">
-          <CircleCheckBig className="award-color" size={24} /> Consents and Submissions
-        </h2>
-
-        <Radio
-          radioInfo={termsAndConditions}
-          className="custom-radio-style"
-          onChange={(val) => handleChange('consent', val)}
-          value={data.skillsConsent?.consent || ''}
-        />
+        {isFieldVisible('termsConsent') && (
+          <div>
+            <hr className="text-white" />
+            <h2 className="form-heading consent-header">
+              <CircleCheckBig className="award-color" size={24} /> Consents and Submissions
+            </h2>
+            {termsAndConditions.options.map((option, idx) => (
+              <div key={idx} className="flex items-center mb-2">
+                <input
+                  type="checkbox"
+                  name={termsAndConditions.radioName}
+                  value={option}
+                  checked={data.skillsConsent?.termsConsent?.includes(option) || false}
+                  onChange={(e) => {
+                    const checked = e.target.checked;
+                    let newValue = data.skillsConsent?.termsConsent || [];
+                    if (checked) {
+                      newValue = [...newValue, option];
+                    } else {
+                      newValue = newValue.filter((val) => val !== option);
+                    }
+                    handleChange('termsConsent', newValue); // stores inside skillsConsent
+                  }}
+                  className="form-checkbox"
+                />
+                <span className="form-checkbox-text">{option}</span>
+              </div>
+            ))}
+            {errors.termsConsent && <span className="error-text">{errors.termsConsent}</span>}
+          </div>
+        )}
       </div>
     );
   }
@@ -202,8 +243,6 @@ const LicensesCertificationsSection = ({ data, updateData, className }) => {
 
   return (
     <div className={className}>
-      <label className="app-form-label">Licenses/Certifications</label>
-
       {licenses.map((license, idx) => (
         <div
           key={idx}
@@ -242,9 +281,7 @@ const LicensesCertificationsSection = ({ data, updateData, className }) => {
         </div>
       ))}
 
-      <button type="button" onClick={handleAddLicense} className="white-form-button">
-        + Add License
-      </button>
+      <Button label="+ Add License" className="white-form-button" onClick={handleAddLicense} />
     </div>
   );
 };

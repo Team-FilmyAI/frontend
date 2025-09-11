@@ -1,8 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './ApplicationForm.css';
 import Header from '../../components/Header/Header.tsx';
-import { ChevronLeft } from 'lucide-react';
+import { Check, ChevronLeft } from 'lucide-react';
 import { StepIndicator } from './StepIndicator';
+
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+
 import { FormNavigation } from './FormNavigation';
 import { BasicInfoForm } from './forms/BasicInfoForm';
 import { PersonalForm } from './forms/PersonalForm';
@@ -12,6 +17,8 @@ import { RoleQuestionsForm } from './forms/RoleQuestionsForm';
 import { SkillsConsentForm } from './forms/SkillsConsentForm';
 import { getFormConfig } from '../../assets/config/formConfig';
 import { CURRENT_ROLE } from '../../assets/config/roleConfig';
+import styled from '@emotion/styled';
+import { StepIconProps } from '@mui/material';
 
 interface FormData {
   basicInfo: Record<string, any>;
@@ -22,7 +29,6 @@ interface FormData {
   skillsConsent: Record<string, any>;
 }
 
-// Step definition
 const steps = [
   { id: 1, title: 'Basic Info', component: 'BasicInfoForm' },
   { id: 2, title: 'Personal', component: 'PersonalForm' },
@@ -97,8 +103,6 @@ export const ApplicationForm: React.FC = () => {
     }
 
     console.log('Saving form data:', formData);
-
-    // Here: Call your save API or backend function
   };
 
   const getCurrentStepComponent = () => {
@@ -149,15 +153,39 @@ export const ApplicationForm: React.FC = () => {
           <p className="apply-subtitle">Complete your application step by step.</p>
         </div>
 
-        <StepIndicator
-          steps={availableSteps}
-          currentStep={currentStep}
-          completedSteps={completedSteps}
-          onStepClick={setCurrentStep}
-        />
+        <Stepper
+          activeStep={currentStep - 1}
+          alternativeLabel
+          sx={{
+            '& .MuiStepConnector-line': {
+              borderColor: 'var(--stepper-color)', // 🟠 orange connector
+              borderWidth: '2px',
+              margin: '0 8px',
+            },
+            '& .MuiStepConnector-root': {
+              top: '25%',
+              transform: 'translateY(-50%)',
+            },
+          }}
+        >
+          {steps.map((label) => (
+            <Step key={label.title} sx={{}}>
+              <StepLabel
+                slots={{ stepIcon: CustomStepIcon }}
+                sx={{
+                  '& .MuiStepLabel-label': { color: 'var(--stepper-label)', fontFamily: 'Garet' },
+                  '& .MuiStepLabel-label.Mui-active': { color: 'var(--stepper-label)' },
+                  '& .MuiStepLabel-label.Mui-completed': { color: 'var(--stepper-label)' },
+                }}
+              >
+                {label.title}
+              </StepLabel>
+            </Step>
+          ))}
+        </Stepper>
 
         <div className="step-container">{getCurrentStepComponent()}</div>
-        <div className="divider"></div>
+        <hr className="divider"></hr>
         <FormNavigation
           currentStep={currentStep}
           totalSteps={availableSteps.length}
@@ -169,3 +197,37 @@ export const ApplicationForm: React.FC = () => {
     </div>
   );
 };
+
+// 🔶 Step icon root wrapper
+const CustomStepIconRoot = styled('div')<{
+  ownerState: { active?: boolean; completed?: boolean };
+}>(({ ownerState }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 40,
+  height: 40,
+  borderRadius: '50%',
+  border: '2px solid var(--stepper-color)',
+  backgroundColor: ownerState.completed ? 'var(--stepper-color)' : 'var(--stepper-bg)',
+  color: ownerState.completed ? 'var(--stepper-bg)' : '#5d5d5d',
+  fontWeight: 400,
+  fontFamily: 'Garet, sans-serif',
+  ...(ownerState.active && {
+    borderColor: 'var(--stepper-color)',
+    backgroundColor: 'var(--stepper-bg)',
+    color: 'var(--stepper-color)',
+    fontWeight: 500,
+  }),
+}));
+
+// 🔶 Step icon component
+function CustomStepIcon(props: StepIconProps) {
+  const { active, completed, className, icon } = props;
+
+  return (
+    <CustomStepIconRoot ownerState={{ active, completed }} className={className}>
+      {completed ? <Check style={{ width: '1.25rem', height: '1.25rem' }} /> : <span>{icon}</span>}
+    </CustomStepIconRoot>
+  );
+}

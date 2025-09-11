@@ -18,6 +18,10 @@ import {
   actorAccents,
 } from '../../../assets/data/constants';
 import Dropdown from '../../../components/Dropdown/Dropdown';
+import DatePicker from '../../../components/DatePicker/DatePicker';
+import Label from '../../../components/Label/Label';
+import Button from '../../../components/Buttons/Button';
+import TextInput from '../../../components/TextInput/TextInput';
 
 interface PersonalFormProps {
   data: any;
@@ -33,7 +37,6 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
     const [fluencyLevels, setFluencyLevels] = useState({});
     const isFieldVisible = (field: string) => getFieldVisibility(userRole, 'PersonalForm', field);
 
-    // Example validation for dateOfBirth to ensure it's filled and reasonable
     const validateForm = () => {
       const newErrors: Record<string, string> = {};
 
@@ -45,7 +48,6 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
         'eyeColor',
         'hairColor',
         'ethnicity',
-        'spokenLangs',
       ];
 
       requiredFields.forEach((field) => {
@@ -143,11 +145,15 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
         <div className="form-grid">
           {isFieldVisible('dateOfBirth') && (
             <div>
-              <label className="app-form-label">Date of Birth*</label>
-              <input
-                type="date"
+              <Label
+                text="Date of Birth*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
+              <DatePicker
                 value={data.personal?.dateOfBirth || ''}
-                onChange={(e) => handleChange('dateOfBirth', e.target.value)}
+                onChange={(val) => handleChange('dateOfBirth', val)}
                 className={`form-input ${errors.dateOfBirth ? 'input-error' : ''}`}
               />
               {errors.dateOfBirth && <span className="error-text">{errors.dateOfBirth}</span>}
@@ -156,20 +162,31 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
 
           {isFieldVisible('age') && (
             <div>
-              <label className="app-form-label">Age*</label>
+              <Label
+                text="Age*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <input
                 type="number"
                 value={calculateAge(data.personal?.dateOfBirth)}
                 readOnly
                 className="form-input"
                 placeholder="Select your date of birth"
+                disabled
               />
             </div>
           )}
 
           {isFieldVisible('gender') && (
             <div>
-              <label className="app-form-label">Gender*</label>
+              <Label
+                text="Gender*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 {...genderDropdown}
                 value={previousGendersSelected}
@@ -182,7 +199,12 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
 
           {isFieldVisible('height') && (
             <div>
-              <label className="app-form-label">Height*</label>
+              <Label
+                text="Height*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <div className="form-grid-2 form-small-input">
                 <Dropdown
                   {...heightDropdown}
@@ -207,7 +229,12 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
 
           {isFieldVisible('weight') && (
             <div>
-              <label className="app-form-label">Weight*</label>
+              <Label
+                text="Weight*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <div className="form-grid-2 form-small-input">
                 <Dropdown
                   {...weightDropdown}
@@ -232,7 +259,12 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
 
           {isFieldVisible('eyeColor') && (
             <div>
-              <label className="app-form-label">Eye Color*</label>
+              <Label
+                text="Eye Color*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 {...eyeColorDropdown}
                 placeholder={'Select eye color'}
@@ -248,7 +280,12 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
 
           {isFieldVisible('hairColor') && (
             <div>
-              <label className="app-form-label">Hair Color*</label>
+              <Label
+                text="Hair Color*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 {...hairColorDropdown}
                 placeholder={'Select hair color'}
@@ -264,7 +301,12 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
 
           {isFieldVisible('ethnicity') && (
             <div>
-              <label className="app-form-label">Ethnicity*</label>
+              <Label
+                text="Ethnicity*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 {...ethnicityDropdown}
                 value={previousEtnicitySelected}
@@ -288,20 +330,29 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
 
           {isFieldVisible('accents') && (
             <div>
-              <label className="app-form-label">Accents Known</label>
+              <Label
+                text="Accents Known"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Dropdown
                 {...actorAccents}
                 value={previousAccentsSelected}
                 onChange={(val) => handleChange('accents', val ? val.map((v) => v.value) : [])}
                 className={errors.accents ? 'input-error' : ''}
               />
-              {/* {errors.accents && <span className="error-text">{errors.accents}</span>} */}
             </div>
           )}
 
           {isFieldVisible('nationality') && (
             <div>
-              <label className="app-form-label">Nationality</label>
+              <Label
+                text="Nationality"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <input
                 type="text"
                 value={data.personal?.nationality || ''}
@@ -314,7 +365,12 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
 
           {isFieldVisible('address') && (
             <div className="col-span-2">
-              <label className="app-form-label">Address</label>
+              <Label
+                text="Address"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <textarea
                 value={data.personal?.address || ''}
                 onChange={(e) => handleChange('address', e.target.value)}
@@ -327,7 +383,12 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
 
           {isFieldVisible('emergencyContactName') && (
             <div>
-              <label className="app-form-label">Emergency Contact Name</label>
+              <Label
+                text="Emergency Contact Name"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <input
                 type="text"
                 value={data.personal?.emergencyContactName || ''}
@@ -340,7 +401,12 @@ export const PersonalForm = forwardRef<unknown, PersonalFormProps>(
 
           {isFieldVisible('emergencyContactPhone') && (
             <div>
-              <label className="app-form-label">Emergency Contact Phone</label>
+              <Label
+                text="Emergency Contact Phone"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <input
                 type="tel"
                 value={data.personal?.emergencyContactPhone || ''}
@@ -393,14 +459,18 @@ const SpokenLanguagesSection = ({ data, updateData, className, languageOptions }
 
   return (
     <div className={className}>
-      <label className="app-form-label">Languages Spoken</label>
+      <Label
+        text="Languages Spoken"
+        className="app-form-label"
+        fontSize="0.875rem"
+        color="var(--form-text)"
+      />
 
       {languages.map((item, idx) => (
         <div
           key={idx}
           style={{ display: 'flex', gap: '10px', marginTop: '10px', alignItems: 'center' }}
         >
-          {/* Language dropdown */}
           <Dropdown
             options={languageOptions}
             value={item.language}
@@ -409,7 +479,6 @@ const SpokenLanguagesSection = ({ data, updateData, className, languageOptions }
             styles={formStyles}
           />
 
-          {/* Fluency dropdown */}
           <Dropdown
             options={fluencyOptions}
             value={item.fluency}
@@ -418,7 +487,6 @@ const SpokenLanguagesSection = ({ data, updateData, className, languageOptions }
             styles={formStyles}
           />
 
-          {/* Delete button */}
           <button
             type="button"
             onClick={() => handleDeleteLanguage(idx)}
@@ -435,9 +503,7 @@ const SpokenLanguagesSection = ({ data, updateData, className, languageOptions }
         </div>
       ))}
 
-      <button type="button" onClick={handleAddLanguage} className="white-form-button">
-        + Add Language
-      </button>
+      <Button label="+ Add Language" className="white-form-button" onClick={handleAddLanguage} />
     </div>
   );
 };

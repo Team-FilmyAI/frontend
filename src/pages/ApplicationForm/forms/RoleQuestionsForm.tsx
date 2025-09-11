@@ -9,6 +9,7 @@ import { availabilityDropdown } from '../../../assets/data/constants';
 import Radio from '../../../components/Radio/Radio';
 import { yesOrNo } from '../../../assets/data/constants';
 import TextArea from '../../../components/TextArea/TextArea';
+import Label from '../../../components/Label/Label';
 
 interface RoleQuestionsFormProps {
   data: any;
@@ -41,7 +42,6 @@ export const RoleQuestionsForm = forwardRef<unknown, RoleQuestionsFormProps>(
               newErrors[field] = 'Field cannot be blank';
             }
           } else if (!val) {
-            // Handles null, undefined, empty etc
             newErrors[field] = 'Field cannot be blank';
           }
         }
@@ -67,7 +67,12 @@ export const RoleQuestionsForm = forwardRef<unknown, RoleQuestionsFormProps>(
         <div className="form-grid">
           {isFieldVisible('available') && (
             <div>
-              <label className="app-form-label">Are you available on the shoot date?</label>
+              <Label
+                text="Are you available on the shoot date?"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Radio
                 radioInfo={{ ...yesOrNo, radioName: 'available' }}
                 value={data.roleQuestions?.available}
@@ -77,7 +82,12 @@ export const RoleQuestionsForm = forwardRef<unknown, RoleQuestionsFormProps>(
           )}
           {isFieldVisible('travel') && (
             <div>
-              <label className="app-form-label">Are you willing to travel?</label>
+              <Label
+                text="Are you willing to travel?"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Radio
                 radioInfo={{ ...yesOrNo, radioName: 'travel' }}
                 value={data.roleQuestions?.travel}
@@ -87,7 +97,12 @@ export const RoleQuestionsForm = forwardRef<unknown, RoleQuestionsFormProps>(
           )}
           {isFieldVisible('scheduling') && (
             <div>
-              <label className="app-form-label">Do you have any scheduling conficts?*</label>
+              <Label
+                text="Do you have any scheduling conficts?*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Radio
                 radioInfo={{ ...yesOrNo, radioName: 'scheduling' }}
                 value={data.roleQuestions?.scheduling}
@@ -100,9 +115,12 @@ export const RoleQuestionsForm = forwardRef<unknown, RoleQuestionsFormProps>(
           )}
           {isFieldVisible('relevantExperience') && (
             <div>
-              <label className="app-form-label">
-                Do you have relevant experience for this role?
-              </label>
+              <Label
+                text="Do you have relevant experience for this role?"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <Radio
                 radioInfo={{ ...yesOrNo, radioName: 'relevantExperience' }}
                 value={data.roleQuestions?.relevantExperience}
@@ -113,7 +131,12 @@ export const RoleQuestionsForm = forwardRef<unknown, RoleQuestionsFormProps>(
 
           {isFieldVisible('interest') && (
             <div>
-              <label className="app-form-label">Why are you interested in this role?*</label>
+              <Label
+                text="Why are you interested in this role?*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <TextArea
                 value={data.roleQuestions?.interest || ''}
                 onChange={(e) => handleChange('interest', e.target.value)}
@@ -130,7 +153,12 @@ export const RoleQuestionsForm = forwardRef<unknown, RoleQuestionsFormProps>(
 
           {isFieldVisible('relate') && (
             <div>
-              <label className="app-form-label">How do you relate to this character?*</label>
+              <Label
+                text="How do you relate to this character?*"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <TextArea
                 value={data.roleQuestions?.relate || ''}
                 onChange={(e) => handleChange('relate', e.target.value)}
@@ -146,7 +174,12 @@ export const RoleQuestionsForm = forwardRef<unknown, RoleQuestionsFormProps>(
           )}
           {isFieldVisible('salaryExpectations') && (
             <div>
-              <label className="app-form-label">Salary Expectations</label>
+              <Label
+                text="Salary Expectations"
+                className="app-form-label"
+                fontSize="0.875rem"
+                color="var(--form-text)"
+              />
               <NumberInput
                 type="text"
                 value={data.roleQuestions?.salaryExpectations || ''}
@@ -154,13 +187,6 @@ export const RoleQuestionsForm = forwardRef<unknown, RoleQuestionsFormProps>(
                 className="form-input"
                 placeholder="e.g., $80,000"
               />
-              {/* <input
-                type="text"
-                value={data.roleQuestions?.salaryExpectations || ''}
-                onChange={(e) => handleChange('salaryExpectations', e.target.value)}
-                className="form-input"
-                placeholder="e.g., $80,000 - $100,000 or Negotiable"
-              /> */}
             </div>
           )}
         </div>

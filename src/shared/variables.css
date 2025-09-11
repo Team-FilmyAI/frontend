@@ -42,4 +42,7 @@
   /* App Form */
   --step-line: #ff7f00;
   --step-bg: #111827;
+  --stepper-color: #ff7f00;
+  --stepper-bg: #fff;
+  --stepper-label: #fff;
 }
