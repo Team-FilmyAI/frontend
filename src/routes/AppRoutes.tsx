@@ -5,6 +5,7 @@ import HeroPage from '../pages/HeroPage/HeroPage';
 import Login from '../pages/Login/Login';
 import ProductionDashboard from '../pages/ProductionDashboard/ProductionDashboard';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import { ApplicationForm } from '../pages/ApplicationForm/ApplicationForm';
 import SignUp from '../pages/SignUp/SignUp';
 import FilmProjectDetails from './../pages/FilmProjectDetails/FilmProjectDetails';
 import LandingPage from '../pages/LandingPage/LandingPage';
@@ -21,6 +22,7 @@ export default function AppRoutes() {
       <Route path="/Forgot" element={<ForgotPassword />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/FilmDetails" element={<FilmProjectDetails />} />
+      <Route path="/AppForm" element={<ApplicationForm />} />
       <Route path="/ProductionDashboard" element={<ProductionDashboard />} />
       <Route path="/CurrentProjectDetails" element={<CurrentProjectDetails />} />
       <Route path="/LandingPage" element={<LandingPage />} />

@@ -1,33 +1,35 @@
-import { useState } from "react";
-import "./EmailInput.css";
+import { useState, useEffect } from 'react';
 
-export default function EmailInput({ value, onChange, placeholder = "Enter your email", required = false }) {
-  const [email, setEmail] = useState(value || "");
+export default function EmailInput({
+  value,
+  onChange,
+  placeholder = 'Enter your email',
+  required = false,
+  customClassName = '',
+}) {
   const [isTouched, setIsTouched] = useState(false);
 
-  const isValidEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleChange = (e) => {
-    const val = e.target.value;
-    setEmail(val);
-    onChange?.(val);
+    onChange?.(e.target.value);
   };
 
   const handleBlur = () => {
     setIsTouched(true);
   };
 
-  const showError = isTouched && !isValidEmail(email) && email !== "";
+  const showError = isTouched && !isValidEmail(value) && value !== '';
 
   return (
-    <div className="email-input">
+    <div>
       <input
         type="email"
-        className={`demo-form-input email-input ${showError ? "invalid" : ""}`}
+        className={`demo-form-input ${customClassName || 'email-input'} ${
+          showError ? 'invalid' : ''
+        }`}
         placeholder={placeholder}
-        value={email}
+        value={value || ''}
         onChange={handleChange}
         onBlur={handleBlur}
         required={required}

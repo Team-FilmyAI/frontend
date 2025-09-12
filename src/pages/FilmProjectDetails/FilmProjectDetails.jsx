@@ -2,6 +2,8 @@ import './FilmProjectDetails.css';
 import Header from '../../components/Header/Header';
 import { useState } from 'react';
 import { movieDrive as movie } from '../../assets/data/constants.js';
+import Button from '../../components/Buttons/Button.js';
+import { ArrowLeft } from 'lucide-react';
 
 import { Users, Calendar, Star, Clock, Building, MapPin } from 'lucide-react';
 
@@ -10,10 +12,15 @@ function FilmProjectDetails() {
     <>
       <Header />
       <div className="FilmProjectDetails">
-        {/* Change to Reusable Component */}
-        <button>
-          <i class="fa-solid fa-arrow-left back-button" /> Back to Movies
-        </button>
+        <Button
+          className="back-button"
+          label={
+            <>
+              <ArrowLeft />
+              Back to Movies
+            </>
+          }
+        ></Button>
 
         <FilmOverview film={movie} />
         <Synopsis synopsis={movie.synopsis} />
@@ -146,11 +153,7 @@ function Role({ role, isFilled, onApply }) {
         ${role.payRange[0].toLocaleString()} - ${role.payRange[1].toLocaleString()}
       </span>
 
-      {!isFilled && (
-        <button onClick={onApply} className="apply-button">
-          Apply Now
-        </button>
-      )}
+      {!isFilled && <Button onClick={onApply} className="apply-button" label="Apply Now"></Button>}
     </article>
   );
 }

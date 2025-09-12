@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./DatePicker.css";
+import React, { useState } from 'react';
+import './DatePicker.css';
 
 interface DatePickerProps {
   label?: string;
@@ -7,6 +7,7 @@ interface DatePickerProps {
   onChange: (date: string) => void;
   minDate?: string;
   maxDate?: string;
+  className?: string;
   required?: boolean;
 }
 
@@ -16,9 +17,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
   onChange,
   minDate,
   maxDate,
+  className,
   required = false,
 }) => {
-  const [selectedDate, setSelectedDate] = useState<string>(value || "");
+  const [selectedDate, setSelectedDate] = useState<string>(value || '');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDate(e.target.value);
@@ -26,11 +28,11 @@ const DatePicker: React.FC<DatePickerProps> = ({
   };
 
   return (
-    <div className="date-picker">
+    <div className={className ? '' : 'date-picker'}>
       {label && <label className="date-picker-label">{label}</label>}
       <input
         type="date"
-        className="date-picker-input"
+        className={className || 'date-picker-input'}
         value={selectedDate}
         onChange={handleChange}
         min={minDate}

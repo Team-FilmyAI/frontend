@@ -1,26 +1,27 @@
-import { useState } from "react";
-import "./NumberInput.css";
+import { useState } from 'react';
+import './NumberInput.css';
 
 export default function NumberInput({
   maxLength = 10,
-  placeholder = "Enter number",
+  placeholder = 'Enter number',
   value,
   onChange,
+  className = '',
 }) {
   const [touched, setTouched] = useState(false);
-  const [inputValue, setInputValue] = useState(value || "");
+  const [inputValue, setInputValue] = useState(value || '');
   const [isValid, setIsValid] = useState(true);
 
   const handleChange = (e) => {
-  const val = e.target.value;
+    const val = e.target.value;
 
-  if (/^\d*$/.test(val)) {
-    setInputValue(val);
-    if (onChange) onChange(val);
-    if (!touched) setTouched(true);
-    setIsValid(val.length > 0 && val.length <= maxLength);
-  }
-};
+    if (/^\d*$/.test(val)) {
+      setInputValue(val);
+      if (onChange) onChange(val);
+      if (!touched) setTouched(true);
+      setIsValid(val.length > 0 && val.length <= maxLength);
+    }
+  };
 
   const handleBlur = () => {
     setTouched(true);
@@ -28,21 +29,19 @@ export default function NumberInput({
   };
 
   return (
-    <div className="number-input">
+    <div>
       <input
         type="tel"
         inputMode="numeric"
         pattern="[0-9]*"
-        className={`number-input ${touched && !isValid ? "input-error" : ""}`}
+        className={`${className} ${touched && !isValid ? 'input-error' : ''}`}
         placeholder={placeholder}
         value={inputValue}
         onChange={handleChange}
         onBlur={handleBlur}
       />
       {touched && !isValid && (
-        <p className="input-error-message">
-          Please enter a valid number (max {maxLength} digits).
-        </p>
+        <p className="input-error-message">Please enter a valid number (max {maxLength} digits).</p>
       )}
     </div>
   );
