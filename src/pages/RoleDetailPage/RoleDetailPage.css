@@ -2,7 +2,6 @@
   min-height: 100vh;
   background-color: #191919;
   color: var(--white);
-  font-family: 'Garet', system-ui, sans-serif;
   width: 100%;
 }
 
@@ -34,7 +33,6 @@
   cursor: pointer;
   padding: 0;
   transition: color 0.2s ease;
-  font-family: 'Garet', sans-serif;
 }
 
 .role-back-button:hover {
@@ -48,9 +46,8 @@
 .role-project-title {
   color: var(--orange);
   font-size: 16px;
-  font-weight: 00;
+  font-weight: 400;
   margin-bottom: 12px;
-  font-family: 'Garet', sans-serif;
 }
 
 .role-title1 {
@@ -59,7 +56,6 @@
   color: var(--white);
   margin-bottom: 8px;
   line-height: 1.2;
-  font-family: 'Garet', sans-serif;
 }
 
 .role-character-name {
@@ -67,7 +63,6 @@
   font-weight: 400;
   color: var(--gray-medium);
   margin-bottom: 20px;
-  font-family: 'Garet', sans-serif;
 }
 
 .role-meta-info {
@@ -81,7 +76,6 @@
   gap: 8px;
   color: var(--gray-medium);
   font-size: 14px;
-  font-family: 'Garet', sans-serif;
 }
 
 .role-content-grid {
@@ -122,13 +116,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Garet', sans-serif;
 }
 
 .role-card-content {
   color: #D1D5DB;
   line-height: 1.6;
-  font-family: 'Garet', sans-serif;
 }
 
 .role-star-icon {
@@ -154,7 +146,6 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  font-family: 'Garet', sans-serif;
 }
 
 .role-requirements-list li {
@@ -198,7 +189,6 @@
   font-size: 12px;
   font-weight: 200;
   border: 0.5px solid var(--orange);
-  font-family: 'Garet', sans-serif;
 }
 
 .role-sidebar {
@@ -219,14 +209,12 @@
   font-weight: 400;
   color: var(--gray-dark);
   margin-bottom: 8px;
-  font-family: 'Garet', sans-serif;
 }
 
 .role-info-value {
   font-size: 14px;
   color: var(--gray-medium);
   margin: 0;
-  font-family: 'Garet', sans-serif;
   font-weight: 400;
 }
 
@@ -245,7 +233,6 @@
   font-size: 11px;
   font-weight: 500;
   border: 1px solid var(--border-color);
-  font-family: 'Garet', sans-serif;
 }
 
 .role-apply-section {
@@ -265,7 +252,6 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  font-family: 'Garet', sans-serif;
 }
 
 .role-apply-button:hover {

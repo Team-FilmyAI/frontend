@@ -19,11 +19,6 @@
   color: var(--color-icons-orange);
 }
 
-body {
-  display: grid;
-  justify-content: center;
-}
-
 .film-details h4 {
   font-weight: 400 !important;
   color: var(--color-heading-medium) !important;
@@ -37,17 +32,11 @@ body {
   font-size: clamp(0.875rem, 1vw, 1.125rem);
 }
 
-p,
-span {
-  font-family: 'Garet';
-}
-
 .column-container {
   column-count: 2;
   column-gap: 4.17vw;
   margin-bottom: 1.39vw;
 }
-
 .column-container p {
   line-height: 2.5;
 }
@@ -59,7 +48,6 @@ span {
 .synopsis {
   margin-bottom: 1.74vw;
 }
-
 .synopsis h2,
 .available-roles h2 {
   color: var(--color-heading-strong);
@@ -69,7 +57,6 @@ span {
 
 .info-tag {
   display: inline-block;
-  font-family: 'Garet', sans-serif;
   font-size: clamp(0.6875rem, 0.85vw, 0.875rem);
   color: var(--color-info-tag);
   padding: 0.14vw 0.28vw;
@@ -81,7 +68,6 @@ span {
   margin-bottom: 1.74vw;
   white-space: nowrap;
 }
-
 .info-tag.tag-pill {
   margin: 0.28vw;
   padding: 0.28vw 0.49vw;
@@ -101,8 +87,6 @@ span {
   border-radius: 10px;
   padding: 1.7vw 1.4vw;
   transition: all 0.3s ease;
-  /* width: 38vw;
-  height: 15.38vw; */
 }
 
 .FilmProjectDetails .film-overview {
@@ -164,12 +148,10 @@ span {
   font-weight: 500;
   color: var(--badge-icon-text);
 }
-
 .badge-filled {
   background-color: #6b7280;
   color: white;
 }
-
 .badge-open {
   background-color: var(--badge-icon);
   font-weight: 700;
@@ -220,12 +202,10 @@ span {
   border: none;
   padding: 0.42vw 0.69vw;
   border-radius: 8px;
-  cursor: pointer;
   font-weight: 500;
   font-size: clamp(0.875rem, 1vw, 1rem);
   transition: background-color 0.2s ease;
 }
-
 .apply-button:hover {
   box-shadow: 0 0 10px 2px var(--apply-button);
 }

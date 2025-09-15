@@ -34,8 +34,8 @@
 .menu-container ul {
   height: 100%;
   list-style-type: none;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,8 +63,8 @@
 .user-container ul {
   height: 100%;
   list-style-type: none;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,7 +172,7 @@
 @media (max-width: 768px) {
   .navbar-container {
     justify-content: space-between;
-    padding: 0px 5px;
+    padding: 0 5px;
   }
 
   .menu-container {

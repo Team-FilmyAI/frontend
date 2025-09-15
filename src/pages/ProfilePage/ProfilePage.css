@@ -10,228 +10,188 @@
 }
 
 .profile-wrapper {
-  margin-bottom: 2rem;
-  padding-top: 60px;
+  width: 100%;
+  max-width: 1300px;
+  padding: 2rem;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  box-shadow: 0 0 30px rgba(255, 127, 0, 0.15);
+  backdrop-filter: blur(10px);
 }
 
-  
 .profile-columns {
-    display: flex;
-    gap: 2rem;
-    max-width: 1200px;
-    width: 100%;
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
 }
-  
-.profile-left,
-  .profile-right {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  .frosted-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    color: #ff7f00;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin-bottom: 2rem;
-    position: relative;
-  }
-  
-  /* Form Styles */
-  .form-row {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    position: relative;
-  }
-  
-  /* .profile-input {
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ff7f00;
-    background: transparent;
-    color: #ff7f00;
-  } */
-  .profile-input {
-    height: 2.4rem;
-    padding: 6px 8px;
-    font-size: 0.9rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ff7f00;
-    background: transparent;
-    color: #ff7f00;
-    box-sizing: border-box;
-  }
 
-  .profile-pic-display {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-top: 1rem;
-    border: 2px solid #ff7f00;
-    
-  }
-  .about-textarea {
-    resize: none;
-    min-height: 120px;
-    line-height: 1.6;
-  }
-  textarea.profile-input {
-    resize: none;
-    height: 120px;
-    font-size: 0.9rem;
+.profile-left,
+.profile-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.frosted-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: #ff7f00;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.profile-input {
+  height: 2.4rem;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ff7f00;
+  background: transparent;
+  color: #ff7f00;
+  box-sizing: border-box;
+}
+
+.profile-pic-display {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 1rem;
+  border: 2px solid #ff7f00;
+}
+
+.about-textarea {
+  resize: none;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+textarea.profile-input {
+  resize: none;
+  height: 120px;
+  font-size: 0.9rem;
   padding: 6px 8px;
   line-height: 1.6;
-  }
-  .poster-preview {
-    width: 100%;
-    max-width: 280px;
-    border-radius: 0.5rem;
-    object-fit: cover;
-    margin-top: 1rem;
-  }
-  
-  .profile-wrapper {
-    width: 100%;
-    max-width: 1300px;
-    padding: 2rem;
-    margin: 2rem auto;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 1.5rem;
-    box-shadow: 0 0 30px rgba(255, 127, 0, 0.15);
-    backdrop-filter: blur(10px);
-  }
-  
-  /* select.profile-input {
-    height: 3rem; You can adjust this as needed
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-  } */
-  select.profile-input {
-    height: 2.4rem;
-    padding: 6px 8px;
-    font-size: 0.9rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ff7f00;
-    background: transparent;
-    color: #ff7f00;
-    box-sizing: border-box;
-  }
-  
-  .remove-btn {
-    background-color: transparent;
-    border: 1px solid #ff4d4d;
-    color: #f4dfdf;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 1rem;
-    transition: all 0.2s ease;
-  }
-  
-  .remove-btn:hover {
-    background-color: #ff4d4d;
-    color: black;
-  }
+}
 
-  .form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  
-  .edit-btn,
-  .save-btn,
-  .next-btn {
-    background-color: #ff7f00;
-    border: none;
-    padding: 0.5rem 1.5rem;
-    color: black;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .edit-btn:hover,
-  .save-btn:hover,
-  .next-btn:hover {
-    background-color: #ffa500;
-  }
-  
-  .edit-btn:disabled,
-  .save-btn:disabled {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-  }
-  nav, footer {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+.poster-preview {
+  width: 50%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: contain;
+  border: 1px solid #ff7f00;
+  margin-top: 1rem;
+}
 
-  .poster-preview {
-    width: 50%;
-    max-width: 150px;
-    height: auto;
-    border-radius: 0.5rem;             /* Optional: small rounded corners */
-    object-fit: contain;               /* Ensures full image is visible */
-    border: 1px solid #ff7f00;         /* Match theme */
-    margin-top: 1rem;
-  }
-  
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .edit-icon {
-    font-size: 1.1rem;
-    color: #ff7f00;
-    cursor: pointer;
-    padding-left: 0.5rem;
-  }
-  
-  .edit-icon:hover {
-    color: #ffa500;
-  }
-  select[multiple] {
-    height: auto;
-    min-height: 100px;
-  }
-   
-  /* .profile-input {
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ff7f00;
-    background: transparent;
-    color: #ff7f00;
-  } */
+select.profile-input {
+  height: 2.4rem;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ff7f00;
+  background: transparent;
+  color: #ff7f00;
+  box-sizing: border-box;
+}
 
+.remove-btn {
+  background-color: transparent;
+  border: 1px solid #ff4d4d;
+  color: #f4dfdf;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+.remove-btn:hover {
+  background-color: #ff4d4d;
+  color: black;
+}
 
-  /* React Select custom styles */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.edit-btn,
+.save-btn,
+.next-btn {
+  background-color: #ff7f00;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  color: black;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.edit-btn:hover,
+.save-btn:hover,
+.next-btn:hover {
+  background-color: #ffa500;
+}
+.edit-btn:disabled,
+.save-btn:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+nav,
+footer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-icon {
+  font-size: 1.1rem;
+  color: #ff7f00;
+  cursor: pointer;
+  padding-left: 0.5rem;
+}
+.edit-icon:hover {
+  color: #ffa500;
+}
+
+select[multiple] {
+  height: auto;
+  min-height: 100px;
+}
+
 .select__control {
   border: 1px solid #ff7f00 !important;
   background: transparent !important;
   color: #ff7f00;
   border-radius: 0.5rem;
-  /* border: 1px solid rgba(255, 255, 255, 0.2); */
   min-height: 3rem;
-  /* background: rgba(255, 255, 255, 0.1); */
 }
 .select__menu {
   background: #1e1e1e !important;
-  /* background: rgba(255, 255, 255, 0.1); */
   color: #ff7f00;
   border-radius: 0.5rem;
 }
@@ -249,16 +209,9 @@
   color: #ff7f00 !important;
 }
 
-
-
-
-
-
 .profile-pic-row.display-mode {
-  align-items: flex-end; /* Push to the right */
+  align-items: flex-end;
 }
-
-
 
 .profile-info-display-row {
   display: flex;
@@ -278,8 +231,6 @@
   color: #ff7f00;
   font-size: 1rem;
 }
-
-
 
 .double-input-wrapper-container {
   width: 100%;
@@ -324,20 +275,7 @@
   border-radius: 0.5rem;
   background: transparent;
   color: #ff7f00;
-
 }
-
-
-/* .half-width input, .unit-input-wrapper input {
-  height: 2.4rem;
-  box-sizing: border-box;
-} */
-
-
-
-
-
-
 
 .autocomplete-dropdown-container {
   border: 1px solid #ff7f00;
@@ -357,12 +295,10 @@
   cursor: pointer;
   color: #ff7f00;
 }
-
 .suggestion-item--active {
   background-color: #ff7f00;
   color: black;
 }
-
 
 .required-asterisk {
   color: rgb(238, 72, 72);
@@ -377,4 +313,3 @@
   margin-top: 2px;
   margin-bottom: 4px;
 }
-

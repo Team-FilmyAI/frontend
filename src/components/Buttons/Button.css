@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   border: none;
+  font-family: 'Garet', sans-serif;
 }
 
 .custom-button.full-width {
@@ -21,8 +22,6 @@
   padding: 0.4rem 1.2rem;
   min-width: 120px; 
   max-width: 495px;  
-       
-  
   border: none;
   border-radius: 0.350rem; 
   font-size: 1.125rem; 
@@ -32,12 +31,12 @@
   text-align: center; 
   white-space: nowrap; 
   flex-grow: 1; 
+  font-family: 'Garet', sans-serif;
 }
 
 .custom-button.primary:hover {
   background-color: #ea580c; 
 }
-
 
 .custom-button.secondary {
   background-color: var(--white); 
@@ -53,10 +52,11 @@
   text-align: center;
   white-space: nowrap;
   flex-basis: auto; 
+  font-family: 'Garet', sans-serif;
 }
 
-.custom-button.secondary:hover{
-    background-color: #1f2937; 
-    border-color: #374151; 
-    color: #f9fafb;
+.custom-button.secondary:hover {
+  background-color: #1f2937; 
+  border-color: #374151; 
+  color: #f9fafb;
 }

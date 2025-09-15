@@ -8,11 +8,13 @@
   width: 100%;
   transition: all 0.3s ease;
   font-size: 1rem;
+  font-family: 'Garet', sans-serif;
 }
 
 .number-input:hover {
   background-color: var(--section);
 }
+
 .number-input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
