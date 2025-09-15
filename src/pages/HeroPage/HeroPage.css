@@ -260,24 +260,6 @@ form {
   box-shadow: 0 0 10px 5px var(--orange);
 }
 
-.button {
-  background-color: var(--orange);
-  color: var(--white);
-  width: 100%;
-  border: none;
-  height: 40px;
-  border-radius: 5px;
-  font-weight: bold;
-  outline: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.button:hover {
-  color: var(--white);
-}
-
-.button:active {
-  background-color: transparent;
-}
 
 @media (max-width: 1200px) {
   .form {

@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import "./HeroPage.css";
 import HeroPageNavBar from "./HeroPageNavBar";
-
+import Button from "../../components/Buttons/Button";
 interface BlogPost {
   title: string;
   image: string;
@@ -210,7 +210,25 @@ export default function HeroPage() {
                       </div>
                       <div className="row">
                         <div className="col-md-12">
-                          <input type="submit" value="Get Demo!" className="button" />
+                         <Button
+                            label="Get Demo!"
+                            type="submit"
+                            variant="primary"
+                            fullWidth={true}
+                            onClick={() => console.log("Get Demo clicked")}
+                            styles={{
+                              bgColor: "var(--orange)",
+                              color: "var(--white)",
+                              height: "40px",
+                              border: "none",
+                              borderRadius: "5px",
+                              fontWeight: "bold",
+                              fontSize: "16px",
+                              transition: "all 0.2s ease",
+                            }}
+                          />
+
+                          {/* <input type="submit" value="Get Demo!" className="button" /> */}
                         </div>
                       </div>
                     </form>

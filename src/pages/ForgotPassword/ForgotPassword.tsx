@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./ForgotPassword.css";
+import EmailInput from "../../components/EmailInput/EmailInput";
+import Button from "../../components/Buttons/Button";
+
+const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+const isUsername = (v: string) => /^[a-zA-Z0-9._-]{3,30}$/.test(v);
 
 export default function ForgotPassword() {
   const [input, setInput] = useState("");
@@ -8,24 +13,25 @@ export default function ForgotPassword() {
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleSend = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const v = input.trim();
 
-    if (!input.trim()) {
+    if (!v) {
       setError("Please enter your email or username.");
       setSuccessMessage("");
       return;
     }
 
-    // If input looks like an email, validate it
-    if (input.includes("@") && !emailRegex.test(input)) {
-      setError("Please enter a valid email address.");
+    // mode = 2 logic: if it has '@', validate as email; otherwise validate as username
+    const valid = v.includes("@") ? isEmail(v) : isUsername(v);
+    if (!valid) {
+      setError("Please enter a valid email or username.");
       setSuccessMessage("");
       return;
     }
 
     // Clear errors and simulate success
     setError("");
-    setSuccessMessage("Reset link has been sent to your email.");
+    setSuccessMessage("If this account exists, a reset link has been sent.");
     // TODO: Replace with actual API logic
   };
 
@@ -38,12 +44,12 @@ export default function ForgotPassword() {
           <div className="forget-input-container">
             {error && <div className="error-message">{error}</div>}
             {successMessage && <div className="success-message">{successMessage}</div>}
-            <input
-              type="text"
-              placeholder="Email address or Username"
-              className="forget-input-field"
+            <EmailInput
+              mode={2}                               // 1=email, 2=email|username, 3=email|username|phone
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={setInput}
+              required
+              placeholder="Email address or Username"
             />
           </div>
 
@@ -51,9 +57,28 @@ export default function ForgotPassword() {
             Back to <Link to="/Login">Log in</Link>
           </p>
 
-          <button className="forget-send-btn" onClick={handleSend}>
-            Send
-          </button>
+          <Button
+            label="Send"
+            variant="primary"
+            onClick={handleSend}
+            styles={{
+              bgColor: "#ff7f00",
+              color: "#ffffff",
+              border: "2px solid #ff7f00",
+              borderRadius: "50px",
+              fontSize: "16px",
+              padding: "12px 20px",
+              margin: "15px 0 0 0",
+              fontWeight: 600,
+              hoverBgColor: "#e65c00",
+              hoverBorder: "2px solid #e65c00",
+              hoverColor: "#ffffff",
+              transition: "all 0.2s ease",
+            }}
+          />
+
+
+         
 
           <div className="divider">
             <span>OR</span>

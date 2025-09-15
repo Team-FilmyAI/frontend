@@ -1,62 +1,41 @@
+/* Keep this base neutral so inline styles decide size */
 .custom-button {
-  padding: 1.6rem 3rem;
-  font-size: 1.1rem;
-  border-radius: 2px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  /* DO NOT force padding/width here; let props control it */
   border: none;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  background: transparent;
 }
 
+/* Full-width only when explicitly requested via prop */
 .custom-button.full-width {
   width: 100%;
 }
 
-.custom-button.primary { 
-  background-color: var(--orange); 
+/* Variants: colors only (no sizing / no flex-grow) */
+.custom-button.primary {
+  background-color: var(--orange);
   color: var(--white);
-  padding: 0.4rem 1.2rem;
-  min-width: 120px; 
-  max-width: 495px;  
-       
-  
-  border: none;
-  border-radius: 0.350rem; 
-  font-size: 1.125rem; 
-  font-weight: 600; 
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out; 
-  text-align: center; 
-  white-space: nowrap; 
-  flex-grow: 1; 
+  /* no min-width, no flex-grow, no padding here */
 }
-
-.custom-button.primary:hover {
-  background-color: #ea580c; 
-}
-
 
 .custom-button.secondary {
-  background-color: var(--white); 
-  color: var(--orange); 
-  padding: 0.3rem 1rem; 
-  min-width: 100px; 
-  border: 1px solid #4b5563; 
-  border-radius: 0.375rem; 
-  font-size: 0.9rem; 
-  font-weight: 200; 
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out; 
-  text-align: center;
-  white-space: nowrap;
-  flex-basis: auto; 
+  background-color: var(--white);
+  color: var(--orange);
+  border: 1px solid #4b5563;
+}
+
+/* Optional hover fallback if you don’t pass hover* props.
+   Kept very light so inline hover styles still win. */
+.custom-button.primary:hover {
+  filter: brightness(0.95);
 }
 
 .custom-button.secondary:hover{
-    background-color: #1f2937; 
-    border-color: #374151; 
-    color: #f9fafb;
+  background-color: #f3f4f6;
 }

@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import './ApplicationReview.css';
 import { Building } from 'lucide-react';
-import Upload from '../../components/Uploads/Upload';
-import Checkbox from '../../components/Checkbox/Checkbox';
-
+import Button from '../../components/Buttons/Button';
+import Label from '../../components/Label/Label';
 
 /* ---------------- Portfolio Section ---------------- */
 const PortfolioSection: React.FC = () => {
@@ -24,7 +23,15 @@ const PortfolioSection: React.FC = () => {
   return (
     <div className="card1 portfolio-card">
       <div className="portfolio-group">
-        <h3 className="portfolio-title">Portfolio</h3>
+        <Label text = "Portfolio"
+                fontSize = "24px"
+                color = "#f2f2f2"
+                padding = "0"
+                margin = "0 0 1 rem 0"
+                fontWeight= "600"
+                fontFamily = "'Inter', sans-serif"
+        />
+
         <h4 className="portfolio-label">Headshots</h4>
 
         <input
@@ -34,9 +41,13 @@ const PortfolioSection: React.FC = () => {
           style={{ display: 'none' }}
           onChange={(e) => handleFileChange(e, setHeadshot1Name)}
         />
-        <label htmlFor="headshot1" className="custom-upload-button">
-          {headshot1Name}
-        </label>
+        <Button
+          label={headshot1Name}
+          variant="primary"
+          styles={{
+            bgColor: "#f2f2f2",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
+          onClick={() => document.getElementById("headshot1")?.click()}
+        />
 
         <input
           type="file"
@@ -45,17 +56,25 @@ const PortfolioSection: React.FC = () => {
           style={{ display: 'none' }}
           onChange={(e) => handleFileChange(e, setHeadshot2Name)}
         />
-        <label htmlFor="headshot2" className="custom-upload-button">
-          {headshot2Name}
-        </label>
+        <Button
+          label={headshot2Name}
+          variant="primary"
+          styles={{
+            bgColor: "#f2f2f2",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
+          onClick={() => document.getElementById("headshot2")?.click()}
+        />
       </div>
 
       <div className="portfolio-group">
         <h4 className="portfolio-label">Demo Reel</h4>
         <input type="file" id="demoReel" accept="video/*" style={{ display: 'none' }} />
-        <label htmlFor="demoReel" className="custom-upload-button">
-          Upload Demo Reel
-        </label>
+        <Button
+          label="Upload Demo Reel"
+          variant="primary"
+          styles={{
+            bgColor: "#f2f2f2",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
+          onClick={() => document.getElementById("demoReel")?.click()}
+        />
       </div>
 
       <div className="portfolio-group">
@@ -66,9 +85,13 @@ const PortfolioSection: React.FC = () => {
           accept=".pdf,.doc,.docx"
           style={{ display: 'none' }}
         />
-        <label htmlFor="resume" className="custom-upload-button">
-          Upload Resume
-        </label>
+        <Button
+          label="Upload Resume"
+          variant="primary"
+          styles={{
+            bgColor: "#f2f2f2",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
+          onClick={() => document.getElementById("resume")?.click()}
+        />
       </div>
     </div>
   );
@@ -82,10 +105,18 @@ const SkillsLanguages: React.FC<{ skills: string[]; languages: string[]; accents
 }) => (
   <>
     {/* Heading OUTSIDE the card */}
-    <h3 className="section-title">
-      <Building size={24} color="#FB923C" />
-      Skills & Languages
-    </h3>
+    <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "2rem", marginRight: "1rem" , marginBottom: "1rem"}}>
+          <Building size={24} color="#FB923C" />
+          <Label 
+            text="Skills & Languages"
+            fontSize="24px"
+            color="#C0C1C3"
+            padding="0"
+            margin="0 0 0 0"
+            fontWeight="500"
+            fontFamily="'Inter', sans-serif"
+          />
+        </div>
     <div className="card1 skills-card">
     <div className="skills-grid">
       <div>
@@ -122,10 +153,19 @@ const PreviousWork: React.FC<{ workHistory: { title: string; role: string; year:
   workHistory,
 }) => (
     <>
-  <h3 className="section-title">
-      <Building size={24} color="#FB923C" />
-      Previous Work
-    </h3>
+  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "2rem", marginRight: "1rem" , marginBottom: "1rem"}}>
+          <Building size={24} color="#FB923C" />
+          <Label 
+            text="Previous Work"
+            fontSize="24px"
+            color="#C0C1C3"
+            padding="0"
+            margin="0 0 0 0"
+            fontWeight="500"
+            fontFamily="'Inter', sans-serif"
+          />
+        </div>
+  
   <div className="card1 previous-work-card">
     
     <div className="work-list">
@@ -146,10 +186,19 @@ const PreviousWork: React.FC<{ workHistory: { title: string; role: string; year:
 /* ---------------- Role-Specific Questions ---------------- */
 const RoleSpecificQuestions: React.FC = () => (
   <>
-    <h3 className="section-title">
-      <Building size={24} color="#FB923C" />
-      Role-Specific Questions
-    </h3>
+    <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "2rem", marginRight: "1rem" , marginBottom: "1rem"}}>
+          <Building size={24} color="#FB923C" />
+          <Label 
+            text="Role-Specific Questions"
+            fontSize="24px"
+            color="#C0C1C3"
+            padding="0"
+            margin="0 0 0 0"
+            fontWeight="500"
+            fontFamily="'Inter', sans-serif"
+          />
+        </div>
+    
     <div className="card1 role-questions-card">
       <div className="question-block">
         <p className="question-label">Why are you interested in this role?</p>
@@ -174,10 +223,60 @@ const RoleSpecificQuestions: React.FC = () => (
 /* ---------------- Quick Actions ---------------- */
 const QuickActions: React.FC = () => (
   <div className="card1 quick-actions-card">
-    <h3 className="quick-actions-title">Quick Actions</h3>
-    <button className="quick-btn accept">Accept Application</button>
-    <button className="quick-btn send">Send Message</button>
-    <button className="quick-btn note">Add Note</button>
+    <Label text = "Quick Actions"
+                fontSize = "24px"
+                color = "#f2f2f2"
+                padding = "0"
+                margin = "0 0 1 rem 0"
+                fontWeight= "600"
+                fontFamily = "'Inter', sans-serif"
+        />
+    <Button
+      label="Accept Application"
+      variant="primary"
+      styles={{
+        bgColor: "#16A34A",
+        color: "#f2f2f2",
+        fontSize: "16px",
+        fontFamily: "'Inter', sans-serif",
+        borderRadius: "6px",
+        padding: "0.6rem 1rem",
+        width: "100%",
+        margin: "0 0 0.5rem 0",
+      }}
+      onClick={() => console.log("Accepted!")}
+    />
+    <Button
+      label="Send Message"
+      variant="primary"
+      styles={{
+        bgColor: "#f2f2f2",
+        color: "#60A5FA",
+        fontSize: "16px",
+        fontFamily: "'Inter', sans-serif",
+        borderRadius: "6px",
+        padding: "0.6rem 1rem",
+        width: "100%",
+        margin: "0 0 0.5rem 0",
+      }}
+      onClick={() => console.log("Message Sent!")}
+    />
+
+    <Button
+      label="Add Note"
+      variant="primary"
+      styles={{
+        bgColor: "#f2f2f2",
+        color: "#A4A4A4",
+        fontSize: "16px",
+        fontFamily: "'Inter', sans-serif",
+        borderRadius: "6px",
+        padding: "0.6rem 1rem",
+        width: "100%",
+        margin: "0 0 0.5rem 0",
+      }}
+      onClick={() => console.log("Note Added!")}
+    />
   </div>
 );
 
@@ -186,29 +285,7 @@ const ApplicationReview: React.FC = () => {
   const navigate = useNavigate();
   const handleBack = () => navigate('/LandingPage');
 
-  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
-
-  const [agree, setAgree] = useState(false);
-  const GENRES = [
-  'Action','Adventure','Animation','War',
-  'Comedy','Crime','Documentary','Biography',
-  'Family','Fantasy','History','Drama',
-  'Sport','Thriller','Romance','Sci-Fi',
-];
-const [selectedGenres, setSelectedGenres] = useState<Set<string>>(new Set());
-
-// toggle helper
-const toggleGenre = (name: string, checked: boolean) => {
-  setSelectedGenres((prev: Set<string>) => {
-    const next = new Set(prev);
-    if (checked) next.add(name);
-    else next.delete(name);
-    return next;
-  });
-};
-
-
-
+  
   const basicInfo = {
     email: 'sarah.johnson@email.com',
     phone: '+1(555) 123 - 4567',
@@ -249,17 +326,40 @@ const toggleGenre = (name: string, checked: boolean) => {
             </div>
 
             <div className="button-group">
-              <button className="button1">Shortlist</button>
-              <button className="button1">Schedule Interview</button>
-              <button className="button1">Reject</button>
+              <Button
+                label="Shortlist"
+                variant="primary"
+                styles={{ bgColor: "#f2f2f2", color: "#562504", width: "auto",fontSize: "15px", fontFamily:"'Inter', sans-serif" }}
+                onClick={() => console.log("Shortlist clicked")}
+              />
+              <Button
+                label="Schedule Interview"
+                variant="primary"
+                styles={{ bgColor: "#f2f2f2", color: "#562504", width: "auto",fontSize: "15px", fontFamily:"'Inter', sans-serif" }}
+                onClick={() => console.log("Schedule Interview clicked")}
+              />
+              <Button
+                label="Reject"
+                variant="primary"
+                styles={{ bgColor: "#f2f2f2", color: "#562504", width: "auto",fontSize: "15px", fontFamily:"'Inter', sans-serif" }}
+                onClick={() => console.log("Reject clicked")}
+              />
             </div>
           </div>
         </div>
 
-        <h3 className="section-title">
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "2rem", marginRight: "1rem" , marginBottom: "1rem"}}>
           <Building size={24} color="#FB923C" />
-          Basic Information
-        </h3>
+          <Label 
+            text="Basic Information"
+            fontSize="24px"
+            color="#C0C1C3"
+            padding="0"
+            margin="0 0 0 0"
+            fontWeight="500"
+            fontFamily="'Inter', sans-serif"
+          />
+        </div>
 
         <div className="grid-layout">
           <div className="left-column">
@@ -287,32 +387,6 @@ const toggleGenre = (name: string, checked: boolean) => {
             <SkillsLanguages {...skillsData} />
             <PreviousWork workHistory={workHistory} />
             <RoleSpecificQuestions />
-
-
-            {/* Upload Poster Image Section */}
-              <div className="card1 upload-card">
-                <h3 className="section-title">
-                  Upload Poster Image
-                </h3>
-                <Upload
-                  onFileSelect={(files) => {
-                    setUploadedFiles(files);
-                    console.log('Uploaded files:', files);
-                  }}
-                  accept="image/png,image/jpeg"
-                  multiple={false}
-                  title="Click to upload poster image"
-                  // iconPosition="inline"
-                />
-
-              </div>
-
-              <Checkbox
-                label="Action"
-                checked={selectedGenres.has('Action')}
-                onChange={(c) => toggleGenre('Action', c)}
-                className="genre-checkbox"   // optional hook for extra spacing
-              />
 
           </div>
 

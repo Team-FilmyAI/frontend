@@ -563,7 +563,18 @@ color: #C0C1C3;
   
 }
 
-.categories h2 {
+.categories-header {
+  display: flex;
+  justify-content: space-between; /* push h2/p left, button right */
+  align-items: center;            /* vertical alignment */
+  margin-bottom: 2rem;
+}
+
+.categories-header .title-block {
+  text-align: center;  /* keeps h2 + p centered together */
+  flex: 1;             /* allow it to take up middle space */
+}
+.categories-header h2 {
   font-size: 36px;
   font-weight: 300;
   color: #AAACB2;
@@ -571,7 +582,7 @@ color: #C0C1C3;
   font-family: 'Garet', sans-serif;
 }
 
-.categories p {
+.categories-header p {
   color: #A5ABB5;
   font-family: 'Garet', sans-serif;
   font-size: 20px;

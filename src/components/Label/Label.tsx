@@ -8,6 +8,8 @@ interface LabelProps {
   padding?: string;
   margin?: string;
   className?: string;
+  fontWeight?: string | number;
+  fontFamily?: string;
 }
 
 // Default Label Props and properties
@@ -18,12 +20,16 @@ const Label: React.FC<LabelProps> = ({
   padding = "0",
   margin = "0",
   className = "",
+  fontWeight = "normal",
+  fontFamily = "'Inter', sans-serif", 
 }) => {
   const labelStyle: React.CSSProperties = {
     fontSize,
     color,
     padding,
     margin,
+    fontWeight,
+    fontFamily,
   };
 
   return (

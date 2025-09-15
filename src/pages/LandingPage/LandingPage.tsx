@@ -6,6 +6,8 @@ import {
   Heart, Zap, Smile, Skull
 } from 'lucide-react';
 import Header from "../../components/Header/Header";
+import Button from '../../components/Buttons/Button';
+import Label from '../../components/Label/Label';
 
 interface Recommendation {
   title: string;
@@ -132,7 +134,14 @@ const LandingPage: React.FC = () => {
                     <span><Calendar size={22} color="#ff7a00"  style={{ marginRight: '6px' }} /> 12 Auditions This Month</span>
                     <span><MapPin size={22}  color="#ff7a00" style={{ marginRight: '6px' }} /> Los Angeles, CA</span>
                 </div>
-                <button className="primary-btn">View New Opportunities</button>
+                <Button
+                  label="View New Opportunities"
+                  variant="primary"
+                  styles={{bgColor: "#FF7F00",color: "#522104",width: "371px",height: "50px",border: "none",borderRadius: "8px",fontFamily: "'Garet', sans-serif",fontSize: "22px",
+                fontWeight: 500,margin: "0.5rem 0 1rem 0",padding: "0",textAlign: "center",hoverBgColor: "#e65c00",hoverColor: "#522104",transition: "all 0.2s ease",
+                  }}
+                  onClick={() => console.log("View New Opportunities clicked")}
+                />
             </div>
         </section>
 
@@ -191,7 +200,29 @@ const LandingPage: React.FC = () => {
                     <h2>Recommended for You</h2>
                     <p>Curated based on your profile and preferences</p>
                 </div>
-                <button className="view-all-btn">View All Recommendations</button>
+                <Button
+                  label="View All Recommendations"
+                  variant="primary"
+                  styles={{
+                    bgColor: "#FF7F00",
+                    color: "#522104",
+                    width: "330px",
+                    height: "50px",
+                    border: "none",
+                    borderRadius: "8px",
+                    fontFamily: "'Garet', sans-serif",
+                    fontSize: "20px",
+                    fontWeight: 500,
+                    margin: "0.5rem 0 1rem 0",
+                    padding: "0",
+                    textAlign: "center",
+                    // hover
+                    hoverBgColor: "#e65c00",
+                    hoverColor: "#522104",
+                    transition: "all 0.2s ease",
+                  }}
+                  onClick={() => console.log("View All Recommendations clicked")}
+                />
             </div>
 
 
@@ -220,7 +251,27 @@ const LandingPage: React.FC = () => {
                                 <span key={i}>{t}</span>
                                 ))}
                             </div>
-                            <button className="primary-btn">Apply Now</button>
+                            <Button
+                              label="Apply Now"
+                              variant="primary"
+                              stickToBottom 
+                              fullWidth
+                              styles={{
+                                width: "400px",
+                                height: "50px",
+                                bgColor: "#F16510",
+                                color: "#231003",
+                                fontWeight: 500,
+                                fontSize: "18px",
+                                fontFamily: "'Garet', sans-serif",
+                                borderRadius: "8px",
+                                padding: "0",
+                                margin: "0 auto",
+                              }}
+                              onClick={() => console.log("Apply Now clicked")}
+                            />
+
+                            
                         </div>
                     </div>
                 ))}
@@ -235,7 +286,30 @@ const LandingPage: React.FC = () => {
                         <h2>Your Casting Calls</h2>
                         <p>Invitations and auditions you’ve received</p>
                     </div>
-                    <button className="view-all-btn">View All Casting Calls</button>
+                    <Button
+                  label="View All Casting Calls"
+                  variant="primary"
+                  styles={{
+                    bgColor: "#FF7F00",
+                    color: "#522104",
+                    width: "270px",
+                    height: "45px",
+                    border: "none",
+                    borderRadius: "8px",
+                    fontFamily: "'Garet', sans-serif",
+                    fontSize: "20px",
+                    fontWeight: 500,
+                    margin: "0.5rem 0 1rem 0",
+                    padding: "0",
+                    textAlign: "center",
+                    // hover
+                    hoverBgColor: "#e65c00",
+                    hoverColor: "#522104",
+                    transition: "all 0.2s ease",
+                  }}
+                  onClick={() => console.log("View All Casting Calls clicked")}
+                />
+                    
                 </div>
 
                 {castingCalls.map((call, idx) => (
@@ -275,8 +349,37 @@ const LandingPage: React.FC = () => {
 
         {/* Categories */}
         <section className="categories section">
-            <h2>Browse by Categories</h2>
-            <p>Explore opportunities across different types of productions and genres</p>
+          <div className="categories-header">
+              <div className="title-block">
+                <h2>Browse by Categories</h2>
+                <p>Explore opportunities across different types of productions and genres</p>
+              </div>
+              <div className="view-all-wrapper">
+                <Button
+                  label="View All Categories"
+                  variant="primary"
+                  styles={{
+                    bgColor: "#FF7F00",
+                    color: "#522104",
+                    width: "250px",
+                    height: "45px",
+                    border: "none",
+                    borderRadius: "8px",
+                    fontFamily: "'Garet', sans-serif",
+                    fontSize: "20px",
+                    fontWeight: 500,
+                    margin: "0.5rem 0 1rem 0",
+                    padding: "0",
+                    textAlign: "center",
+                    hoverBgColor: "#e65c00",
+                    hoverColor: "#522104",
+                    transition: "all 0.2s ease",
+                  }}
+                  onClick={() => console.log("View All Categories clicked")}
+                />
+              </div>
+
+          </div>
             <div className="category-grid">
                 {[
                 {
@@ -345,13 +448,26 @@ const LandingPage: React.FC = () => {
                     <span className="num">{String(cat.roles).padStart(2, '0')}</span>{' '}
                     <span className="sub">available roles</span>
                     </p>
-                    <button className="browse-btn">Browse Roles</button>
+                    <Button
+                      label="Browse Roles"
+                      variant="primary"
+                      styles={{
+                        bgColor: "#FFFFFF",
+                        color: "#562504",
+                        border: "none",
+                        borderRadius: "3.61px",
+                        fontWeight: 600,
+                        fontSize: "19px",
+                        width: "100%",
+                        padding: "0.4rem 0",
+                        lineHeight: "1.2",
+                      }}
+                      onClick={() => console.log("Browse Roles clicked")}
+                    />
+
+                   
                 </div>
                 ))}
-            </div>
-
-            <div className="view-all-wrapper">
-                <button className="view-all-btn">View All Categories</button>
             </div>
         </section>
 
