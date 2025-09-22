@@ -79,13 +79,6 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            {/* <input
-              type="password"
-              placeholder="Password"
-              className="input-field"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            /> */}
 
             <div className="forgot-password">
               <Link to="/Forgot">Forgot Password?</Link>

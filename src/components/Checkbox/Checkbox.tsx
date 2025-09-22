@@ -3,7 +3,7 @@ import React from 'react';
 import '../Checkbox/Checkbox.css';
 
 interface CheckboxProps {
-  label: string;
+  label: React.ReactNode;
   checked: boolean;
   onChange: (checked: boolean) => void;
   disabled?: boolean;

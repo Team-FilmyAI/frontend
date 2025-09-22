@@ -4,8 +4,8 @@ import "./ViewOpportunities.css";
 import { ArrowLeft } from 'lucide-react';
 import CastingCards from '../../components/CastingCards/CastingCards';
 import { CastingData } from '../types/Casting';
-
-
+import Label from '../../components/Label/Label';
+import Button from '../../components/Buttons/Button';
 const ViewOpportunities: React.FC = () => {
   const castingData: CastingData[] = [
     {
@@ -72,7 +72,8 @@ const ViewOpportunities: React.FC = () => {
           <span>Back to Movies</span>
         </div>
 
-        <h1 className="main-title">New Opportunities</h1>
+        {/* <h1 className="main-title">New Opportunities</h1> */}
+        <Label as="h1" text="New Opportunities" className="main-title" />
         <p className="opportunities-description">
           Discover the latest casting calls and roles that match your profile. Apply now and
           take the next step in your acting career.
@@ -100,7 +101,26 @@ const ViewOpportunities: React.FC = () => {
         </div>
 
         <div className="load-more-container">
-          <button className="load-more-button">Load More Opportunities</button>
+          {/* <button className="load-more-button">Load More Opportunities</button> */}
+          <Button
+            label="Load More Opportunities"
+            variant="secondary"
+            styles={{
+              bgColor: "#ffffff",
+              color: "#563d11",
+              border: "1px solid #E5E7EB",
+              padding: "10px 18px",
+              fontSize: "18px",
+              fontWeight: 300,
+              borderRadius: "10px",
+
+              // hover
+              hoverBgColor: "transparent",
+              hoverColor: "#ffffff",
+              hoverBorder: "1px solid #ffffff",
+              transition: "all .2s ease-in-out",
+            }}
+          />
         </div>
       </div>
       </div>

@@ -2,8 +2,15 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 
+import Radio from "../../components/Radio/Radio";
+import TextInput from "../../components/TextInput/TextInput";
+import EmailInput from "../../components/EmailInput/EmailInput";
+import PasswordInput from "../../components/PasswordInput/PasswordInput";
+import Checkbox from "../../components/Checkbox/Checkbox";
+import Button from "../../components/Buttons/Button";
+
 export default function Signup() {
-  const [formType, setFormType] = useState("user");
+  const [formType, setFormType] = useState<"user" | "business">("user");
   const [popupVisible, setPopupVisible] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -73,30 +80,17 @@ export default function Signup() {
           <div className="signup-form-container">
             <h2 className="signup-title">Sign Up</h2>
 
-            <div className="signup-toggle">
-              <label>
-                <input
-                  type="radio"
-                  name="type"
-                  value="user"
-                  checked={formType === "user"}
-                  onChange={() => setFormType("user")}
-                  className="signup-form-radio-input"
-                />
-                <span>User</span>
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="type"
-                  value="business"
-                  checked={formType === "business"}
-                  onChange={() => setFormType("business")}
-                  className="signup-form-radio-input"
-                />
-                <span>Business</span>
-              </label>
-            </div>
+            <Radio
+              radioInfo={{
+                options: ["User", "Business"],
+                radioName: "signupType",
+                newLine: false, // shows inline like your design
+              }}
+              value={formType === "user" ? "User" : "Business"}
+              onChange={(val) => setFormType(val.toLowerCase() as "user" | "business")}
+              className="signup-toggle" // keeps your spacing
+            />
+
 
             <form className="signup-form" onSubmit={(e) => e.preventDefault()}>
               {/* Error Message */}
@@ -104,78 +98,96 @@ export default function Signup() {
 
               {formType === "user" && (
                 <div className="signup-user-form">
-                  <input
-                    type="text"
+                  <TextInput
                     placeholder="First Name"
-                    className="signup-form-input"
-                    name="firstName"
                     value={formData.firstName}
-                    onChange={handleChange}
+                    onChange={(e) =>
+                      setFormData((p) => ({ ...p, firstName: e.target.value }))
+                    }
+                    wrapperClassName="mb-15"
                   />
-                  <input
-                    type="text"
+                  <TextInput
                     placeholder="Last Name"
-                    className="signup-form-input"
-                    name="lastName"
                     value={formData.lastName}
-                    onChange={handleChange}
+                    onChange={(e) =>
+                      setFormData((p) => ({ ...p, lastName: e.target.value }))
+                    }
+                    wrapperClassName="mb-15"
                   />
                 </div>
               )}
+
+              
 
               {formType === "business" && (
                 <div className="signup-business-form">
-                  <input
-                    type="text"
+                  <TextInput
                     placeholder="Business Name"
-                    className="signup-form-input"
-                    name="businessName"
                     value={formData.businessName}
-                    onChange={handleChange}
+                    onChange={(e) =>
+                      setFormData((p) => ({ ...p, businessName: e.target.value }))
+                    }
                   />
                 </div>
               )}
 
-              <input
-                type="email"
-                placeholder="Email address"
-                className="signup-form-input"
-                name="email"
+              
+
+              <EmailInput
                 value={formData.email}
-                onChange={handleChange}
+                onChange={(val) => setFormData((p) => ({ ...p, email: val }))}
+                placeholder="Email address"
+                mode={1}        
+                required
+                className=""    
               />
-              <input
-                type="password"
+
+
+
+              <PasswordInput
+                label=""
                 placeholder="Password"
-                className="signup-form-input"
-                name="password"
                 value={formData.password}
-                onChange={handleChange}
+                onChange={(e) => setFormData((p) => ({ ...p, password: e.target.value }))}
               />
 
-              <div className="signup-terms">
-                <input
-                  type="checkbox"
-                  id="terms"
-                  name="termsAccepted"
-                  checked={formData.termsAccepted}
-                  onChange={handleChange}
-                />
-                <label htmlFor="terms">
-                  I agree to{" "}
-                  <a
-                    href="/documents/Terms.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Terms & Conditions
-                  </a>
-                </label>
-              </div>
+              <Checkbox
+                label={
+                  <>
+                    I agree to{" "}
+                    <a href="/documents/Terms.pdf" target="_blank" rel="noopener noreferrer">
+                      Terms &amp; Conditions
+                    </a>
+                  </>
+                }
+                checked={formData.termsAccepted}
+                onChange={(checked) =>
+                  setFormData((p) => ({ ...p, termsAccepted: checked }))
+                }
+                className="signup-terms"
+              />
 
-              <button type="button" className="signup-btn" onClick={handleSubmit}>
-                Sign Up
-              </button>
+              
+              <Button
+                type="button"
+                label="Sign Up"
+                variant="primary"
+                fullWidth
+                onClick={handleSubmit}
+                styles={{
+                  bgColor: "#ff7f00",
+                  color: "#ffffff",
+                  height: "44px",
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  borderRadius: "20px",
+                  padding: "0 16px",
+                  hoverBgColor: "#e65c00",
+                  transition: "all 0.2s ease",
+                }}
+              />
+
+              
             </form>
 
             <p className="signup-login-prompt">
@@ -220,3 +232,4 @@ export default function Signup() {
     </div>
   );
 }
+

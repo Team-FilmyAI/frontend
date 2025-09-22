@@ -17,11 +17,6 @@
   font-size: 1rem;
 }
 
-.email-input:focus {
-  color: var(--orange);
-  outline: 1px solid var(--input-focus-color);
-  box-shadow: 0 0 10px 2px var(--input-focus-color);
-}
 
 .email-input.error {
   outline: 1px solid red;
@@ -35,4 +30,10 @@
   color: red;
   font-size: 0.875rem;
   margin-left: 2px;
+}
+
+.email-input:focus {
+  border: 1.5px solid #ff7f00;
+  outline: none;
+  box-shadow: 0 0 6px rgba(255, 127, 0, 0.6);
 }

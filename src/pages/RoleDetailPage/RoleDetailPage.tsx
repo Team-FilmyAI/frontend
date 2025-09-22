@@ -2,6 +2,8 @@ import { ArrowLeft, Clock, Star, User } from 'lucide-react';
 import * as React from 'react';
 import Header from '../../components/Header/Header';
 import './RoleDetailPage.css';
+import Button from '../../components/Buttons/Button';
+import Label from '../../components/Label/Label';
 
 const RoleDetailPage: React.FC = () => {
   const handleApplyForRole = () => {
@@ -44,7 +46,7 @@ const RoleDetailPage: React.FC = () => {
           <div className="role-content-grid">
             <div className="role-main-section">
               <div className="role-card">
-                <h3 className="role-card-title">Character Description</h3>
+                <Label as="h3" text="Character Description" className="role-card-title" />
                 <div className="role-card-content role-character-description">
                   A charming and witty architect who becomes Sarah's love interest. David is 
                   confident yet vulnerable, with a sharp sense of humor that masks his own past 
@@ -55,7 +57,7 @@ const RoleDetailPage: React.FC = () => {
                 
                 <div className="role-section-divider"></div>
                 
-                <h3 className="role-card-title">Requirements</h3>
+                <Label as="h3" text="Requirements" className="role-card-title" />
                 <div className="role-card-content">
                   <ul className="role-requirements-list">
                     <li>Strong dramatic and comedic acting skills</li>
@@ -68,8 +70,8 @@ const RoleDetailPage: React.FC = () => {
                 <div className="role-section-divider"></div>
                 
                 <h3 className="role-card-title">
-                  <Star size={20} color='#ff7f00' className="role-star-icon" />
-                  Special Skills Required
+                  <Star size={20} color='#ff7f00' className="role-star-icon" />Special Skills Required
+                  
                 </h3>
                 <div className="role-card-content">
                   <div className="role-skills-container">
@@ -81,28 +83,47 @@ const RoleDetailPage: React.FC = () => {
               </div>
 
               <div className="role-apply-section">
-                <button className="role-apply-button" onClick={handleApplyForRole}>
-                  Apply for Role
-                </button>
+                <Button
+                  label="Apply for Role"
+                  variant="primary"
+                  styles={{
+                    bgColor: "var(--orange)",
+                    color: "var(--black)",
+                    height: "50px",
+                    width: "194px",
+                    border: "none",
+                    borderRadius: "4px",
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    padding: "0",
+                    fontFamily: "'Garet', sans-serif",
+                    
+                    hoverBgColor: "#e06600",
+                    hoverColor: "var(--black)",
+                    transition: "background-color 0.2s ease",
+                  }}
+                  onClick={handleApplyForRole}
+                />
               </div>
+
             </div>
 
             <div className="role-sidebar">
               <div className="role-card1">
-                <h3 className="role-card-title">Role Information</h3>
+                <Label as="h3" text="Role Information" className="role-card-title" />
                 
                 <div className="role-info-section">
-                  <h4 className="role-info-label">Age Range</h4>
+                  <Label as="h4" text="Age Range" className="role-info-label" />
                   <p className="role-info-value">25-35 years</p>
                 </div>
                 
                 <div className="role-info-section">
-                  <h4 className="role-info-label">Gender</h4>
+                  <Label as="h4" text="Gender" className="role-info-label" />
                   <p className="role-info-value">Male</p>
                 </div>
                 
                 <div className="role-info-section">
-                  <h4 className="role-info-label">Languages Required</h4>
+                  <Label as="h4" text="Languages Required" className="role-info-label" />
                   <div className="role-language-tags">
                     <span className="role-language-tag">English</span>
                     <span className="role-language-tag">Mandarin</span>
