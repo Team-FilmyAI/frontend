@@ -1,0 +1,132 @@
+.project-dashboard {
+  min-height: 100vh;
+  color: var(--white);
+  font-family: 'Garet', system-ui, sans-serif;
+  background-color: #000000;
+}
+
+.editproject-container {
+  padding: 60px 20px 50px 20px;  
+  max-width: 1200px;
+  margin: 0 auto; 
+  box-sizing: border-box;
+  position: relative;
+}
+
+.back-navigation {
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: none;
+  align-self: flex-start;
+  margin-left: -64px;
+  padding-left: 64px;
+}
+
+.back1-button {
+  display: flex;
+  font-size: 16px;
+  font-weight: 200;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: var(--white);
+}
+
+.project-title-section {
+  height: 104px;
+  width: 1272px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  align-items: center;
+}
+
+.title-info {
+  flex: 1;
+}
+
+.main-project-title {
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--orange);
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.project-metadata {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 14px;
+  color: #888;
+}
+
+.meta1-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  color: #b8b5b5;
+}
+
+.edit2-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: var(--white);
+  color: #562506;
+  font-weight: 600;
+  border: 1px solid var(--orange);
+  cursor: pointer;
+  height: 30px;
+  width: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  margin-right: 90px;
+}
+
+.edit2-button:hover {
+  background-color: var(--white);
+  transform: translateY(-1px);
+}
+
+/* Form */
+.project-form {
+  background-color: #111827;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #94a3b8;
+  background-color: #000000;
+  margin-bottom: 20px;
+}
+
+.steps span {
+  cursor: pointer;
+}
+
+.steps .active-step {
+  color: var(--orange);
+  border-bottom: 2px solid var(--orange);
+  padding-bottom: 2px;
+}
+
+
