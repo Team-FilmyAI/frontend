@@ -11,6 +11,7 @@ import LandingPage from '../pages/LandingPage/LandingPage';
 import ViewOpportunities from '../pages/ViewOpportunities/ViewOpportunities';
 import EditProjectPage from '../pages/EditProjectPage/EditProjectPage';
 import AddRoles from '../pages/AddRoles/AddRoles';
+import RoleDetailPage from '../pages/RoleDetailPage/RoleDetailPage';
 
 
 export default function AppRoutes() {
@@ -29,6 +30,7 @@ export default function AppRoutes() {
       <Route path="/EditProjectPage" element={<EditProjectPage />} />
       <Route path="/AddRoles" element={<AddRoles />} />
 
+      <Route path="/RoleDetailPage" element={<RoleDetailPage />} />
     </Routes>
   );
 }
