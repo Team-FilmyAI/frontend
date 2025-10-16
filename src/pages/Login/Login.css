@@ -194,9 +194,12 @@
   text-shadow: 0 0 10px #ff7f00, 0 0 20px #ff7f00, 0 0 30px #ff7f00, 0 0 40px #ff7f00;
 }
 
-.error-message {
-  color: red;
-  margin-bottom: 10px;
+.error-messageL {
+  color: #ED2B2C;
   font-size: 14px;
+  line-height: 1.4;
+
+  margin-bottom: 4px; 
+  margin-left: 2px;
   text-align: left;
 }

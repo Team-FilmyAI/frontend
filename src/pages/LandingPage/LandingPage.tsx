@@ -121,7 +121,7 @@ const LandingPage: React.FC = () => {
       <Header></Header>
       
       <main className="home-layout">
-        {/* Welcome */}
+        
         <section className="welcome section">
             <div className="Group1">
                 <h1>
@@ -145,7 +145,7 @@ const LandingPage: React.FC = () => {
             </div>
         </section>
 
-        {/* KPI Grid */}
+        
         <section className="kpi-grid section">
           {[
     {
@@ -193,7 +193,7 @@ const LandingPage: React.FC = () => {
   ))}
         </section>
 
-        {/* Recommendations */}
+       
         <section className="recommendations section">
             <div className="rec-header">
                 <div className="rec-header-text">
@@ -216,7 +216,7 @@ const LandingPage: React.FC = () => {
                     margin: "0.5rem 0 1rem 0",
                     padding: "0",
                     textAlign: "center",
-                    // hover
+                    
                     hoverBgColor: "#e65c00",
                     hoverColor: "#522104",
                     transition: "all 0.2s ease",
@@ -302,7 +302,7 @@ const LandingPage: React.FC = () => {
                     margin: "0.5rem 0 1rem 0",
                     padding: "0",
                     textAlign: "center",
-                    // hover
+                   
                     hoverBgColor: "#e65c00",
                     hoverColor: "#522104",
                     transition: "all 0.2s ease",
@@ -347,7 +347,6 @@ const LandingPage: React.FC = () => {
         </section>
 
 
-        {/* Categories */}
         <section className="categories section">
           <div className="categories-header">
               <div className="title-block">

@@ -15,7 +15,7 @@ export default function Signup() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Form state
+ 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -25,7 +25,7 @@ export default function Signup() {
     termsAccepted: false,
   });
 
-  // Input change handler
+  
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -34,7 +34,7 @@ export default function Signup() {
     }));
   };
 
-  // Validation and submit
+
   const handleSubmit = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -65,8 +65,8 @@ export default function Signup() {
       return;
     }
 
-    setError(""); // Clear error
-    setPopupVisible(true); // Show popup
+    setError(""); 
+    setPopupVisible(true); 
 
     setTimeout(() => {
       navigate("/LandingPage");
@@ -84,16 +84,16 @@ export default function Signup() {
               radioInfo={{
                 options: ["User", "Business"],
                 radioName: "signupType",
-                newLine: false, // shows inline like your design
+                newLine: false, 
               }}
               value={formType === "user" ? "User" : "Business"}
               onChange={(val) => setFormType(val.toLowerCase() as "user" | "business")}
-              className="signup-toggle" // keeps your spacing
+              className="signup-toggle" 
             />
 
 
             <form className="signup-form" onSubmit={(e) => e.preventDefault()}>
-              {/* Error Message */}
+             
               {error && <div className="error-message">{error}</div>}
 
               {formType === "user" && (

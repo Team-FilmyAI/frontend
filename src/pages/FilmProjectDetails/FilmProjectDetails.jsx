@@ -10,7 +10,7 @@ function FilmProjectDetails() {
     <>
       <Header />
       <div className="FilmProjectDetails">
-        {/* Change to Reusable Component */}
+        
         <button>
           <i class="fa-solid fa-arrow-left back-button" /> Back to Movies
         </button>
@@ -96,7 +96,7 @@ function Synopsis({ synopsis }) {
 }
 
 function AvailableRoles({ roles }) {
-  // useState is needed here, where role availability status is displayed
+  
   const [filledRoles, setFilledRoles] = useState(
     roles.reduce((acc, role, index) => {
       acc[index] = !role.availability;

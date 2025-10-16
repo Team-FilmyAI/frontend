@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import './ProfilePage.css';
-// import Footer from '../LandingPage/Footer';
+
 import HeroPageNavBar from '../HeroPage/HeroPageNavBar';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Select from 'react-select';
 import LocationSearch from './LocationSearch';
 
-// Helper to convert "YYYY-MM" to JS Date object
+
 const parseMonthYear = (val) => val ? new Date(val + '-01') : null;
 
-// Helper to format date to "YYYY-MM"
+
 const formatToMonthYear = (date) =>
   date ? `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}` : '';
 
@@ -29,7 +29,7 @@ const genreOptions = [
 const ProfilePage = () => {
 
     const [errors, setErrors] = useState({});
-    // if you add any fields like the firstName add below the formData here
+    
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -65,7 +65,7 @@ const ProfilePage = () => {
     const file = e.target.files[0];
     if (file) {
       setProfilePic(file);
-    }// here is the constant for saveing or editing profile picture
+    }
   }; 
 
   
@@ -75,10 +75,10 @@ const ProfilePage = () => {
       const handleChange = (e) => {
         const { name, value } = e.target;
 
-        // Word limit logic for "about" field
+        
             if (name === 'about') {
                 const wordCount = value.trim().split(/\s+/).length;
-                if (wordCount > 500) return; // Do not update if over 500 words
+                if (wordCount > 500) return;
             }
 
         setFormData((prev) => ({
@@ -117,7 +117,7 @@ const ProfilePage = () => {
             setFormData((prev) => {
               if (prev.experiences.length === 1) {
                 alert("At least one experience entry is required.");
-                return prev; // Don't remove if only one left
+                return prev;
               }
               return {
                 ...prev,
@@ -145,18 +145,18 @@ const ProfilePage = () => {
             const handleSaveAll = () => {
                 const newErrors = {};
               
-                // Profile Info validations
+                
                 if (!profilePic) newErrors.profilePic = "Profile picture is required.";
                 if (!formData.firstName.trim()) newErrors.firstName = "First name is required.";
                 if (!formData.lastName.trim()) newErrors.lastName = "Last name is required.";
                 if (!formData.profession.trim()) newErrors.profession = "Profession is required.";
               
-                // Physical Info validations
+                
                 if (!formData.height && !formData.heightFeet) newErrors.height = "Height is required.";
                 if (!formData.weight) newErrors.weight = "Weight is required.";
                 if (!formData.age) newErrors.age = "Age is required.";
               
-                // Experience validations (check only first experience for now)
+                
                 
                 formData.experiences.forEach((exp, index) => {
                     if (!exp.CompanyName || exp.CompanyName.trim() === '') {
@@ -165,7 +165,7 @@ const ProfilePage = () => {
                     if (!exp.role || exp.role.trim() === '') {
                       newErrors[`experiences.${index}.role`] = "Designation is required.";
                     }
-                    // Add more if needed (startDate, genre, etc.)
+                    
                   });
 
                 if (Object.keys(newErrors).length > 0) {
@@ -203,7 +203,7 @@ const ProfilePage = () => {
                   return;
                 }
               
-                // No errors
+                
                 setErrors((prev) => {
                   const updated = { ...prev };
                   delete updated.profilePic;
@@ -248,7 +248,7 @@ const ProfilePage = () => {
                   return;
                 }
               
-                // Clear related errors
+                
                 const updated = { ...errors };
                 formData.experiences.forEach((_, index) => {
                   delete updated[`experiences.${index}.CompanyName`];
@@ -260,38 +260,7 @@ const ProfilePage = () => {
 
 
 
-                // Dummy save logic (to be replaced with real API call)
-            // const payload = {
-            //     profilePic,
-            //     firstName: formData.firstName,
-            //     lastName: formData.lastName,
-            //     preferredFirstName: formData.preferredFirstName,
-            //     preferredLastName: formData.preferredLastName,
-            //     profession: formData.profession,
-            //     email: formData.email,
-            //     location: formData.location,
-            //     height: formData.height || formData.heightFeet,
-            //     weight: formData.weight,
-            //     age: formData.age,
-            //     ethnicity: formData.ethnicity,
-            //     hairColor: formData.hairColor,
-            //     eyeColor: formData.eyeColor,
-            //     experiences: formData.experiences,
-            // };
-            
-            // // console.log("Saving to DB:", payload);
-            
-            // // Example placeholder for actual save operation
-            // // fetch('/api/save-profile', {
-            // //   method: 'POST',
-            // //   headers: {
-            // //     'Content-Type': 'application/json'
-            // //   },
-            // //   body: JSON.stringify(payload)
-            // // })
-            // //   .then(res => res.json())
-            // //   .then(data => console.log("Saved successfully:", data))
-            // //   .catch(err => console.error("Save failed:", err));
+                
   
               };
               
@@ -302,7 +271,7 @@ const ProfilePage = () => {
 
       <div className="profile-wrapper">
             <div className="profile-columns">
-                    {/* Left Column */}
+                  
                     <div className="profile-left">
                         <div className="frosted-card">
                             <div className="section-header">
@@ -316,7 +285,7 @@ const ProfilePage = () => {
 
                             {editProfileInfo ? (
                                 <>
-                                {/* Upload + Pic */}
+                           
                                 <div className="form-row">
                                     <label>Upload Profile Picture:<span className="required-asterisk">*</span></label>
                                     <input type="file" onChange={handleProfilePicChange} />
@@ -330,7 +299,7 @@ const ProfilePage = () => {
                                     )}
                                 </div>
 
-                                {/* Full Name */}
+                               
                                 <div className="double-input-row">
                                     <div className="half-width">
                                         <label>
@@ -359,7 +328,7 @@ const ProfilePage = () => {
                                 </div>
                                 
 
-                                {/* Preferred Name */}
+                              
                                 <div className="double-input-row">
                                     <div className="half-width">
                                         <label>Preferred First Name:</label>
@@ -386,7 +355,7 @@ const ProfilePage = () => {
                                 </div>
 
 
-                                {/* Profession */}
+                             
                                 <div className="form-row">
                                     <label>Profession:<span className="required-asterisk">*</span></label>
                                     <input
@@ -400,7 +369,7 @@ const ProfilePage = () => {
                                     {errors.profession && <p className="error-msg">{errors.profession}</p>}
                                 </div>
 
-                                {/* Email */}
+                            
                                 <div className="form-row">
                                     <label>Email:</label>
                                     <input
@@ -413,7 +382,7 @@ const ProfilePage = () => {
                                     />
                                 </div>
 
-                                {/* Location */}
+                              
                                 <div className="form-row">
                                     <label>Location:</label>
                                     <LocationSearch
@@ -456,7 +425,7 @@ const ProfilePage = () => {
                         </div>
 
 
-                        {/* About Me */}
+             
                         <div className="frosted-card">
                             <div className="section-header">
                                 <h3>About Me</h3>
@@ -491,7 +460,7 @@ const ProfilePage = () => {
                             </div>
                         </div>
 
-                        { /* Physical Info */}
+                   
                         <div className="frosted-card">
                                     <div className="section-header">
                                         <h3>Physical Information</h3>
@@ -690,7 +659,7 @@ const ProfilePage = () => {
 
                     </div>`
             
-                {/* Right Column */}
+                
                 
                 <div className="profile-right">                                                    
                     {formData.experiences.map((exp, index) => (
@@ -704,38 +673,6 @@ const ProfilePage = () => {
                                         )}
                                     </div>
 
-                                    {/* Poster Upload : For Future Use when other profession are used*/}
-                                    {/* <div className="form-row">
-                                    {editExperience ? (
-                                        <>
-                                    <label>Poster Image:</label>
-                                    <input
-                                        type="file"
-                                        name="poster"
-                                        onChange={(e) => handleExperienceChange(e, index)}
-                                        
-                                    /> */}
-                                    {/* Poster Preview */}
-                                        {/* {exp.poster && (
-                                            <img
-                                            src={URL.createObjectURL(exp.poster)}
-                                            alt={`Experience ${index + 1} Poster`}
-                                            className="poster-preview"
-                                            />
-                                        )}
-                                        </>
-                                            ) : (
-                                                exp.poster && (
-                                                <img
-                                                    src={URL.createObjectURL(exp.poster)}
-                                                    alt={`Experience ${index + 1} Poster`}
-                                                    className="poster-preview"
-                                                />
-                                                )
-                                            )}
-                                    </div> */}
-
-                                    {/* Company Name */}
                                     <div className="form-row">
                                     {editExperience ? (
                                         <>
@@ -761,7 +698,7 @@ const ProfilePage = () => {
                                     )}
                                     </div>
 
-                                    {/* Role */}
+                          
                                     <div className="form-row">
                                     {editExperience ? (
                                         <>
@@ -787,7 +724,7 @@ const ProfilePage = () => {
                                         )}
                                 </div>
 
-                                    {/* Date Range */}
+                                 
                                 <div className="form-row">
                                 {editExperience ? (
                                     <>
@@ -833,8 +770,7 @@ const ProfilePage = () => {
                                 )}
                                 </div>
 
-                                    
-                                    {/* Rules & Responsibility */}
+                                
                                     <div className="form-row">
                                     {editExperience ? (
                                         <>
@@ -856,7 +792,6 @@ const ProfilePage = () => {
                                     )}
                                     </div>
 
-                                   {/* Genre */}
                                     <div className="form-row">
                                         {editExperience ? (
                                                 <>
@@ -914,7 +849,7 @@ const ProfilePage = () => {
                                 ))
                                 
                             }
-                                {/* Add Experience Button */}
+                          
                                 {editExperience && (
                                 <button
                                     type="button"
@@ -964,7 +899,7 @@ const ProfilePage = () => {
                     type="button"
                     className="next-btn"
                     onClick={() => {
-                    // You can navigate here later using React Router or similar
+                    
                     console.log("Go to next page!");
                     }}
                 >
@@ -974,7 +909,7 @@ const ProfilePage = () => {
 
 
             </div>
-        {/* <Footer /> */}
+   
 
     </div>
   );

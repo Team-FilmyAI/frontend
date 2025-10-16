@@ -1,6 +1,6 @@
 import { formStyles } from '../../components/Dropdown/DropdownStyles';
 
-// FilmProjectDetails
+
 export const movieDrive = {
   title: 'Drive in Manhattan',
   posterUrl:
@@ -49,7 +49,7 @@ export const movieDrive = {
   ],
 };
 
-// Dropdown
+
 export const testDropdown = {
   placeholder: 'Pick your Hero...',
   isMulti: true,
@@ -61,7 +61,7 @@ export const testDropdown = {
   ],
 };
 
-// Radio
+
 export const progLangs = {
   radioName: 'languages',
   options: ['HTML', 'CSS', 'Python', 'Java', 'C++'],

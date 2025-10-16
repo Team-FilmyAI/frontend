@@ -21,7 +21,7 @@ export default function ForgotPassword() {
       return;
     }
 
-    // mode = 2 logic: if it has '@', validate as email; otherwise validate as username
+    
     const valid = v.includes("@") ? isEmail(v) : isUsername(v);
     if (!valid) {
       setError("Please enter a valid email or username.");
@@ -29,10 +29,10 @@ export default function ForgotPassword() {
       return;
     }
 
-    // Clear errors and simulate success
+    
     setError("");
     setSuccessMessage("If this account exists, a reset link has been sent.");
-    // TODO: Replace with actual API logic
+    
   };
 
   return (

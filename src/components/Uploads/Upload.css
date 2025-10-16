@@ -1,16 +1,16 @@
-/* Wrapper fills available width */
+
 .upload-wrapper {
   width: 100%;
 }
 
-/* Dropzone box */
+
 .upload-dropzone {
   width: 100%;
-  min-height: 160px;            /* matches the shown height */
-  border: 2px dashed #3F4C6A;   /* blue like the screenshot */
+  min-height: 160px;            
+  border: 2px dashed #3F4C6A;   
   border-radius: 8px;
   background: transparent;
-  /*background: #0f172a;          dark slate backdrop */
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,7 @@
   outline: none;
 }
 
-/* Hover/focus/dragging emphasis */
+
 .upload-dropzone:hover,
 .upload-dropzone:focus-visible {
   border-color: #60a5fa;
@@ -34,28 +34,28 @@
   border-color: #93c5fd;
 }
 
-/* Icon + text styles */
+
 .upload-icon {
   opacity: 0.75;
-  color: #3F4C6A; /* Blue tone */
+  color: #3F4C6A; 
   margin-bottom: 8px;
 }
 .upload-title {
-  color: #E7E7E7;   /* near-white */
+  color: #E7E7E7;   
   font-size: 18px;
   font-weight: 500;
 }
 .upload-hint {
-  color: #757575;   /* slate-400 */
+  color: #757575;  
   font-size: 14px;
 }
 
-/* Hide the native input (still accessible via ref) */
+
 .upload-input {
   position: absolute;
   inset: 0;
   opacity: 0;
-  pointer-events: none; /* clicks handled by dropzone */
+  pointer-events: none; 
 }
 
 
@@ -68,7 +68,7 @@
 }
 
 .upload-inline .upload-icon {
-  margin: 0; /* remove bottom margin for inline layout */
+  margin: 0; 
 }
 
 

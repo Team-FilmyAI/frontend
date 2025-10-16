@@ -518,7 +518,7 @@ form {
   z-index: 1000;
 }
 
-/* chat btn start */
+
 
 .chat.collapsed:hover {
   color: var(--white);
@@ -539,9 +539,7 @@ form {
   display: none;
 }
 
-/* chat btn end */
 
-/* expanded chat start */
 
 .chat.expanded {
   height: 400px;
@@ -654,4 +652,4 @@ form {
   color: var(--white);
 }
 
-/* expanded chat end */
+

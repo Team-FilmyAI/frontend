@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import "./Radio.css";
 
 type RadioInfo = {
-  options: string[];        // e.g. ["User", "Business"]
-  radioName: string;        // e.g. "acctType"
-  newLine?: boolean;        // stack vertically when true
+  options: string[];        
+  radioName: string;       
+  newLine?: boolean;       
 };
 
 type RadioProps = {
   radioInfo: RadioInfo;
-  /** Controlled value (optional) */
+  
   value?: string;
-  /** Uncontrolled initial value (optional) */
+  
   defaultValue?: string;
-  /** Fires with the selected option */
+  
   onChange?: (value: string) => void;
   className?: string;
 };
@@ -25,7 +25,7 @@ const Radio: React.FC<RadioProps> = ({
   onChange,
   className = "",
 }) => {
-  // If `value` is provided, treat as controlled; otherwise keep internal state
+ 
   const [internal, setInternal] = useState<string>(defaultValue);
   const current = value ?? internal;
 

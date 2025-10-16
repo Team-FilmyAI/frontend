@@ -72,7 +72,7 @@ const ViewOpportunities: React.FC = () => {
           <span>Back to Movies</span>
         </div>
 
-        {/* <h1 className="main-title">New Opportunities</h1> */}
+      
         <Label as="h1" text="New Opportunities" className="main-title" />
         <p className="opportunities-description">
           Discover the latest casting calls and roles that match your profile. Apply now and
@@ -101,7 +101,7 @@ const ViewOpportunities: React.FC = () => {
         </div>
 
         <div className="load-more-container">
-          {/* <button className="load-more-button">Load More Opportunities</button> */}
+        
           <Button
             label="Load More Opportunities"
             variant="secondary"
@@ -114,7 +114,7 @@ const ViewOpportunities: React.FC = () => {
               fontWeight: 300,
               borderRadius: "10px",
 
-              // hover
+              
               hoverBgColor: "transparent",
               hoverColor: "#ffffff",
               hoverBorder: "1px solid #ffffff",

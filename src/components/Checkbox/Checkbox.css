@@ -1,8 +1,8 @@
-/* Defaults use CSS variables so pages can override them */
+
 .custom-checkbox {
-  --cb-accent: #FFFFFF;     /* check bg & hover border */
-  --cb-border: #FFFFFF;         /* unchecked border */
-  --cb-label: #E7E7E7;          /* label color */
+  --cb-accent: #FFFFFF;     
+  --cb-border: #FFFFFF;         
+  --cb-label: #E7E7E7;         
   --cb-size: 18px;
 
   display: inline-flex;
@@ -13,7 +13,6 @@
   color: var(--cb-label);
 }
 
-/* Native checkbox reset + base box */
 .checkbox-input {
   appearance: none;
   -webkit-appearance: none;
@@ -27,18 +26,18 @@
   transition: all 0.2s ease;
 }
 
-/* Hover */
+
 .checkbox-input:hover {
   border-color: var(--cb-accent);
 }
 
-/* Checked */
+
 .checkbox-input:checked {
   background-color: var(--cb-accent);
   border-color: var(--cb-accent);
 }
 
-/* Tick */
+
 .checkbox-input:checked::after {
   content: "";
   position: absolute;
@@ -51,16 +50,16 @@
   transform: rotate(45deg);
 }
 
-/* Disabled */
+
 .checkbox-input:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-/* Label */
+
 .checkbox-label {
   font-size: 15px;
   font-weight: 400;
-  color: inherit; /* inherit from wrapper to allow theming */
+  color: inherit; 
   cursor: pointer;
 }

@@ -1,14 +1,14 @@
 import React, { useRef, useState } from 'react';
-import '../../components/Uploads/Upload.css'; // adjust if your path differs
+import '../../components/Uploads/Upload.css'; 
 import { Upload as UploadIcon } from 'lucide-react';
 
 interface UploadProps {
   onFileSelect: (files: File[]) => void;
   accept?: string;
   multiple?: boolean;
-  /** Main line inside the dropzone */
+  
   title?: string;
-  /** Small hint text under the title */
+  
   hint?: string;
   iconPosition?: 'above' | 'inline';
 }
@@ -50,7 +50,7 @@ const Upload: React.FC<UploadProps> = ({
           handleFiles(e.dataTransfer.files);
         }}
       >
-        {/* Upload icon */}
+        
         
         {iconPosition === 'inline' ? (
           <div className="upload-inline">
@@ -66,7 +66,7 @@ const Upload: React.FC<UploadProps> = ({
 
         <div className="upload-hint">{hint}</div>
 
-        {/* Hidden native input */}
+        
         <input
           ref={inputRef}
           className="upload-input"
@@ -82,34 +82,3 @@ const Upload: React.FC<UploadProps> = ({
 
 export default Upload;
 
-//. ***The following section below which is marked as ignore is to be used when calling upload button you can edit as u see fit ***
-
-// import Upload from '../../components/Uploads/Upload'; use this in import section
-
-// inside main const add the below line
-
-// const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
-
-//inside the return add wherever u need it
-
-{/* Upload Poster Image Section */} 
-              // <div className="card1 upload-card">
-              //   <h3 className="section-title">
-              //     Upload Poster Image
-              //   </h3>
-              //   <Upload
-              //     onFileSelect={(files) => {
-              //       setUploadedFiles(files);
-              //       console.log('Uploaded files:', files);
-              //     }}
-              //     accept="image/png,image/jpeg"
-              //     multiple={false}
-              //     title="Click to upload poster image"
-
-              //the line is used when u need the upload button on the same line as Upload Title
-              // the default is it comes above Upload Title
-
-              //     // iconPosition="inline" 
-              //   />
-
-              // </div>

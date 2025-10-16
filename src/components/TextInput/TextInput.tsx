@@ -24,7 +24,7 @@ const TextInput: React.FC<TextInputProps> = ({
   value,
   name,
   onChange,
-  onFocus: onFocusProp,            // alias to avoid any confusion
+  onFocus: onFocusProp,            
   error,
   type = 'text',
   className = '',

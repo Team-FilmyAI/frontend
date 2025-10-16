@@ -1,30 +1,30 @@
-/* ---------------- Page Layout ---------------- */
+
 body {
-  font-family: 'Inter', sans-serif !important;
-  background-color: black;
-  color: #f2f2f2;
+  font-family: inherit;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .app-review {
   padding: 2rem 6rem 1rem 6rem;
-  background-color: black;
+  background-color: var(--black-dark);
+  font-family: 'Inter', sans-serif !important;
 }
 
 
-/* ---------------- Back Link ---------------- */
 .back-link {
   display: inline;
-  color: #9CA3AF;
+  color: var(--gray-medium);
   font-size: 18px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
   cursor: pointer;
-  padding: 0; /* ensure no extra space */
+  padding: 0; 
   margin: 0;
   background: none;
   border: none;
 }
 
-/* ---------------- Title & Actions ---------------- */
+
 .title-and-actions {
   display: flex;
   justify-content: space-between;
@@ -33,69 +33,35 @@ body {
 
 .page-title {
   font-size: 34px;
-  font-family: 'Inter', sans-serif !important;
   font-weight: 550;
-  color: #FB923C;
+  color: var(--orange-light);
   margin: 0;
 }
 
 .page-subtitle {
   font-size: 16px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
   font-weight: 500;
-  color: #C0C1C3;
+  color: var(--gray-light);
   margin-top: 0.25rem;
 }
 
-/* ---------------- Buttons ---------------- */
 .button-group {
   display: flex;
   gap: 1rem;
 }
 
-.button1 {
-  padding: 0.6rem 1.2rem;
-  background-color: #f2f2f2;
-  border: 1px solid #F07017;
-  border-radius: 4px;
-  color: #562504;
-  font-size: 14px;
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.button1:hover {
-  background-color: #ffe4d0;
-}
-
-/* ---------------- Section Titles ---------------- */
-
-.section-title {
-  color: #C0C1C3;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 24px;
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 500;
-}
-
-/* ---------------- Basic Info Card ---------------- */
 .card1.basic-info-card {
-  background-color: #111827;
+  background-color: var(--card-bg);
   padding: 2rem 3rem 1.5rem 3rem;
-  border: 1px solid #393939;
+  border: 1px solid var(--card-bg-bd);
   border-radius: 10px;
   font-size: 18px;
-  font-family: 'Inter', sans-serif !important;
-  color: #C0C1C3;
+  font-family: inherit;
+  color: var(--gray-light);
   position: relative;
-  width: 767px;
+  max-width: 767px;
+  width: 100%;
 }
 
 .basic-info-container {
@@ -114,7 +80,7 @@ body {
   width: 48%;
 }
 
-/* ---------------- Badge ---------------- */
+
 .status-badgey {
   position: absolute;
   top: 0.5rem;
@@ -122,22 +88,21 @@ body {
 }
 
 .badgey {
-  background-color: #ff7f00;
-  color: #f2f2f2;
+  background-color: var(--orange);
+  color: var(--white);
   font-size: 12px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
   padding: 0.3rem 0.6rem;
   border-radius: 12px;
   font-weight: 600;
 }
 
-/* ---------------- Labels ---------------- */
 .label {
-  color: #FB923C;
+  color: var(--orange-light);
   font-weight: 500;
 }
 
-/* ---------------- Grid Layout ---------------- */
+
 .grid-layout {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -145,10 +110,10 @@ body {
   align-items: start;
 }
 
-/* ---------------- Portfolio Card ---------------- */
+
 .card1.portfolio-card {
-  background-color: #111827;
-  border: 1px solid #393939;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-bg-bd);
   padding: 1.25rem;
   border-radius: 10px;
   width: 456px;
@@ -163,9 +128,9 @@ body {
 
 .portfolio-label {
   font-size: 18px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
   font-weight: 500;
-  color: #FB923C;
+  color: var(--orange-light);
 }
 
 .portfolio-title{
@@ -173,41 +138,20 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 24px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
   font-weight: 600;
-  color: #f2f2f2;
+  color: var(--white);
   margin-bottom: 1rem;
 }
-/* ---------------- Upload Button ---------------- */
-.custom-upload-button {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #f2f2f2;
-  color: #562504;
-  font-size: 14px;
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 600;
-  border-radius: 4px;
-  cursor: pointer;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  transition: background 0.2s ease;
-}
 
-.custom-upload-button:hover {
-  background-color: #e57c1f;
-  color: #f2f2f2;
-}
 
-/* ---------------- Skills & Languages ---------------- */
 .card1.skills-card {
-  background-color: #111827;
-  border: 1px solid #393939;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-bg-bd);
   padding: 1.25rem;
   border-radius: 10px;
-  width: 767px;
+  max-width: 767px;
+  width: 100%;
 }
 
 .skills-grid {
@@ -228,16 +172,17 @@ body {
   padding: 0.1rem 0.3rem;
   border-radius: 20px;
   font-size: 12px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
 }
 
-/* ---------------- Previous Work ---------------- */
+
 .card1.previous-work-card {
-  background-color: #111827;
-  border: 1px solid #393939;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-bg-bd);
   padding: 1.25rem;
   border-radius: 10px;
-  width: 767px;
+  max-width: 767px;
+  width: 100%;
 }
 
 .work-list {
@@ -259,29 +204,30 @@ body {
   color: #E7E7E7;
   font-weight: 600;
   font-size: 16px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
 }
 
 .work-role {
-  color: #9ca3af;
+  color: var(--gray-medium);
   font-size: 14px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
 }
 
 .work-year {
-  color: #FB923C;
+  color: var(--orange-light);
   font-size: 16px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
   font-weight: 500;
 }
 
-/* ---------------- Role-Specific Questions ---------------- */
+
 .card1.role-questions-card {
-  background-color: #111827;
-  border: 1px solid #393939;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-bg-bd);
   padding: 1.5rem;
   border-radius: 10px;
-  width: 767px;
+  max-width: 767px;
+  width: 100%;
 }
 
 .question-block {
@@ -291,22 +237,22 @@ body {
 .question-label {
   font-weight: 600;
   font-size: 16px;
-  font-family: 'Inter', sans-serif !important;
-  color: #FB923C;
+  font-family: inherit;
+  color: var(--orange-light);
   margin-bottom: 0.5rem;
 }
 
 .question-answer {
   font-size: 15px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
   line-height: 1.5;
-  color: #C0C1C3;
+  color: var(--gray-light);
 }
 
-/* ---------------- Quick Actions ---------------- */
+
 .card1.quick-actions-card {
-  background-color: #111827;
-  border: 1px solid #393939;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-bg-bd);
   padding: 1.25rem;
   border-radius: 10px;
   margin-top: 1.5rem;
@@ -314,9 +260,9 @@ body {
 
 .quick-actions-title {
   font-size: 24px;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
   font-weight: 600;
-  color: #f2f2f2;
+  color: var(--white);
   margin-bottom: 1rem;
 }
 
@@ -326,7 +272,7 @@ body {
   padding: 0.6rem 1rem;
   font-size: 16px;
   font-weight: 600;
-  font-family: 'Inter', sans-serif !important;
+  font-family: inherit;
   border-radius: 6px;
   margin-bottom: 0.5rem;
   cursor: pointer;
@@ -336,7 +282,7 @@ body {
 
 .quick-btn.accept {
   background-color: #16A34A;
-  color: #f2f2f2;
+  color: var(--white);
 }
 
 .quick-btn.accept:hover {
@@ -344,7 +290,7 @@ body {
 }
 
 .quick-btn.send {
-  background-color: #f2f2f2;
+  background-color: var(--white);
   color: #60A5FA;
 }
 
@@ -353,7 +299,7 @@ body {
 }
 
 .quick-btn.note {
-  background-color: #f2f2f2;
+  background-color: var(--white);
   color: #A4A4A4;
 }
 

@@ -1,6 +1,6 @@
 import React, { ElementType } from "react";
 
-// Props for Creating a Label
+
 interface LabelProps {
   text: string;
   as?: ElementType;
@@ -13,10 +13,10 @@ interface LabelProps {
   fontFamily?: string;
 }
 
-// Default Label Props and properties
+
 const Label: React.FC<LabelProps> = ({
   text,
-  as: Component = "label", // default to <label>
+  as: Component = "label", 
   fontSize,
   color,
   padding,
@@ -25,7 +25,7 @@ const Label: React.FC<LabelProps> = ({
   fontWeight,
   fontFamily,
 }) => {
-  // Only set the style properties that were actually passed in
+ 
   const labelStyle: React.CSSProperties = {};
   if (fontSize !== undefined) labelStyle.fontSize = fontSize;
   if (color !== undefined) labelStyle.color = color;

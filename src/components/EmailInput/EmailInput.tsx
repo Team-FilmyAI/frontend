@@ -1,8 +1,8 @@
-// src/components/EmailInput/EmailInput.tsx
+
 import { useMemo, useState } from "react";
 import "./EmailInput.css";
 
-type Mode = 1 | 2 | 3; // 1=email, 2=email|username, 3=email|username|phone
+type Mode = 1 | 2 | 3; // 1=email, 2=email|username, 3=email|username|phone dont remove its important
 
 interface EmailInputProps {
   value?: string;
@@ -14,9 +14,9 @@ interface EmailInputProps {
 }
 
 const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-// Username: 3–30 chars, letters, numbers, underscore, dot, hyphen
+
 const isUsername = (v: string) => /^[a-zA-Z0-9._-]{3,30}$/.test(v);
-// Phone: allow +, spaces, dashes, parentheses; 10–15 digits total
+
 const isPhone = (v: string) => {
   const digits = v.replace(/[^\d]/g, "");
   return /^\+?[\d\s\-()]{7,}$/.test(v) && digits.length >= 10 && digits.length <= 15;
@@ -48,12 +48,12 @@ export default function EmailInput({
       return isEmail(v);
     }
     if (mode === 2) {
-      // if it contains '@', validate as email; otherwise allow username
+      
       return v.includes("@") ? isEmail(v) : isUsername(v);
     }
-    // mode === 3
+    
     if (v.includes("@")) return isEmail(v);
-    // if it has any non-digit/email hints, try username first, then phone
+    
     return isUsername(v) || isPhone(v);
   }, [val, mode]);
 
@@ -75,7 +75,7 @@ export default function EmailInput({
   return (
     <div className="email-input-wrapper">
       <input
-        // Use 'email' field type only for strict email mode; otherwise text
+        
         type={mode === 1 ? "email" : "text"}
         className={`email-input ${showError ? "error" : ""} ${className}`}
         placeholder={resolvedPlaceholder}

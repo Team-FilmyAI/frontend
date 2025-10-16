@@ -6,7 +6,7 @@ import { Building } from 'lucide-react';
 import Button from '../../components/Buttons/Button';
 import Label from '../../components/Label/Label';
 
-/* ---------------- Portfolio Section ---------------- */
+
 const PortfolioSection: React.FC = () => {
   const [headshot1Name, setHeadshot1Name] = useState('Upload Headshot 1');
   const [headshot2Name, setHeadshot2Name] = useState('Upload Headshot 2');
@@ -25,7 +25,7 @@ const PortfolioSection: React.FC = () => {
       <div className="portfolio-group">
         <Label text = "Portfolio"
                 fontSize = "24px"
-                color = "#f2f2f2"
+                color = "var(--white)"
                 padding = "0"
                 margin = "0 0 1 rem 0"
                 fontWeight= "600"
@@ -45,7 +45,7 @@ const PortfolioSection: React.FC = () => {
           label={headshot1Name}
           variant="primary"
           styles={{
-            bgColor: "#f2f2f2",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
+            bgColor: "var(--white)",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
           onClick={() => document.getElementById("headshot1")?.click()}
         />
 
@@ -60,7 +60,7 @@ const PortfolioSection: React.FC = () => {
           label={headshot2Name}
           variant="primary"
           styles={{
-            bgColor: "#f2f2f2",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
+            bgColor: "var(--white)",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
           onClick={() => document.getElementById("headshot2")?.click()}
         />
       </div>
@@ -72,7 +72,7 @@ const PortfolioSection: React.FC = () => {
           label="Upload Demo Reel"
           variant="primary"
           styles={{
-            bgColor: "#f2f2f2",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
+            bgColor: "var(--white)",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
           onClick={() => document.getElementById("demoReel")?.click()}
         />
       </div>
@@ -89,7 +89,7 @@ const PortfolioSection: React.FC = () => {
           label="Upload Resume"
           variant="primary"
           styles={{
-            bgColor: "#f2f2f2",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
+            bgColor: "var(--white)",color: "#562504",fontSize: "14px",padding: "0.5rem 1rem",width: "auto", fontFamily:"'Inter', sans-serif", textAlign: "start",}}
           onClick={() => document.getElementById("resume")?.click()}
         />
       </div>
@@ -97,20 +97,20 @@ const PortfolioSection: React.FC = () => {
   );
 };
 
-/* ---------------- Skills & Languages ---------------- */
+
 const SkillsLanguages: React.FC<{ skills: string[]; languages: string[]; accents: string[] }> = ({
   skills,
   languages,
   accents,
 }) => (
   <>
-    {/* Heading OUTSIDE the card */}
+    
     <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "2rem", marginRight: "1rem" , marginBottom: "1rem"}}>
-          <Building size={24} color="#FB923C" />
+          <Building size={24} color="var(--orange-light)" />
           <Label 
             text="Skills & Languages"
             fontSize="24px"
-            color="#C0C1C3"
+            color="var(--gray-light)"
             padding="0"
             margin="0 0 0 0"
             fontWeight="500"
@@ -148,17 +148,17 @@ const SkillsLanguages: React.FC<{ skills: string[]; languages: string[]; accents
   </>
 );
 
-/* ---------------- Previous Work ---------------- */
+
 const PreviousWork: React.FC<{ workHistory: { title: string; role: string; year: number }[] }> = ({
   workHistory,
 }) => (
     <>
   <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "2rem", marginRight: "1rem" , marginBottom: "1rem"}}>
-          <Building size={24} color="#FB923C" />
+          <Building size={24} color="var(--orange-light)" />
           <Label 
             text="Previous Work"
             fontSize="24px"
-            color="#C0C1C3"
+            color="var(--gray-light)"
             padding="0"
             margin="0 0 0 0"
             fontWeight="500"
@@ -183,15 +183,15 @@ const PreviousWork: React.FC<{ workHistory: { title: string; role: string; year:
   </>
 );
 
-/* ---------------- Role-Specific Questions ---------------- */
+
 const RoleSpecificQuestions: React.FC = () => (
   <>
     <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "2rem", marginRight: "1rem" , marginBottom: "1rem"}}>
-          <Building size={24} color="#FB923C" />
+          <Building size={24} color="var(--orange-light)" />
           <Label 
             text="Role-Specific Questions"
             fontSize="24px"
-            color="#C0C1C3"
+            color="var(--gray-light)"
             padding="0"
             margin="0 0 0 0"
             fontWeight="500"
@@ -220,12 +220,12 @@ const RoleSpecificQuestions: React.FC = () => (
   </>
 );
 
-/* ---------------- Quick Actions ---------------- */
+
 const QuickActions: React.FC = () => (
   <div className="card1 quick-actions-card">
     <Label text = "Quick Actions"
                 fontSize = "24px"
-                color = "#f2f2f2"
+                color = "var(--white)"
                 padding = "0"
                 margin = "0 0 1 rem 0"
                 fontWeight= "600"
@@ -236,7 +236,7 @@ const QuickActions: React.FC = () => (
       variant="primary"
       styles={{
         bgColor: "#16A34A",
-        color: "#f2f2f2",
+        color: "var(--white)",
         fontSize: "16px",
         fontFamily: "'Inter', sans-serif",
         borderRadius: "6px",
@@ -250,7 +250,7 @@ const QuickActions: React.FC = () => (
       label="Send Message"
       variant="primary"
       styles={{
-        bgColor: "#f2f2f2",
+        bgColor: "var(--white)",
         color: "#60A5FA",
         fontSize: "16px",
         fontFamily: "'Inter', sans-serif",
@@ -266,7 +266,7 @@ const QuickActions: React.FC = () => (
       label="Add Note"
       variant="primary"
       styles={{
-        bgColor: "#f2f2f2",
+        bgColor: "var(--white)",
         color: "#A4A4A4",
         fontSize: "16px",
         fontFamily: "'Inter', sans-serif",
@@ -280,7 +280,7 @@ const QuickActions: React.FC = () => (
   </div>
 );
 
-/* ---------------- Main Application Review ---------------- */
+
 const ApplicationReview: React.FC = () => {
   const navigate = useNavigate();
   const handleBack = () => navigate('/LandingPage');
@@ -329,19 +329,19 @@ const ApplicationReview: React.FC = () => {
               <Button
                 label="Shortlist"
                 variant="primary"
-                styles={{ bgColor: "#f2f2f2", color: "#562504", width: "auto",fontSize: "15px", fontFamily:"'Inter', sans-serif" }}
+                styles={{ bgColor: "var(--white)", color: "#562504", width: "auto",fontSize: "15px", fontFamily:"'Inter', sans-serif",border:"1px solid var(--orange-dark)" }}
                 onClick={() => console.log("Shortlist clicked")}
               />
               <Button
                 label="Schedule Interview"
                 variant="primary"
-                styles={{ bgColor: "#f2f2f2", color: "#562504", width: "auto",fontSize: "15px", fontFamily:"'Inter', sans-serif" }}
+                styles={{ bgColor: "var(--white)", color: "#562504", width: "auto",fontSize: "15px", fontFamily:"'Inter', sans-serif",border:"1px solid var(--orange-dark)" }}
                 onClick={() => console.log("Schedule Interview clicked")}
               />
               <Button
                 label="Reject"
                 variant="primary"
-                styles={{ bgColor: "#f2f2f2", color: "#562504", width: "auto",fontSize: "15px", fontFamily:"'Inter', sans-serif" }}
+                styles={{ bgColor: "var(--white)", color: "#562504", width: "auto",fontSize: "15px", fontFamily:"'Inter', sans-serif",border:"1px solid var(--orange-dark)" }}
                 onClick={() => console.log("Reject clicked")}
               />
             </div>
@@ -349,11 +349,11 @@ const ApplicationReview: React.FC = () => {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "2rem", marginRight: "1rem" , marginBottom: "1rem"}}>
-          <Building size={24} color="#FB923C" />
+          <Building size={24} color="var(--orange-light)" />
           <Label 
             text="Basic Information"
             fontSize="24px"
-            color="#C0C1C3"
+            color="var(--gray-light)"
             padding="0"
             margin="0 0 0 0"
             fontWeight="500"
@@ -383,7 +383,7 @@ const ApplicationReview: React.FC = () => {
               </div>
             </div>
 
-            {/* Skills & Previous Work */}
+            
             <SkillsLanguages {...skillsData} />
             <PreviousWork workHistory={workHistory} />
             <RoleSpecificQuestions />

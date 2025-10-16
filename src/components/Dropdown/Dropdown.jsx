@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Select from 'react-select';
 
-// <Dropdown {...[dropdownObject]} containerStyling=[containerClassName] />
+
 export default function Dropdown({ containerStyling, options, placeholder, isMulti, styles }) {
   const [selectedOption, setSelectedOption] = useState(null);
 

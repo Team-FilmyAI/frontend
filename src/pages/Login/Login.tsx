@@ -10,9 +10,10 @@ export default function Login() {
   const navigate = useNavigate();
 
   const [identifier, setIdentifier] = useState(""); 
-  // const [email, setEmail] = useState("");
+  
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // Error message state
+  const [idError, setIdError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   const isUsername = (v: string) => /^[a-zA-Z0-9._-]{3,30}$/.test(v);
@@ -27,27 +28,27 @@ export default function Login() {
 
     const v = identifier.trim();
 
-    if (!v) {
-      setError("Email or username is required.");
-      return;
-    }
+    
+let valid = true;
+   setIdError("");
+   setPasswordError("");
 
-    // Validate like EmailInput mode=2: if it has "@", validate as email; otherwise username
-    const idValid = v.includes("@") ? isEmail(v) : isUsername(v);
-    if (!idValid) {
-      setError("Please enter a valid email or username.");
-      return;
-    }
+   if (!v) {
+     setIdError("Email or username is required.");
+     valid = false;
+   } else if (! (v.includes("@") ? isEmail(v) : isUsername(v)) ) {
+     setIdError("Please enter a valid email or username.");
+     valid = false;
+   }
 
-    if (!password.trim()) {
-      setError("Password is required.");
-      return;
-    }
+   if (!password.trim()) {
+     setPasswordError("Password is required.");
+     valid = false;
+   }
 
-    // Clear any previous error and proceed
-    setError("");
+   if (!valid) return;
 
-    // TODO: Replace this with real authentication logic
+  
     navigate("/profile");
   };
 
@@ -58,53 +59,42 @@ export default function Login() {
           <h2 className="login-title">Login</h2>
           <form className="login-form" onSubmit={handleLogin} noValidate>
 
-            {/* Show validation error */}
-            {error && <div className="error-message">{error}</div>}
-
+            
             <EmailInput
               value={identifier}
               onChange={(v) => {
                 setIdentifier(v);
-                if (error) setError(""); // clear error as user types
+                if (idError) setIdError("");
               }}
               placeholder={idPlaceholder}
               mode={2}              // 2 = email OR username
               required={false}
-              className={error ? "error" : ""}
+              className={idError ? "error" : ""}
             />
+            {idError && <div className="error-messageL">{idError}</div>}
             <PasswordInput
               label=""
               placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                if (passwordError) setPasswordError("");
+              }}
+              error={passwordError}
             />
-
+            
 
             <div className="forgot-password">
               <Link to="/Forgot">Forgot Password?</Link>
             </div>
 
-            {/* <button className="login-button" type="submit">Log in</button> */}
+           
             <Button
               type="submit"
               label="Log in"
               variant="primary"
               fullWidth
-              styles={{
-                bgColor: "#ff7f00",
-                color: "#ffffff",
-                border: "2px solid #ff7f00",
-                height: "48px",
-                fontSize: "16px",
-                fontWeight: 600,
-                borderRadius: "24px",
-                padding: "0 16px",
-                // hover
-                hoverBgColor: "#e65c00",
-                hoverBorder: "2px solid #e65c00",
-                hoverColor: "#ffffff",
-                transition: "all 0.2s ease",
-              }}
+              styles={{bgColor: "var(--orange)",color: "var(--white)",border: "2px solid var(--orange)",height: "48px",fontSize: "16px",fontWeight: 600,borderRadius: "24px",padding: "0 16px",hoverBgColor: "#e65c00",hoverBorder: "2px solid #e65c00",hoverColor: "var(--white)",transition: "all 0.2s ease",}}
             />
             
             <p className="signup-link">

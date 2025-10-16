@@ -49,7 +49,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
           {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
         </span>
       </div>
-      {error && <div className="error-text">{error}</div>}
+      {error && <div className="error-textP">{error}</div>}
     </div>
   );
 };

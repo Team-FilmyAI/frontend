@@ -1,10 +1,10 @@
-/* Keep this base neutral so inline styles decide size */
+
 .custom-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  /* DO NOT force padding/width here; let props control it */
+
   border: none;
   font-weight: 600;
   line-height: 1;
@@ -12,16 +12,16 @@
   background: transparent;
 }
 
-/* Full-width only when explicitly requested via prop */
+
 .custom-button.full-width {
   width: 100%;
 }
 
-/* Variants: colors only (no sizing / no flex-grow) */
+
 .custom-button.primary {
   background-color: var(--orange);
   color: var(--white);
-  /* no min-width, no flex-grow, no padding here */
+
 }
 
 .custom-button.secondary {
@@ -30,8 +30,7 @@
   border: 1px solid #4b5563;
 }
 
-/* Optional hover fallback if you don’t pass hover* props.
-   Kept very light so inline hover styles still win. */
+
 .custom-button.primary:hover {
   filter: brightness(0.95);
 }

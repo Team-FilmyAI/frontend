@@ -228,7 +228,7 @@ export default function HeroPage() {
                             }}
                           />
 
-                          {/* <input type="submit" value="Get Demo!" className="button" /> */}
+                          
                         </div>
                       </div>
                     </form>
