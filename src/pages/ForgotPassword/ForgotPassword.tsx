@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { forgotPasswordMessages } from "../../constants/messages";
 import "./ForgotPassword.css";
 
 export default function ForgotPassword() {
@@ -11,21 +12,21 @@ export default function ForgotPassword() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!input.trim()) {
-      setError("Please enter your email or username.");
+      setError(forgotPasswordMessages.emptyInputError);
       setSuccessMessage("");
       return;
     }
 
     // If input looks like an email, validate it
     if (input.includes("@") && !emailRegex.test(input)) {
-      setError("Please enter a valid email address.");
+      setError(forgotPasswordMessages.invalidEmailError);
       setSuccessMessage("");
       return;
     }
 
     // Clear errors and simulate success
     setError("");
-    setSuccessMessage("Reset link has been sent to your email.");
+    setSuccessMessage(forgotPasswordMessages.resetLinkSent);
     // TODO: Replace with actual API logic
   };
 
@@ -33,14 +34,14 @@ export default function ForgotPassword() {
     <div className="forgot-body">
       <div className="forget-container">
         <div className="forget-left-section">
-          <h2 className="forget-title">Forgot Password?</h2>
+          <h2 className="forget-title">{forgotPasswordMessages.title}</h2>
 
           <div className="forget-input-container">
             {error && <div className="error-message">{error}</div>}
             {successMessage && <div className="success-message">{successMessage}</div>}
             <input
               type="text"
-              placeholder="Email address or Username"
+              placeholder={forgotPasswordMessages.inputPlaceholder}
               className="forget-input-field"
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -48,15 +49,15 @@ export default function ForgotPassword() {
           </div>
 
           <p className="forget-back-link">
-            Back to <Link to="/Login">Log in</Link>
+            {forgotPasswordMessages.backToLoginText}<Link to="/Login">{forgotPasswordMessages.loginLinkText}</Link>
           </p>
 
           <button className="forget-send-btn" onClick={handleSend}>
-            Send
+            {forgotPasswordMessages.sendButton}
           </button>
 
           <div className="divider">
-            <span>OR</span>
+            <span>{forgotPasswordMessages.orDivider}</span>
           </div>
 
           <div className="forget-social-icons">
@@ -68,8 +69,8 @@ export default function ForgotPassword() {
         </div>
 
         <div className="forget-right-section">
-          <h1 className="forget-org-name">FilmyAI</h1>
-          <p className="forget-org-tag-line">Start your journey today!</p>
+          <h1 className="forget-org-name">{forgotPasswordMessages.organizationName}</h1>
+          <p className="forget-org-tag-line">{forgotPasswordMessages.tagLine}</p>
         </div>
       </div>
     </div>

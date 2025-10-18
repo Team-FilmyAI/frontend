@@ -1,9 +1,10 @@
-import React from 'react';
-import Header from '../../components/Header/Header';
-import "./ViewOpportunities.css";
 import { ArrowLeft } from 'lucide-react';
+import React from 'react';
 import CastingCards from '../../components/CastingCards/CastingCards';
+import Header from '../../components/Header/Header';
+import { viewOpportunitiesMessages } from '../../constants/messages';
 import { CastingData } from '../types/Casting';
+import "./ViewOpportunities.css";
 
 
 const ViewOpportunities: React.FC = () => {
@@ -69,27 +70,26 @@ const ViewOpportunities: React.FC = () => {
       <div className="opportunities-container">
         <div className="back-link">
           <ArrowLeft className="back-icon" />
-          <span>Back to Movies</span>
+          <span>{viewOpportunitiesMessages.backToMovies}</span>
         </div>
 
-        <h1 className="main-title">New Opportunities</h1>
+        <h1 className="main-title">{viewOpportunitiesMessages.mainTitle}</h1>
         <p className="opportunities-description">
-          Discover the latest casting calls and roles that match your profile. Apply now and
-          take the next step in your acting career.
+          {viewOpportunitiesMessages.opportunitiesDescription}
         </p>
 
         <div className="stat-cards">
           <div className="stat-card">
-            <span className="stat-number orange">4</span>
-            <span className="stat-label">Total Opportunities</span>
+            <span className="stat-number orange">{viewOpportunitiesMessages.totalOpportunitiesValue}</span>
+            <span className="stat-label">{viewOpportunitiesMessages.totalOpportunitiesLabel}</span>
           </div>
           <div className="stat-card">
-            <span className="stat-number red">2</span>
-            <span className="stat-label">Urgent Casting</span>
+            <span className="stat-number red">{viewOpportunitiesMessages.urgentCastingValue}</span>
+            <span className="stat-label">{viewOpportunitiesMessages.urgentCastingLabel}</span>
           </div>
           <div className="stat-card">
-            <span className="stat-number green">4.8</span>
-            <span className="stat-label">Your Match Score</span>
+            <span className="stat-number green">{viewOpportunitiesMessages.matchScoreValue}</span>
+            <span className="stat-label">{viewOpportunitiesMessages.matchScoreLabel}</span>
           </div>
         </div>
 
@@ -100,7 +100,7 @@ const ViewOpportunities: React.FC = () => {
         </div>
 
         <div className="load-more-container">
-          <button className="load-more-button">Load More Opportunities</button>
+          <button className="load-more-button">{viewOpportunitiesMessages.loadMoreButton}</button>
         </div>
       </div>
       </div>

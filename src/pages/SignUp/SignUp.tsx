@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { signUpMessages } from "../../constants/messages";
 import "./SignUp.css";
 
 export default function Signup() {
@@ -33,28 +34,28 @@ export default function Signup() {
 
     if (formType === "user") {
       if (!formData.firstName || !formData.lastName) {
-        setError("First and last name are required.");
+        setError(signUpMessages.nameRequiredError);
         return;
       }
     } else if (formType === "business") {
       if (!formData.businessName) {
-        setError("Business name is required.");
+        setError(signUpMessages.businessNameRequiredError);
         return;
       }
     }
 
     if (!formData.email || !emailRegex.test(formData.email)) {
-      setError("A valid email address is required.");
+      setError(signUpMessages.emailRequiredError);
       return;
     }
 
     if (!formData.password || formData.password.length < 6) {
-      setError("Password must be at least 6 characters long.");
+      setError(signUpMessages.passwordLengthError);
       return;
     }
 
     if (!formData.termsAccepted) {
-      setError("You must accept the Terms & Conditions.");
+      setError(signUpMessages.termsRequiredError);
       return;
     }
 
@@ -71,7 +72,7 @@ export default function Signup() {
       <div className="signup-container">
         <div className="signup-left-section">
           <div className="signup-form-container">
-            <h2 className="signup-title">Sign Up</h2>
+            <h2 className="signup-title">{signUpMessages.title}</h2>
 
             <div className="signup-toggle">
               <label>
@@ -83,7 +84,7 @@ export default function Signup() {
                   onChange={() => setFormType("user")}
                   className="signup-form-radio-input"
                 />
-                <span>User</span>
+                <span>{signUpMessages.userOption}</span>
               </label>
               <label>
                 <input
@@ -94,7 +95,7 @@ export default function Signup() {
                   onChange={() => setFormType("business")}
                   className="signup-form-radio-input"
                 />
-                <span>Business</span>
+                <span>{signUpMessages.businessOption}</span>
               </label>
             </div>
 
@@ -106,7 +107,7 @@ export default function Signup() {
                 <div className="signup-user-form">
                   <input
                     type="text"
-                    placeholder="First Name"
+                    placeholder={signUpMessages.firstNamePlaceholder}
                     className="signup-form-input"
                     name="firstName"
                     value={formData.firstName}
@@ -114,7 +115,7 @@ export default function Signup() {
                   />
                   <input
                     type="text"
-                    placeholder="Last Name"
+                    placeholder={signUpMessages.lastNamePlaceholder}
                     className="signup-form-input"
                     name="lastName"
                     value={formData.lastName}
@@ -127,7 +128,7 @@ export default function Signup() {
                 <div className="signup-business-form">
                   <input
                     type="text"
-                    placeholder="Business Name"
+                    placeholder={signUpMessages.businessNamePlaceholder}
                     className="signup-form-input"
                     name="businessName"
                     value={formData.businessName}
@@ -138,7 +139,7 @@ export default function Signup() {
 
               <input
                 type="email"
-                placeholder="Email address"
+                placeholder={signUpMessages.emailPlaceholder}
                 className="signup-form-input"
                 name="email"
                 value={formData.email}
@@ -162,27 +163,27 @@ export default function Signup() {
                   onChange={handleChange}
                 />
                 <label htmlFor="terms">
-                  I agree to{" "}
+                  {signUpMessages.termsText}{" "}
                   <a
-                    href="/documents/Terms.pdf"
+                    href={signUpMessages.termsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Terms & Conditions
+                    {signUpMessages.termsLinkText}
                   </a>
                 </label>
               </div>
 
               <button type="button" className="signup-btn" onClick={handleSubmit}>
-                Sign Up
+                {signUpMessages.signUpButton}
               </button>
             </form>
 
             <p className="signup-login-prompt">
-              Already have an account? <Link to="/Login">Click here</Link> to login
+              {signUpMessages.loginPromptText} <Link to="/Login">{signUpMessages.loginLinkText}</Link> {signUpMessages.loginPromptSuffix}
             </p>
             <div className="divider">
-              <span>OR</span>
+              <span>{signUpMessages.orDivider}</span>
             </div>
 
             <div className="signup-social-icons">
@@ -195,8 +196,8 @@ export default function Signup() {
         </div>
 
         <div className="signup-right-section">
-          <h1 className="login-org-name">FilmyAI</h1>
-          <p className="login-org-tag-line">Start your journey today!</p>
+          <h1 className="login-org-name">{signUpMessages.organizationName}</h1>
+          <p className="login-org-tag-line">{signUpMessages.tagLine}</p>
         </div>
 
         {popupVisible && (
@@ -206,12 +207,12 @@ export default function Signup() {
               onClick={() => setPopupVisible(false)}
             ></div>
             <div className="signup-popup">
-              <p>Thank you for signing up!</p>
+              <p>{signUpMessages.thankYouMessage}</p>
               <button
                 onClick={() => setPopupVisible(false)}
                 className="signup-close-btn"
               >
-                Close
+                {signUpMessages.closeButton}
               </button>
             </div>
           </>

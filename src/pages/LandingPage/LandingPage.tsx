@@ -1,11 +1,24 @@
-import React from 'react';
-import '../LandingPage/LandingPage.css';
 import {
-  Calendar, Clock4, MapPin, Star, TrendingUp, Award,
-  DollarSign, AlertCircle, User, Film, Tv, Users, Globe,
-  Heart, Zap, Smile, Skull
+  AlertCircle,
+  Award,
+  Calendar, Clock4,
+  DollarSign,
+  Film,
+  Globe,
+  Heart,
+  MapPin,
+  Skull,
+  Smile,
+  Star, TrendingUp,
+  Tv,
+  User,
+  Users,
+  Zap
 } from 'lucide-react';
+import React from 'react';
 import Header from "../../components/Header/Header";
+import { landingPageMessages } from '../../constants/messages';
+import '../LandingPage/LandingPage.css';
 
 interface Recommendation {
   title: string;
@@ -123,16 +136,16 @@ const LandingPage: React.FC = () => {
         <section className="welcome section">
             <div className="Group1">
                 <h1>
-                    Welcome back, <span className="highlight">Anu!</span>
+                    {landingPageMessages.welcomeTitle}<span className="highlight">{landingPageMessages.welcomeHighlight}</span>
                 </h1>
                 <p>
-                    Ready to land your next big role? We’ve curated the perfect opportunities based on your profile and experience.</p>
+                   {landingPageMessages.welcomeDescription}</p>
                 <div className="info">
-                    <span><Star size={22} color="#ff7a00" style={{ marginRight: '6px' }} /> 4.8 Rating</span>
-                    <span><Calendar size={22} color="#ff7a00"  style={{ marginRight: '6px' }} /> 12 Auditions This Month</span>
-                    <span><MapPin size={22}  color="#ff7a00" style={{ marginRight: '6px' }} /> Los Angeles, CA</span>
+                    <span><Star size={22} color="#ff7a00" style={{ marginRight: '6px' }} /> {landingPageMessages.rating}</span>
+                    <span><Calendar size={22} color="#ff7a00"  style={{ marginRight: '6px' }} /> {landingPageMessages.auditionsThisMonth}</span>
+                    <span><MapPin size={22}  color="#ff7a00" style={{ marginRight: '6px' }} /> {landingPageMessages.location}</span>
                 </div>
-                <button className="primary-btn">View New Opportunities</button>
+                <button className="primary-btn">{landingPageMessages.viewOpportunitiesButton}</button>
             </div>
         </section>
 
@@ -142,33 +155,33 @@ const LandingPage: React.FC = () => {
     {
       Icon: TrendingUp,
       iconColor: '#4dd17a',
-      label: 'Active Applications',
-      value: 8,
-      change: '+2 this week',
+      label: '{landingPageMessages.activeApplicationsLabel}',
+      value: '{landingPageMessages.activeApplicationsValue}',
+      change: '{landingPageMessages.activeApplicationsChange}',
       changeColor: 'green',
     },
     {
       Icon: Clock4,
       iconColor: '#ff7a00',
-      label: 'Pending Responses',
-      value: 5,
-      change: '2 Urgent',
+      label: '{landingPageMessages.pendingResponsesLabel}',
+      value: '{landingPageMessages.pendingResponsesValue}',
+      change: '{landingPageMessages.pendingResponsesChange}',
       changeColor: 'orange',
     },
     {
       Icon: Users,
       iconColor: '#4dabf7',
-      label: 'Profile Views',
-      value: 142,
-      change: '+18% this month',
+      label: '{landingPageMessages.profileViewsLabel}',
+      value: '{landingPageMessages.profileViewsValue}',
+      change: '{landingPageMessages.profileViewsChange}',
       changeColor: 'blue',
     },
     {
       Icon: Award,
       iconColor: '#cc5de8',
-      label: 'Success Rate',
-      value: '73%',
-      change: '+5% improvement',
+      label: '{landingPageMessages.successRateLabel}',
+      value: '{landingPageMessages.successRateValue}',
+      change: '{landingPageMessages.successRateChange}',
       changeColor: 'purple',
     },
   ].map((item, idx) => (
@@ -188,10 +201,10 @@ const LandingPage: React.FC = () => {
         <section className="recommendations section">
             <div className="rec-header">
                 <div className="rec-header-text">
-                    <h2>Recommended for You</h2>
-                    <p>Curated based on your profile and preferences</p>
+                    <h2>{landingPageMessages.recommendationsTitle}</h2>
+                    <p>{landingPageMessages.recommendationsSubtitle}</p>
                 </div>
-                <button className="view-all-btn">View All Recommendations</button>
+                <button className="view-all-btn">{landingPageMessages.viewAllRecommendationsButton}</button>
             </div>
 
 
@@ -201,7 +214,7 @@ const LandingPage: React.FC = () => {
                         <div className="rec-top">
                             <img src={rec.image} alt={rec.title} className="rec-img" />
                             <div className="match">
-                                {rec.match} Match
+                                {rec.match} {landingPageMessages.matchText}
                             </div>
                         </div>
                         <div className="rec-bottom">
@@ -214,13 +227,13 @@ const LandingPage: React.FC = () => {
                             <p className="meta-item"><MapPin size={18} color="#ffa94d" style={{ marginRight: '6px' }} />{rec.location}</p>
                             <p className="meta-item"><Clock4 size={18} color="#ffa94d" style={{ marginRight: '6px' }} />{rec.duration}</p>
                             <p className="meta-item"><DollarSign size={18} color="#ffa94d" style={{ marginRight: '6px' }} />{rec.budget}</p>
-                            <p className="requirements-label">Requirements:</p>
+                            <p className="requirements-label">{landingPageMessages.requirementsLabel}</p>
                             <div className="tags">
                                 {rec.tags.map((t, i) => (
                                 <span key={i}>{t}</span>
                                 ))}
                             </div>
-                            <button className="primary-btn">Apply Now</button>
+                            <button className="primary-btn">{landingPageMessages.applyNowButton}</button>
                         </div>
                     </div>
                 ))}
@@ -232,10 +245,10 @@ const LandingPage: React.FC = () => {
             <div className="casting-container">
                 <div className="casting-header">
                     <div>
-                        <h2>Your Casting Calls</h2>
-                        <p>Invitations and auditions you’ve received</p>
+                        <h2>{landingPageMessages.castingCallsTitle}</h2>
+                        <p>{landingPageMessages.castingCallsSubtitle}</p>
                     </div>
-                    <button className="view-all-btn">View All Casting Calls</button>
+                    <button className="view-all-btn">{landingPageMessages.viewAllCastingCallsButton}</button>
                 </div>
 
                 {castingCalls.map((call, idx) => (
@@ -244,27 +257,27 @@ const LandingPage: React.FC = () => {
                             <div className="call-info">
                                 <h3>
                                     {call.title}{' '}
-                                    {call.urgent && <span className="urgent">Urgent</span>}
+                                    {call.urgent && <span className="urgent">{landingPageMessages.urgentLabel}</span>}
                                 </h3>
                                 <p className="role">{call.role}</p>
                                 <p className="description">
-                                    Seeking a charismatic actor for a tech-savvy character in action thriller.
+                                    {landingPageMessages.castingCallsDescription}
                                 </p>
                                 <div className="call-meta">
-                                    <span><User size={18} color="#FF7F00" style={{ marginRight: '6px' }} />Dir: {call.director}</span>
+                                    <span><User size={18} color="#FF7F00" style={{ marginRight: '6px' }} />{landingPageMessages.directorLabel} {call.director}</span>
                                     <span><Calendar size={18} color="#FF7F00" style={{ marginRight: '6px' }} />{call.date}</span>
                                     <span><Clock4 size={18} color="#FF7F00" style={{ marginRight: '6px' }} /> {call.time}</span>
-                                    <span><AlertCircle size={18} color="#FF7F00"  style={{ marginRight: '6px' }} /> Due: {call.due}</span>
+                                    <span><AlertCircle size={18} color="#FF7F00"  style={{ marginRight: '6px' }} /> {landingPageMessages.dueLabel} {call.due}</span>
                                 </div>
                                 <div className="required-tags">
-                                    Required: {call.required.map((r, i) => (
+                                    {landingPageMessages.requiredLabel} {call.required.map((r, i) => (
                                     <span key={i} className="tag">{r}</span>
                                     ))}
                                 </div>
                             </div>
                             <div className="call-actions">
-                                <button className="primary-btn">Confirm Audition</button>
-                                <button className="secondary-btn">View Details</button>
+                                <button className="primary-btn">{landingPageMessages.confirmAuditionButton}</button>
+                                <button className="secondary-btn">{landingPageMessages.viewDetailsButton}</button>
                             </div>
                         </div>
                     </div>
@@ -275,8 +288,8 @@ const LandingPage: React.FC = () => {
 
         {/* Categories */}
         <section className="categories section">
-            <h2>Browse by Categories</h2>
-            <p>Explore opportunities across different types of productions and genres</p>
+            <h2>{landingPageMessages.categoriesTitle}</h2>
+            <p>{landingPageMessages.categoriesSubtitle}</p>
             <div className="category-grid">
                 {[
                 {
@@ -343,15 +356,15 @@ const LandingPage: React.FC = () => {
                     <p className="desc">{cat.description}</p>
                     <p className="count">
                     <span className="num">{String(cat.roles).padStart(2, '0')}</span>{' '}
-                    <span className="sub">available roles</span>
+                    <span className="sub">{landingPageMessages.availableRoles}</span>
                     </p>
-                    <button className="browse-btn">Browse Roles</button>
+                    <button className="browse-btn">{landingPageMessages.browseRolesButton}</button>
                 </div>
                 ))}
             </div>
 
             <div className="view-all-wrapper">
-                <button className="view-all-btn">View All Categories</button>
+                <button className="view-all-btn">{landingPageMessages.viewAllCategoriesButton}</button>
             </div>
         </section>
 

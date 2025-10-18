@@ -1,5 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { loginMessages } from "../../constants/messages";
 import "./Login.css";
 
 export default function Login() {
@@ -14,17 +15,17 @@ export default function Login() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email) {
-      setError("Email is required.");
+      setError(loginMessages.emailRequiredError);
       return;
     }
 
     if (!emailRegex.test(email)) {
-      setError("Please enter a valid email address.");
+      setError(loginMessages.invalidEmailError);
       return;
     }
 
     if (!password) {
-      setError("Password is required.");
+      setError(loginMessages.passwordRequiredError);
       return;
     }
 
@@ -32,14 +33,14 @@ export default function Login() {
     setError("");
 
     // TODO: Replace this with real authentication logic
-    navigate("/profile");
+    navigate(loginMessages.profileRoute);
   };
 
   return (
     <div className="login-body">
       <div className="login-container">
         <div className="login-left">
-          <h2 className="login-title">Login</h2>
+          <h2 className="login-title">{loginMessages.title}</h2>
           <form className="login-form" onSubmit={handleLogin}>
 
             {/* Show validation error */}
@@ -47,27 +48,27 @@ export default function Login() {
 
             <input
               type="text"
-              placeholder="Email address or Username"
+              placeholder={loginMessages.emailPlaceholder}
               className="input-field"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
-              placeholder="Password"
+              placeholder={loginMessages.passwordPlaceholder}
               className="input-field"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             <div className="forgot-password">
-              <Link to="/Forgot">Forgot Password?</Link>
+              <Link to={loginMessages.forgotPasswordRoute}>{loginMessages.forgotPasswordText}</Link>
             </div>
-            <button className="login-button" type="submit">Log in</button>
+            <button className="login-button" type="submit">{loginMessages.loginButtonText}</button>
             <p className="signup-link">
-              Don't have an account? <Link to="/Signup">Sign Up</Link>
+              {loginMessages.signupLinkText}<Link to={loginMessages.signupRoute}>{loginMessages.signupLinkText}</Link>
             </p>
             <div className="divider">
-              <span>OR</span>
+              <span>{loginMessages.orDivider}</span>
             </div>
             <div className="social-icons">
               <i className="fab fa-google"></i>
@@ -78,8 +79,8 @@ export default function Login() {
           </form>
         </div>
         <div className="login-right">
-          <h1 className="login-org-name">FilmyAI</h1>
-          <p className="login-org-tag-line">Start your journey today!</p>
+          <h1 className="login-org-name">{loginMessages.organizationName}</h1>
+          <p className="login-org-tag-line">{loginMessages.tagLine}</p>
         </div>
       </div>
     </div>
