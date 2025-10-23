@@ -1,6 +1,6 @@
 .radio-button {
   display: block;
-  padding: 0px 12px;
+  padding: 0 12px;
   color: var(--form-text);
   font-family: 'Garet', sans-serif;
 }
@@ -18,5 +18,4 @@
   padding-left: 5px;
   margin-right: 12px;
   cursor: pointer;
-  font-family: 'Garet', sans-serif;
 }

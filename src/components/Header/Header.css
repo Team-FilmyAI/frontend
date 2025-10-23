@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 24px;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #000;
+  color: #fff;
   font-family: 'Garet', sans-serif;
 }
 
@@ -23,8 +23,6 @@
 
 .brand-name {
   font-size: 18px;
-  color: #ffffff;
-  font-family: 'Garet', sans-serif;
 }
 
 .header-center {
@@ -44,7 +42,6 @@
   cursor: pointer;
   width: 24px;
   height: 24px;
-  color: #ffffff;
   transition: transform 0.2s;
 }
 

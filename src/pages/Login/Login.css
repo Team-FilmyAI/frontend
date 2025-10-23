@@ -11,8 +11,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  height: auto;
-  margin: 0;
   background: url("/images/LoginSignUp/bg.png") no-repeat center;
   background-size: cover;
   position: relative;
@@ -47,40 +45,6 @@
 
 .login-org-tag-line {
   color: white;
-}
-
-@media (min-width: 768px) {
-  .login-container {
-    width: 1000px;
-    height: 600px;
-    border-radius: 15px;
-  }
-
-  .login-left {
-    width: 50% !important;
-    border-radius: 15px 0 0 15px;
-  }
-
-  .login-right {
-    width: 50% !important;
-    border-radius: 0 15px 15px 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .login-container {
-    flex-direction: column-reverse;
-    height: 100%;
-    width: 100%;
-  }
-
-  .login-left {
-    height: fit-content;
-  }
-
-  .login-right {
-    min-height: 40vh;
-  }
 }
 
 .login-title {
@@ -157,7 +121,6 @@
 }
 
 .signup-link a:hover {
-  color: #ff7f00;
   text-shadow: 0 0 10px #ff7f00, 0 0 20px #ff7f00, 0 0 30px #ff7f00, 0 0 40px #ff7f00;
 }
 
@@ -199,4 +162,44 @@
   margin-bottom: 10px;
   font-size: 14px;
   text-align: left;
+}
+
+@media (min-width: 768px) {
+  .login-container {
+    width: 1000px;
+    height: 600px;
+    border-radius: 15px;
+  }
+
+  .login-left {
+    width: 50%;
+    border-radius: 15px 0 0 15px;
+  }
+
+  .login-right {
+    width: 50%;
+    border-radius: 0 15px 15px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column-reverse;
+    height: 100%;
+    width: 100%;
+  }
+
+  .login-left,
+  .login-right {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .login-left {
+    height: fit-content;
+  }
+
+  .login-right {
+    min-height: 40vh;
+  }
 }

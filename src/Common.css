@@ -1,0 +1,103 @@
+/* --- RESET --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Garet', sans-serif;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- THEME VARIABLES --- */
+:root {
+  /* Night colors */
+  --bg: #191919;
+  --bg-secondary: #111827;
+  --card-bg: #1f2937;
+  --text-primary: #ffffff;
+  --text-secondary: #C0C1C3;
+  --text-accent: #ff7f00;
+  --text-muted: #9CA3AF;
+  --border-color: #374151;
+  --orange: #ff7f00;
+  --green: #10b981;
+  --red: #dc2626;
+  --blue: #60a5fa;
+  --black: #000000;
+}
+
+/* Day colors */
+body[data-theme="day"] {
+  --bg: #f4f4f4;
+  --bg-secondary: #ffffff;
+  --card-bg: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-accent: #f97316;
+  --text-muted: #6B7280;
+  --border-color: #D1D5DB;
+  --orange: #f97316;
+  --green: #16a34a;
+  --red: #dc2626;
+  --blue: #3b82f6;
+  --black: #000000;
+}
+
+/* --- GLOBAL ELEMENTS --- */
+a { color: var(--text-accent); transition: color 0.2s ease; }
+a:hover { color: var(--orange); }
+
+button { cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
+
+input, select, textarea { font-family: 'Garet', sans-serif; }
+
+/* --- CONTAINERS --- */
+.page-wrapper, .signup-body, .login-body, .profile-container, .dashboard-main, .role-detail-dashboard {
+  background-color: var(--bg);
+  color: var(--text-primary);
+}
+
+/* --- CARDS --- */
+.project-card, .role-card, .role-card1, .stat-card, .frosted-card {
+  background-color: var(--card-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+/* --- TEXT ACCENT --- */
+.login-org-name, .login-title, .signup-title, .profile-display-inline, .role-skill-tag, .role-language-tag {
+  color: var(--text-accent);
+}
+
+/* --- STATUS TAGS --- */
+.status-badge.green, .status-tag.green { background-color: var(--green); color: var(--black); }
+.status-badge.red, .status-tag.red { background-color: var(--red); color: var(--black); }
+.status-tag.orange { background-color: var(--bg-secondary); color: var(--orange); }
+.status-tag.blue { background-color: var(--bg-secondary); color: var(--blue); }
+
+/* --- FORMS --- */
+.input-field, .signup-form-input, .profile-input, select.profile-input, .unit-input-wrapper input, .unit-dropdown {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--text-accent);
+}
+
+/* --- POPUPS --- */
+.signup-popup, .signup-overlay { background-color: var(--bg-secondary); color: var(--text-primary); }
+
+/* --- DIVIDER --- */
+.divider::before, .divider::after { border-bottom: 1px solid var(--border-color); }
+
+/* --- BUTTON UTILS --- */
+[data-theme="day"] .login-button, [data-theme="day"] .signup-btn, [data-theme="day"] .role-apply-button {
+  background-color: var(--orange);
+  color: var(--black);
+}
+[data-theme="night"] .login-button, [data-theme="night"] .signup-btn, [data-theme="night"] .role-apply-button {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+/* Minor note: colors chosen to be color-blind friendly (avoid red/green combos for critical info) */

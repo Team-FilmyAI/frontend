@@ -44,66 +44,47 @@
   position: relative;
 }
 
-.form-row {
+.form-row,
+.double-input-row {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  gap: 0.5rem;
   position: relative;
 }
 
-.profile-input {
-  height: 2.4rem;
-  padding: 6px 8px;
-  font-size: 0.9rem;
-  border-radius: 0.5rem;
+.profile-input,
+textarea.profile-input,
+select.profile-input,
+.unit-input-wrapper input,
+.unit-dropdown {
   border: 1px solid #ff7f00;
+  border-radius: 0.5rem;
   background: transparent;
   color: #ff7f00;
+  padding: 6px 8px;
+  font-size: 0.9rem;
   box-sizing: border-box;
+}
+
+textarea.profile-input {
+  resize: none;
+  height: 120px;
+  line-height: 1.6;
+}
+
+.poster-preview,
+.profile-pic-display {
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid #ff7f00;
+  margin-top: 1rem;
 }
 
 .profile-pic-display {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: cover;
-  margin-top: 1rem;
-  border: 2px solid #ff7f00;
-}
-
-.about-textarea {
-  resize: none;
-  min-height: 120px;
-  line-height: 1.6;
-}
-
-textarea.profile-input {
-  resize: none;
-  height: 120px;
-  font-size: 0.9rem;
-  padding: 6px 8px;
-  line-height: 1.6;
-}
-
-.poster-preview {
-  width: 50%;
-  max-width: 150px;
-  height: auto;
-  border-radius: 0.5rem;
-  object-fit: contain;
-  border: 1px solid #ff7f00;
-  margin-top: 1rem;
-}
-
-select.profile-input {
-  height: 2.4rem;
-  padding: 6px 8px;
-  font-size: 0.9rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ff7f00;
-  background: transparent;
-  color: #ff7f00;
-  box-sizing: border-box;
 }
 
 .remove-btn {
@@ -156,7 +137,6 @@ select.profile-input {
 nav,
 footer {
   width: 100%;
-  max-width: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -183,30 +163,29 @@ select[multiple] {
   min-height: 100px;
 }
 
-.select__control {
-  border: 1px solid #ff7f00 !important;
-  background: transparent !important;
-  color: #ff7f00;
+.select__control,
+.select__menu,
+.select__multi-value,
+.select__input input {
   border-radius: 0.5rem;
+  border: 1px solid #ff7f00 !important;
+  color: #ff7f00 !important;
+}
+
+.select__control {
+  background: transparent !important;
   min-height: 3rem;
 }
 .select__menu {
   background: #1e1e1e !important;
-  color: #ff7f00;
-  border-radius: 0.5rem;
 }
 .select__multi-value {
   background-color: #ff7f00 !important;
   color: black;
 }
-.select__multi-value__label {
-  color: black;
-}
+.select__multi-value__label,
 .select__multi-value__remove {
   color: black;
-}
-.select__input input {
-  color: #ff7f00 !important;
 }
 
 .profile-pic-row.display-mode {
@@ -237,13 +216,6 @@ select[multiple] {
   margin-bottom: 1rem;
 }
 
-.double-input-row {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  gap: 1.5rem;
-}
-
 .half-width {
   display: flex;
   flex-direction: column;
@@ -255,26 +227,6 @@ select[multiple] {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-}
-
-.unit-dropdown {
-  width: 55px;
-  height: 2.4rem;
-  font-size: 0.85rem;
-  border-radius: 0.4rem;
-  background: transparent;
-  color: #ff7f00;
-  border: 1px solid #ff7f00;
-}
-
-.unit-input-wrapper input {
-  width: 70px;
-  padding: 6px 8px;
-  font-size: 0.9rem;
-  border: 1px solid #ff7f00;
-  border-radius: 0.5rem;
-  background: transparent;
-  color: #ff7f00;
 }
 
 .autocomplete-dropdown-container {
@@ -293,7 +245,6 @@ select[multiple] {
 .suggestion-item {
   padding: 0.5rem;
   cursor: pointer;
-  color: #ff7f00;
 }
 .suggestion-item--active {
   background-color: #ff7f00;
@@ -310,6 +261,5 @@ select[multiple] {
 .error-msg {
   color: rgb(238, 72, 72);
   font-size: 14px;
-  margin-top: 2px;
-  margin-bottom: 4px;
+  margin: 2px 0 4px 0;
 }

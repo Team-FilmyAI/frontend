@@ -2,14 +2,12 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  font-family: 'Garet', sans-serif;
 }
 
 .input-label {
   color: #fff;
   font-size: 14px;
   margin-bottom: 6px;
-  font-family: 'Garet', sans-serif;
 }
 
 .inputs-container {
@@ -21,7 +19,6 @@
   padding: 0 12px;
   height: 48px;
   transition: border 0.3s ease;
-  font-family: 'Garet', sans-serif;
 }
 
 .input-icon {
@@ -40,17 +37,13 @@
   outline: none;
   color: #fff;
   font-size: 14px;
-  font-family: 'Garet', sans-serif;
 }
 
 .text-input::placeholder {
   color: #aaa;
 }
 
-.input-error {
-  border-color: #ED2B2C;
-}
-
+.input-error,
 .input-focused-error {
   border-color: #ED2B2C;
 }
@@ -58,8 +51,6 @@
 .error-text {
   color: #ED2B2C;
   font-size: 12px;
-  margin-top: 4px;
-  font-family: 'Garet', sans-serif;
 }
 
 .select-input {
@@ -68,11 +59,9 @@
   color: #fff;
   border: none;
   width: 100%;
-  font-family: 'Garet', sans-serif;
 }
 
 .select-input option {
   background: #1e1e1e;
   color: #fff;
-  font-family: 'Garet', sans-serif;
 }
