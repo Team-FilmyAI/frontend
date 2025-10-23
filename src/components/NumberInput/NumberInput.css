@@ -10,9 +10,6 @@
   font-size: 1rem;
 }
 
-.number-input:hover {
-  background-color: var(--section);
-}
 .number-input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }

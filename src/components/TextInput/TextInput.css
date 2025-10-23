@@ -43,10 +43,7 @@
   color: #aaa;
 }
 
-.input-error {
-  border-color: #ED2B2C;
-}
-
+.input-error,
 .input-focused-error {
   border-color: #ED2B2C;
 }
@@ -54,7 +51,6 @@
 .error-text {
   color: #ED2B2C;
   font-size: 12px;
-  margin-top: 4px;
 }
 
 .select-input {

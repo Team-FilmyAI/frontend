@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 5px;
   width: 100%;
+  font-family: 'Garet', sans-serif;
 }
 
 .email-input {
@@ -28,9 +29,7 @@
   color: red;
   background-color: rgba(255, 0, 0, 0.05);
 }
-.email-input:hover {
-  background-color: var(--section);
-}
+
 .error-message {
   color: red;
   font-size: 0.875rem;

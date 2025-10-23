@@ -43,10 +43,7 @@
   color: #aaa;
 }
 
-.input-error {
-  border-color: #ED2B2C;
-}
-
+.input-error,
 .input-focused-error {
   border-color: #ED2B2C;
 }

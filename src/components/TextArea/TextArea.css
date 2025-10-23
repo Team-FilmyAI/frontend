@@ -13,12 +13,7 @@
   padding: 8px;
   resize: vertical;
   min-height: 80px;
-  font-family: inherit;
   transition: all 0.3s ease;
-}
-
-.custom-textarea:hover {
-  background-color: var(--section);
 }
 
 .custom-textarea:focus {

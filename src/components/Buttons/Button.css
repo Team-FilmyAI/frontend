@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   border: none;
+  font-family: 'Garet', sans-serif;
 }
 
 .custom-button.full-width {
@@ -20,14 +21,9 @@
   color: var(--white);
   padding: 0.4rem 1.2rem;
   min-width: 120px; 
-  max-width: 495px;  
-       
-  
-  border: none;
+  max-width: 495px;
   border-radius: 0.350rem; 
   font-size: 1.125rem; 
-  font-weight: 600; 
-  cursor: pointer;
   transition: background-color 0.2s ease-in-out; 
   text-align: center; 
   white-space: nowrap; 
@@ -38,7 +34,6 @@
   background-color: #ea580c; 
 }
 
-
 .custom-button.secondary {
   background-color: var(--white); 
   color: var(--orange); 
@@ -48,15 +43,14 @@
   border-radius: 0.375rem; 
   font-size: 0.9rem; 
   font-weight: 200; 
-  cursor: pointer;
   transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out; 
   text-align: center;
   white-space: nowrap;
   flex-basis: auto; 
 }
 
-.custom-button.secondary:hover{
-    background-color: #1f2937; 
-    border-color: #374151; 
-    color: #f9fafb;
+.custom-button.secondary:hover {
+  background-color: #1f2937; 
+  border-color: #374151; 
+  color: #f9fafb;
 }

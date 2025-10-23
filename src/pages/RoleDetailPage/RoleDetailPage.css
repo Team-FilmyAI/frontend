@@ -2,7 +2,6 @@
   min-height: 100vh;
   background-color: #191919;
   color: var(--white);
-  font-family: 'Garet', system-ui, sans-serif;
   width: 100%;
 }
 
@@ -34,78 +33,28 @@
   cursor: pointer;
   padding: 0;
   transition: color 0.2s ease;
-  font-family: 'Garet', sans-serif;
 }
+.role-back-button:hover { color: var(--white); }
 
-.role-back-button:hover {
-  color: var(--white);
-}
+.role-project-header { margin-bottom: 36px; }
 
-.role-project-header {
-  margin-bottom: 36px;
-}
+.role-project-title { color: var(--orange); font-size: 16px; font-weight: 400; margin-bottom: 12px; }
 
-.role-project-title {
-  color: var(--orange);
-  font-size: 16px;
-  font-weight: 00;
-  margin-bottom: 12px;
-  font-family: 'Garet', sans-serif;
-}
+.role-title1 { font-size: 36px; font-weight: 500; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
 
-.role-title1 {
-  font-size: 36px;
-  font-weight: 500;
-  color: var(--white);
-  margin-bottom: 8px;
-  line-height: 1.2;
-  font-family: 'Garet', sans-serif;
-}
-
-.role-character-name {
-  font-size: 24px;
-  font-weight: 400;
-  color: var(--gray-medium);
-  margin-bottom: 20px;
-  font-family: 'Garet', sans-serif;
-}
+.role-character-name { font-size: 24px; font-weight: 400; color: var(--gray-medium); margin-bottom: 20px; }
 
 .role-meta-info {
   display: flex;
   gap: 32px;
 }
+.role-meta-item { display: flex; align-items: center; gap: 8px; color: var(--gray-medium); font-size: 14px; }
 
-.role-meta-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--gray-medium);
-  font-size: 14px;
-  font-family: 'Garet', sans-serif;
-}
+.role-content-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; margin-bottom: 40px; }
 
-.role-content-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.role-main-section {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  height: 100%;
-}
+.role-main-section { display: flex; flex-direction: column; gap: 16px; height: 100%; }
 
 .role-card {
-  background-color: var(--card-bg);
-  border-radius: 12px;
-  padding: 24px;
-  border: 1px solid var(--section);
-}
-
-.role-card1 {
   background-color: var(--card-bg);
   border-radius: 12px;
   padding: 24px;
@@ -114,146 +63,43 @@
   width: 100%;
 }
 
-.role-card-title {
-  font-size: 20px;
-  font-weight: 300;
-  color: var(--gray-light);
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Garet', sans-serif;
-}
+.role-card-title { font-size: 20px; font-weight: 300; color: var(--gray-light); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
 
-.role-card-content {
-  color: #D1D5DB;
-  line-height: 1.6;
-  font-family: 'Garet', sans-serif;
-}
+.role-card-content { color: #D1D5DB; line-height: 1.6; }
 
-.role-star-icon {
-  color: #FFD700;
-  font-size: 16px;
-}
+.role-star-icon { color: #FFD700; font-size: 16px; }
 
-.role-section-divider {
-  height: 1px;
-  background-color: var(--gray-light);
-  margin: 24px -24px;
-  opacity: 0.1;
-}
+.role-section-divider { height: 1px; background-color: var(--gray-light); margin: 24px -24px; opacity: 0.1; }
 
-.role-character-description {
-  font-size: 14px;
-  line-height: 1.7;
-  font-weight: 400;
-  color: var(--gray-medium);
-}
+.role-character-description { font-size: 14px; line-height: 1.7; font-weight: 400; color: var(--gray-medium); }
 
-.role-requirements-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-family: 'Garet', sans-serif;
-}
-
+.role-requirements-list { list-style: none; padding: 0; margin: 0; }
 .role-requirements-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 12px;
-  font-size: 14px;
-  line-height: 1.6;
-  position: relative;
-  padding-left: 16px;
-  font-weight: 400;
-  color: var(--gray-medium);
+  display: flex; align-items: flex-start; gap: 12px;
+  margin-bottom: 12px; font-size: 14px; line-height: 1.6;
+  padding-left: 16px; font-weight: 400; color: var(--gray-medium); position: relative;
 }
-
 .role-requirements-list li:before {
-  content: "•";
-  color: var(--orange);
-  font-size: 16px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-weight: bold;
+  content: "•"; color: var(--orange); font-size: 16px;
+  position: absolute; left: 0; top: 0; font-weight: bold;
 }
+.role-requirements-list li:last-child { margin-bottom: 0; }
 
-.role-requirements-list li:last-child {
-  margin-bottom: 0;
-}
+.role-skills-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.role-skill-tag { color: var(--orange); padding: 1px 8px; border-radius: 16px; font-size: 12px; font-weight: 200; border: 0.5px solid var(--orange); }
 
-.role-skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-}
+.role-sidebar { display: flex; flex-direction: column; }
 
-.role-skill-tag {
-  color: var(--orange);
-  padding: 1px 8px;
-  border-radius: 16px;
-  font-size: 12px;
-  font-weight: 200;
-  border: 0.5px solid var(--orange);
-  font-family: 'Garet', sans-serif;
-}
+.role-info-section { margin-bottom: 24px; }
+.role-info-section:last-child { margin-bottom: 0; }
 
-.role-sidebar {
-  display: flex;
-  flex-direction: column;
-}
+.role-info-label { font-size: 14px; font-weight: 400; color: var(--gray-dark); margin-bottom: 8px; }
+.role-info-value { font-size: 14px; color: var(--gray-medium); margin: 0; font-weight: 400; }
 
-.role-info-section {
-  margin-bottom: 24px;
-}
+.role-language-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.role-language-tag { background-color: var(--white); color: var(--gray-dark); padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500; border: 1px solid var(--border-color); }
 
-.role-info-section:last-child {
-  margin-bottom: 0;
-}
-
-.role-info-label {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--gray-dark);
-  margin-bottom: 8px;
-  font-family: 'Garet', sans-serif;
-}
-
-.role-info-value {
-  font-size: 14px;
-  color: var(--gray-medium);
-  margin: 0;
-  font-family: 'Garet', sans-serif;
-  font-weight: 400;
-}
-
-.role-language-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 8px;
-}
-
-.role-language-tag {
-  background-color: var(--white);
-  color: var(--gray-dark);
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 500;
-  border: 1px solid var(--border-color);
-  font-family: 'Garet', sans-serif;
-}
-
-.role-apply-section {
-  display: flex;
-  justify-content: flex-end;
-  background-color: transparent;
-}
-
+.role-apply-section { display: flex; justify-content: flex-end; background-color: transparent; }
 .role-apply-button {
   background-color: var(--orange);
   color: var(--black);
@@ -265,90 +111,32 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  font-family: 'Garet', sans-serif;
 }
-
-.role-apply-button:hover {
-  background-color: #e06600;
-}
+.role-apply-button:hover { background-color: #e06600; }
 
 @media (max-width: 1024px) {
-  .role-main-content {
-    padding: 24px 40px;
-  }
-
-  .role-content-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .role-title1 {
-    font-size: 28px;
-  }
-
-  .role-character-name {
-    font-size: 20px;
-  }
-
-  .role-meta-info {
-    gap: 24px;
-  }
+  .role-main-content { padding: 24px 40px; }
+  .role-content-grid { grid-template-columns: 1fr; gap: 32px; }
+  .role-title1 { font-size: 28px; }
+  .role-character-name { font-size: 20px; }
+  .role-meta-info { gap: 24px; }
 }
 
 @media (max-width: 768px) {
-  .role-main-content {
-    padding: 20px 24px;
-  }
-
-  .role-meta-info {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .role-title1 {
-    font-size: 24px;
-  }
-
-  .role-character-name {
-    font-size: 18px;
-  }
-
-  .role-main-section {
-    gap: 24px;
-  }
-
-  .role-card {
-    padding: 20px;
-  }
+  .role-main-content { padding: 20px 24px; }
+  .role-meta-info { flex-direction: column; gap: 12px; }
+  .role-title1 { font-size: 24px; }
+  .role-character-name { font-size: 18px; }
+  .role-main-section { gap: 24px; }
+  .role-card { padding: 20px; }
 }
 
 @media (max-width: 480px) {
-  .role-main-content {
-    padding: 16px 20px;
-  }
-
-  .role-title1 {
-    font-size: 22px;
-  }
-
-  .role-character-name {
-    font-size: 16px;
-  }
-
-  .role-content-grid {
-    gap: 24px;
-  }
-
-  .role-main-section {
-    gap: 20px;
-  }
-
-  .role-card {
-    padding: 16px;
-  }
-
-  .role-apply-button {
-    width: 100%;
-    max-width: 300px;
-  }
+  .role-main-content { padding: 16px 20px; }
+  .role-title1 { font-size: 22px; }
+  .role-character-name { font-size: 16px; }
+  .role-content-grid { gap: 24px; }
+  .role-main-section { gap: 20px; }
+  .role-card { padding: 16px; }
+  .role-apply-button { width: 100%; max-width: 300px; }
 }
