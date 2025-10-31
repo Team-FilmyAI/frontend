@@ -1,9 +1,10 @@
-import './FilmProjectDetails.css';
-import Header from '../../components/Header/Header';
 import { useState } from 'react';
 import { movieDrive as movie } from '../../assets/data/constants.js';
+import Header from '../../components/Header/Header';
+import { filmProjectDetailsMessages } from './../../constants/messages';
+import './FilmProjectDetails.css';
 
-import { Users, Calendar, Star, Clock, Building, MapPin } from 'lucide-react';
+import { Building, Calendar, Clock, MapPin, Star, Users } from 'lucide-react';
 
 function FilmProjectDetails() {
   return (
@@ -12,7 +13,7 @@ function FilmProjectDetails() {
       <div className="FilmProjectDetails">
         {/* Change to Reusable Component */}
         <button>
-          <i class="fa-solid fa-arrow-left back-button" /> Back to Movies
+          <i class="fa-solid fa-arrow-left back-button" /> {filmProjectDetailsMessages.backToMovies}
         </button>
 
         <FilmOverview film={movie} />
@@ -49,21 +50,21 @@ function FilmDetails({ film }) {
       <h2 className="film-genres">{film.genres}</h2>
       <div className="column-container">
         <p>
-          <Users className="icon-color" /> Director: {movie.director}
+          <Users className="icon-color" /> {filmProjectDetailsMessages.directorLabel} {movie.director}
         </p>
         <p>
           <Calendar className="icon-color" /> {formatDate(film.filmingDates.start)} -{' '}
           {formatDate(film.filmingDates.end)}
         </p>
         <p>
-          <Star className="icon-color" /> Budget: {movie.budget}
+          <Star className="icon-color" /> {filmProjectDetailsMessages.budgetLabel} {movie.budget}
         </p>
         <p>
-          <Clock className="icon-color" /> {movie.productionTime} production
+          <Clock className="icon-color" /> {movie.productionTime} {filmProjectDetailsMessages.productionTimeLabel}
         </p>
       </div>
       <h4>
-        <Building className="icon-color" /> Production Companies
+        <Building className="icon-color" /> {filmProjectDetailsMessages.productionCompaniesTitle}
       </h4>
       <div>
         {film.productionCompanies.map((company, i) => (
@@ -71,7 +72,7 @@ function FilmDetails({ film }) {
         ))}
       </div>
       <h4>
-        <MapPin className="icon-color" /> Filming Locations
+        <MapPin className="icon-color" /> {filmProjectDetailsMessages.filmingLocationsTitle}
       </h4>
       <div>
         {film.filmingLocations.map((location, i) => (
@@ -89,7 +90,7 @@ function InfoTag({ text, className = '' }) {
 function Synopsis({ synopsis }) {
   return (
     <div className="synopsis">
-      <h2>Synopsis</h2>
+      <h2>{filmProjectDetailsMessages.synopsisTitle}</h2>
       <p>{synopsis}</p>
     </div>
   );
@@ -113,7 +114,7 @@ function AvailableRoles({ roles }) {
 
   return (
     <div className="available-roles">
-      <h2 className="">Available Roles</h2>
+      <h2 className="">{filmProjectDetailsMessages.availableRolesTitle}</h2>
       <div className="role-listings">
         {roles.map((role, i) => (
           <Role key={i} role={role} isFilled={filledRoles[i]} onApply={() => handleApply(i)} />
@@ -135,7 +136,7 @@ function Role({ role, isFilled, onApply }) {
 
       <p className="role-description">{role.description}</p>
 
-      <p className="requirements-title">Requirements:</p>
+      <p className="requirements-title">{filmProjectDetailsMessages.requirementsTitle}</p>
       <div className="tags-container">
         {role.requirements.map((requirement, i) => (
           <InfoTag key={i} text={requirement} className="tag-pill" />
@@ -148,7 +149,7 @@ function Role({ role, isFilled, onApply }) {
 
       {!isFilled && (
         <button onClick={onApply} className="apply-button">
-          Apply Now
+          {filmProjectDetailsMessages.applyNowButton}
         </button>
       )}
     </article>
