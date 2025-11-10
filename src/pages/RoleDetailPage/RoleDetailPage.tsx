@@ -1,6 +1,7 @@
 import { ArrowLeft, Clock, Star, User } from 'lucide-react';
 import * as React from 'react';
 import Header from '../../components/Header/Header';
+import { MessageRoleDetailPage } from '../../constants/messages';
 import './RoleDetailPage.css';
 import Button from '../../components/Buttons/Button';
 import Label from '../../components/Label/Label';
@@ -22,7 +23,7 @@ const RoleDetailPage: React.FC = () => {
           <div className="role-back-navigation">
             <button className="role-back-button" onClick={handleBackToMovieDetails}>
               <ArrowLeft size={16} />
-              Back to Movie Details
+              {MessageRoleDetailPage.backToMovieDetails}
             </button>
           </div>
 

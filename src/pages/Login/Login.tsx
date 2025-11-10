@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { loginMessages } from "../../constants/messages";
 import { useState, useMemo } from "react";
 import "./Login.css";
 
@@ -19,7 +20,7 @@ export default function Login() {
   const isUsername = (v: string) => /^[a-zA-Z0-9._-]{3,30}$/.test(v);
 
   const idPlaceholder = useMemo(
-    () => "Email address or Username",
+    () => loginMessages?.emailPlaceholder || "Email address or Username",
     []
   );
 
@@ -33,48 +34,47 @@ let valid = true;
    setIdError("");
    setPasswordError("");
 
-   if (!v) {
-     setIdError("Email or username is required.");
-     valid = false;
-   } else if (! (v.includes("@") ? isEmail(v) : isUsername(v)) ) {
-     setIdError("Please enter a valid email or username.");
-     valid = false;
-   }
+    if (!v) {
+      setIdError(loginMessages?.emailRequiredError || "Email or username is required.");
+      valid = false;
+    } else if (!(v.includes("@") ? isEmail(v) : isUsername(v))) {
+      setIdError(loginMessages?.invalidEmailError || "Please enter a valid email or username.");
+      valid = false;
+    }
 
-   if (!password.trim()) {
-     setPasswordError("Password is required.");
-     valid = false;
-   }
+    if (!password.trim()) {
+      setPasswordError(loginMessages?.passwordRequiredError || "Password is required.");
+      valid = false;
+    }
 
    if (!valid) return;
 
-  
-    navigate("/profile");
+    
+    navigate(loginMessages?.profileRoute || "/profile");
   };
 
   return (
     <div className="login-body">
       <div className="login-container">
         <div className="login-left">
-          <h2 className="login-title">Login</h2>
+          <h2 className="login-title">{loginMessages?.title || "Login"}</h2>
           <form className="login-form" onSubmit={handleLogin} noValidate>
 
-            
-            <EmailInput
+           <EmailInput
               value={identifier}
               onChange={(v) => {
                 setIdentifier(v);
                 if (idError) setIdError("");
               }}
               placeholder={idPlaceholder}
-              mode={2}              // 2 = email OR username
+              mode={2}
               required={false}
               className={idError ? "error" : ""}
             />
             {idError && <div className="error-messageL">{idError}</div>}
             <PasswordInput
               label=""
-              placeholder="Password"
+              placeholder={loginMessages?.passwordPlaceholder || "Password"}
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -85,23 +85,23 @@ let valid = true;
             
 
             <div className="forgot-password">
-              <Link to="/Forgot">Forgot Password?</Link>
+              <Link to={loginMessages.forgotPasswordRoute}>{loginMessages.forgotPasswordText}</Link>
             </div>
 
            
             <Button
               type="submit"
-              label="Log in"
+              label={loginMessages?.loginButtonText || "Log in"}
               variant="primary"
               fullWidth
               styles={{bgColor: "var(--orange)",color: "var(--white)",border: "2px solid var(--orange)",height: "48px",fontSize: "16px",fontWeight: 600,borderRadius: "24px",padding: "0 16px",hoverBgColor: "#e65c00",hoverBorder: "2px solid #e65c00",hoverColor: "var(--white)",transition: "all 0.2s ease",}}
             />
             
             <p className="signup-link">
-              Don't have an account? <Link to="/Signup">Sign Up</Link>
+              {loginMessages.signupLinkText}<Link to={loginMessages.signupRoute}>{loginMessages.signupLinkText}</Link>
             </p>
             <div className="divider">
-              <span>OR</span>
+              <span>{loginMessages.orDivider}</span>
             </div>
             <div className="social-icons">
               <i className="fab fa-google"></i>
@@ -112,8 +112,8 @@ let valid = true;
           </form>
         </div>
         <div className="login-right">
-          <h1 className="login-org-name">FilmyAI</h1>
-          <p className="login-org-tag-line">Start your journey today!</p>
+          <h1 className="login-org-name">{loginMessages.organizationName}</h1>
+          <p className="login-org-tag-line">{loginMessages.tagLine}</p>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./ForgotPassword.css";
 import EmailInput from "../../components/EmailInput/EmailInput";
 import Button from "../../components/Buttons/Button";
+import { forgotPasswordMessages } from "../../constants/messages";
 
 const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 const isUsername = (v: string) => /^[a-zA-Z0-9._-]{3,30}$/.test(v);
@@ -16,7 +17,7 @@ export default function ForgotPassword() {
     const v = input.trim();
 
     if (!v) {
-      setError("Please enter your email or username.");
+      setError(forgotPasswordMessages?.emptyInputError || "Please enter your email or username.");
       setSuccessMessage("");
       return;
     }
@@ -24,14 +25,14 @@ export default function ForgotPassword() {
     
     const valid = v.includes("@") ? isEmail(v) : isUsername(v);
     if (!valid) {
-      setError("Please enter a valid email or username.");
+      setError(forgotPasswordMessages?.invalidEmailError ||"Please enter a valid email or username.");
       setSuccessMessage("");
       return;
     }
 
     
     setError("");
-    setSuccessMessage("If this account exists, a reset link has been sent.");
+    setSuccessMessage(forgotPasswordMessages?.resetLinkSent ||"If this account exists, a reset link has been sent.");
     
   };
 
@@ -39,26 +40,27 @@ export default function ForgotPassword() {
     <div className="forgot-body">
       <div className="forget-container">
         <div className="forget-left-section">
-          <h2 className="forget-title">Forgot Password?</h2>
+          <h2 className="forget-title">{forgotPasswordMessages?.title || "Forgot Password?"}</h2>
 
           <div className="forget-input-container">
             {error && <div className="error-message">{error}</div>}
             {successMessage && <div className="success-message">{successMessage}</div>}
             <EmailInput
-              mode={2}                               // 1=email, 2=email|username, 3=email|username|phone
+              mode={2}                               
               value={input}
               onChange={setInput}
               required
-              placeholder="Email address or Username"
+              placeholder={forgotPasswordMessages?.inputPlaceholder || "Email address or Username"}
             />
           </div>
 
           <p className="forget-back-link">
-            Back to <Link to="/Login">Log in</Link>
+            {forgotPasswordMessages?.backToLoginText || "Back to "}
+            <Link to="/Login">{forgotPasswordMessages?.loginLinkText || "Log in"}</Link>
           </p>
 
           <Button
-            label="Send"
+            label={forgotPasswordMessages?.sendButton || "Send"}
             variant="primary"
             onClick={handleSend}
             styles={{
@@ -81,7 +83,7 @@ export default function ForgotPassword() {
          
 
           <div className="divider">
-            <span>OR</span>
+            <span>{forgotPasswordMessages?.orDivider || "OR"}</span>
           </div>
 
           <div className="forget-social-icons">
@@ -93,8 +95,8 @@ export default function ForgotPassword() {
         </div>
 
         <div className="forget-right-section">
-          <h1 className="forget-org-name">FilmyAI</h1>
-          <p className="forget-org-tag-line">Start your journey today!</p>
+          <h1 className="forget-org-name">{forgotPasswordMessages?.organizationName || "FilmyAI"}</h1>
+          <p className="forget-org-tag-line">{forgotPasswordMessages?.tagLine || "Start your journey today!"}</p>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
+import { heroPageMessages } from "../../constants/messages";
 import "./HeroPage.css";
 import HeroPageNavBar from "./HeroPageNavBar";
 import Button from "../../components/Buttons/Button";
@@ -161,7 +162,7 @@ export default function HeroPage() {
           <div className="main-container">
             <div id="hero" className="hero">
               <div className="hero-title container">
-                <h2>We work with!</h2>
+                <h2>{heroPageMessages.heroTitle}</h2>
                 <p>
                   <span className="typed" ref={typedRef}></span>
                 </p>
@@ -177,12 +178,12 @@ export default function HeroPage() {
               <div className="about-container container">
                 <div className="about-section-title">
                   <p className="about-subtitle" ref={aboutSubtitleRef}>
-                    <span className="first-word">What is </span>
-                    <span className="second-word">FilmyAI?</span>
+                    <span className="first-word">{heroPageMessages.aboutSubtitleFirstWord} </span>
+                    <span className="second-word">{heroPageMessages.aboutSubtitleSecondWord}</span>
                   </p>
                 </div>
                 <p className="about-description" ref={aboutDescriptionRef}>
-                  Lorem Ipsum is simply dummy text...
+                  {heroPageMessages.aboutDescription}
                 </p>
               </div>
             </div>
@@ -194,24 +195,24 @@ export default function HeroPage() {
                     <form action="">
                       <div className="row">
                         <div className="col-md-6">
-                          <input type="text" className="demo-form-input" placeholder="First Name" />
+                          <input type="text" className="demo-form-input" placeholder={heroPageMessages.firstNamePlaceholder} />
                         </div>
                         <div className="col-md-6">
-                          <input type="text" className="demo-form-input" placeholder="Last Name" />
+                          <input type="text" className="demo-form-input" placeholder={heroPageMessages.lastNamePlaceholder} />
                         </div>
                       </div>
                       <div className="row">
                         <div className="col-md-6">
-                        <input type="email" className="demo-form-input" placeholder="Email"/>
+                        <input type="email" className="demo-form-input" placeholder={heroPageMessages.emailPlaceholder}/>
                         </div>
                         <div className="col-md-6">
-                        <input type="tel" className="demo-form-input" placeholder="Mobile Number"/>
+                        <input type="tel" className="demo-form-input" placeholder={heroPageMessages.mobileNumberPlaceholder}/>
                         </div>
                       </div>
                       <div className="row">
                         <div className="col-md-12">
                          <Button
-                            label="Get Demo!"
+                            label={heroPageMessages?.submitButtonText || "Get Demo!"}
                             type="submit"
                             variant="primary"
                             fullWidth={true}
@@ -235,8 +236,8 @@ export default function HeroPage() {
                   </div>
                 </div>
                 <div className="demo-section-title">
-                  <p className="first-word demo-subtitle" ref={(el) => { demoSubtitleRefs.current[0] = el}}>Need a </p>
-                  <p className="second-word demo-subtitle" ref={(el) => {demoSubtitleRefs.current[1] = el}}>Demo?</p>
+                  <p className="first-word demo-subtitle" ref={(el) => { demoSubtitleRefs.current[0] = el}}>{heroPageMessages.demoSubtitleFirstWord} </p>
+                  <p className="second-word demo-subtitle" ref={(el) => {demoSubtitleRefs.current[1] = el}}>{heroPageMessages.demoSubtitleSecondWord}</p>
                 </div>
               </div>
             </div>
@@ -244,13 +245,13 @@ export default function HeroPage() {
             <div id="blog" className="blog-section section">
               <div className="blog-container container">
                 <div className="blog-section-title">
-                  <p className="first-word blog-subtitle" ref={(el) => {blogSubtitleRefs.current[0] = el}}>See What's</p>
-                  <p className="second-word blog-subtitle" ref={(el) => {blogSubtitleRefs.current[1] = el}}>Happening!</p>
+                  <p className="first-word blog-subtitle" ref={(el) => {blogSubtitleRefs.current[0] = el}}>{heroPageMessages.blogSubtitleFirstWord}</p>
+                  <p className="second-word blog-subtitle" ref={(el) => {blogSubtitleRefs.current[1] = el}}>{heroPageMessages.blogSubtitleSecondWord}</p>
                 </div>
                 <div id="blog-cards" className="blog-cards">
                   {blogPosts.map((post, index) => (
                     <div className="blog-card" key={index}>
-                      <img className="card-image" src={post.image} alt="Blog Image" />
+                      <img className="card-image" src={post.image} alt={heroPageMessages.blogImageAlt} />
                       <div className="blog-name">
                         <a href="javascript:void(0);">
                           <h5 className="blog-title">{post.title}</h5>
@@ -269,15 +270,15 @@ export default function HeroPage() {
               <div className="chat-container">
                 <i id="chatClose" ref={chatCloseRef} className="chat-close fa-solid fa-x"></i>
                 <div className="chat-header">
-                  <h6 className="flex-grow-1 text-center"><b>Have a Question?</b></h6>
+                  <h6 className="flex-grow-1 text-center"><b>{heroPageMessages.chatHeaderTitle}</b></h6>
                 </div>
                 <div className="chat-body">
                   <div className="message-body">
-                    <div className="bot-message"><p>Hey! I am bot.</p></div>
-                    <div className="my-message"><p>It's a message.</p></div>
+                    <div className="bot-message"><p>{heroPageMessages.chatBotMessage}</p></div>
+                    <div className="my-message"><p>{heroPageMessages.chatUserMessage}</p></div>
                   </div>
                   <div className="message-form">
-                    <input id="sendBtn" type="text" className="message-input" placeholder="Type here..." />
+                    <input id="sendBtn" type="text" className="message-input" placeholder={heroPageMessages.chatInputPlaceholder} />
                     <i className="fa-solid fa-paper-plane send-btn"></i>
                   </div>
                 </div>
@@ -286,11 +287,11 @@ export default function HeroPage() {
           </div>
 
           <footer>
-            <img className="footer-shape" src="images/footer/shape.svg" alt="" />
+            <img className="footer-shape" src={heroPageMessages.footerShapeImage} alt="" />
             <div className="footer">
               <div className="footer-container">
                 <div className="footer-top-section">
-                  <img src="images/footer/FilmyAI_logo.png" alt="logo" />
+                  <img src={heroPageMessages.footerLogoImage} alt={heroPageMessages.footerLogoAlt} />
                   <div className="media-icons">
                     <i className="fa-brands fa-facebook-f"></i>
                     <i className="fa-brands fa-instagram"></i>
@@ -299,11 +300,11 @@ export default function HeroPage() {
                   </div>
                 </div>
                 <div className="footer-bottom-section">
-                  <p>© 2025 FilmyAI, All rights Reserved</p>
+                  <p>{heroPageMessages.footerCopyright}</p>
                   <div className="policy-container">
-                    <a href="#">Privacy Policy</a>
-                    <a href="documents/Terms.pdf" target="_blank">Terms of Service</a>
-                    <a href="#">Accessibility</a>
+                    <a href="#">{heroPageMessages.footerAccessibility}</a>
+                    <a href="documents/Terms.pdf" target="_blank">{heroPageMessages.footerTermsOfService}</a>
+                    <a href="#">{heroPageMessages.footerAccessibility}</a>
                   </div>
                 </div>
               </div>

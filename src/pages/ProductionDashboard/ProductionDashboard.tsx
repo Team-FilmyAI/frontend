@@ -1,6 +1,7 @@
 import { Building } from 'lucide-react';
 import React from 'react';
 import Header from '../../components/Header/Header';
+import { productionDashboardMessages } from '../../constants/messages';
 import './ProductionDashboard.css';
 import Button from '../../components/Buttons/Button';
 
@@ -82,12 +83,12 @@ const ProductionDashboard: React.FC = () => {
       <Header />
       <main className="dashboard-main">
         <section className="dashboard-header">
-          <h2>Production Dashboard</h2>
-          <p>Manage your projects and casting calls</p>
+          <h2>{productionDashboardMessages.dashboardTitle}</h2>
+          <p>{productionDashboardMessages.dashboardSubtitle}</p>
         </section>
 
         <section className="projects-section">
-          <h3><Building color="#ff7f00" size={20} /> Current Projects</h3>
+          <h3><Building color="#ff7f00" size={20} /> {productionDashboardMessages.currentProjectsTitle}</h3>
           <div className="projects-grid">
             {currentProjects.map((proj, idx) => (
               <div key={idx} className="project-card">
@@ -102,21 +103,21 @@ const ProductionDashboard: React.FC = () => {
                 </div>
                 <div className="card-info">
                   <div className="info-row">
-                    <span className="info-label">Applications:</span>
+                    <span className="info-label">{productionDashboardMessages.applicationsLabel}</span>
                     <span className="info-value">{proj.applications}</span>
                   </div>
                   <div className="info-row">
-                    <span className="info-label">Roles:</span>
+                    <span className="info-label">{productionDashboardMessages.rolesLabel}</span>
                     <span className="info-value">{proj.roles}</span>
                   </div>
                   <div className="info-row">
-                    <span className="info-label">Deadline:</span>
+                    <span className="info-label">{productionDashboardMessages.deadlineLabel}</span>
                     <span className="info-value">{proj.deadline}</span>
                   </div>
                 </div>
                 <div className="card-actions">
                   <Button
-                    label="Edit"
+                    label={productionDashboardMessages?.editButton ||"Edit"}
                     variant="secondary"
                     styles={{
                       bgColor: "#fff",
@@ -130,7 +131,7 @@ const ProductionDashboard: React.FC = () => {
                     onClick={() => console.log("Edit clicked")}
                   />
                   <Button
-                    label="View Details"
+                    label={productionDashboardMessages?.viewDetailsButton ||"View Details"}
                     variant="secondary"
                     styles={{
                       bgColor: "#fff",
@@ -150,7 +151,7 @@ const ProductionDashboard: React.FC = () => {
         </section>
 
         <section className="applications-section">
-          <h3><Building color="#ff7f00" size={20} /> Recent applications</h3>
+          <h3><Building color="#ff7f00" size={20} /> {productionDashboardMessages.recentApplicationsTitle}</h3>
           <table className="applications-table">
             <thead>
               <tr>
@@ -171,7 +172,7 @@ const ProductionDashboard: React.FC = () => {
                   <td>{app.date}</td>
                   <td>{renderStatusTag(app.status)}</td>
                   <td><Button
-                        label="Review"
+                        label={productionDashboardMessages?.reviewButton ||"Review"}
                         variant="secondary"
                         styles={{
                           bgColor: "#fff",

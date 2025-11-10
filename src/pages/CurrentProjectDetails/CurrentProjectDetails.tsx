@@ -1,6 +1,7 @@
 import { ArrowLeft, Building, Calendar, MapPin } from 'lucide-react';
 import * as React from 'react';
 import Header from '../../components/Header/Header';
+import { currentProjectDetailsMessages } from '../../constants/messages';
 import './CurrentProjectDetails.css';
 import Button from '../../components/Buttons/Button';
 import Label from '../../components/Label/Label';
@@ -111,21 +112,21 @@ const CurrentProjectDetails: React.FC = () => {
 
         <div className="project-title-section">
           <div className="title-info">
-            <h1 className="main-project-title">The Dark Knight Returns</h1>
+            <h1 className="main-project-title">{currentProjectDetailsMessages.projectTitle}</h1>
             <div className="project-metadata">
-              <span className="status-badge-active">Active</span>
+              <span className="status-badge-active">{currentProjectDetailsMessages.statusActive}</span>
               <div className="meta1-item">
                 <MapPin size={16} color="#FF7F00" />
-                Los Angeles, California
+                {currentProjectDetailsMessages.location}
               </div>
               <div className="meta1-item">
                 <Calendar size={16} color="#FF7F00" />
-                Deadline: 2021-08-15
+                {currentProjectDetailsMessages.deadline}
               </div>
             </div>
           </div>
           <Button
-                label="Edit Project"
+                label={currentProjectDetailsMessages?.editProjectButton|| "Edit Project"}
                 variant="secondary"
                 styles={{ bgColor: "var(--white)", color: "#562506", width: "104px", height: "30px", padding: "8px 16px", border: "1px solid var(--orange)", borderRadius: "6px", fontSize: "14px",fontWeight: "500", fontFamily:"'Garet', system-ui, sans-serif" }}
                 onClick={() => console.log("Edit Project clicked")}
@@ -136,7 +137,7 @@ const CurrentProjectDetails: React.FC = () => {
           <div className="section1-title">
             <Building color="#FF7F00" size={20} />
             <Label
-              text="Project Details"
+              text={currentProjectDetailsMessages?.projectDetailsTitle||"Project Details"}
               fontSize="20px"
               fontWeight="500"
               color="var(--white)"
@@ -152,29 +153,26 @@ const CurrentProjectDetails: React.FC = () => {
             <div className="details-grid">
               <div className="synopsis-section">
                 <Label
-                  text="Synopsis"
+                  text={currentProjectDetailsMessages.synopsisTitle||"Synopsis"}
                   fontSize="16px"
                   fontWeight="500"
                   color="var(--orange)"
                   fontFamily="'Garet', system-ui, sans-serif"
                   margin="0 0 16px 0"
                 />
-                
                 <p className="synopsis-text">
-                  A gripping tale of justice and redemption in a dark urban setting.
+                  {currentProjectDetailsMessages.synopsisText}
                 </p>
+      
                 <p className="synopsis-description">
-                  In a corrupt, decaying city, a disgraced detective teams up with a wrongfully 
-                  accused woman to uncover the truth behind a brutal murder. As they dig deeper, 
-                  they face a web of lies, betrayal, and moral ambiguity. A gritty tale of 
-                  justice, redemption, and the cost of doing what's right in a world gone dark.
+                  {currentProjectDetailsMessages.synopsisDescription}
                 </p>
               </div>
               
               <div className="production-section">
                 <div className="production-header">
                   <Label
-                    text="Production Details"
+                    text={currentProjectDetailsMessages?.projectDetailsTitle||"Production Details"}
                     fontSize="16px"
                     fontWeight="500"
                     color="var(--orange)"
@@ -184,22 +182,22 @@ const CurrentProjectDetails: React.FC = () => {
 
                   
                   <div className="genre-tags">
-                    <span className="genre-tag action">Action</span>
-                    <span className="genre-tag drama">Drama</span>
+                    <span className="genre-tag action">{currentProjectDetailsMessages.genreValue}</span>
+                    <span className="genre-tag drama">{currentProjectDetailsMessages.genreValue}</span>
                   </div>
                 </div>
                 <div className="production-info">
                   <div className="production-item">
-                    <span className="production-label">Category:</span>
-                    <span className="production-value">Feature Film</span>
+                    <span className="production-label">{currentProjectDetailsMessages.productionLabel}</span>
+                    <span className="production-value">{currentProjectDetailsMessages.productionValue}</span>
                   </div>
                   <div className="production-item">
-                    <span className="production-label">Genre:</span>
-                    <span className="production-value">Action, Drama</span>
+                    <span className="production-label">{currentProjectDetailsMessages.genreLabel}</span>
+                    <span className="production-value">{currentProjectDetailsMessages.genreValue}</span>
                   </div>
                   <div className="production-item">
-                    <span className="production-label">Production:</span>
-                    <span className="production-value">Warner Bros, DC Films</span>
+                    <span className="production-label">{currentProjectDetailsMessages.productionLabel}</span>
+                    <span className="production-value">{currentProjectDetailsMessages.productionValue}</span>
                   </div>
                 </div>
               </div>
@@ -212,7 +210,7 @@ const CurrentProjectDetails: React.FC = () => {
             <div className="section1-title">
               <Building color="#FF7F00" size={20} />
               <Label
-                text={`Roles (${roles.length})`}
+                text={ currentProjectDetailsMessages?.rolesTitle || `Roles (${roles.length})`}
                 fontSize="20px"
                 fontWeight="500"
                 color="var(--white)"
@@ -223,7 +221,7 @@ const CurrentProjectDetails: React.FC = () => {
             <div className="roles-list">
               {roles.map((role) => (
                 <div key={role.id} className="role-card">
-                  <div className="role-status-badge">Open</div>
+                  <div className="role-status-badge">{currentProjectDetailsMessages.roleStatusOpen}</div>
                   
                   <Label
                     text={role.title}
@@ -237,19 +235,19 @@ const CurrentProjectDetails: React.FC = () => {
                   
                   <div className="role-details">
                     <div className="role-detail-item">
-                      <span className="detail-label">Gender: </span>
+                      <span className="detail-label">{currentProjectDetailsMessages.genderLabel}</span>
                       <span className="detail-value">{role.gender}</span>
                     </div>
                     <div className="role-detail-item">
-                      <span className="detail-label">Age: </span>
+                      <span className="detail-label">{currentProjectDetailsMessages.ageLabel} </span>
                       <span className="detail-value">{role.age}</span>
                     </div>
                     <div className="role-detail-item">
-                      <span className="detail-label">Compensation: </span>
+                      <span className="detail-label">{currentProjectDetailsMessages.compensationLabel}</span>
                       <span className="detail-value">{role.compensation}</span>
                     </div>
                     <div className="role-detail-item">
-                      <span className="detail-label">Application: </span>
+                      <span className="detail-label">{currentProjectDetailsMessages.applicationLabel}</span>
                       <span className="detail1-value">{role.applications}</span>
                     </div>
                   </div>
@@ -262,7 +260,7 @@ const CurrentProjectDetails: React.FC = () => {
             <div className="section1-title">
               <Building color="#FF7F00" size={20} />
               <Label
-                text={`Applications (${applications.length})`}
+                text={currentProjectDetailsMessages?.applicationsTitle || `Applications (${applications.length})`}
                 fontSize="20px"
                 fontWeight="500"
                 color="var(--white)"
@@ -285,12 +283,12 @@ const CurrentProjectDetails: React.FC = () => {
                   
                   <div className="application-details">
                     <div className="application-detail-item">
-                      <span className="detail-label">Experience: </span>
+                      <span className="detail-label">{currentProjectDetailsMessages.experienceLabel}</span>
                       <span className="detail-value">{application.experience}</span>
                     </div>
                       <div className="application-bottom-row">
                         <div className="application-detail-item">
-                          <span className="detail-label">Applied: </span>
+                          <span className="detail-label">{currentProjectDetailsMessages.appliedLabel}</span>
                           <span className="detail-value">{application.appliedDate}</span>
                         </div>
                         <div className="application-location">
@@ -299,7 +297,7 @@ const CurrentProjectDetails: React.FC = () => {
                       </div>
                   </div>
                   <Button
-                    label="Review Application"
+                    label={currentProjectDetailsMessages?.reviewApplicationButton || "Review Application"}
                     variant="secondary"
                     fullWidth={true}
                     styles={{

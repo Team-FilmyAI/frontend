@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { signUpMessages } from "../../constants/messages";
 import "./SignUp.css";
 
 import Radio from "../../components/Radio/Radio";
@@ -40,28 +41,28 @@ export default function Signup() {
 
     if (formType === "user") {
       if (!formData.firstName || !formData.lastName) {
-        setError("First and last name are required.");
+        setError(signUpMessages.nameRequiredError);
         return;
       }
     } else if (formType === "business") {
       if (!formData.businessName) {
-        setError("Business name is required.");
+        setError(signUpMessages.businessNameRequiredError);
         return;
       }
     }
 
     if (!formData.email || !emailRegex.test(formData.email)) {
-      setError("A valid email address is required.");
+      setError(signUpMessages.emailRequiredError);
       return;
     }
 
     if (!formData.password || formData.password.length < 6) {
-      setError("Password must be at least 6 characters long.");
+      setError(signUpMessages.passwordLengthError);
       return;
     }
 
     if (!formData.termsAccepted) {
-      setError("You must accept the Terms & Conditions.");
+      setError(signUpMessages.termsRequiredError);
       return;
     }
 
@@ -78,16 +79,23 @@ export default function Signup() {
       <div className="signup-container">
         <div className="signup-left-section">
           <div className="signup-form-container">
-            <h2 className="signup-title">Sign Up</h2>
+            <h2 className="signup-title">{signUpMessages.title}</h2>
 
             <Radio
               radioInfo={{
-                options: ["User", "Business"],
+                options:  [
+                            signUpMessages?.userOption || "User",
+                            signUpMessages?.businessOption || "Business",
+                          ],
                 radioName: "signupType",
                 newLine: false, 
               }}
-              value={formType === "user" ? "User" : "Business"}
-              onChange={(val) => setFormType(val.toLowerCase() as "user" | "business")}
+              value={formType === "user" ? (signUpMessages?.userOption || "User") : (signUpMessages?.businessOption || "Business")}
+              onChange={(val) => {
+               
+                const normalized = val.toLowerCase().includes("user") ? "user" : "business";
+                setFormType(normalized as "user" | "business");
+              }}
               className="signup-toggle" 
             />
 
@@ -99,7 +107,7 @@ export default function Signup() {
               {formType === "user" && (
                 <div className="signup-user-form">
                   <TextInput
-                    placeholder="First Name"
+                    placeholder={signUpMessages?.firstNamePlaceholder || "First Name"}
                     value={formData.firstName}
                     onChange={(e) =>
                       setFormData((p) => ({ ...p, firstName: e.target.value }))
@@ -107,7 +115,7 @@ export default function Signup() {
                     wrapperClassName="mb-15"
                   />
                   <TextInput
-                    placeholder="Last Name"
+                    placeholder={signUpMessages?.lastNamePlaceholder || "Last Name"}
                     value={formData.lastName}
                     onChange={(e) =>
                       setFormData((p) => ({ ...p, lastName: e.target.value }))
@@ -122,7 +130,7 @@ export default function Signup() {
               {formType === "business" && (
                 <div className="signup-business-form">
                   <TextInput
-                    placeholder="Business Name"
+                    placeholder={signUpMessages?.businessNamePlaceholder|| "Business Name"}
                     value={formData.businessName}
                     onChange={(e) =>
                       setFormData((p) => ({ ...p, businessName: e.target.value }))
@@ -136,7 +144,7 @@ export default function Signup() {
               <EmailInput
                 value={formData.email}
                 onChange={(val) => setFormData((p) => ({ ...p, email: val }))}
-                placeholder="Email address"
+                placeholder={signUpMessages?.emailPlaceholder || "Email address"}
                 mode={1}        
                 required
                 className=""    
@@ -154,9 +162,13 @@ export default function Signup() {
               <Checkbox
                 label={
                   <>
-                    I agree to{" "}
-                    <a href="/documents/Terms.pdf" target="_blank" rel="noopener noreferrer">
-                      Terms &amp; Conditions
+                    {signUpMessages?.termsText || "I agree to"}{" "}
+                    <a
+                      href={signUpMessages?.termsUrl || "/documents/Terms.pdf"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {signUpMessages?.termsLinkText || "Terms & Conditions"}
                     </a>
                   </>
                 }
@@ -170,7 +182,7 @@ export default function Signup() {
               
               <Button
                 type="button"
-                label="Sign Up"
+                label={signUpMessages?.signUpButton || "Sign Up"}
                 variant="primary"
                 fullWidth
                 onClick={handleSubmit}
@@ -191,10 +203,10 @@ export default function Signup() {
             </form>
 
             <p className="signup-login-prompt">
-              Already have an account? <Link to="/Login">Click here</Link> to login
+              {signUpMessages.loginPromptText} <Link to="/Login">{signUpMessages.loginLinkText}</Link> {signUpMessages.loginPromptSuffix}
             </p>
             <div className="divider">
-              <span>OR</span>
+              <span>{signUpMessages.orDivider}</span>
             </div>
 
             <div className="signup-social-icons">
@@ -207,8 +219,8 @@ export default function Signup() {
         </div>
 
         <div className="signup-right-section">
-          <h1 className="login-org-name">FilmyAI</h1>
-          <p className="login-org-tag-line">Start your journey today!</p>
+          <h1 className="login-org-name">{signUpMessages.organizationName}</h1>
+          <p className="login-org-tag-line">{signUpMessages.tagLine}</p>
         </div>
 
         {popupVisible && (
@@ -218,12 +230,12 @@ export default function Signup() {
               onClick={() => setPopupVisible(false)}
             ></div>
             <div className="signup-popup">
-              <p>Thank you for signing up!</p>
+              <p>{signUpMessages.thankYouMessage}</p>
               <button
                 onClick={() => setPopupVisible(false)}
                 className="signup-close-btn"
               >
-                Close
+                {signUpMessages.closeButton}
               </button>
             </div>
           </>

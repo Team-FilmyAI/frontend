@@ -1,5 +1,6 @@
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { heroPageNavBarMessages } from "../../constants/messages";
 import "./HeroPageNavBar.css";
 
 type HeroPageNavBarProps = {
@@ -100,7 +101,7 @@ export default function HeroPageNavBar({ hideLinks = false }: HeroPageNavBarProp
         <div id="navbar" ref={navbarRef} className="custom-navbar">
           <div ref={navbarContainerRef} className="navbar-container container">
             <div className="logo-container">
-              <img src="images/footer/FilmyAI_logo.png" alt="FilmyAI Logo" />
+              <img src={heroPageNavBarMessages.logoImage} alt={heroPageNavBarMessages.logoAlt} />
             </div>
             <div id="ham-btn" ref={hamBtnRef} className="ham-btn">
               <i className="fa fa-bars"></i>
@@ -114,24 +115,24 @@ export default function HeroPageNavBar({ hideLinks = false }: HeroPageNavBarProp
               <ul>
                 <li>
                   <a href="#hero" className="nav-item active">
-                    Home
+                    {heroPageNavBarMessages.navHome}
                   </a>
                 </li>
                 {!hideLinks && (
                   <>
                     <li>
                       <a href="#about" className="nav-item">
-                        About
+                        {heroPageNavBarMessages.navAbout}
                       </a>
                     </li>
                     <li>
                       <a href="#demo" className="nav-item">
-                        Demo
+                        {heroPageNavBarMessages.navDemo}
                       </a>
                     </li>
                     <li>
                       <a href="#blog" className="nav-item">
-                        Blogs
+                        {heroPageNavBarMessages.navBlogs}
                       </a>
                     </li>
                   </>
@@ -143,10 +144,10 @@ export default function HeroPageNavBar({ hideLinks = false }: HeroPageNavBarProp
               <div className="user-container">
                 <ul>
                   <li>
-                    <Link to="/Login">Login</Link>
+                    <Link to="/Login">{heroPageNavBarMessages.navLogin}</Link>
                   </li>
                   <li>
-                    <Link to="/SignUp">SignUp</Link>
+                    <Link to="/SignUp">{heroPageNavBarMessages.navSignUp}</Link>
                   </li>
                 </ul>
               </div>
@@ -159,27 +160,27 @@ export default function HeroPageNavBar({ hideLinks = false }: HeroPageNavBarProp
         <ul className="sidebar-nav">
           <li>
             <a href="#hero" className="nav-item active">
-              Home
+              {heroPageNavBarMessages.navHome}
             </a>
           </li>
           <li>
             <a href="#about" className="nav-item">
-              About
+              {heroPageNavBarMessages.navAbout}
             </a>
           </li>
           <li>
             <a href="#demo" className="nav-item">
-              Demo
+              {heroPageNavBarMessages.navDemo}
             </a>
           </li>
           <li>
             <a href="#blog" className="nav-item">
-              Blogs
+              {heroPageNavBarMessages.navBlogs}
             </a>
           </li>
           <li>
             <Link to="/Login" className="nav-item">
-              Login
+              {heroPageNavBarMessages.navLogin}
             </Link>
           </li>
         </ul>

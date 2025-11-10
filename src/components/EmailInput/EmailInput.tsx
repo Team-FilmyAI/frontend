@@ -2,14 +2,14 @@
 import { useMemo, useState } from "react";
 import "./EmailInput.css";
 
-type Mode = 1 | 2 | 3; // 1=email, 2=email|username, 3=email|username|phone dont remove its important
+type Mode = 1 | 2 | 3;  
 
 interface EmailInputProps {
   value?: string;
   onChange?: (val: string) => void;
   placeholder?: string;
   required?: boolean;
-  mode?: Mode;             // 👈 choose 1, 2, or 3
+  mode?: Mode;             
   className?: string;
 }
 
@@ -27,7 +27,7 @@ export default function EmailInput({
   onChange,
   required = false,
   className = "",
-  mode = 1, // default: email only
+  mode = 1, 
   placeholder,
 }: EmailInputProps) {
   const [val, setVal] = useState<string>(value);
