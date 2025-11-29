@@ -3,7 +3,8 @@ import * as React from 'react';
 import Header from '../../components/Header/Header';
 import { currentProjectDetailsMessages } from '../../constants/messages';
 import './CurrentProjectDetails.css';
-
+import Button from '../../components/Buttons/Button';
+import Label from '../../components/Label/Label';
 interface Role {
   id: string;
   title: string;
@@ -124,24 +125,45 @@ const CurrentProjectDetails: React.FC = () => {
               </div>
             </div>
           </div>
-          <button className="edit2-button">
-            {currentProjectDetailsMessages.editProjectButton}
-          </button>
+          <Button
+                label={currentProjectDetailsMessages?.editProjectButton|| "Edit Project"}
+                variant="secondary"
+                styles={{ bgColor: "var(--white)", color: "#562506", width: "104px", height: "30px", padding: "8px 16px", border: "1px solid var(--orange)", borderRadius: "6px", fontSize: "14px",fontWeight: "500", fontFamily:"'Garet', system-ui, sans-serif" }}
+                onClick={() => console.log("Edit Project clicked")}
+          />
         </div>
         
         <div className="project-details-card">
-          <h4 className="section1-title">
-            <Building color="#FF7F00" size={20} /> 
-            {currentProjectDetailsMessages.projectDetailsTitle}
-          </h4>
+          <div className="section1-title">
+            <Building color="#FF7F00" size={20} />
+            <Label
+              text={currentProjectDetailsMessages?.projectDetailsTitle||"Project Details"}
+              fontSize="20px"
+              fontWeight="500"
+              color="var(--white)"
+              fontFamily="'Garet', system-ui, sans-serif"
+              margin="0"
+              padding="0"
+            />
+          </div>
+
+          
           
           <div className="details-content">
             <div className="details-grid">
               <div className="synopsis-section">
-                <h3 className="subsection-title">{currentProjectDetailsMessages.synopsisTitle}</h3>
+                <Label
+                  text={currentProjectDetailsMessages.synopsisTitle||"Synopsis"}
+                  fontSize="16px"
+                  fontWeight="500"
+                  color="var(--orange)"
+                  fontFamily="'Garet', system-ui, sans-serif"
+                  margin="0 0 16px 0"
+                />
                 <p className="synopsis-text">
                   {currentProjectDetailsMessages.synopsisText}
                 </p>
+      
                 <p className="synopsis-description">
                   {currentProjectDetailsMessages.synopsisDescription}
                 </p>
@@ -149,7 +171,16 @@ const CurrentProjectDetails: React.FC = () => {
               
               <div className="production-section">
                 <div className="production-header">
-                  <h3 className="subsection-title">{currentProjectDetailsMessages.projectDetailsTitle}</h3>
+                  <Label
+                    text={currentProjectDetailsMessages?.projectDetailsTitle||"Production Details"}
+                    fontSize="16px"
+                    fontWeight="500"
+                    color="var(--orange)"
+                    fontFamily="'Garet', system-ui, sans-serif"
+                    margin="0 0 16px 0"
+                  />
+
+                  
                   <div className="genre-tags">
                     <span className="genre-tag action">{currentProjectDetailsMessages.genreValue}</span>
                     <span className="genre-tag drama">{currentProjectDetailsMessages.genreValue}</span>
@@ -176,17 +207,31 @@ const CurrentProjectDetails: React.FC = () => {
 
         <div className="content-grid">
           <div className="roles-section">
-            <h2 className="section1-title">
-              <Building color="#FF7F00" size={20} /> 
-              {currentProjectDetailsMessages.rolesTitle}
-            </h2>
+            <div className="section1-title">
+              <Building color="#FF7F00" size={20} />
+              <Label
+                text={ currentProjectDetailsMessages?.rolesTitle || `Roles (${roles.length})`}
+                fontSize="20px"
+                fontWeight="500"
+                color="var(--white)"
+                fontFamily="'Garet', system-ui, sans-serif"
+              />
+            </div>
             
             <div className="roles-list">
               {roles.map((role) => (
                 <div key={role.id} className="role-card">
                   <div className="role-status-badge">{currentProjectDetailsMessages.roleStatusOpen}</div>
                   
-                  <h3 className="role1-title">{role.title}</h3>
+                  <Label
+                    text={role.title}
+                    fontSize="16px"
+                    fontWeight="500"
+                    color="var(--orange)"
+                    fontFamily="'Garet', system-ui, sans-serif"
+                    margin="0 0 16px 0"
+                  />
+
                   
                   <div className="role-details">
                     <div className="role-detail-item">
@@ -212,10 +257,16 @@ const CurrentProjectDetails: React.FC = () => {
           </div>
           
           <div className="applications-section1">
-            <h2 className="section1-title">
+            <div className="section1-title">
               <Building color="#FF7F00" size={20} />
-              {currentProjectDetailsMessages.applicationsTitle}
-            </h2>
+              <Label
+                text={currentProjectDetailsMessages?.applicationsTitle || `Applications (${applications.length})`}
+                fontSize="20px"
+                fontWeight="500"
+                color="var(--white)"
+                fontFamily="'Garet', system-ui, sans-serif"
+              />
+            </div>
             
             <div className="applications-list">
               {applications.map((application) => (
@@ -245,10 +296,23 @@ const CurrentProjectDetails: React.FC = () => {
                         </div>
                       </div>
                   </div>
+                  <Button
+                    label={currentProjectDetailsMessages?.reviewApplicationButton || "Review Application"}
+                    variant="secondary"
+                    fullWidth={true}
+                    styles={{
+                      bgColor: "var(--white)",
+                      color: "#562506",
+                      border: "1px solid var(--orange)",
+                      padding: "12px 16px",
+                      borderRadius: "6px",
+                      fontSize: "14px",
+                      fontWeight: "600",
+                    }}
+                    className="review-application"
+                  />
+
                   
-                  <button className="review1-button">
-                    {currentProjectDetailsMessages.reviewApplicationButton}
-                  </button>
                 </div>
               ))}
             </div>

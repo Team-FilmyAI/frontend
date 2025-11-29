@@ -1,7 +1,12 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { forgotPasswordMessages } from "../../constants/messages";
+import { useState } from "react";
 import "./ForgotPassword.css";
+import EmailInput from "../../components/EmailInput/EmailInput";
+import Button from "../../components/Buttons/Button";
+import { forgotPasswordMessages } from "../../constants/messages";
+
+const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+const isUsername = (v: string) => /^[a-zA-Z0-9._-]{3,30}$/.test(v);
 
 export default function ForgotPassword() {
   const [input, setInput] = useState("");
@@ -9,55 +14,76 @@ export default function ForgotPassword() {
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleSend = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const v = input.trim();
 
-    if (!input.trim()) {
-      setError(forgotPasswordMessages.emptyInputError);
+    if (!v) {
+      setError(forgotPasswordMessages?.emptyInputError || "Please enter your email or username.");
       setSuccessMessage("");
       return;
     }
 
-    // If input looks like an email, validate it
-    if (input.includes("@") && !emailRegex.test(input)) {
-      setError(forgotPasswordMessages.invalidEmailError);
+    
+    const valid = v.includes("@") ? isEmail(v) : isUsername(v);
+    if (!valid) {
+      setError(forgotPasswordMessages?.invalidEmailError ||"Please enter a valid email or username.");
       setSuccessMessage("");
       return;
     }
 
-    // Clear errors and simulate success
+    
     setError("");
-    setSuccessMessage(forgotPasswordMessages.resetLinkSent);
-    // TODO: Replace with actual API logic
+    setSuccessMessage(forgotPasswordMessages?.resetLinkSent ||"If this account exists, a reset link has been sent.");
+    
   };
 
   return (
     <div className="forgot-body">
       <div className="forget-container">
         <div className="forget-left-section">
-          <h2 className="forget-title">{forgotPasswordMessages.title}</h2>
+          <h2 className="forget-title">{forgotPasswordMessages?.title || "Forgot Password?"}</h2>
 
           <div className="forget-input-container">
             {error && <div className="error-message">{error}</div>}
             {successMessage && <div className="success-message">{successMessage}</div>}
-            <input
-              type="text"
-              placeholder={forgotPasswordMessages.inputPlaceholder}
-              className="forget-input-field"
+            <EmailInput
+              mode={2}                               
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={setInput}
+              required
+              placeholder={forgotPasswordMessages?.inputPlaceholder || "Email address or Username"}
             />
           </div>
 
           <p className="forget-back-link">
-            {forgotPasswordMessages.backToLoginText}<Link to="/Login">{forgotPasswordMessages.loginLinkText}</Link>
+            {forgotPasswordMessages?.backToLoginText || "Back to "}
+            <Link to="/Login">{forgotPasswordMessages?.loginLinkText || "Log in"}</Link>
           </p>
 
-          <button className="forget-send-btn" onClick={handleSend}>
-            {forgotPasswordMessages.sendButton}
-          </button>
+          <Button
+            label={forgotPasswordMessages?.sendButton || "Send"}
+            variant="primary"
+            onClick={handleSend}
+            styles={{
+              bgColor: "#ff7f00",
+              color: "#ffffff",
+              border: "2px solid #ff7f00",
+              borderRadius: "50px",
+              fontSize: "16px",
+              padding: "12px 20px",
+              margin: "15px 0 0 0",
+              fontWeight: 600,
+              hoverBgColor: "#e65c00",
+              hoverBorder: "2px solid #e65c00",
+              hoverColor: "#ffffff",
+              transition: "all 0.2s ease",
+            }}
+          />
+
+
+         
 
           <div className="divider">
-            <span>{forgotPasswordMessages.orDivider}</span>
+            <span>{forgotPasswordMessages?.orDivider || "OR"}</span>
           </div>
 
           <div className="forget-social-icons">
@@ -69,8 +95,8 @@ export default function ForgotPassword() {
         </div>
 
         <div className="forget-right-section">
-          <h1 className="forget-org-name">{forgotPasswordMessages.organizationName}</h1>
-          <p className="forget-org-tag-line">{forgotPasswordMessages.tagLine}</p>
+          <h1 className="forget-org-name">{forgotPasswordMessages?.organizationName || "FilmyAI"}</h1>
+          <p className="forget-org-tag-line">{forgotPasswordMessages?.tagLine || "Start your journey today!"}</p>
         </div>
       </div>
     </div>

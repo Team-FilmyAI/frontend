@@ -3,13 +3,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { signUpMessages } from "../../constants/messages";
 import "./SignUp.css";
 
+import Radio from "../../components/Radio/Radio";
+import TextInput from "../../components/TextInput/TextInput";
+import EmailInput from "../../components/EmailInput/EmailInput";
+import PasswordInput from "../../components/PasswordInput/PasswordInput";
+import Checkbox from "../../components/Checkbox/Checkbox";
+import Button from "../../components/Buttons/Button";
+
 export default function Signup() {
-  const [formType, setFormType] = useState("user");
+  const [formType, setFormType] = useState<"user" | "business">("user");
   const [popupVisible, setPopupVisible] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Form state
+ 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -19,7 +26,7 @@ export default function Signup() {
     termsAccepted: false,
   });
 
-  // Input change handler
+  
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -28,7 +35,7 @@ export default function Signup() {
     }));
   };
 
-  // Validation and submit
+
   const handleSubmit = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -59,8 +66,8 @@ export default function Signup() {
       return;
     }
 
-    setError(""); // Clear error
-    setPopupVisible(true); // Show popup
+    setError(""); 
+    setPopupVisible(true); 
 
     setTimeout(() => {
       navigate("/LandingPage");
@@ -74,109 +81,125 @@ export default function Signup() {
           <div className="signup-form-container">
             <h2 className="signup-title">{signUpMessages.title}</h2>
 
-            <div className="signup-toggle">
-              <label>
-                <input
-                  type="radio"
-                  name="type"
-                  value="user"
-                  checked={formType === "user"}
-                  onChange={() => setFormType("user")}
-                  className="signup-form-radio-input"
-                />
-                <span>{signUpMessages.userOption}</span>
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="type"
-                  value="business"
-                  checked={formType === "business"}
-                  onChange={() => setFormType("business")}
-                  className="signup-form-radio-input"
-                />
-                <span>{signUpMessages.businessOption}</span>
-              </label>
-            </div>
+            <Radio
+              radioInfo={{
+                options:  [
+                            signUpMessages?.userOption || "User",
+                            signUpMessages?.businessOption || "Business",
+                          ],
+                radioName: "signupType",
+                newLine: false, 
+              }}
+              value={formType === "user" ? (signUpMessages?.userOption || "User") : (signUpMessages?.businessOption || "Business")}
+              onChange={(val) => {
+               
+                const normalized = val.toLowerCase().includes("user") ? "user" : "business";
+                setFormType(normalized as "user" | "business");
+              }}
+              className="signup-toggle" 
+            />
+
 
             <form className="signup-form" onSubmit={(e) => e.preventDefault()}>
-              {/* Error Message */}
+             
               {error && <div className="error-message">{error}</div>}
 
               {formType === "user" && (
                 <div className="signup-user-form">
-                  <input
-                    type="text"
-                    placeholder={signUpMessages.firstNamePlaceholder}
-                    className="signup-form-input"
-                    name="firstName"
+                  <TextInput
+                    placeholder={signUpMessages?.firstNamePlaceholder || "First Name"}
                     value={formData.firstName}
-                    onChange={handleChange}
+                    onChange={(e) =>
+                      setFormData((p) => ({ ...p, firstName: e.target.value }))
+                    }
+                    wrapperClassName="mb-15"
                   />
-                  <input
-                    type="text"
-                    placeholder={signUpMessages.lastNamePlaceholder}
-                    className="signup-form-input"
-                    name="lastName"
+                  <TextInput
+                    placeholder={signUpMessages?.lastNamePlaceholder || "Last Name"}
                     value={formData.lastName}
-                    onChange={handleChange}
+                    onChange={(e) =>
+                      setFormData((p) => ({ ...p, lastName: e.target.value }))
+                    }
+                    wrapperClassName="mb-15"
                   />
                 </div>
               )}
+
+              
 
               {formType === "business" && (
                 <div className="signup-business-form">
-                  <input
-                    type="text"
-                    placeholder={signUpMessages.businessNamePlaceholder}
-                    className="signup-form-input"
-                    name="businessName"
+                  <TextInput
+                    placeholder={signUpMessages?.businessNamePlaceholder|| "Business Name"}
                     value={formData.businessName}
-                    onChange={handleChange}
+                    onChange={(e) =>
+                      setFormData((p) => ({ ...p, businessName: e.target.value }))
+                    }
                   />
                 </div>
               )}
 
-              <input
-                type="email"
-                placeholder={signUpMessages.emailPlaceholder}
-                className="signup-form-input"
-                name="email"
+              
+
+              <EmailInput
                 value={formData.email}
-                onChange={handleChange}
+                onChange={(val) => setFormData((p) => ({ ...p, email: val }))}
+                placeholder={signUpMessages?.emailPlaceholder || "Email address"}
+                mode={1}        
+                required
+                className=""    
               />
-              <input
-                type="password"
+
+
+
+              <PasswordInput
+                label=""
                 placeholder="Password"
-                className="signup-form-input"
-                name="password"
                 value={formData.password}
-                onChange={handleChange}
+                onChange={(e) => setFormData((p) => ({ ...p, password: e.target.value }))}
               />
 
-              <div className="signup-terms">
-                <input
-                  type="checkbox"
-                  id="terms"
-                  name="termsAccepted"
-                  checked={formData.termsAccepted}
-                  onChange={handleChange}
-                />
-                <label htmlFor="terms">
-                  {signUpMessages.termsText}{" "}
-                  <a
-                    href={signUpMessages.termsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {signUpMessages.termsLinkText}
-                  </a>
-                </label>
-              </div>
+              <Checkbox
+                label={
+                  <>
+                    {signUpMessages?.termsText || "I agree to"}{" "}
+                    <a
+                      href={signUpMessages?.termsUrl || "/documents/Terms.pdf"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {signUpMessages?.termsLinkText || "Terms & Conditions"}
+                    </a>
+                  </>
+                }
+                checked={formData.termsAccepted}
+                onChange={(checked) =>
+                  setFormData((p) => ({ ...p, termsAccepted: checked }))
+                }
+                className="signup-terms"
+              />
 
-              <button type="button" className="signup-btn" onClick={handleSubmit}>
-                {signUpMessages.signUpButton}
-              </button>
+              
+              <Button
+                type="button"
+                label={signUpMessages?.signUpButton || "Sign Up"}
+                variant="primary"
+                fullWidth
+                onClick={handleSubmit}
+                styles={{
+                  bgColor: "#ff7f00",
+                  color: "#ffffff",
+                  height: "44px",
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  borderRadius: "20px",
+                  padding: "0 16px",
+                  hoverBgColor: "#e65c00",
+                  transition: "all 0.2s ease",
+                }}
+              />
+
+              
             </form>
 
             <p className="signup-login-prompt">
@@ -221,3 +244,4 @@ export default function Signup() {
     </div>
   );
 }
+

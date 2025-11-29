@@ -14,7 +14,7 @@ export default function HeroPageNavBar({ hideLinks = false }: HeroPageNavBarProp
   const navbarRef = useRef<HTMLDivElement | null>(null);
   const navContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // Resize handler for navbar container responsiveness
+  
   useEffect(() => {
     const handleResize = () => {
       const navbarContainer = navbarContainerRef.current;
@@ -27,12 +27,12 @@ export default function HeroPageNavBar({ hideLinks = false }: HeroPageNavBarProp
       }
     };
 
-    handleResize(); // run on mount
+    handleResize(); 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Sidebar toggle + nav active switch
+  
   useEffect(() => {
     const sidebar = sidebarRef.current;
     const hamBtn = hamBtnRef.current;
@@ -61,7 +61,7 @@ export default function HeroPageNavBar({ hideLinks = false }: HeroPageNavBarProp
     };
   }, []);
 
-  // Top navbar scroll effect + nav link active handling
+  
   useEffect(() => {
     const navbar = navbarRef.current;
     const navContainer = navContainerRef.current;
@@ -85,8 +85,7 @@ export default function HeroPageNavBar({ hideLinks = false }: HeroPageNavBarProp
       }
     };
 
-    handleScroll(); // on mount
-
+    handleScroll(); 
     window.addEventListener("scroll", handleScroll);
     navContainer.addEventListener("click", handleNavClick);
 

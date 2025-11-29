@@ -1,4 +1,4 @@
-// LocationSearch.jsx
+
 import React, { useState, useEffect } from 'react';
 
 const LocationSearch = ({ value, onChange }) => {
@@ -35,7 +35,7 @@ const LocationSearch = ({ value, onChange }) => {
               key={i}
               onClick={() => {
                 onChange(place.display_name);
-                setSuggestions([]); // Clear dropdown after selecting
+                setSuggestions([]); 
               }}
               
               className="suggestion-item"

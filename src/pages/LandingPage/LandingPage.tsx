@@ -19,6 +19,8 @@ import React from 'react';
 import Header from "../../components/Header/Header";
 import { landingPageMessages } from '../../constants/messages';
 import '../LandingPage/LandingPage.css';
+import Button from '../../components/Buttons/Button';
+import Label from '../../components/Label/Label';
 
 interface Recommendation {
   title: string;
@@ -132,7 +134,7 @@ const LandingPage: React.FC = () => {
       <Header></Header>
       
       <main className="home-layout">
-        {/* Welcome */}
+        
         <section className="welcome section">
             <div className="Group1">
                 <h1>
@@ -145,11 +147,18 @@ const LandingPage: React.FC = () => {
                     <span><Calendar size={22} color="#ff7a00"  style={{ marginRight: '6px' }} /> {landingPageMessages.auditionsThisMonth}</span>
                     <span><MapPin size={22}  color="#ff7a00" style={{ marginRight: '6px' }} /> {landingPageMessages.location}</span>
                 </div>
-                <button className="primary-btn">{landingPageMessages.viewOpportunitiesButton}</button>
+                <Button
+                  label={landingPageMessages?.viewOpportunitiesButton || "View New Opportunities"}
+                  variant="primary"
+                  styles={{bgColor: "#FF7F00",color: "#522104",width: "371px",height: "50px",border: "none",borderRadius: "8px",fontFamily: "'Garet', sans-serif",fontSize: "22px",
+                fontWeight: 500,margin: "0.5rem 0 1rem 0",padding: "0",textAlign: "center",hoverBgColor: "#e65c00",hoverColor: "#522104",transition: "all 0.2s ease",
+                  }}
+                  onClick={() => console.log("View New Opportunities clicked")}
+                />
             </div>
         </section>
 
-        {/* KPI Grid */}
+        
         <section className="kpi-grid section">
           {[
     {
@@ -197,14 +206,36 @@ const LandingPage: React.FC = () => {
   ))}
         </section>
 
-        {/* Recommendations */}
+       
         <section className="recommendations section">
             <div className="rec-header">
                 <div className="rec-header-text">
                     <h2>{landingPageMessages.recommendationsTitle}</h2>
                     <p>{landingPageMessages.recommendationsSubtitle}</p>
                 </div>
-                <button className="view-all-btn">{landingPageMessages.viewAllRecommendationsButton}</button>
+                <Button
+                  label={landingPageMessages?.viewAllRecommendationsButton || "View All Recommendations"}
+                  variant="primary"
+                  styles={{
+                    bgColor: "#FF7F00",
+                    color: "#522104",
+                    width: "330px",
+                    height: "50px",
+                    border: "none",
+                    borderRadius: "8px",
+                    fontFamily: "'Garet', sans-serif",
+                    fontSize: "20px",
+                    fontWeight: 500,
+                    margin: "0.5rem 0 1rem 0",
+                    padding: "0",
+                    textAlign: "center",
+                    
+                    hoverBgColor: "#e65c00",
+                    hoverColor: "#522104",
+                    transition: "all 0.2s ease",
+                  }}
+                  onClick={() => console.log("View All Recommendations clicked")}
+                />
             </div>
 
 
@@ -233,7 +264,27 @@ const LandingPage: React.FC = () => {
                                 <span key={i}>{t}</span>
                                 ))}
                             </div>
-                            <button className="primary-btn">{landingPageMessages.applyNowButton}</button>
+                            <Button
+                              label={landingPageMessages?.applyNowButton || "Apply Now"}
+                              variant="primary"
+                              stickToBottom 
+                              fullWidth
+                              styles={{
+                                width: "400px",
+                                height: "50px",
+                                bgColor: "#F16510",
+                                color: "#231003",
+                                fontWeight: 500,
+                                fontSize: "18px",
+                                fontFamily: "'Garet', sans-serif",
+                                borderRadius: "8px",
+                                padding: "0",
+                                margin: "0 auto",
+                              }}
+                              onClick={() => console.log("Apply Now clicked")}
+                            />
+
+                            
                         </div>
                     </div>
                 ))}
@@ -248,7 +299,30 @@ const LandingPage: React.FC = () => {
                         <h2>{landingPageMessages.castingCallsTitle}</h2>
                         <p>{landingPageMessages.castingCallsSubtitle}</p>
                     </div>
-                    <button className="view-all-btn">{landingPageMessages.viewAllCastingCallsButton}</button>
+                    <Button
+                  label={landingPageMessages?.viewAllCastingCallsButton ||"View All Casting Calls"}
+                  variant="primary"
+                  styles={{
+                    bgColor: "#FF7F00",
+                    color: "#522104",
+                    width: "270px",
+                    height: "45px",
+                    border: "none",
+                    borderRadius: "8px",
+                    fontFamily: "'Garet', sans-serif",
+                    fontSize: "20px",
+                    fontWeight: 500,
+                    margin: "0.5rem 0 1rem 0",
+                    padding: "0",
+                    textAlign: "center",
+                   
+                    hoverBgColor: "#e65c00",
+                    hoverColor: "#522104",
+                    transition: "all 0.2s ease",
+                  }}
+                  onClick={() => console.log("View All Casting Calls clicked")}
+                />
+                    
                 </div>
 
                 {castingCalls.map((call, idx) => (
@@ -286,10 +360,38 @@ const LandingPage: React.FC = () => {
         </section>
 
 
-        {/* Categories */}
         <section className="categories section">
-            <h2>{landingPageMessages.categoriesTitle}</h2>
-            <p>{landingPageMessages.categoriesSubtitle}</p>
+          <div className="categories-header">
+              <div className="title-block">
+                <h2>{landingPageMessages?.categoriesTitle || "Browse by Categories"}</h2>
+      <p>{landingPageMessages?.categoriesSubtitle || "Explore opportunities across different types of productions and genres"}</p>
+    </div>
+              <div className="view-all-wrapper">
+                <Button
+                  label={landingPageMessages?.viewAllCategoriesButton || "View All Categories"}
+                  variant="primary"
+                  styles={{
+                    bgColor: "#FF7F00",
+                    color: "#522104",
+                    width: "250px",
+                    height: "45px",
+                    border: "none",
+                    borderRadius: "8px",
+                    fontFamily: "'Garet', sans-serif",
+                    fontSize: "20px",
+                    fontWeight: 500,
+                    margin: "0.5rem 0 1rem 0",
+                    padding: "0",
+                    textAlign: "center",
+                    hoverBgColor: "#e65c00",
+                    hoverColor: "#522104",
+                    transition: "all 0.2s ease",
+                  }}
+                  onClick={() => console.log("View All Categories clicked")}
+                />
+              </div>
+
+          </div>
             <div className="category-grid">
                 {[
                 {
@@ -358,13 +460,26 @@ const LandingPage: React.FC = () => {
                     <span className="num">{String(cat.roles).padStart(2, '0')}</span>{' '}
                     <span className="sub">{landingPageMessages.availableRoles}</span>
                     </p>
-                    <button className="browse-btn">{landingPageMessages.browseRolesButton}</button>
+                    <Button
+                      label={landingPageMessages?.browseRolesButton ||"Browse Roles"}
+                      variant="primary"
+                      styles={{
+                        bgColor: "#FFFFFF",
+                        color: "#562504",
+                        border: "none",
+                        borderRadius: "3.61px",
+                        fontWeight: 600,
+                        fontSize: "19px",
+                        width: "100%",
+                        padding: "0.4rem 0",
+                        lineHeight: "1.2",
+                      }}
+                      onClick={() => console.log("Browse Roles clicked")}
+                    />
+
+                   
                 </div>
                 ))}
-            </div>
-
-            <div className="view-all-wrapper">
-                <button className="view-all-btn">{landingPageMessages.viewAllCategoriesButton}</button>
             </div>
         </section>
 

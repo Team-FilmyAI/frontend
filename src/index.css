@@ -13,12 +13,16 @@
   -moz-osx-font-smoothing: grayscale;
 
   --orange: #ff7f00;
+  --orange-light: #FB923C;        
+  --orange-dark: #F07017; 
   --white: #f2f2f2;
   --black: #191919;
+  --black-dark:#000000;
   --card-grey: #2a2a2a;
   --section: #212121;
   --input-focus-color: #514F4F;
   --card-bg: #111827;
+  --card-bg-bd: #393939;
   --gray-light: #C0C1C3;
   --gray-medium: #9CA3AF;
   --gray-dark: #6B7280;
@@ -51,6 +55,11 @@
   src: url('./assets/fonts/Garet-Heavy.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
+}
+html, body {
+  margin: 0;
+  padding: 0 !important;
+  box-sizing: border-box;
 }
 
 body::-webkit-scrollbar {
@@ -155,27 +164,13 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-/*
-button:hover {
-  border-color: #646cff;
-}
-*/
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/*To be applied to ALL other inputs in the form for consistency
 
-.demo-form-input {
-  transition: all 0.3s ease;
-}
-
-.demo-form-input:focus {
-  outline: 1px solid var(--input-focus-color);
-  box-shadow: 0 0 10px 2px var(--input-focus-color);
-}
-*/
 
 @media (prefers-color-scheme: light) {
   :root {

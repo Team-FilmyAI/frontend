@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import { productionDashboardMessages } from '../../constants/messages';
 import './ProductionDashboard.css';
+import Button from '../../components/Buttons/Button';
 
 const ProductionDashboard: React.FC = () => {
   const currentProjects = [
@@ -115,8 +116,34 @@ const ProductionDashboard: React.FC = () => {
                   </div>
                 </div>
                 <div className="card-actions">
-                  <button className="edit1-btn">{productionDashboardMessages.editButton}</button>
-                  <button className="view-btn">{productionDashboardMessages.viewDetailsButton}</button>
+                  <Button
+                    label={productionDashboardMessages?.editButton ||"Edit"}
+                    variant="secondary"
+                    styles={{
+                      bgColor: "#fff",
+                      color: "#8B4513",
+                      border: "1px solid #374151",
+                      borderRadius: "6px",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      padding: "3px 30px",
+                    }}
+                    onClick={() => console.log("Edit clicked")}
+                  />
+                  <Button
+                    label={productionDashboardMessages?.viewDetailsButton ||"View Details"}
+                    variant="secondary"
+                    styles={{
+                      bgColor: "#fff",
+                      color: "#8B4513",
+                      border: "1px solid #374151",
+                      borderRadius: "6px",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      padding: "6px 15px",
+                    }}
+                  />
+                  
                 </div>
               </div>
             ))}
@@ -144,7 +171,20 @@ const ProductionDashboard: React.FC = () => {
                   <td>{app.project}</td>
                   <td>{app.date}</td>
                   <td>{renderStatusTag(app.status)}</td>
-                  <td><button className="review-btn">{productionDashboardMessages.reviewButton}</button></td>
+                  <td><Button
+                        label={productionDashboardMessages?.reviewButton ||"Review"}
+                        variant="secondary"
+                        styles={{
+                          bgColor: "#fff",
+                          color: "#8B4513",
+                          border: "2px solid #374151",
+                          borderRadius: "6px",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          padding: "8px 30px",
+                        }}
+                      />
+                  </td>
                 </tr>
               ))}
             </tbody>

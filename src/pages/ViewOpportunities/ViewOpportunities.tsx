@@ -7,6 +7,8 @@ import { CastingData } from '../types/Casting';
 import "./ViewOpportunities.css";
 
 
+import Label from '../../components/Label/Label';
+import Button from '../../components/Buttons/Button';
 const ViewOpportunities: React.FC = () => {
   const castingData: CastingData[] = [
     {
@@ -73,7 +75,8 @@ const ViewOpportunities: React.FC = () => {
           <span>{viewOpportunitiesMessages.backToMovies}</span>
         </div>
 
-        <h1 className="main-title">{viewOpportunitiesMessages.mainTitle}</h1>
+      
+        <Label as="h1" text={viewOpportunitiesMessages?.mainTitle ||"New Opportunities"} className="main-title" />
         <p className="opportunities-description">
           {viewOpportunitiesMessages.opportunitiesDescription}
         </p>
@@ -100,7 +103,26 @@ const ViewOpportunities: React.FC = () => {
         </div>
 
         <div className="load-more-container">
-          <button className="load-more-button">{viewOpportunitiesMessages.loadMoreButton}</button>
+        
+          <Button
+            label={viewOpportunitiesMessages?.loadMoreButton || "Load More Opportunities"}
+            variant="secondary"
+            styles={{
+              bgColor: "#ffffff",
+              color: "#563d11",
+              border: "1px solid #E5E7EB",
+              padding: "10px 18px",
+              fontSize: "18px",
+              fontWeight: 300,
+              borderRadius: "10px",
+
+              
+              hoverBgColor: "transparent",
+              hoverColor: "#ffffff",
+              hoverBorder: "1px solid #ffffff",
+              transition: "all .2s ease-in-out",
+            }}
+          />
         </div>
       </div>
       </div>

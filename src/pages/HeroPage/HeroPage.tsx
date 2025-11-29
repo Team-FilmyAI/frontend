@@ -3,7 +3,7 @@ import Typed from "typed.js";
 import { heroPageMessages } from "../../constants/messages";
 import "./HeroPage.css";
 import HeroPageNavBar from "./HeroPageNavBar";
-
+import Button from "../../components/Buttons/Button";
 interface BlogPost {
   title: string;
   image: string;
@@ -211,7 +211,25 @@ export default function HeroPage() {
                       </div>
                       <div className="row">
                         <div className="col-md-12">
-                          <input type="submit" value={heroPageMessages.submitButtonText} className="button" />
+                         <Button
+                            label={heroPageMessages?.submitButtonText || "Get Demo!"}
+                            type="submit"
+                            variant="primary"
+                            fullWidth={true}
+                            onClick={() => console.log("Get Demo clicked")}
+                            styles={{
+                              bgColor: "var(--orange)",
+                              color: "var(--white)",
+                              height: "40px",
+                              border: "none",
+                              borderRadius: "5px",
+                              fontWeight: "bold",
+                              fontSize: "16px",
+                              transition: "all 0.2s ease",
+                            }}
+                          />
+
+                          
                         </div>
                       </div>
                     </form>

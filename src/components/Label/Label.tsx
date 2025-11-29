@@ -1,35 +1,44 @@
-import React from "react";
+import React, { ElementType } from "react";
 
-// Props for Creating a Label
+
 interface LabelProps {
   text: string;
+  as?: ElementType;
   fontSize?: string;
   color?: string;
   padding?: string;
   margin?: string;
   className?: string;
+  fontWeight?: string | number;
+  fontFamily?: string;
 }
 
-// Default Label Props and properties
+
 const Label: React.FC<LabelProps> = ({
   text,
-  fontSize = "1rem",
-  color = "#000",
-  padding = "0",
-  margin = "0",
+  as: Component = "label", 
+  fontSize,
+  color,
+  padding,
+  margin,
   className = "",
+  fontWeight,
+  fontFamily,
 }) => {
-  const labelStyle: React.CSSProperties = {
-    fontSize,
-    color,
-    padding,
-    margin,
-  };
+ 
+  const labelStyle: React.CSSProperties = {};
+  if (fontSize !== undefined) labelStyle.fontSize = fontSize;
+  if (color !== undefined) labelStyle.color = color;
+  if (padding !== undefined) labelStyle.padding = padding;
+  if (margin !== undefined) labelStyle.margin = margin;
+  if (fontWeight !== undefined) labelStyle.fontWeight = fontWeight;
+  if (fontFamily !== undefined) labelStyle.fontFamily = fontFamily;
+
 
   return (
-    <label style={labelStyle} className={className}>
+    <Component style={labelStyle} className={className}>
       {text}
-    </label>
+    </Component>
   );
 };
 

@@ -260,24 +260,6 @@ form {
   box-shadow: 0 0 10px 5px var(--orange);
 }
 
-.button {
-  background-color: var(--orange);
-  color: var(--white);
-  width: 100%;
-  border: none;
-  height: 40px;
-  border-radius: 5px;
-  font-weight: bold;
-  outline: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.button:hover {
-  color: var(--white);
-}
-
-.button:active {
-  background-color: transparent;
-}
 
 @media (max-width: 1200px) {
   .form {
@@ -536,7 +518,7 @@ form {
   z-index: 1000;
 }
 
-/* chat btn start */
+
 
 .chat.collapsed:hover {
   color: var(--white);
@@ -557,9 +539,7 @@ form {
   display: none;
 }
 
-/* chat btn end */
 
-/* expanded chat start */
 
 .chat.expanded {
   height: 400px;
@@ -672,4 +652,4 @@ form {
   color: var(--white);
 }
 
-/* expanded chat end */
+

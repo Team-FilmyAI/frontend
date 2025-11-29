@@ -5,17 +5,17 @@ import './Header.css';
 
 export default function Header() {
     const navigate = useNavigate();
-  // Call the correct sections once the design is completed
+  
   const handleAlert = () => {
     alert("Work is in progress");
   };
 
-  // Integrate the API to Search and display results
+  
   const handleSearch = (query: string) => {
     alert(`Search submitted: ${query}`);
   };
 
-  // Change the Path to Landing Page once it is updated
+  
   const goToLogin = () => {
     navigate('/');
   };

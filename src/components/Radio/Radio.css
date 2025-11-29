@@ -10,11 +10,11 @@
 
 .radio-button input {
   cursor: pointer;
-  accent-color: var(--form-text);
+  accent-color:#ff7f00;
 }
 
 .radio-button label {
-  padding-left: 5px;
+  padding-left: 10px;
   margin-right: 12px;
   cursor: pointer;
 }

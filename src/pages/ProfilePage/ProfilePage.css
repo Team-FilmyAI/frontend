@@ -38,7 +38,7 @@
     position: relative;
   }
   
-  /* Form Styles */
+  
   .form-row {
     display: flex;
     flex-direction: column;
@@ -46,13 +46,7 @@
     position: relative;
   }
   
-  /* .profile-input {
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ff7f00;
-    background: transparent;
-    color: #ff7f00;
-  } */
+  
   .profile-input {
     height: 2.4rem;
     padding: 6px 8px;
@@ -105,11 +99,7 @@
     backdrop-filter: blur(10px);
   }
   
-  /* select.profile-input {
-    height: 3rem; You can adjust this as needed
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-  } */
+  
   select.profile-input {
     height: 2.4rem;
     padding: 6px 8px;
@@ -183,9 +173,9 @@
     width: 50%;
     max-width: 150px;
     height: auto;
-    border-radius: 0.5rem;             /* Optional: small rounded corners */
-    object-fit: contain;               /* Ensures full image is visible */
-    border: 1px solid #ff7f00;         /* Match theme */
+    border-radius: 0.5rem;            
+    object-fit: contain;              
+    border: 1px solid #ff7f00;       
     margin-top: 1rem;
   }
   
@@ -210,28 +200,18 @@
     min-height: 100px;
   }
    
-  /* .profile-input {
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ff7f00;
-    background: transparent;
-    color: #ff7f00;
-  } */
+  
 
 
-  /* React Select custom styles */
 .select__control {
   border: 1px solid #ff7f00 !important;
   background: transparent !important;
   color: #ff7f00;
   border-radius: 0.5rem;
-  /* border: 1px solid rgba(255, 255, 255, 0.2); */
   min-height: 3rem;
-  /* background: rgba(255, 255, 255, 0.1); */
 }
 .select__menu {
   background: #1e1e1e !important;
-  /* background: rgba(255, 255, 255, 0.1); */
   color: #ff7f00;
   border-radius: 0.5rem;
 }
@@ -255,7 +235,7 @@
 
 
 .profile-pic-row.display-mode {
-  align-items: flex-end; /* Push to the right */
+  align-items: flex-end;
 }
 
 
@@ -326,18 +306,6 @@
   color: #ff7f00;
 
 }
-
-
-/* .half-width input, .unit-input-wrapper input {
-  height: 2.4rem;
-  box-sizing: border-box;
-} */
-
-
-
-
-
-
 
 .autocomplete-dropdown-container {
   border: 1px solid #ff7f00;

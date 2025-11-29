@@ -1,13 +1,13 @@
 .input-wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
 }
 
 .input-label {
   color: #fff;
   font-size: 14px;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .inputs-container {
@@ -68,4 +68,13 @@
 .select-input option {
   background: #1e1e1e;
   color: #fff;
+}
+
+.inputs-container {
+  border-radius: 20px;
+}
+
+.inputs-container:focus-within {
+  border: 1.5px solid #ff7f00;
+  box-shadow: 0 0 6px rgba(255, 127, 0, 0.6);
 }
