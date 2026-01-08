@@ -27,6 +27,8 @@ const CastingCards: React.FC<CastingCardsProps> = ({ cardData }) => {
   return (
     <div className="casting-call-card">
       <div className="castingcard-header">
+        <div className="banner">
+        <div  className="banner-overlay">
         <h2 className="title">{title}</h2>
         <p className="genre">{type}</p>
         <div className="location-apply-time">
@@ -37,6 +39,8 @@ const CastingCards: React.FC<CastingCardsProps> = ({ cardData }) => {
             <Clock size={16} /> Apply by: {applyBy}
           </p>
         </div>
+      </div>
+      </div>
       </div>
 
       <div className="card-body">
