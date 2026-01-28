@@ -1,0 +1,582 @@
+.project-dashboard {
+  min-height: 100vh;
+  color: var(--white);
+  font-family: 'Garet', system-ui, sans-serif;
+  background-color: #000000;
+}
+
+.editproject-container {
+  padding: 60px 20px 50px 20px;  
+  max-width: 1200px;
+  margin: 0 auto; 
+  box-sizing: border-box;
+  position: relative;
+}
+
+.back-navigation {
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: none;
+  align-self: flex-start;
+  margin-left: -64px;
+  padding-left: 64px;
+}
+
+.back1-button {
+  display: flex;
+  font-size: 16px;
+  font-weight: 200;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: var(--white);
+}
+
+.project-title-section {
+  height: 104px;
+  width: 1272px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  align-items: center;
+}
+
+.title-info {
+  flex: 1;
+}
+
+.main-project-title {
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--orange);
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.project-metadata {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 14px;
+  color: #888;
+}
+
+.meta1-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  color: #b8b5b5;
+}
+
+.edit2-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: var(--white);
+  color: #562506;
+  font-weight: 600;
+  border: 1px solid var(--orange);
+  cursor: pointer;
+  height: 30px;
+  width: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  margin-right: 90px;
+}
+
+.edit2-button:hover {
+  background-color: var(--white);
+  transform: translateY(-1px);
+}
+
+/* Form */
+.project-form {
+  background-color: #111827;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #94a3b8;
+  background-color: #000000;
+  margin-bottom: 20px;
+}
+
+.steps span {
+  cursor: pointer;
+}
+
+.steps .active-step {
+  color: var(--orange);
+  border-bottom: 2px solid var(--orange);
+  padding-bottom: 2px;
+}
+
+/* Labels */
+.form-label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Inputs */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #374151;
+  color: var(--white);
+  outline: none;
+  margin-bottom: 15px;
+}
+
+/* Genre grid */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 8px 100px;
+  margin-bottom: 15px;
+  justify-content: start;
+}
+
+.genre-option {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 6px;
+  cursor: pointer;
+  color: var(--white);
+  user-select: none;
+}
+
+/* Hide the native checkbox */
+.genre-option input {
+  display: none;
+}
+
+/* Custom checkbox box */
+.genre-option input + .genre-label::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: middle;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Checked state -> white box + tick */
+.genre-option input:checked + .genre-label::before {
+  background-color: var(--white);
+  border-color: var(--white);
+  content: "✔";
+  color: var(--black);
+  font-size: 12px;
+  text-align: center;
+  line-height: 14px;
+}
+
+
+/* Synopsis */
+.form-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #374151;
+  color: var(--white);
+  outline: none;
+  resize: vertical;
+}
+
+.production-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 8px 200px;
+  margin-bottom: 20px;
+  justify-content: start;
+}
+
+.production-option {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 6px;
+  cursor: pointer;
+  color: var(--white);
+  user-select: none;
+}
+
+/* Hide the native checkbox */
+.production-option input {
+  display: none;
+}
+
+.roles-dashboard {
+  background-color: #1e293b;
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.editroles-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.back-navigation {
+  margin-bottom: 20px;
+}
+
+.back1-button {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.role-title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-role-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.edit2-button {
+  background: var(--white);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--black);
+}
+
+.steps {
+  margin: 20px 0;
+  display: flex;
+  gap: 15px;
+}
+
+.steps span {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.active-step {
+  color: var(--orange);
+  font-weight: bold;
+  border-bottom: 2px solid var(--orange);
+}
+
+.role-form {
+  background: #111827;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin: 12px 0 6px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #374151;
+  color: var(--white);
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* === Manage Roles Table === */
+.roles-dashboard {
+  background-color: #0f172a;
+  color: var(--white);
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 8px;
+}
+
+.editroles-container {
+  background-color: #111827;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Header */
+.roles-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.roles-title {
+  color: var(--orange);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.roles-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.csv-button,
+.addrole-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.csv-button {
+  border: 1px solid var(--orange);
+  background: var(--white);
+  color: var(--black);
+}
+
+.csv-button:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.addrole-button {
+  background: var(--white);
+  color:var(--black);
+  border: 1px solid var(--orange);
+}
+
+.addrole-button:hover {
+  background: var(--orange);
+}
+
+/* Table */
+.roles-table-container {
+  background: #1e293b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.roles-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.roles-table th {
+  text-align: left;
+  padding: 12px 16px;
+  color: var(--orange);
+  font-weight: 500;
+  border-bottom: 1px solid #374151;
+}
+
+.roles-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #374151;
+  color: #e5e7eb;
+}
+
+.roles-table tr:hover {
+  background: #243447;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Base button styling */
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Default icon size */
+.icon {
+  width: 16px;
+  height: 16px;
+  color: #d97706; /* orange-ish (matches your screenshot) */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.icon-btn:hover .icon {
+  transform: scale(1.2);
+}
+
+/* 📱 Smaller screens (mobile) */
+@media (max-width: 768px) {
+  .icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* 📱 Extra small screens */
+@media (max-width: 480px) {
+  .icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+
+/* Footer */
+.update-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.update-button {
+  background: var(--orange);
+  color: var(--black);
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.update-button:hover {
+  background: var(--orange);
+}
+
+/*
+.form-container {
+  margin-top: 20px;
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form-title {
+  color: #f97316;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #334155;
+  color: #fff;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.age-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.age-row select {
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  background: #334155;
+  color: #fff;
+}
+
+.to-text {
+  color: #ccc;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+*/
+
+/*
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.age-range {
+  display: flex;
+  gap: 20px;
+}
+
+*/

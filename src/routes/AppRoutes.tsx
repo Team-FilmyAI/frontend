@@ -9,6 +9,8 @@ import SignUp from '../pages/SignUp/SignUp';
 // import FilmProjectDetails from '../pages/FilmProjectDetails/FilmProjectDetails';
 import LandingPage from '../pages/LandingPage/LandingPage';
 import ViewOpportunities from '../pages/ViewOpportunities/ViewOpportunities';
+import EditProjectPage from '../pages/EditProjectPage/EditProjectPage';
+import AddRoles from '../pages/AddRoles/AddRoles';
 import RoleDetailPage from '../pages/RoleDetailPage/RoleDetailPage';
 
 import ApplicationReview from '../pages/ApplicationReview/ApplicationReview';
@@ -26,6 +28,9 @@ export default function AppRoutes() {
       <Route path="/CurrentProjectDetails" element={<CurrentProjectDetails />} />
       <Route path="/LandingPage" element={<LandingPage />} />
       <Route path="/ViewOpportunities" element={<ViewOpportunities />} />
+      <Route path="/EditProjectPage" element={<EditProjectPage />} />
+      <Route path="/AddRoles" element={<AddRoles />} />
+
       <Route path="/RoleDetailPage" element={<RoleDetailPage />} />
       <Route path="/ApplicationReview" element={<ApplicationReview />} />
     </Routes>
